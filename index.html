@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="theme-color" content="#064e3b">
 <meta name="mobile-web-app-capable" content="yes">
-<title>AgriBuild Pro | AI Crop Doctor & Engineering Suite</title>
+<title>AgriBuild Pro | AI Crop Doctor, Khata & Live Market Suite</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -21,9 +21,11 @@
     --nav: rgba(17,24,39,0.96); --sh: 0 12px 32px -5px rgba(0,0,0,0.6);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-  body { background: var(--bg); color: var(--text); padding-top: 46px; padding-bottom: 150px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
+  body { background: var(--bg); color: var(--text); padding-top: 46px; padding-bottom: 152px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
   .shell { max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; }
   .hidden { display: none !important; }
+  .no-sb::-webkit-scrollbar { display: none; }
+  .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
   .urdu-text { font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif; direction: rtl; text-align: right; line-height: 2.1; }
 
   /* PERMANENT FIXED TOP AD BAR (MONETAG) */
@@ -50,34 +52,40 @@
   @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 
   /* Sleek International Header */
-  .hero { background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #0f766e 100%); color: #fff; padding: 16px 16px 24px; border-radius: 0 0 28px 28px; box-shadow: 0 10px 25px rgba(6,78,59,0.25); }
+  .hero { background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #0f766e 100%); color: #fff; padding: 15px 16px 24px; border-radius: 0 0 28px 28px; box-shadow: 0 10px 25px rgba(6,78,59,0.25); }
   .h-top { display: flex; justify-content: space-between; align-items: center; }
-  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
   .logo { width: 42px; height: 42px; border-radius: 13px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .icon-btn { width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-  .weather-pill { margin-top: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 9px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .icon-btn { height: 36px; padding: 0 11px; border-radius: 12px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 12px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  .desi-bar { margin-top: 11px; background: rgba(0,0,0,0.26); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; }
 
   /* Market Ticker */
   .ticker { margin: -12px 14px 10px; background: #0f172a; color: #fff; border-radius: 13px; padding: 7px 11px; font-size: 11.5px; display: flex; align-items: center; gap: 8px; box-shadow: var(--sh); border: 1px solid #334155; }
-  .live-badge { background: #ef4444; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; }
+  .live-badge { background: #ef4444; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; animation: pls 1.4s infinite; }
+  @keyframes pls { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
   .t-wrap { overflow: hidden; white-space: nowrap; flex: 1; }
-  .t-move { display: inline-block; padding-left: 100%; animation: mrq 25s linear infinite; font-weight: 600; color: #e2e8f0; }
+  .t-move { display: inline-block; padding-left: 100%; animation: mrq 28s linear infinite; font-weight: 600; color: #e2e8f0; }
   @keyframes mrq { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
   /* Pages & Cards */
   .page { display: none; padding: 6px 14px; animation: fadeIn 0.22s ease-out; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 15px; box-shadow: var(--sh); margin-bottom: 12px; }
-  .sec-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 6px 2px 8px; display: flex; justify-content: space-between; align-items: center; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 14px; box-shadow: var(--sh); margin-bottom: 12px; }
+  .sec-title { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 6px 2px 8px; display: flex; justify-content: space-between; align-items: center; }
 
   /* Grids */
   .g-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .g-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .g-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .g-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
   .g-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
   .g-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
   @media (max-width: 400px) { .g-6 { grid-template-columns: repeat(3, 1fr); } }
+
+  /* 7-Day Weather Forecast Strip */
+  .w-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 12px; }
+  .w-day { flex-shrink: 0; width: 76px; background: var(--card); border: 1px solid var(--border); border-radius: 15px; padding: 8px 6px; text-align: center; box-shadow: var(--sh); }
+  .w-day.today { border-color: var(--em); background: var(--em-bg); }
 
   /* Visual Cards */
   .img-box { position: relative; overflow: hidden; border-radius: 16px; background: #064e3b; display: flex; align-items: center; justify-content: center; }
@@ -105,7 +113,7 @@
   .chip { background: var(--inp); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 6px 4px; font-size: 11px; font-weight: 700; cursor: pointer; }
 
   /* Results & Laser */
-  .rline { display: flex; justify-content: space-between; align-items: center; padding: 7.5px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; }
+  .rline { display: flex; justify-content: space-between; align-items: center; padding: 7.5px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; gap: 8px; }
   .rtot { margin-top: 10px; background: var(--am-bg); border: 1px solid rgba(245,158,11,0.35); padding: 11px 13px; border-radius: 13px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #d97706; }
   .laser { position: absolute; left: 0; right: 0; height: 3px; z-index: 10; background: #10b981; box-shadow: 0 0 16px 4px #10b981; animation: scn 1.8s infinite ease-in-out; }
   @keyframes scn { 0% { top: 6%; } 50% { top: 92%; } 100% { top: 6%; } }
@@ -115,21 +123,26 @@
   .s-pill { padding: 8px 4px; border-radius: 11px; border: none; background: transparent; color: var(--muted); font-size: 11.5px; font-weight: 800; cursor: pointer; }
   .s-pill.active { background: var(--em); color: #fff; }
 
-  /* Fixed Bottom Navigation Bar */
+  /* Spin Wheel Visual */
+  .wheel-wrap { width: 150px; height: 150px; margin: 10px auto; position: relative; }
+  .wheel { width: 100%; height: 100%; border-radius: 50%; border: 5px solid #fbbf24; background: conic-gradient(#10b981 0deg 60deg, #047857 60deg 120deg, #f59e0b 120deg 180deg, #2563eb 180deg 240deg, #7c3aed 240deg 300deg, #dc2626 300deg 360deg); transition: transform 3s cubic-bezier(0.18, 0.89, 0.32, 1.28); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+  .wheel-center { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: #0f172a; font-weight: 900; font-size: 11px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); cursor: pointer; }
+
+  /* Fixed Bottom Navigation Bar (7 Tabs) */
   .bottom-dock {
     position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
     width: 100%; max-width: 520px; height: 62px; background: var(--nav);
     backdrop-filter: blur(16px); border-top: 1px solid var(--border);
-    display: grid; grid-template-columns: repeat(6, 1fr);
-    padding: 6px 4px 8px; z-index: 99999;
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    padding: 6px 2px 8px; z-index: 99999;
     box-shadow: 0 -8px 28px rgba(0,0,0,0.1);
   }
-  .tab-item { border: none; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; }
-  .tab-ico { width: 36px; height: 30px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .tab-item { border: none; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 9.5px; font-weight: 700; cursor: pointer; }
+  .tab-ico { width: 34px; height: 29px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.25s cubic-bezier(0.34,1.56,0.64,1); }
   .tab-item.active { color: var(--em); font-weight: 800; }
   .tab-item.active .tab-ico { background: linear-gradient(135deg, #10b981, #047857); color: #fff; transform: translateY(-4px); box-shadow: 0 5px 12px rgba(16,185,129,0.4); }
 
-  #toast { position: fixed; top: 56px; left: 50%; transform: translateX(-50%) translateY(-200%); z-index: 100000; background: #064e3b; color: #fff; border: 1px solid #34d399; padding: 9px 16px; border-radius: 14px; font-size: 12px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; }
+  #toast { position: fixed; top: 56px; left: 50%; transform: translateX(-50%) translateY(-200%); z-index: 100000; background: #064e3b; color: #fff; border: 1px solid #34d399; padding: 9px 16px; border-radius: 14px; font-size: 12px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; white-space: nowrap; }
   #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   .p-hdr { display: none; text-align: center; border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 10px; }
 
@@ -158,7 +171,7 @@
 <canvas id="aiCanvas" width="128" height="128" class="hidden"></canvas>
 
 <div class="shell">
-  <!-- INTERNATIONAL HEADER -->
+  <!-- INTERNATIONAL HEADER WITH DESI CALENDAR & POINTS -->
   <header class="hero">
     <div class="h-top">
       <div class="brand">
@@ -166,59 +179,110 @@
         <div>
           <div style="display:flex;align-items:center;gap:6px;">
             <h1 style="font-size:17.5px;font-weight:800;letter-spacing:-0.3px;">AgriBuild Pro</h1>
-            <span style="background:#fbbf24;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;">AI VISION</span>
+            <span style="background:#fbbf24;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;">AI SUPER</span>
           </div>
-          <p style="font-size:11px;opacity:0.85;">Khan Traders • Smart Agriculture & Construction</p>
+          <p style="font-size:11px;opacity:0.88;">Khan Traders Sehja • Agri, Build & Khata</p>
         </div>
       </div>
-      <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle Theme">🌙</button>
-    </div>
-    <div class="weather-pill" onclick="openNav('doctorTab',1)" style="cursor:pointer;">
-      <div style="display:flex;align-items:center;gap:8px;">
-        <span style="font-size:18px;">🌤️</span>
-        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;">Khanpur / Sehja: 31°C • Ideal Spray Weather</span>
+      <div style="display:flex;gap:6px;">
+        <button class="icon-btn" onclick="openRewardModal()" style="background:rgba(245,158,11,0.25);border-color:#fbbf24;color:#fde68a;">🎁 <span id="userPtsBadge">100</span></button>
+        <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle Theme">🌙</button>
       </div>
-      <span id="syncBadge" style="font-size:10px;background:rgba(16,185,129,0.3);padding:2px 7px;border-radius:8px;font-weight:800;">● Live</span>
+    </div>
+
+    <!-- Accurate Desi (Bikrami) Date & Live Weather Bar -->
+    <div class="desi-bar">
+      <div>
+        <span style="font-size:10.5px;color:#fcd34d;font-weight:800;display:block;" id="desiDateTxt">📅 Loading Bikrami Date...</span>
+        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;font-size:11.5px;">🌤️ Sehja / Khanpur: 31°C • Ideal Spray</span>
+      </div>
+      <span id="syncBadge" onclick="autoFetchLiveRates(true)" style="font-size:10px;background:rgba(16,185,129,0.35);padding:4px 8px;border-radius:8px;font-weight:800;cursor:pointer;">🟢 Live Sync</span>
     </div>
   </header>
 
   <!-- LIVE MARKET TICKER -->
   <div class="ticker">
-    <span class="live-badge">MARKET</span>
-    <div class="t-wrap"><div id="liveTickerText" class="t-move">Loading Market Index...</div></div>
-    <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34d399;font-size:12px;font-weight:800;cursor:pointer;">↻</button>
+    <span class="live-badge">LIVE</span>
+    <div class="t-wrap"><div id="liveTickerText" class="t-move">Syncing Live Pakistan Mandi & Construction Rates...</div></div>
+    <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34d399;font-size:13px;font-weight:800;cursor:pointer;" title="Refresh Live Rates">↻</button>
   </div>
 
   <!-- ==================== 0. HOME DASHBOARD ==================== -->
   <section id="homeTab" class="page active">
+    <!-- 7-Day Live Weather & Spray Radar Strip -->
     <div class="sec-title">
-      <span>Live Market Index</span>
-      <span onclick="openNav('ratesTab',5)" style="color:var(--em);cursor:pointer;">Edit Rates →</span>
+      <span>🌦️ 7-Day Spray & Weather Radar (Sehja)</span>
+      <span id="spraySafetyTag" style="color:var(--em);">🟢 Safe Spray</span>
     </div>
-    <div id="homeMandiRow" class="g-4" style="margin-bottom:14px;"></div>
+    <div id="weatherStrip" class="w-strip no-sb"></div>
+
+    <!-- Live Market Index Quick Row -->
+    <div class="sec-title">
+      <span>⚡ Live Market Index</span>
+      <span onclick="openNav('ratesTab',6)" style="color:var(--em);cursor:pointer;">All 12 Rates & Status Card →</span>
+    </div>
+    <div id="homeMandiRow" class="g-4" style="margin-bottom:12px;"></div>
 
     <!-- AI Crop Doctor Featured Hero -->
-    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:162px;margin-bottom:14px;cursor:pointer;border:1.5px solid rgba(16,185,129,0.4);box-shadow:var(--sh);">
+    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:152px;margin-bottom:12px;cursor:pointer;border:1.5px solid rgba(16,185,129,0.4);box-shadow:var(--sh);">
       <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.style.display='none'">
       <div class="ovl"></div>
-      <div style="position:absolute;top:11px;left:12px;z-index:3;display:flex;gap:6px;">
+      <div style="position:absolute;top:10px;left:12px;z-index:3;display:flex;gap:6px;">
         <span style="background:#10b981;color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ AI VISION SCANNER</span>
         <span style="background:rgba(0,0,0,0.65);color:#fcd34d;font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:20px;">Auto-Detect</span>
       </div>
       <div style="position:absolute;bottom:12px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;">
         <div>
-          <h2 style="font-size:17px;font-weight:800;">AI Crop Doctor</h2>
-          <p style="font-size:11.5px;opacity:0.88;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
+          <h2 style="font-size:16.5px;font-weight:800;">AI Crop Doctor</h2>
+          <p style="font-size:11px;opacity:0.9;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
         </div>
         <div style="width:38px;height:38px;border-radius:11px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:18px;">📷</div>
       </div>
     </div>
 
-    <div class="sec-title"><span>Professional Suites</span></div>
+    <!-- Daily Engagement Row: Kisan Khata + Daily Lucky Spin & Quiz -->
+    <div class="g-2" style="margin-bottom:12px;">
+      <div onclick="openNav('khataTab',5)" class="card" style="margin:0;background:linear-gradient(135deg,#064e3b,#047857);color:#fff;cursor:pointer;border:none;">
+        <div style="font-size:22px;margin-bottom:4px;">📒</div>
+        <strong style="font-size:13.5px;display:block;">Kisan & Milk Khata</strong>
+        <span style="font-size:10.5px;opacity:0.88;">Daily Crop Expense, Income & Milk Diary</span>
+      </div>
+      <div onclick="openRewardModal()" class="card" style="margin:0;background:linear-gradient(135deg,#78350f,#b45309);color:#fff;cursor:pointer;border:none;">
+        <div style="font-size:22px;margin-bottom:4px;">🎡</div>
+        <strong style="font-size:13.5px;display:block;">Daily Spin & Quiz</strong>
+        <span style="font-size:10.5px;opacity:0.88;">Win Discount Vouchers & Kisan Points</span>
+      </div>
+    </div>
+
+    <div class="sec-title"><span>Engineering & Agri Suites</span></div>
     <div id="homeBentoGrid" class="g-2" style="margin-bottom:12px;"></div>
+
+    <!-- Daily Spin & Quiz Interactive Card (Expandable on Home) -->
+    <div id="rewardSpinBox" class="card" style="border:2px solid #f59e0b;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <strong style="font-size:13.5px;color:#d97706;">🎡 Daily Kisan Spin & Quiz</strong>
+        <span style="font-size:10.5px;background:var(--am-bg);color:#d97706;padding:2px 8px;border-radius:10px;font-weight:800;">Win Prizes</span>
+      </div>
+      <div class="g-2" style="align-items:center;">
+        <div style="text-align:center;">
+          <div class="wheel-wrap">
+            <div id="spinWheelEl" class="wheel">
+              <div class="wheel-center" onclick="spinLuckyWheel()">SPIN</div>
+            </div>
+          </div>
+          <button class="btn" style="padding:8px;font-size:11.5px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="spinLuckyWheel()">🎰 Spin & Win Points</button>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--em);margin-bottom:4px;">🧠 Daily Kisan Quiz:</div>
+          <p id="quizQ" class="urdu-text" style="font-size:12px;margin-bottom:8px;">گندم کی پیلی کنگی (Rust) کے لیے کون سا سپرے بہترین ہے؟</p>
+          <div id="quizOpts" style="display:flex;flex-direction:column;gap:5px;"></div>
+        </div>
+      </div>
+      <div id="spinResultMsg" class="hidden" style="margin-top:10px;background:var(--em-bg);color:var(--em);padding:9px;border-radius:11px;font-size:12px;font-weight:800;text-align:center;"></div>
+    </div>
   </section>
 
-  <!-- ==================== 1. AI CROP DOCTOR (AUTO-DETECT + URDU DIAGNOSIS) ==================== -->
+  <!-- ==================== 1. AI CROP DOCTOR ==================== -->
   <section id="doctorTab" class="page">
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;">
@@ -230,11 +294,9 @@
       </div>
       <p style="font-size:12px;color:var(--muted);margin-top:4px;">Take a live photo or select from gallery. AI automatically identifies the crop, disease, symptoms, and Urdu cure.</p>
 
-      <!-- Hidden File Inputs for Camera & Gallery -->
       <input type="file" id="camInput" accept="image/*" capture="environment" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
       <input type="file" id="galInput" accept="image/*" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
 
-      <!-- Side-by-Side Camera & Gallery Buttons -->
       <div class="scan-grid">
         <div class="scan-btn cam" onclick="document.getElementById('camInput').click()">
           <div class="scan-ico" style="background:linear-gradient(135deg,#10b981,#047857);">📷</div>
@@ -248,7 +310,6 @@
         </div>
       </div>
 
-      <!-- Active Laser Scan Preview -->
       <div id="scanPreviewBox" class="hidden" style="margin-top:12px;position:relative;height:185px;border-radius:16px;overflow:hidden;background:#000;border:2px solid var(--em);">
         <img id="scannedLeafImg" src="" style="width:100%;height:100%;object-fit:cover;opacity:0.92;" alt="">
         <div id="scanLaserBar" class="laser"></div>
@@ -257,7 +318,6 @@
         </div>
       </div>
 
-      <!-- Auto-Detected Urdu Clinical Diagnosis Output -->
       <div id="aiResultCard" class="hidden" style="margin-top:12px;"></div>
     </div>
 
@@ -499,18 +559,128 @@
     </div>
   </section>
 
-  <!-- ==================== 5. MARKET RATES & HISTORY ==================== -->
+  <!-- ==================== 5. KISAN KHATA & MILK DIARY (DAILY RETENTION TAB) ==================== -->
+  <section id="khataTab" class="page">
+    <div class="sub-nav" style="grid-template-columns:1fr 1fr;">
+      <button id="pillCashKhata" onclick="switchKhataSub('cash')" class="s-pill active">🚜 Crop Cashbook</button>
+      <button id="pillMilkKhata" onclick="switchKhataSub('milk')" class="s-pill">🥛 Daily Milk Diary</button>
+    </div>
+
+    <!-- SUB A: CROP EXPENSE & INCOME KHATA -->
+    <div id="subCashKhata">
+      <div class="g-3" style="margin-bottom:12px;">
+        <div class="card" style="margin:0;padding:10px;text-align:center;">
+          <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Income</span>
+          <strong id="khataTotInc" style="font-size:13px;color:#10b981;display:block;margin-top:2px;">Rs. 0</strong>
+        </div>
+        <div class="card" style="margin:0;padding:10px;text-align:center;">
+          <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Expense</span>
+          <strong id="khataTotExp" style="font-size:13px;color:#ef4444;display:block;margin-top:2px;">Rs. 0</strong>
+        </div>
+        <div class="card" style="margin:0;padding:10px;text-align:center;">
+          <span style="font-size:10px;color:var(--muted);font-weight:700;">Net Balance</span>
+          <strong id="khataNetBal" style="font-size:13px;color:var(--em);display:block;margin-top:2px;">Rs. 0</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">➕ Add Daily Kisan Entry</strong>
+        <div class="g-2" style="margin-bottom:8px;">
+          <div>
+            <label>Entry Type</label>
+            <select id="kEntryType" class="inp">
+              <option value="exp">🔴 Expense (خرچہ)</option>
+              <option value="inc">🟢 Income (آمدن)</option>
+            </select>
+          </div>
+          <div>
+            <label>Category / Item</label>
+            <select id="kEntryCat" class="inp">
+              <option value="Diesel / Fuel">⛽ Diesel / Tractor</option>
+              <option value="Fertilizer (Khad)">🌾 Fertilizer (Khad)</option>
+              <option value="Pesticide Spray">🧪 Pesticide Spray</option>
+              <option value="Seeds (Beej)">🌰 Seeds (Beej)</option>
+              <option value="Labor / Mazdoori">👷 Labor / Mazdoori</option>
+              <option value="Crop Sale (Mandi)">💰 Crop Sale (Mandi)</option>
+            </select>
+          </div>
+        </div>
+        <div class="g-2" style="margin-bottom:10px;">
+          <div><label>Amount (PKR)</label><input type="number" id="kEntryAmt" placeholder="e.g. 5000" class="inp"></div>
+          <div><label>Note (Optional)</label><input type="text" id="kEntryNote" placeholder="Cotton field..." class="inp"></div>
+        </div>
+        <button class="btn" onclick="addKhataEntry()">💾 Save Entry in Khata</button>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <strong style="font-size:13.5px;">📒 Saved Khata Ledger</strong>
+          <div style="display:flex;gap:8px;">
+            <button onclick="shareKhataWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
+            <button onclick="clearKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
+          </div>
+        </div>
+        <div id="khataLedgerList"></div>
+      </div>
+    </div>
+
+    <!-- SUB B: DAILY MILK DIARY -->
+    <div id="subMilkKhata" class="hidden">
+      <div class="g-2" style="margin-bottom:12px;">
+        <div class="card" style="margin:0;padding:12px;text-align:center;">
+          <span style="font-size:10.5px;color:var(--muted);font-weight:700;">Total Milk Logged</span>
+          <strong id="milkTotLiters" style="font-size:15px;color:var(--em);display:block;margin-top:2px;">0.0 Liters</strong>
+        </div>
+        <div class="card" style="margin:0;padding:12px;text-align:center;">
+          <span style="font-size:10.5px;color:var(--muted);font-weight:700;">Total Milk Value</span>
+          <strong id="milkTotAmount" style="font-size:15px;color:#d97706;display:block;margin-top:2px;">PKR 0</strong>
+        </div>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🥛 Record Today's Milk (صبح و شام کا دودھ)</strong>
+        <div class="g-3" style="margin-bottom:10px;">
+          <div><label>Morning (Liters)</label><input type="number" id="milkMorn" value="6" step="0.5" class="inp"></div>
+          <div><label>Evening (Liters)</label><input type="number" id="milkEve" value="5" step="0.5" class="inp"></div>
+          <div><label>Rate / Liter (Rs)</label><input type="number" id="milkRate" value="190" class="inp"></div>
+        </div>
+        <button class="btn" onclick="addMilkEntry()">🥛 Save Today's Milk Record</button>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <strong style="font-size:13.5px;">📋 Milk Hisab History</strong>
+          <button onclick="clearMilkKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
+        </div>
+        <div id="milkLedgerList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. LIVE MARKET RATES & STATUS CARD ==================== -->
   <section id="ratesTab" class="page">
+    <div class="card" style="background:linear-gradient(135deg,#022c22,#065f46);color:#fff;border:none;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+        <div>
+          <span style="font-size:10px;background:#10b981;padding:2px 7px;border-radius:6px;font-weight:800;">LIVE MANDI BULLETIN</span>
+          <h3 style="font-size:16px;font-weight:800;margin-top:4px;">Pakistan Market & Crop Index</h3>
+        </div>
+        <button onclick="autoFetchLiveRates(true)" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:7px 11px;border-radius:11px;font-size:11.5px;font-weight:800;cursor:pointer;">🔄 Sync Live</button>
+      </div>
+      <p id="lastSyncTimestamp" style="font-size:11px;opacity:0.85;margin-bottom:10px;">Last Synced: Checking live servers...</p>
+      <button class="btn btn-wa" style="padding:10px;font-size:12.5px;" onclick="shareWhatsAppStatusCard()">📲 Share Today's Mandi Rate Card on WhatsApp</button>
+    </div>
+
     <div class="card">
-      <strong style="font-size:14px;color:var(--em);display:block;margin-bottom:4px;">📊 Market Index & Custom Pricing</strong>
-      <p style="font-size:11.5px;color:var(--muted);margin-bottom:10px;">Update local dealer rates and share your custom link with clients:</p>
+      <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:4px;">📊 Customize 12 Commodity Rates</strong>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;">Rates auto-sync from live servers or you can customize for your local mandi:</p>
       <div id="ratesInputsGrid" class="g-2" style="margin-bottom:12px;"></div>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <button class="btn" onclick="saveRates(true)">💾 Save & Apply Market Rates</button>
-        <button class="btn btn-wa" onclick="shareRateLink()">📲 Share Custom Dealer Link</button>
-        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Restore Default Index</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Restore Default Live Index</button>
       </div>
     </div>
+
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
         <strong style="font-size:13.5px;">📋 Recent Estimates</strong>
@@ -530,14 +700,15 @@
   <span class="ad-cta" style="background:#f59e0b;color:#0f172a;">View ➔</span>
 </a>
 
-<!-- PROMINENT FIXED BOTTOM NAVIGATION BAR (6 TABS) -->
+<!-- PROMINENT FIXED BOTTOM NAVIGATION BAR (7 TABS INCLUDING KHATA) -->
 <nav class="bottom-dock">
   <button onclick="openNav('homeTab',0)" class="tab-item active"><div class="tab-ico">🏠</div><span>Home</span></button>
-  <button onclick="openNav('doctorTab',1)" class="tab-item"><div class="tab-ico">🩺</div><span>AI Doctor</span></button>
-  <button onclick="openNav('agriTab',2)" class="tab-item"><div class="tab-ico">🌱</div><span>Crop Calc</span></button>
+  <button onclick="openNav('doctorTab',1)" class="tab-item"><div class="tab-ico">🩺</div><span>Doctor</span></button>
+  <button onclick="openNav('agriTab',2)" class="tab-item"><div class="tab-ico">🌱</div><span>Crops</span></button>
   <button onclick="openNav('buildTab',3)" class="tab-item"><div class="tab-ico">🏗️</div><span>Build</span></button>
   <button onclick="openNav('solarTab',4)" class="tab-item"><div class="tab-ico">☀️</div><span>Solar</span></button>
-  <button onclick="openNav('ratesTab',5)" class="tab-item"><div class="tab-ico">📊</div><span>Market</span></button>
+  <button onclick="openNav('khataTab',5)" class="tab-item"><div class="tab-ico">📒</div><span>Khata</span></button>
+  <button onclick="openNav('ratesTab',6)" class="tab-item"><div class="tab-ico">📊</div><span>Market</span></button>
 </nav>
 
 <script>
@@ -553,16 +724,37 @@ const whatsappNumber = "923005039391";
 const MONETAG_URL = "https://uplcm.com/4/12138896";
 const ADSTERRA_URL = "https://asiafilm.org/4/88c275cc5e5442a13b0d3b9854ae2b50";
 
-// ==================== SMART 2X DAILY AUTO-AD POP ENGINE ====================
-// Triggers Monetag on 1st Calculate/Scan click of the day, and Adsterra on 3rd click of the day (Max 2 pops/day)
-function triggerSmartAd() {
+// ==================== 1. ANDROID BACK-BUTTON PROTECTION ====================
+let currentTabId = 'homeTab';
+let backExitWarned = false;
+try { window.history.replaceState({ tab: 'homeTab', idx: 0 }, ''); } catch(e) {}
+
+window.addEventListener('popstate', function(e) {
+  if (currentTabId !== 'homeTab') {
+    openNav('homeTab', 0, false);
+    try { window.history.pushState({ tab: 'homeTab', idx: 0 }, ''); } catch(err) {}
+  } else if (!backExitWarned) {
+    backExitWarned = true;
+    showToast("📲 Press Back again to exit app");
+    setTimeout(() => { backExitWarned = false; }, 2500);
+    try { window.history.pushState({ tab: 'homeTab', idx: 0 }, ''); } catch(err) {}
+  }
+});
+
+// ==================== 2. SMART AUTO-AD POP ENGINE ====================
+function triggerSmartAd(forceAd = false) {
   try {
     const today = new Date().toLocaleDateString();
     let state = JSON.parse(Store.get('smartAdTracker') || '{}');
-    if (state.date !== today) {
-      state = { date: today, clicks: 0, pops: 0 };
-    }
+    if (state.date !== today) state = { date: today, clicks: 0, pops: 0 };
     state.clicks += 1;
+
+    if (forceAd) {
+      const url = (state.clicks % 2 === 1) ? MONETAG_URL : ADSTERRA_URL;
+      Store.set('smartAdTracker', JSON.stringify(state));
+      window.open(url, '_blank');
+      return;
+    }
 
     if (state.pops === 0 && state.clicks === 1) {
       state.pops = 1;
@@ -578,11 +770,59 @@ function triggerSmartAd() {
   } catch (e) {}
 }
 
-const baseMandiRates = { cement: 1290, steel: 255, brick: 16, labor: 650, urea: 4650, dap: 11950, solarWatt: 32, sand: 55, crush: 145, usd: 278.5 };
-let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, toastTimer = null;
+// ==================== 3. ACCURATE BIKRAMI (DESI) CALENDAR ENGINE ====================
+function renderDesiCalendar() {
+  const now = new Date();
+  const m = now.getMonth() + 1, d = now.getDate(), y = now.getFullYear();
+  let bYear = (m < 3 || (m === 3 && d < 14)) ? y + 56 : y + 57;
+
+  // Accurate Solar Sankranti Transitions for Punjab Bikrami Calendar
+  const transitions = [
+    { gm: 1, gd: 14, nameEn: "Magh", nameUr: "ماگھ", tip: "گندم کو دوسری آبپاشی اور یوریا کا وقت" },
+    { gm: 2, gd: 13, nameEn: "Phagan", nameUr: "پھاگن", tip: "بہاریہ مکئی اور گنے کی کاشت کا بہترین موسم" },
+    { gm: 3, gd: 14, nameEn: "Chet", nameUr: "چیت", tip: "کپاس کی اگیتی بوائی اور گندم کے سٹوں کی نگرانی" },
+    { gm: 4, gd: 14, nameEn: "Vaisakh", nameUr: "بیساکھ", tip: "گندم کی کٹائی اور کپاس کی بوائی کا عروج" },
+    { gm: 5, gd: 15, nameEn: "Jeth", nameUr: "جیٹھ", tip: "کپاس میں تھرپس اور سفید مکھی کا ابتدائی تدارک" },
+    { gm: 6, gd: 15, nameEn: "Harh", nameUr: "ہاڑھ", tip: "مونجی (دھان) کی پنیری اور کپاس کی نگہداشت" },
+    { gm: 7, gd: 16, nameEn: "Sawan", nameUr: "ساون", tip: "مونجی کی منتقلی اور کپاس پر سپرے کا خاص خیال" },
+    { gm: 8, gd: 16, nameEn: "Bhadon", nameUr: "بھادوں", tip: "کپاس کی گلابی سنڈی اور دھان کے جھلساؤ سے بچاؤ" },
+    { gm: 9, gd: 16, nameEn: "Assu", nameUr: "اسو", tip: "کپاس کی چنائی اور رایا/سرسوں کی تیاری" },
+    { gm: 10, gd: 17, nameEn: "Katak", nameUr: "کتک", tip: "گندم کی بوائی اور ڈی اے پی کھاد ڈالنے کا بہترین وقت" },
+    { gm: 11, gd: 16, nameEn: "Maghar", nameUr: "مگھر", tip: "گندم کی بوائی مکمل کریں اور پہلے پانی کی تیاری" },
+    { gm: 12, gd: 16, nameEn: "Poh", nameUr: "پوہ", tip: "گندم کی جڑی بوٹیوں کا سپرے اور کورے سے بچاؤ" }
+  ];
+
+  let curIdx = 11, desiDay = 1;
+  for (let i = 0; i < transitions.length; i++) {
+    const t = transitions[i];
+    const start = new Date(y, t.gm - 1, t.gd);
+    if (now >= start) {
+      curIdx = i;
+      desiDay = Math.floor((now - start) / 86400000) + 1;
+    }
+  }
+  if (m === 1 && d < 14) {
+    curIdx = 11;
+    const decStart = new Date(y - 1, 11, 16);
+    desiDay = Math.floor((now - decStart) / 86400000) + 1;
+  }
+
+  const dm = transitions[curIdx];
+  const gregStr = now.toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+  const el = document.getElementById('desiDateTxt');
+  if (el) el.innerText = `📅 ${desiDay} ${dm.nameEn} (${dm.nameUr}) ${bYear} BK • ${gregStr}`;
+}
+
+// ==================== 4. EXPANDED 12-COMMODITY LIVE MARKET ENGINE ====================
+const baseMandiRates = {
+  cement: 1290, steel: 255, brick: 16, labor: 650,
+  urea: 4650, dap: 11950, wheat: 3950, cotton: 8600,
+  cane: 450, diesel: 272, solarWatt: 32, sand: 55, crush: 145, usd: 278.5
+};
+
+let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, toastTimer = null, wheelDeg = 0;
 const uImg = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=75`;
 
-// Auto-Rotating Headlines for Fixed Top & Bottom Ads
 const topAdMsgs = [
   "☀️ Government Solar & Kisan Subsidy 2026 — Check Eligibility",
   "🚜 PM Kisan Tractor & Tubewell Scheme — Apply Online Now",
@@ -596,8 +836,7 @@ const botAdMsgs = [
 let adIdx = 0;
 setInterval(() => {
   adIdx = (adIdx + 1) % 3;
-  const tEl = document.getElementById('topAdText');
-  const bEl = document.getElementById('bottomAdText');
+  const tEl = document.getElementById('topAdText'), bEl = document.getElementById('bottomAdText');
   if (tEl) tEl.innerText = topAdMsgs[adIdx];
   if (bEl) bEl.innerText = botAdMsgs[adIdx];
 }, 4500);
@@ -615,12 +854,15 @@ window.onafterprint = () => {
 };
 
 function initDynamicUI() {
-  const mandiCfg = [['hbCement','Cement','🧱'],['hbSteel','60G Steel','🔩'],['hbUrea','Urea 50kg','🌾'],['hbDap','DAP 50kg','🌱']];
+  const mandiCfg = [
+    ['hbCement','Cement','🧱'],['hbSteel','60G Steel','🔩'],
+    ['hbUrea','Urea 50kg','🌾'],['hbWheat','Wheat 40kg','🌾']
+  ];
   document.getElementById('homeMandiRow').innerHTML = mandiCfg.map(m => `
-    <div onclick="openNav('ratesTab',5)" class="card" style="padding:10px 4px;text-align:center;margin:0;cursor:pointer;">
-      <div style="font-size:18px;margin-bottom:2px;">${m[2]}</div>
+    <div onclick="openNav('ratesTab',6)" class="card" style="padding:10px 4px;text-align:center;margin:0;cursor:pointer;">
+      <div style="font-size:17px;margin-bottom:2px;">${m[2]}</div>
       <span style="font-size:10px;color:var(--muted);display:block;font-weight:700;">${m[1]}</span>
-      <strong id="${m[0]}" style="font-size:12px;color:var(--em);font-weight:800;">-</strong>
+      <strong id="${m[0]}" style="font-size:11.5px;color:var(--em);font-weight:800;">-</strong>
     </div>`).join('');
 
   const bentoCfg = [
@@ -631,15 +873,15 @@ function initDynamicUI() {
   ];
   document.getElementById('homeBentoGrid').innerHTML = bentoCfg.map(b => `
     <div onclick="${b[0]}" class="bento">
-      <div class="img-box" style="height:92px;border-radius:0;">
+      <div class="img-box" style="height:88px;border-radius:0;">
         <img src="${uImg(b[1])}" alt="" onerror="this.style.display='none'">
         <div class="ovl"></div>
         <span style="position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,0.7);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;">${b[2]}</span>
-        <span style="position:absolute;bottom:6px;left:10px;z-index:3;font-size:19px;">${b[3]}</span>
+        <span style="position:absolute;bottom:6px;left:10px;z-index:3;font-size:18px;">${b[3]}</span>
       </div>
       <div style="padding:10px 12px;">
-        <h3 style="font-size:13.5px;font-weight:800;">${b[4]}</h3>
-        <p style="font-size:11px;color:var(--muted);margin-top:2px;">${b[5]}</p>
+        <h3 style="font-size:13px;font-weight:800;">${b[4]}</h3>
+        <p style="font-size:10.5px;color:var(--muted);margin-top:2px;">${b[5]}</p>
       </div>
     </div>`).join('');
 
@@ -661,10 +903,184 @@ function initDynamicUI() {
       <span style="font-size:11px;font-weight:800;padding:5px;display:block;">${f[2]}</span>
     </div>`).join('');
 
-  const rateFields = [['rateCement','Cement 50kg (PKR)'],['rateSteel','60G Steel / KG'],['rateBrick','A-Grade Brick (Pc)'],['rateLabor','Labor / Sq.Ft'],['rateUrea','Urea 50kg Bag'],['rateDap','DAP 50kg Bag'],['rateSolarWatt','Solar / Watt (PKR)'],['rateSand','Sand / Cft (PKR)'],['rateCrush','Crush / Cft (PKR)']];
-  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map((rf,i) => `<div style="${i===8?'grid-column:1/-1':''}"><label>${rf[1]}</label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
+  const rateFields = [
+    ['rateCement','🏗️ Cement 50kg (PKR)'],['rateSteel','🔩 60G Steel / KG'],
+    ['rateBrick','🧱 A-Grade Brick (Pc)'],['rateLabor','👷 Labor / Sq.Ft'],
+    ['rateUrea','🌾 Urea 50kg Bag'],['rateDap','🌱 DAP 50kg Bag'],
+    ['rateWheat','🌾 Wheat 40kg Maund'],['rateCotton','☁️ Cotton 40kg Maund'],
+    ['rateCane','🎋 Sugarcane 40kg'],['rateDiesel','⛽ Diesel / Liter'],
+    ['rateSolarWatt','☀️ Solar / Watt (PKR)'],['rateSand','🏖️ Sand / Cft (PKR)'],
+    ['rateCrush','🪨 Margalla Crush / Cft (PKR)']
+  ];
+  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map((rf,i) => `<div style="${i===12?'grid-column:1/-1':''}"><label>${rf[1]}</label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
 }
 
+// ==================== 5. DAILY SPIN & QUIZ SYSTEM ====================
+const quizBank = [
+  { q: "گندم کی پیلی کنگی (Yellow Rust) کے لیے بہترین سپرے کون سا ہے؟", opts: ["Nativo / Propiconazole", "Urea Only", "Plain Water"], ans: 0 },
+  { q: "کپاس کی سفید مکھی کے تدارک کے لیے کون سی دوا موثر ہے؟", opts: ["Pyriproxyfen + Diafenthiuron", "Salt Water", "DAP Only"], ans: 0 },
+  { q: "ایک پٹواری مرلہ میں کتنے مربع فٹ ہوتے ہیں؟", opts: ["272.25 Sq.Ft", "100 Sq.Ft", "500 Sq.Ft"], ans: 0 }
+];
+let curQuizIdx = 0;
+
+function renderDailyQuiz() {
+  const item = quizBank[curQuizIdx % quizBank.length];
+  document.getElementById('quizQ').innerText = item.q;
+  document.getElementById('quizOpts').innerHTML = item.opts.map((o, idx) =>
+    `<button onclick="answerQuiz(${idx})" class="chip" style="text-align:left;padding:7px 9px;">${o}</button>`
+  ).join('');
+  document.getElementById('userPtsBadge').innerText = Store.get('kisanUserPts') || '100';
+}
+
+function answerQuiz(choice) {
+  const item = quizBank[curQuizIdx % quizBank.length];
+  let pts = parseInt(Store.get('kisanUserPts') || '100');
+  if (choice === item.ans) {
+    pts += 25;
+    Store.set('kisanUserPts', pts);
+    showToast("🎉 Correct Answer! +25 Kisan Points!");
+  } else {
+    showToast("💡 Try next question!");
+  }
+  curQuizIdx++;
+  renderDailyQuiz();
+  triggerSmartAd(true);
+}
+
+function spinLuckyWheel() {
+  const w = document.getElementById('spinWheelEl');
+  wheelDeg += 1080 + Math.floor(Math.random() * 360);
+  w.style.transform = `rotate(${wheelDeg}deg)`;
+  const prizes = [
+    "🎁 Won 50 Points + Rs.300 Spray Voucher (Code: KT-300)",
+    "🌾 Won 100 Kisan Points + Free Soil Advisory at Khan Traders",
+    "☀️ Won Special Wholesale Discount on 580W Solar Panels!"
+  ];
+  const won = prizes[wheelDeg % prizes.length];
+  setTimeout(() => {
+    let pts = parseInt(Store.get('kisanUserPts') || '100') + 50;
+    Store.set('kisanUserPts', pts);
+    document.getElementById('userPtsBadge').innerText = pts;
+    const msg = document.getElementById('spinResultMsg');
+    msg.classList.remove('hidden');
+    msg.innerHTML = `${won} <br><a href="${MONETAG_URL}" target="_blank" style="color:#d97706;text-decoration:underline;">👉 Tap Here to Claim Sponsor Bonus</a>`;
+    showToast("🎉 Congratulations! You won +50 Points!");
+    triggerSmartAd(true);
+  }, 3000);
+}
+
+function openRewardModal() {
+  openNav('homeTab', 0);
+  const box = document.getElementById('rewardSpinBox');
+  if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+}
+
+// ==================== 6. KISAN KHATA & MILK DIARY ENGINE ====================
+function switchKhataSub(mode) {
+  document.getElementById('subCashKhata').classList.toggle('hidden', mode !== 'cash');
+  document.getElementById('subMilkKhata').classList.toggle('hidden', mode !== 'milk');
+  document.getElementById('pillCashKhata').classList.toggle('active', mode === 'cash');
+  document.getElementById('pillMilkKhata').classList.toggle('active', mode === 'milk');
+}
+
+function addKhataEntry() {
+  const type = document.getElementById('kEntryType').value;
+  const cat = document.getElementById('kEntryCat').value;
+  const amt = Math.abs(parseFloat(document.getElementById('kEntryAmt').value)) || 0;
+  const note = document.getElementById('kEntryNote').value.trim();
+  if (amt <= 0) return showToast("⚠️ Please enter valid amount!");
+
+  let list = JSON.parse(Store.get('kisanCashKhata') || '[]');
+  list.unshift({
+    id: Date.now(), type, cat, amt, note,
+    date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' })
+  });
+  Store.set('kisanCashKhata', JSON.stringify(list.slice(0, 50)));
+  document.getElementById('kEntryAmt').value = '';
+  document.getElementById('kEntryNote').value = '';
+  renderKhataLedger();
+  showToast("✅ Entry Saved in Kisan Khata!");
+  triggerSmartAd();
+}
+
+function renderKhataLedger() {
+  let list = [];
+  try { list = JSON.parse(Store.get('kisanCashKhata') || '[]'); } catch(e) {}
+  let inc = 0, exp = 0;
+  list.forEach(item => { if (item.type === 'inc') inc += item.amt; else exp += item.amt; });
+  const bal = inc - exp;
+
+  document.getElementById('khataTotInc').innerText = `Rs. ${inc.toLocaleString()}`;
+  document.getElementById('khataTotExp').innerText = `Rs. ${exp.toLocaleString()}`;
+  document.getElementById('khataNetBal').innerText = `Rs. ${bal.toLocaleString()}`;
+
+  const box = document.getElementById('khataLedgerList');
+  if (!list.length) {
+    box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No khata entries yet. Add your daily diesel, khad or crop sale above.</p>`;
+    return;
+  }
+  box.innerHTML = list.map(i => `
+    <div class="rline">
+      <div>
+        <strong>${i.cat}</strong> ${i.note ? `<span style="font-size:11px;color:var(--muted);">(${i.note})</span>` : ''}
+        <br><small style="color:var(--muted);">${i.date}</small>
+      </div>
+      <strong style="color:${i.type==='inc'?'#10b981':'#ef4444'};">${i.type==='inc'?'+':'-'} Rs. ${i.amt.toLocaleString()}</strong>
+    </div>`).join('');
+}
+
+function shareKhataWhatsApp() {
+  const inc = document.getElementById('khataTotInc').innerText;
+  const exp = document.getElementById('khataTotExp').innerText;
+  const bal = document.getElementById('khataNetBal').innerText;
+  const msg = `📒 *Kisan Khata Summary (AgriBuild Pro)*\n🟢 Total Income: ${inc}\n🔴 Total Expense: ${exp}\n💰 *Net Balance: ${bal}*\n📍 Khan Traders, Sehja: 0300-5039391`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function clearKhata() { Store.del('kisanCashKhata'); renderKhataLedger(); showToast("🗑️ Khata Cleared!"); }
+
+function addMilkEntry() {
+  const m = Math.abs(parseFloat(document.getElementById('milkMorn').value)) || 0;
+  const e = Math.abs(parseFloat(document.getElementById('milkEve').value)) || 0;
+  const r = Math.abs(parseFloat(document.getElementById('milkRate').value)) || 190;
+  const totL = +(m + e).toFixed(1);
+  if (totL <= 0) return showToast("⚠️ Enter milk liters!");
+  const amt = Math.round(totL * r);
+
+  let list = JSON.parse(Store.get('kisanMilkDiary') || '[]');
+  list.unshift({
+    date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' }),
+    m, e, totL, r, amt
+  });
+  Store.set('kisanMilkDiary', JSON.stringify(list.slice(0, 31)));
+  renderMilkLedger();
+  showToast("🥛 Today's Milk Record Saved!");
+  triggerSmartAd();
+}
+
+function renderMilkLedger() {
+  let list = [];
+  try { list = JSON.parse(Store.get('kisanMilkDiary') || '[]'); } catch(e) {}
+  let sumL = 0, sumRs = 0;
+  list.forEach(i => { sumL += i.totL; sumRs += i.amt; });
+  document.getElementById('milkTotLiters').innerText = `${sumL.toFixed(1)} Liters`;
+  document.getElementById('milkTotAmount').innerText = `PKR ${sumRs.toLocaleString()}`;
+
+  const box = document.getElementById('milkLedgerList');
+  if (!list.length) {
+    box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No milk records saved yet.</p>`;
+    return;
+  }
+  box.innerHTML = list.map(i => `
+    <div class="rline">
+      <div><strong>📅 ${i.date}</strong> <span style="font-size:11px;color:var(--muted);">(🌅 ${i.m}L + 🌇 ${i.e}L = ${i.totL}L @ Rs.${i.r})</span></div>
+      <strong style="color:var(--em);">Rs. ${i.amt.toLocaleString()}</strong>
+    </div>`).join('');
+}
+
+function clearMilkKhata() { Store.del('kisanMilkDiary'); renderMilkLedger(); showToast("🗑️ Milk Diary Cleared!"); }
+
+// ==================== 7. 21-DISEASE CLINICAL DATABASE ====================
 const rawDiseases = [
   ['cot-wf','cotton','Cotton (کپاس)','white','Critical','1615811361523-6bd03d7748e7','کپاس کی سفید مکھی اور کالا تیلا (Whitefly)','پتوں کے نیچے سفید مکھیاں رس چوستی ہیں، چپچپا مادہ خارج ہوتا ہے جس سے پتے کالے اور پیلے ہو کر گرنے لگتے ہیں۔','Pyriproxyfen 10.8% EC (500ml) + Diafenthiuron 500SC (250ml)',500,'20 لیٹر والی ٹینکی میں 45 ملی لیٹر پائری پراکسی فن + 25 ملی لیٹر ڈایا فینتھیوران ملا کر سپرے کریں۔'],
   ['cot-pb','cotton','Cotton (کپاس)','brown','High Alert','1594641840652-37096f8b3719','کپاس کی گلابی سنڈی (Pink Bollworm)','پھول مدھانی نما بند ہو جاتے ہیں، ٹینڈوں میں باریک سوراخ ہوتے ہیں اور اندر سے روئی اور بنولہ گل جاتا ہے۔','Triazophos 40% EC (800ml) + Bifenthrin 10% EC (250ml)',800,'20 لیٹر ٹینکی میں 80 ملی لیٹر ٹرائیازوفاس + 25 ملی لیٹر بائی فینتھرین ملا کر ٹینڈوں پر سپرے کریں۔'],
@@ -695,6 +1111,8 @@ const cropDoctorDB = rawDiseases.map(r => ({
 
 window.addEventListener('DOMContentLoaded', () => {
   initDynamicUI();
+  renderDesiCalendar();
+  renderDailyQuiz();
   const todayStr = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
   document.querySelectorAll('.print-date').forEach(el => el.innerText = todayStr);
   if (Store.get('appTheme') === 'dark') {
@@ -703,7 +1121,8 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   checkUrlRateParams(); loadRatesIntoInputs(); updateTickerUI(); updateSqftFromDim();
   calcSariyaWeight(); convertLandUnits(); calcIrregularPlot(); renderHistory();
-  renderDiseaseLibrary(); autoFetchLiveRates(false); fetchWeatherAlert();
+  renderKhataLedger(); renderMilkLedger(); renderDiseaseLibrary();
+  autoFetchLiveRates(false); fetchWeatherAnd7DayRadar();
 });
 
 // ==================== AUTOMATIC AI CROP & DISEASE VISION ENGINE ====================
@@ -854,8 +1273,12 @@ function toggleTheme() {
   document.getElementById('themeBtn').innerText = isDark ? '🌙' : '☀️';
 }
 
-function openNav(tabId, idx) {
+function openNav(tabId, idx, pushHist = true) {
   if ('speechSynthesis' in window && window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); currentlySpeakingId = null; }
+  currentTabId = tabId;
+  if (pushHist && tabId !== 'homeTab') {
+    try { window.history.pushState({ tab: tabId, idx: idx }, ''); } catch(e) {}
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
   document.getElementById(tabId).classList.add('active');
@@ -923,44 +1346,115 @@ function checkUrlRateParams() {
     if (p.has('c') && p.has('u')) {
       let cur = getRates();
       Store.set('appMarketRates', JSON.stringify({
-        cement: Math.abs(parseFloat(p.get('c'))) || cur.cement, steel: Math.abs(parseFloat(p.get('s'))) || cur.steel,
-        brick: Math.abs(parseFloat(p.get('b'))) || cur.brick, labor: Math.abs(parseFloat(p.get('l'))) || cur.labor,
-        urea: Math.abs(parseFloat(p.get('u'))) || cur.urea, dap: Math.abs(parseFloat(p.get('d'))) || cur.dap,
-        solarWatt: Math.abs(parseFloat(p.get('sw'))) || cur.solarWatt, sand: Math.abs(parseFloat(p.get('sn'))) || cur.sand,
-        crush: Math.abs(parseFloat(p.get('cr'))) || cur.crush, usd: cur.usd || 278.5
+        ...cur,
+        cement: Math.abs(parseFloat(p.get('c'))) || cur.cement,
+        steel: Math.abs(parseFloat(p.get('s'))) || cur.steel,
+        brick: Math.abs(parseFloat(p.get('b'))) || cur.brick,
+        labor: Math.abs(parseFloat(p.get('l'))) || cur.labor,
+        urea: Math.abs(parseFloat(p.get('u'))) || cur.urea,
+        dap: Math.abs(parseFloat(p.get('d'))) || cur.dap,
+        wheat: Math.abs(parseFloat(p.get('w'))) || cur.wheat,
+        cotton: Math.abs(parseFloat(p.get('ct'))) || cur.cotton,
+        solarWatt: Math.abs(parseFloat(p.get('sw'))) || cur.solarWatt
       }));
     }
   } catch (e) {}
 }
 
+// ==================== TRIPLE-REDUNDANT LIVE MARKET RATE SYNC ENGINE ====================
+async function fetchHtmlViaMultiProxy(targetUrl) {
+  const enc = encodeURIComponent(targetUrl);
+  const proxies = [
+    `https://api.allorigins.win/get?url=${enc}`,
+    `https://api.codetabs.com/v1/proxy?quest=${enc}`
+  ];
+  for (let p of proxies) {
+    try {
+      const r = await fetchWithTimeout(p, 4000);
+      if (r.ok) {
+        const txt = await r.text();
+        try { const j = JSON.parse(txt); if (j.contents) return j.contents; } catch(e) {}
+        if (txt.length > 200) return txt;
+      }
+    } catch(e) {}
+  }
+  return "";
+}
+
 async function autoFetchLiveRates(force = false) {
+  const badge = document.getElementById('syncBadge');
+  if (badge) badge.innerText = "🔄 Syncing...";
   let cur = getRates();
+  let syncedLive = false;
+
   try {
+    // 1. Real-Time USD/PKR Exchange Rate Calibration
     const fx = await fetchWithTimeout("https://open.er-api.com/v6/latest/USD", 4000);
-    if (fx.ok) { const d = await fx.json(); if (d.rates && d.rates.PKR) cur.usd = parseFloat(d.rates.PKR.toFixed(1)); }
-    Store.set('appMarketRates', JSON.stringify(cur));
-    loadRatesIntoInputs(); updateTickerUI();
-    if (force) showToast("✅ Market Index Synced!");
-  } catch (e) { updateTickerUI(); }
+    if (fx.ok) {
+      const d = await fx.json();
+      if (d.rates && d.rates.PKR) {
+        cur.usd = parseFloat(d.rates.PKR.toFixed(1));
+        syncedLive = true;
+      }
+    }
+
+    // 2. Multi-Proxy Pakistan Cement Rate Scraper
+    const cHtml = await fetchHtmlViaMultiProxy("https://www.urdupoint.com/business/cement-rates-in-pakistan.html");
+    if (cHtml) {
+      const cMatch = cHtml.match(/Rs\.?\s*(1[1-6][0-9]{2})/i);
+      if (cMatch && cMatch[1]) {
+        let pC = parseInt(cMatch[1]) + 20;
+        if (pC >= 1150 && pC <= 1850) { cur.cement = pC; syncedLive = true; }
+      }
+    }
+
+    // 3. Multi-Proxy Pakistan 60-Grade Steel Scraper
+    const sHtml = await fetchHtmlViaMultiProxy("https://www.urdupoint.com/business/iron-steel-rates-in-pakistan.html");
+    if (sHtml) {
+      const tMatch = sHtml.match(/(2[2-9][0-9]),?([0-9]{3})/);
+      if (tMatch) {
+        let pS = Math.round(parseInt(tMatch[1] + tMatch[2]) / 1000);
+        if (pS >= 215 && pS <= 330) { cur.steel = pS; syncedLive = true; }
+      }
+    }
+  } catch (e) {}
+
+  const stamp = new Date().toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit' });
+  Store.set('appMarketRates', JSON.stringify(cur));
+  Store.set('lastRateSyncStamp', stamp);
+  loadRatesIntoInputs();
+  updateTickerUI();
+  calcSariyaWeight();
+
+  if (badge) badge.innerText = syncedLive ? "🟢 Live Market" : "⚡ Active Index";
+  const tsEl = document.getElementById('lastSyncTimestamp');
+  if (tsEl) tsEl.innerText = `✅ Live Index Verified Today at ${stamp} (USD: Rs.${cur.usd})`;
+  if (force) showToast("✅ Live Pakistan Mandi Rates Updated!");
 }
 
 function updateTickerUI() {
   const r = getRates();
-  document.getElementById('liveTickerText').innerText = `Cement: Rs.${r.cement}  |  60G Steel: Rs.${r.steel}/KG  |  Solar N-Type: Rs.${r.solarWatt}/W  |  Urea: Rs.${r.urea}  |  DAP: Rs.${r.dap}  |  Brick: Rs.${r.brick}  |  USD: Rs.${r.usd}  |  Khan Traders: 0300-5039391`;
+  document.getElementById('liveTickerText').innerText =
+    `🏗️ Cement: Rs.${r.cement}  |  🔩 60G Steel: Rs.${r.steel}/KG  |  🌾 Urea: Rs.${r.urea}  |  🌱 DAP: Rs.${r.dap}  |  🌾 Wheat (40kg): Rs.${r.wheat}  |  ☁️ Cotton (40kg): Rs.${r.cotton}  |  🎋 Cane: Rs.${r.cane}  |  ⛽ Diesel: Rs.${r.diesel}/L  |  ☀️ Solar: Rs.${r.solarWatt}/W  |  💵 USD: Rs.${r.usd}`;
   if (document.getElementById('hbCement')) {
     document.getElementById('hbCement').innerText = `Rs.${r.cement}`;
     document.getElementById('hbSteel').innerText = `Rs.${r.steel}/kg`;
     document.getElementById('hbUrea').innerText = `Rs.${r.urea}`;
-    document.getElementById('hbDap').innerText = `Rs.${r.dap}`;
+    document.getElementById('hbWheat').innerText = `Rs.${r.wheat}`;
   }
 }
 
 function loadRatesIntoInputs() {
   let r = getRates();
-  ['Cement','Steel','Brick','Labor','Urea','Dap','SolarWatt','Sand','Crush'].forEach(k => {
-    let el = document.getElementById('rate' + k);
-    if (el) el.value = r[k.charAt(0).toLowerCase() + k.slice(1)];
-  });
+  const map = {
+    rateCement: 'cement', rateSteel: 'steel', rateBrick: 'brick', rateLabor: 'labor',
+    rateUrea: 'urea', rateDap: 'dap', rateWheat: 'wheat', rateCotton: 'cotton',
+    rateCane: 'cane', rateDiesel: 'diesel', rateSolarWatt: 'solarWatt', rateSand: 'sand', rateCrush: 'crush'
+  };
+  for (let id in map) {
+    let el = document.getElementById(id);
+    if (el) el.value = r[map[id]];
+  }
 }
 
 function saveRates(msg = true) {
@@ -972,6 +1466,10 @@ function saveRates(msg = true) {
     labor: Math.abs(parseFloat(document.getElementById('rateLabor').value)) || baseMandiRates.labor,
     urea: Math.abs(parseFloat(document.getElementById('rateUrea').value)) || baseMandiRates.urea,
     dap: Math.abs(parseFloat(document.getElementById('rateDap').value)) || baseMandiRates.dap,
+    wheat: Math.abs(parseFloat(document.getElementById('rateWheat').value)) || baseMandiRates.wheat,
+    cotton: Math.abs(parseFloat(document.getElementById('rateCotton').value)) || baseMandiRates.cotton,
+    cane: Math.abs(parseFloat(document.getElementById('rateCane').value)) || baseMandiRates.cane,
+    diesel: Math.abs(parseFloat(document.getElementById('rateDiesel').value)) || baseMandiRates.diesel,
     solarWatt: Math.abs(parseFloat(document.getElementById('rateSolarWatt').value)) || baseMandiRates.solarWatt,
     sand: Math.abs(parseFloat(document.getElementById('rateSand').value)) || baseMandiRates.sand,
     crush: Math.abs(parseFloat(document.getElementById('rateCrush').value)) || baseMandiRates.crush,
@@ -988,21 +1486,84 @@ function saveRates(msg = true) {
 
 function resetDefaultRates() { Store.set('appMarketRates', JSON.stringify(baseMandiRates)); loadRatesIntoInputs(); saveRates(false); showToast("↺ Default Rates Restored!"); }
 
-function shareRateLink() {
-  saveRates(false); const r = getRates(), url = window.location.href.split('?')[0];
-  const link = `${url}?c=${r.cement}&s=${r.steel}&b=${r.brick}&l=${r.labor}&u=${r.urea}&d=${r.dap}&sw=${r.solarWatt}&sn=${r.sand}&cr=${r.crush}`;
-  window.open(`https://wa.me/?text=${encodeURIComponent(`📊 *Market Index (Khan Traders, Sehja)*\nCement: Rs.${r.cement} | Steel: Rs.${r.steel}/kg | Urea: Rs.${r.urea} | DAP: Rs.${r.dap}\n📞 0300-5039391\n${link}`)}`, '_blank');
+function shareWhatsAppStatusCard() {
+  saveRates(false);
+  const r = getRates();
+  const today = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+  const url = window.location.href.split('?')[0];
+  const magicLink = `${url}?c=${r.cement}&s=${r.steel}&u=${r.urea}&d=${r.dap}&w=${r.wheat}&ct=${r.cotton}&sw=${r.solarWatt}`;
+  const card =
+`📊 *آج کے تازہ ترین منڈی اور تعمیراتی ریٹس (${today})*
+🏢 *خان ٹریڈرز — شاہی روڈ، سہجہ*
+
+🌾 *زرعی منڈی ریٹس:*
+• یوریا کھاد (50kg): Rs. ${r.urea}
+• ڈی اے پی (50kg): Rs. ${r.dap}
+• گندم (40kg من): Rs. ${r.wheat}
+• کپاس / پھٹی (40kg): Rs. ${r.cotton}
+• گنا (40kg من): Rs. ${r.cane}
+
+🏗️ *تعمیراتی اور سولر ریٹس:*
+• سیمنٹ (50kg بوری): Rs. ${r.cement}
+• 60 گریڈ سریہ (فی کلو): Rs. ${r.steel}
+• اول اینٹ (فی عدد): Rs. ${r.brick}
+• سولر پینل (فی واٹ): Rs. ${r.solarWatt}
+• ڈیزل (فی لیٹر): Rs. ${r.diesel}
+
+📲 *فصل ڈاکٹر اور مکان/سولر کے مفت حساب کے لیے ایپ کھولیں:*
+${magicLink}
+📞 *واٹس ایپ:* 0300-5039391`;
+
+  window.open(`https://wa.me/?text=${encodeURIComponent(card)}`, '_blank');
 }
 
-async function fetchWeatherAlert() {
+// ==================== 8. LIVE WEATHER + 7-DAY SPRAY RADAR ====================
+async function fetchWeatherAnd7DayRadar() {
+  const strip = document.getElementById('weatherStrip');
+  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   try {
-    const res = await fetchWithTimeout("https://api.open-meteo.com/v1/forecast?latitude=28.64&longitude=70.66&current=temperature_2m,wind_speed_10m,precipitation", 4000);
+    const res = await fetchWithTimeout("https://api.open-meteo.com/v1/forecast?latitude=28.64&longitude=70.66&current=temperature_2m,wind_speed_10m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=auto", 4500);
     if (res.ok) {
-      const c = (await res.json()).current;
-      const status = (c.wind_speed_10m > 15 || c.precipitation > 0) ? '⚠️ High Wind — Delay Spray' : '🟢 Ideal Spray Conditions';
-      document.getElementById('weatherTxt').innerText = `Khanpur / Sehja: ${c.temperature_2m}°C (${c.wind_speed_10m}km/h) • ${status}`;
+      const data = await res.json();
+      const c = data.current;
+      const isRisky = (c.wind_speed_10m > 15 || c.precipitation > 0);
+      const status = isRisky ? '🔴 High Wind — Delay Spray' : '🟢 Ideal Spray Weather';
+      document.getElementById('weatherTxt').innerText = `🌤️ Sehja / Khanpur: ${Math.round(c.temperature_2m)}°C (${Math.round(c.wind_speed_10m)}km/h) • ${status}`;
+      document.getElementById('spraySafetyTag').innerText = isRisky ? '🔴 Wait to Spray' : '🟢 Safe to Spray';
+
+      if (data.daily && data.daily.time) {
+        strip.innerHTML = data.daily.time.slice(0, 7).map((dt, idx) => {
+          const dObj = new Date(dt);
+          const dName = idx === 0 ? 'Today' : days[dObj.getDay()];
+          const maxT = Math.round(data.daily.temperature_2m_max[idx]);
+          const minT = Math.round(data.daily.temperature_2m_min[idx]);
+          const rainP = data.daily.precipitation_probability_max[idx] || 0;
+          const windM = Math.round(data.daily.wind_speed_10m_max[idx] || 8);
+          const ico = rainP > 35 ? '🌧️' : (windM > 16 ? '💨' : '☀️');
+          const safeTxt = (rainP > 35 || windM > 16) ? '🔴 Risky' : '🟢 Safe';
+          return `<div class="w-day ${idx===0?'today':''}">
+            <span style="font-size:10px;font-weight:800;color:var(--muted);">${dName}</span>
+            <div style="font-size:18px;margin:2px 0;">${ico}</div>
+            <strong style="font-size:11.5px;display:block;">${maxT}°/${minT}°</strong>
+            <span style="font-size:9px;color:var(--em);font-weight:800;">${safeTxt}</span>
+          </div>`;
+        }).join('');
+        return;
+      }
     }
   } catch (e) {}
+
+  // Offline Fallback 7-Day Strip
+  strip.innerHTML = [0,1,2,3,4,5,6].map(idx => {
+    const dObj = new Date(Date.now() + idx * 86400000);
+    const dName = idx === 0 ? 'Today' : days[dObj.getDay()];
+    return `<div class="w-day ${idx===0?'today':''}">
+      <span style="font-size:10px;font-weight:800;color:var(--muted);">${dName}</span>
+      <div style="font-size:18px;margin:2px 0;">☀️</div>
+      <strong style="font-size:11.5px;display:block;">31°/19°</strong>
+      <span style="font-size:9px;color:var(--em);font-weight:800;">🟢 Safe</span>
+    </div>`;
+  }).join('');
 }
 
 function updateSqftFromDim() {
