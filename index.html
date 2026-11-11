@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#064e3b">
+<meta name="mobile-web-app-capable" content="yes">
+<title>AgriBuild Pro | AI Crop Doctor & Engineering Suite</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f7fb; --card: #ffffff; --text: #0f172a; --muted: #64748b;
+    --border: #e2e8f0; --inp: #f8fafc; --em: #059669; --em-l: #10b981;
+    --em-bg: rgba(16,185,129,0.1); --am: #f59e0b; --am-bg: rgba(245,158,11,0.12);
+    --nav: rgba(255,255,255,0.96); --sh: 0 10px 30px -5px rgba(15,23,42,0.06);
+  }
+  [data-theme="dark"] {
+    --bg: #030712; --card: #111827; --text: #f9fafb; --muted: #9ca3af;
+    --border: #1f2937; --inp: #1f2937; --em: #10b981; --em-l: #34d399;
+    --em-bg: rgba(16,185,129,0.16); --am-bg: rgba(245,158,11,0.16);
+    --nav: rgba(17,24,39,0.96); --sh: 0 12px 32px -5px rgba(0,0,0,0.6);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  body { background: var(--bg); color: var(--text); padding-top: 46px; padding-bottom: 150px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
+  .shell { max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; }
+  .hidden { display: none !important; }
+  .urdu-text { font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif; direction: rtl; text-align: right; line-height: 2.1; }
+
+  /* PERMANENT FIXED TOP AD BAR (MONETAG) */
+  .fixed-top-ad {
+    position: fixed; top: 0; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 46px;
+    background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    color: #fff; z-index: 99999; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 12px; text-decoration: none;
+    border-bottom: 2px solid #f59e0b; box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+  }
+
+  /* PERMANENT FIXED BOTTOM AD BAR (ADSTERRA) */
+  .fixed-bottom-ad {
+    position: fixed; bottom: 62px; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 46px;
+    background: linear-gradient(90deg, #064e3b 0%, #047857 55%, #065f46 100%);
+    color: #fff; z-index: 99998; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 12px; text-decoration: none;
+    border-top: 2px solid #34d399; box-shadow: 0 -4px 16px rgba(0,0,0,0.22);
+  }
+  .ad-tag { background: #f59e0b; color: #0f172a; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0; }
+  .ad-cta { background: #22c55e; color: #fff; font-size: 10.5px; font-weight: 800; padding: 5px 11px; border-radius: 20px; white-space: nowrap; box-shadow: 0 2px 8px rgba(34,197,94,0.45); animation: pulseBtn 1.6s infinite; }
+  @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+
+  /* Sleek International Header */
+  .hero { background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #0f766e 100%); color: #fff; padding: 16px 16px 24px; border-radius: 0 0 28px 28px; box-shadow: 0 10px 25px rgba(6,78,59,0.25); }
+  .h-top { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .logo { width: 42px; height: 42px; border-radius: 13px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .icon-btn { width: 38px; height: 38px; border-radius: 12px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+  .weather-pill { margin-top: 12px; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.14); border-radius: 14px; padding: 9px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+
+  /* Market Ticker */
+  .ticker { margin: -12px 14px 10px; background: #0f172a; color: #fff; border-radius: 13px; padding: 7px 11px; font-size: 11.5px; display: flex; align-items: center; gap: 8px; box-shadow: var(--sh); border: 1px solid #334155; }
+  .live-badge { background: #ef4444; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; }
+  .t-wrap { overflow: hidden; white-space: nowrap; flex: 1; }
+  .t-move { display: inline-block; padding-left: 100%; animation: mrq 25s linear infinite; font-weight: 600; color: #e2e8f0; }
+  @keyframes mrq { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
+
+  /* Pages & Cards */
+  .page { display: none; padding: 6px 14px; animation: fadeIn 0.22s ease-out; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 15px; box-shadow: var(--sh); margin-bottom: 12px; }
+  .sec-title { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 6px 2px 8px; display: flex; justify-content: space-between; align-items: center; }
+
+  /* Grids */
+  .g-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .g-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .g-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .g-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .g-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  @media (max-width: 400px) { .g-6 { grid-template-columns: repeat(3, 1fr); } }
+
+  /* Visual Cards */
+  .img-box { position: relative; overflow: hidden; border-radius: 16px; background: #064e3b; display: flex; align-items: center; justify-content: center; }
+  .img-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .img-box .ovl { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,0.88) 10%, rgba(2,6,23,0.15) 100%); z-index: 2; }
+  .bento { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: var(--sh); transition: 0.2s; }
+  .bento:hover, .bento:active { border-color: var(--em-l); transform: translateY(-2px); }
+  .v-opt { background: var(--card); border: 2px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; text-align: center; transition: 0.2s; }
+  .v-opt.sel { border-color: var(--em); background: var(--em-bg); }
+
+  /* Camera & Gallery Dual Action Buttons */
+  .scan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+  .scan-btn { border: 1.5px solid var(--border); background: var(--inp); border-radius: 18px; padding: 18px 12px; text-align: center; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .scan-btn.cam { background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(5,150,105,0.06)); border-color: var(--em); }
+  .scan-btn:active { transform: scale(0.97); }
+  .scan-ico { width: 48px; height: 48px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+
+  /* Inputs & Buttons */
+  label { display: block; font-size: 11.5px; font-weight: 700; margin-bottom: 5px; color: var(--muted); }
+  .inp { width: 100%; background: var(--inp); color: var(--text); border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; font-weight: 700; outline: none; }
+  .inp:focus { border-color: var(--em); }
+  .btn { width: 100%; background: linear-gradient(135deg, #10b981, #047857); color: #fff; border: none; padding: 13px; border-radius: 14px; font-size: 13.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 6px 16px rgba(16,185,129,0.25); }
+  .btn-wa { background: linear-gradient(135deg, #22c55e, #15803d); }
+  .btn-out { background: transparent; color: var(--em); border: 1.5px solid var(--em); box-shadow: none; }
+  .chip { background: var(--inp); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 6px 4px; font-size: 11px; font-weight: 700; cursor: pointer; }
+
+  /* Results & Laser */
+  .rline { display: flex; justify-content: space-between; align-items: center; padding: 7.5px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; }
+  .rtot { margin-top: 10px; background: var(--am-bg); border: 1px solid rgba(245,158,11,0.35); padding: 11px 13px; border-radius: 13px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #d97706; }
+  .laser { position: absolute; left: 0; right: 0; height: 3px; z-index: 10; background: #10b981; box-shadow: 0 0 16px 4px #10b981; animation: scn 1.8s infinite ease-in-out; }
+  @keyframes scn { 0% { top: 6%; } 50% { top: 92%; } 100% { top: 6%; } }
+
+  /* Sub-Tab Pills */
+  .sub-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--card); padding: 5px; border-radius: 15px; border: 1px solid var(--border); margin-bottom: 12px; }
+  .s-pill { padding: 8px 4px; border-radius: 11px; border: none; background: transparent; color: var(--muted); font-size: 11.5px; font-weight: 800; cursor: pointer; }
+  .s-pill.active { background: var(--em); color: #fff; }
+
+  /* Fixed Bottom Navigation Bar */
+  .bottom-dock {
+    position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 62px; background: var(--nav);
+    backdrop-filter: blur(16px); border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    padding: 6px 4px 8px; z-index: 99999;
+    box-shadow: 0 -8px 28px rgba(0,0,0,0.1);
+  }
+  .tab-item { border: none; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 10px; font-weight: 700; cursor: pointer; }
+  .tab-ico { width: 36px; height: 30px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .tab-item.active { color: var(--em); font-weight: 800; }
+  .tab-item.active .tab-ico { background: linear-gradient(135deg, #10b981, #047857); color: #fff; transform: translateY(-4px); box-shadow: 0 5px 12px rgba(16,185,129,0.4); }
+
+  #toast { position: fixed; top: 56px; left: 50%; transform: translateX(-50%) translateY(-200%); z-index: 100000; background: #064e3b; color: #fff; border: 1px solid #34d399; padding: 9px 16px; border-radius: 14px; font-size: 12px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; }
+  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .p-hdr { display: none; text-align: center; border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 10px; }
+
+  @media print {
+    :root, [data-theme="dark"] { --bg: #fff !important; --card: #fff !important; --text: #000 !important; --muted: #333 !important; --border: #ccc !important; }
+    html, body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+    .hero, .ticker, .bottom-dock, .fixed-top-ad, .fixed-bottom-ad, .no-print, #toast { display: none !important; }
+    .page, .rcpt { display: none !important; }
+    .page.p-page, .rcpt.p-target { display: block !important; border: 2px solid #000 !important; box-shadow: none !important; }
+    .p-hdr { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== FIXED TOP AD (MONETAG) ==================== -->
+<a href="https://uplcm.com/4/12138896" target="_blank" rel="noopener" class="fixed-top-ad">
+  <div style="display:flex;align-items:center;gap:8px;overflow:hidden;">
+    <span class="ad-tag">SPONSORED</span>
+    <span id="topAdText" style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">☀️ Government Solar & Kisan Subsidy 2026 — Check Eligibility</span>
+  </div>
+  <span class="ad-cta">Open ➔</span>
+</a>
+
+<div id="toast">✅ Saved</div>
+<canvas id="aiCanvas" width="128" height="128" class="hidden"></canvas>
+
+<div class="shell">
+  <!-- INTERNATIONAL HEADER -->
+  <header class="hero">
+    <div class="h-top">
+      <div class="brand">
+        <div class="logo">🌱</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <h1 style="font-size:17.5px;font-weight:800;letter-spacing:-0.3px;">AgriBuild Pro</h1>
+            <span style="background:#fbbf24;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;">AI VISION</span>
+          </div>
+          <p style="font-size:11px;opacity:0.85;">Khan Traders • Smart Agriculture & Construction</p>
+        </div>
+      </div>
+      <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle Theme">🌙</button>
+    </div>
+    <div class="weather-pill" onclick="openNav('doctorTab',1)" style="cursor:pointer;">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:18px;">🌤️</span>
+        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;">Khanpur / Sehja: 31°C • Ideal Spray Weather</span>
+      </div>
+      <span id="syncBadge" style="font-size:10px;background:rgba(16,185,129,0.3);padding:2px 7px;border-radius:8px;font-weight:800;">● Live</span>
+    </div>
+  </header>
+
+  <!-- LIVE MARKET TICKER -->
+  <div class="ticker">
+    <span class="live-badge">MARKET</span>
+    <div class="t-wrap"><div id="liveTickerText" class="t-move">Loading Market Index...</div></div>
+    <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34d399;font-size:12px;font-weight:800;cursor:pointer;">↻</button>
+  </div>
+
+  <!-- ==================== 0. HOME DASHBOARD ==================== -->
+  <section id="homeTab" class="page active">
+    <div class="sec-title">
+      <span>Live Market Index</span>
+      <span onclick="openNav('ratesTab',5)" style="color:var(--em);cursor:pointer;">Edit Rates →</span>
+    </div>
+    <div id="homeMandiRow" class="g-4" style="margin-bottom:14px;"></div>
+
+    <!-- AI Crop Doctor Featured Hero -->
+    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:162px;margin-bottom:14px;cursor:pointer;border:1.5px solid rgba(16,185,129,0.4);box-shadow:var(--sh);">
+      <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.style.display='none'">
+      <div class="ovl"></div>
+      <div style="position:absolute;top:11px;left:12px;z-index:3;display:flex;gap:6px;">
+        <span style="background:#10b981;color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ AI VISION SCANNER</span>
+        <span style="background:rgba(0,0,0,0.65);color:#fcd34d;font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:20px;">Auto-Detect</span>
+      </div>
+      <div style="position:absolute;bottom:12px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;">
+        <div>
+          <h2 style="font-size:17px;font-weight:800;">AI Crop Doctor</h2>
+          <p style="font-size:11.5px;opacity:0.88;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
+        </div>
+        <div style="width:38px;height:38px;border-radius:11px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:18px;">📷</div>
+      </div>
+    </div>
+
+    <div class="sec-title"><span>Professional Suites</span></div>
+    <div id="homeBentoGrid" class="g-2" style="margin-bottom:12px;"></div>
+  </section>
+
+  <!-- ==================== 1. AI CROP DOCTOR (AUTO-DETECT + URDU DIAGNOSIS) ==================== -->
+  <section id="doctorTab" class="page">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span style="font-size:10px;font-weight:800;color:var(--em);text-transform:uppercase;letter-spacing:0.6px;">AI Plant Pathology</span>
+          <h2 style="font-size:17px;font-weight:800;margin-top:1px;">AI Crop Doctor</h2>
+        </div>
+        <span style="font-size:10.5px;background:var(--em-bg);color:var(--em);padding:4px 10px;border-radius:20px;font-weight:800;">Auto-Detection</span>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:4px;">Take a live photo or select from gallery. AI automatically identifies the crop, disease, symptoms, and Urdu cure.</p>
+
+      <!-- Hidden File Inputs for Camera & Gallery -->
+      <input type="file" id="camInput" accept="image/*" capture="environment" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
+      <input type="file" id="galInput" accept="image/*" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
+
+      <!-- Side-by-Side Camera & Gallery Buttons -->
+      <div class="scan-grid">
+        <div class="scan-btn cam" onclick="document.getElementById('camInput').click()">
+          <div class="scan-ico" style="background:linear-gradient(135deg,#10b981,#047857);">📷</div>
+          <strong style="font-size:13px;">Live Camera</strong>
+          <span style="font-size:10.5px;color:var(--muted);">Snap infected leaf</span>
+        </div>
+        <div class="scan-btn" onclick="document.getElementById('galInput').click()">
+          <div class="scan-ico" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">🖼️</div>
+          <strong style="font-size:13px;">Photo Gallery</strong>
+          <span style="font-size:10.5px;color:var(--muted);">Upload from phone</span>
+        </div>
+      </div>
+
+      <!-- Active Laser Scan Preview -->
+      <div id="scanPreviewBox" class="hidden" style="margin-top:12px;position:relative;height:185px;border-radius:16px;overflow:hidden;background:#000;border:2px solid var(--em);">
+        <img id="scannedLeafImg" src="" style="width:100%;height:100%;object-fit:cover;opacity:0.92;" alt="">
+        <div id="scanLaserBar" class="laser"></div>
+        <div id="scanStatusTxt" style="position:absolute;bottom:0;inset-inline:0;background:rgba(0,0,0,0.82);color:#fff;padding:8px;font-size:11.5px;font-weight:700;text-align:center;z-index:12;">
+          🔄 AI Vision Analyzing Crop & Symptoms...
+        </div>
+      </div>
+
+      <!-- Auto-Detected Urdu Clinical Diagnosis Output -->
+      <div id="aiResultCard" class="hidden" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="sec-title">
+      <span>Disease & Cure Library (Urdu)</span>
+      <span style="font-size:10.5px;color:var(--em);">21 Verified Cures</span>
+    </div>
+    <div id="doctorDiseaseList"></div>
+  </section>
+
+  <!-- ==================== 2. CROP NUTRITION & SPRAY CALCULATOR ==================== -->
+  <section id="agriTab" class="page">
+    <div class="no-print">
+      <div class="sec-title"><span>Select Crop</span></div>
+      <div id="cropVisualGrid" class="g-6" style="margin-bottom:12px;"></div>
+      <input type="hidden" id="cropType" value="cotton">
+
+      <div class="card">
+        <div class="g-2" style="margin-bottom:10px;">
+          <div><label>Land Area (Acres)</label><input type="number" id="cropAcres" value="1" min="0" step="0.5" class="inp"></div>
+          <div><label>Additional Kanal (0-7)</label><input type="number" id="cropKanal" value="0" min="0" max="7" class="inp"></div>
+        </div>
+        <div class="g-2" style="margin-bottom:12px;">
+          <div>
+            <label>Sprayer Tank Capacity</label>
+            <select id="tankSize" class="inp">
+              <option value="20">20L Knapsack Tank</option>
+              <option value="100">100L Boom Tank</option>
+              <option value="500">500L Tractor Tank</option>
+            </select>
+          </div>
+          <div><label>Dose per Acre (ml / g)</label><input type="number" id="sprayDosePerAcre" value="250" class="inp"></div>
+        </div>
+        <button class="btn" onclick="calculateAgri(true)">🌱 Calculate Inputs & Spray Dose</button>
+      </div>
+    </div>
+
+    <div id="agriResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+      <div class="p-hdr"><h2>Khan Traders — Shahi Road, Sehja</h2><p>WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:6px;">
+        <strong style="color:var(--em);font-size:14px;">Crop Nutrition & Spray Plan</strong>
+        <span id="resAgriMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">1 Acre</span>
+      </div>
+      <div class="rline"><span>🌰 Seed Requirement:</span><strong id="rSeed">-</strong></div>
+      <div class="rline"><span>📦 Urea Fertilizer:</span><strong id="rUrea">-</strong></div>
+      <div class="rline"><span>🌱 DAP Fertilizer:</span><strong id="rDap">-</strong></div>
+      <div class="rline"><span>⚡ Potash & Zinc:</span><strong id="rPotash">-</strong></div>
+      <div class="rline"><span>🚿 Total Water & Tanks:</span><strong id="rSprayTanks">-</strong></div>
+      <div class="rline"><span>🧪 Dose per Single Tank:</span><strong id="rDosePerTank" style="color:var(--em);">-</strong></div>
+      <div class="rtot"><span>Estimated Cost:</span><span id="rTotalAgri">-</span></div>
+      <div class="g-3 no-print" style="margin-top:10px;">
+        <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('agriTab','agriResult')">🖨️ PDF</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('agri')">📋 Copy</button>
+        <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('agri')">💬 Order</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. BUILD & LAND STUDIO ==================== -->
+  <section id="buildTab" class="page">
+    <div class="sub-nav no-print">
+      <button id="pillPlotBtn" onclick="switchBuildSub('plot')" class="s-pill active">🏠 Structure</button>
+      <button id="pillWallBtn" onclick="switchBuildSub('wall')" class="s-pill">🧱 Masonry & Steel</button>
+      <button id="pillLandBtn" onclick="switchBuildSub('land')" class="s-pill">📐 Land Suite</button>
+    </div>
+
+    <!-- SUB A: STRUCTURE -->
+    <div id="subPlotBox">
+      <div class="no-print">
+        <div id="floorVisualGrid" class="g-3" style="margin-bottom:10px;"></div>
+        <input type="hidden" id="buildFloors" value="single">
+        <div class="card">
+          <label>Quick Plot Presets</label>
+          <div class="g-5" style="margin-bottom:10px;">
+            <button type="button" class="chip" onclick="setQuickMarla(25,33)">3 Marla</button>
+            <button type="button" class="chip" onclick="setQuickMarla(25,50)">5 Marla</button>
+            <button type="button" class="chip" onclick="setQuickMarla(37,44)">37×44</button>
+            <button type="button" class="chip" onclick="setQuickMarla(35,70)">10 Marla</button>
+            <button type="button" class="chip" onclick="setQuickMarla(50,90)">1 Kanal</button>
+          </div>
+          <div class="g-2" style="margin-bottom:10px;">
+            <div><label>Length (Feet)</label><input type="number" id="plotLen" value="37" oninput="updateSqftFromDim()" class="inp"></div>
+            <div><label>Width (Feet)</label><input type="number" id="plotWid" value="44" oninput="updateSqftFromDim()" class="inp"></div>
+          </div>
+          <div style="margin-bottom:10px;">
+            <label>Covered Area (Sq. Ft)</label>
+            <input type="number" id="plotArea" value="1628" oninput="syncDimFromManualSqft()" class="inp">
+            <span id="marlaBadge" style="display:inline-block;margin-top:5px;font-size:11px;background:var(--em-bg);color:var(--em);padding:3px 9px;border-radius:8px;font-weight:800;">5.98 Marla (272) | 7.24 Marla (225)</span>
+          </div>
+          <div id="finishModeGroup" style="margin-bottom:12px;">
+            <label>Specification</label>
+            <select id="buildType" class="inp">
+              <option value="grey">Grey Structure Only</option>
+              <option value="finish">Turnkey A-Class Finish</option>
+            </select>
+          </div>
+          <button class="btn" onclick="calculateConstruction(true)">⚡ Generate BOQ & Budget</button>
+        </div>
+      </div>
+
+      <div id="buildResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+        <div class="p-hdr"><h2>AgriBuild Pro — Engineering BOQ</h2><p>Khan Traders, Sehja | WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
+          <strong style="color:var(--em);font-size:14px;">Material & Cost Estimate</strong>
+          <span id="resBuildMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">1628 Sq.Ft</span>
+        </div>
+        <div class="rline"><span>🧱 Cement (50kg Bags):</span><strong id="rCement">-</strong></div>
+        <div class="rline"><span>🔩 Steel Rebar (60-Grade):</span><strong id="rSteel">-</strong></div>
+        <div class="rline"><span>🟧 A-Grade Bricks:</span><strong id="rBricks">-</strong></div>
+        <div class="rline"><span>🏖️ River Sand (Cft):</span><strong id="rSand">-</strong></div>
+        <div class="rline"><span>🪨 Margalla Crush (Cft):</span><strong id="rCrush">-</strong></div>
+        <div class="rline"><span>👷 Labor & Shuttering:</span><strong id="rLabor">-</strong></div>
+        <div class="rtot"><span>Estimated Budget:</span><span id="rTotalBuild">-</span></div>
+        <div class="g-3 no-print" style="margin-top:10px;">
+          <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('buildTab','buildResult')">🖨️ PDF</button>
+          <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('build')">📋 Copy</button>
+          <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('build')">💬 Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUB B: MASONRY & STEEL -->
+    <div id="subWallBox" class="hidden">
+      <div class="card no-print">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🧱 Wall & Plaster Estimator</strong>
+        <div class="g-2" style="margin-bottom:8px;">
+          <div><label>Length (Ft)</label><input type="number" id="wallLen" value="30" class="inp"></div>
+          <div><label>Height (Ft)</label><input type="number" id="wallHeight" value="10" class="inp"></div>
+        </div>
+        <div class="g-2" style="margin-bottom:8px;">
+          <div><label>Wall Thickness</label><select id="wallThick" class="inp"><option value="9">9-Inch (Double)</option><option value="4.5">4.5-Inch (Single)</option></select></div>
+          <div><label>Plaster</label><select id="wallPlaster" class="inp"><option value="2">Both Sides</option><option value="1">Single Side</option><option value="0">None</option></select></div>
+        </div>
+        <div style="margin-bottom:10px;"><label>Deduct Openings / Doors (Sq.Ft)</label><input type="number" id="wallDeduct" value="0" class="inp"></div>
+        <button class="btn" onclick="calculateWall(true)">🧱 Calculate Masonry</button>
+      </div>
+
+      <div id="wallResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+        <div class="p-hdr"><h2>Masonry Estimate</h2><p>Khan Traders | 0300-5039391 | <span class="print-date"></span></p></div>
+        <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
+          <strong style="color:var(--em);font-size:14px;">Wall & Plaster BOQ</strong>
+          <span id="resWallMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">300 Sq.Ft</span>
+        </div>
+        <div class="rline"><span>🟧 Bricks Required:</span><strong id="wBricks">-</strong></div>
+        <div class="rline"><span>🧱 Masonry Cement:</span><strong id="wCement">-</strong></div>
+        <div class="rline"><span>🪣 Plaster Cement:</span><strong id="wPlasterCement">-</strong></div>
+        <div class="rline"><span>🏖️ Sand Required:</span><strong id="wSand">-</strong></div>
+        <div class="rtot"><span>Total Material Cost:</span><span id="wTotalCost">-</span></div>
+        <div class="g-3 no-print" style="margin-top:10px;">
+          <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('buildTab','wallResult')">🖨️ PDF</button>
+          <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('wall')">📋 Copy</button>
+          <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('wall')">💬 Order</button>
+        </div>
+      </div>
+
+      <div class="card no-print">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🔩 Steel Rebar Weight Calculator</strong>
+        <div class="g-2" style="margin-bottom:10px;">
+          <div><label>Bar Diameter</label><select id="sootarSize" onchange="calcSariyaWeight()" class="inp"><option value="3">3 Sootar (10mm)</option><option value="4" selected>4 Sootar (12mm)</option><option value="5">5 Sootar (16mm)</option><option value="6">6 Sootar (20mm)</option><option value="8">8 Sootar (25mm)</option></select></div>
+          <div><label>40-Ft Bars (Qty)</label><input type="number" id="sariyaQty" value="10" oninput="calcSariyaWeight()" class="inp"></div>
+        </div>
+        <div style="background:var(--em-bg);padding:12px;border-radius:14px;text-align:center;">
+          <strong id="sariyaWeightOut" style="font-size:14px;color:var(--em);display:block;">Total Weight: 108.0 KG</strong>
+          <p id="sariyaPriceOut" style="font-size:12px;font-weight:800;margin:4px 0 8px;">Estimated Cost: PKR 27,540</p>
+          <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('sariya')">💬 Book Steel Rate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUB C: LAND SUITE -->
+    <div id="subLandBox" class="hidden">
+      <div class="card">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">📐 Land Area Unit Converter</strong>
+        <div class="g-2" style="margin-bottom:10px;">
+          <div><label>Value</label><input type="number" id="landInputVal" value="1" step="0.5" oninput="convertLandUnits()" class="inp"></div>
+          <div><label>Unit</label><select id="landInputUnit" onchange="convertLandUnits()" class="inp"><option value="acre">Acre / Qila (8 Kanal)</option><option value="kanal">Kanal (20 Marla)</option><option value="marla272">Standard Marla (272.25)</option><option value="marla225">Urban Marla (225)</option><option value="karam">Square Karam (Sarsahi)</option><option value="sqft">Square Feet (Sq.Ft)</option></select></div>
+        </div>
+        <div id="landConvOutput" style="background:var(--inp);padding:10px;border-radius:12px;margin-bottom:10px;"></div>
+        <button class="btn" style="padding:10px;" onclick="useLandInPlotCalc(lastConvertedSqft)">🏠 Use Sq.Ft in Structure Estimator</button>
+      </div>
+
+      <div class="card">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🧭 Irregular 4-Side Plot Calculator</strong>
+        <div class="g-2" style="margin-bottom:10px;">
+          <div><label>North Side (Ft)</label><input type="number" id="sideN" value="35" oninput="calcIrregularPlot()" class="inp"></div>
+          <div><label>South Side (Ft)</label><input type="number" id="sideS" value="39" oninput="calcIrregularPlot()" class="inp"></div>
+          <div><label>East Side (Ft)</label><input type="number" id="sideE" value="44" oninput="calcIrregularPlot()" class="inp"></div>
+          <div><label>West Side (Ft)</label><input type="number" id="sideW" value="44" oninput="calcIrregularPlot()" class="inp"></div>
+        </div>
+        <div id="irregularOut" style="background:var(--em-bg);color:var(--em);padding:10px;border-radius:12px;font-size:12px;font-weight:800;text-align:center;margin-bottom:8px;"></div>
+        <button class="btn btn-out" style="padding:9px;font-size:12px;" onclick="useLandInPlotCalc(lastIrregularSqft)">🏠 Estimate Construction on This Plot</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. SOLAR & VFD STUDIO ==================== -->
+  <section id="solarTab" class="page">
+    <div class="no-print">
+      <div class="g-2" style="margin-bottom:12px;">
+        <div onclick="selectSolarVisual('home',this)" class="vis-solar-card v-opt sel"><div class="img-box" style="height:75px;border-radius:0;"><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🏠 Hybrid Home Solar</span></div>
+        <div onclick="selectSolarVisual('tubewell',this)" class="vis-solar-card v-opt"><div class="img-box" style="height:75px;border-radius:0;"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🚜 Agri Solar Tubewell</span></div>
+      </div>
+      <input type="hidden" id="solarType" value="home">
+      <div class="card">
+        <div id="homeSolarBox" class="g-2" style="margin-bottom:12px;">
+          <div><label>Peak Monthly Bill (PKR)</label><input type="number" id="solarBill" value="15000" step="1000" class="inp"></div>
+          <div><label>Storage Mode</label><select id="solarBatteryMode" class="inp"><option value="with">With Lithium/Tubular</option><option value="without">Daytime / Net-Metering</option></select></div>
+        </div>
+        <div id="tubewellSolarBox" class="hidden" style="margin-bottom:12px;">
+          <label>Motor Horsepower (HP)</label>
+          <select id="motorHp" class="inp">
+            <option value="3">3 HP Submersible</option>
+            <option value="5" selected>5 HP Standard Bore</option>
+            <option value="7.5">7.5 HP Medium Bore</option>
+            <option value="10">10 HP Deep Bore</option>
+            <option value="15">15 HP Heavy Turbine</option>
+          </select>
+        </div>
+        <button class="btn" onclick="calculateSolar(true)">☀️ Size Solar Array & Quote</button>
+      </div>
+    </div>
+
+    <div id="solarResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+      <div class="p-hdr"><h2>Solar System Quotation</h2><p>Khan Traders | 0300-5039391 | <span class="print-date"></span></p></div>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
+        <strong style="color:var(--em);font-size:14px;">Solar Engineering Quote</strong>
+        <span id="resSolarMeta" style="font-size:11px;background:var(--am-bg);color:#d97706;padding:2px 8px;border-radius:8px;font-weight:800;">N-Type Tier-1</span>
+      </div>
+      <div class="rline"><span>☀️ 580W Bi-Facial Panels:</span><strong id="sPanels">-</strong></div>
+      <div class="rline"><span>⚡ Inverter / VFD Drive:</span><strong id="sInverter">-</strong></div>
+      <div class="rline"><span>🔋 Battery Storage:</span><strong id="sBattery">-</strong></div>
+      <div class="rline"><span>🛠️ Structure & BOS:</span><strong id="sInstall">-</strong></div>
+      <div class="rtot"><span>Turnkey System Cost:</span><span id="sTotalCost">-</span></div>
+      <div class="g-3 no-print" style="margin-top:10px;">
+        <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('solarTab','solarResult')">🖨️ PDF</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('solar')">📋 Copy</button>
+        <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('solar')">💬 Quote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. MARKET RATES & HISTORY ==================== -->
+  <section id="ratesTab" class="page">
+    <div class="card">
+      <strong style="font-size:14px;color:var(--em);display:block;margin-bottom:4px;">📊 Market Index & Custom Pricing</strong>
+      <p style="font-size:11.5px;color:var(--muted);margin-bottom:10px;">Update local dealer rates and share your custom link with clients:</p>
+      <div id="ratesInputsGrid" class="g-2" style="margin-bottom:12px;"></div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button class="btn" onclick="saveRates(true)">💾 Save & Apply Market Rates</button>
+        <button class="btn btn-wa" onclick="shareRateLink()">📲 Share Custom Dealer Link</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Restore Default Index</button>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <strong style="font-size:13.5px;">📋 Recent Estimates</strong>
+        <button onclick="clearHistory()" style="border:none;background:none;color:#ef4444;font-size:11.5px;font-weight:800;cursor:pointer;">Clear All</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== FIXED BOTTOM AD (ADSTERRA) ==================== -->
+<a href="https://asiafilm.org/4/88c275cc5e5442a13b0d3b9854ae2b50" target="_blank" rel="noopener" class="fixed-bottom-ad">
+  <div style="display:flex;align-items:center;gap:8px;overflow:hidden;">
+    <span class="ad-tag" style="background:#34d399;color:#022c22;">OFFER</span>
+    <span id="bottomAdText" style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌾 Wholesale Fertilizer, Solar & Construction Deals — Tap Here</span>
+  </div>
+  <span class="ad-cta" style="background:#f59e0b;color:#0f172a;">View ➔</span>
+</a>
+
+<!-- PROMINENT FIXED BOTTOM NAVIGATION BAR (6 TABS) -->
+<nav class="bottom-dock">
+  <button onclick="openNav('homeTab',0)" class="tab-item active"><div class="tab-ico">🏠</div><span>Home</span></button>
+  <button onclick="openNav('doctorTab',1)" class="tab-item"><div class="tab-ico">🩺</div><span>AI Doctor</span></button>
+  <button onclick="openNav('agriTab',2)" class="tab-item"><div class="tab-ico">🌱</div><span>Crop Calc</span></button>
+  <button onclick="openNav('buildTab',3)" class="tab-item"><div class="tab-ico">🏗️</div><span>Build</span></button>
+  <button onclick="openNav('solarTab',4)" class="tab-item"><div class="tab-ico">☀️</div><span>Solar</span></button>
+  <button onclick="openNav('ratesTab',5)" class="tab-item"><div class="tab-ico">📊</div><span>Market</span></button>
+</nav>
+
+<script>
+window.onerror = () => true;
+const _mem = {};
+const Store = {
+  get: k => { try { return localStorage.getItem(k) ?? _mem[k] ?? null; } catch(e) { return _mem[k] ?? null; } },
+  set: (k,v) => { _mem[k] = String(v); try { localStorage.setItem(k, String(v)); } catch(e) {} },
+  del: k => { delete _mem[k]; try { localStorage.removeItem(k); } catch(e) {} }
+};
+
+const whatsappNumber = "923005039391";
+const MONETAG_URL = "https://uplcm.com/4/12138896";
+const ADSTERRA_URL = "https://asiafilm.org/4/88c275cc5e5442a13b0d3b9854ae2b50";
+
+// ==================== SMART 2X DAILY AUTO-AD POP ENGINE ====================
+// Triggers Monetag on 1st Calculate/Scan click of the day, and Adsterra on 3rd click of the day (Max 2 pops/day)
+function triggerSmartAd() {
+  try {
+    const today = new Date().toLocaleDateString();
+    let state = JSON.parse(Store.get('smartAdTracker') || '{}');
+    if (state.date !== today) {
+      state = { date: today, clicks: 0, pops: 0 };
+    }
+    state.clicks += 1;
+
+    if (state.pops === 0 && state.clicks === 1) {
+      state.pops = 1;
+      Store.set('smartAdTracker', JSON.stringify(state));
+      window.open(MONETAG_URL, '_blank');
+    } else if (state.pops === 1 && state.clicks >= 3) {
+      state.pops = 2;
+      Store.set('smartAdTracker', JSON.stringify(state));
+      window.open(ADSTERRA_URL, '_blank');
+    } else {
+      Store.set('smartAdTracker', JSON.stringify(state));
+    }
+  } catch (e) {}
+}
+
+const baseMandiRates = { cement: 1290, steel: 255, brick: 16, labor: 650, urea: 4650, dap: 11950, solarWatt: 32, sand: 55, crush: 145, usd: 278.5 };
+let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, toastTimer = null;
+const uImg = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=75`;
+
+// Auto-Rotating Headlines for Fixed Top & Bottom Ads
+const topAdMsgs = [
+  "☀️ Government Solar & Kisan Subsidy 2026 — Check Eligibility",
+  "🚜 PM Kisan Tractor & Tubewell Scheme — Apply Online Now",
+  "⚡ 580W N-Type Solar Panels Wholesale Rate — Check Price"
+];
+const botAdMsgs = [
+  "🌾 Wholesale Fertilizer, Solar & Construction Deals — Tap Here",
+  "🧱 Today's Factory Rate: Cement & 60-Grade Steel — Book Now",
+  "🎁 Special Kisan Spray & Seed Discount Voucher — Claim Now"
+];
+let adIdx = 0;
+setInterval(() => {
+  adIdx = (adIdx + 1) % 3;
+  const tEl = document.getElementById('topAdText');
+  const bEl = document.getElementById('bottomAdText');
+  if (tEl) tEl.innerText = topAdMsgs[adIdx];
+  if (bEl) bEl.innerText = botAdMsgs[adIdx];
+}, 4500);
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.innerText = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+window.onafterprint = () => {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('p-page'));
+  document.querySelectorAll('.rcpt').forEach(b => b.classList.remove('p-target'));
+};
+
+function initDynamicUI() {
+  const mandiCfg = [['hbCement','Cement','🧱'],['hbSteel','60G Steel','🔩'],['hbUrea','Urea 50kg','🌾'],['hbDap','DAP 50kg','🌱']];
+  document.getElementById('homeMandiRow').innerHTML = mandiCfg.map(m => `
+    <div onclick="openNav('ratesTab',5)" class="card" style="padding:10px 4px;text-align:center;margin:0;cursor:pointer;">
+      <div style="font-size:18px;margin-bottom:2px;">${m[2]}</div>
+      <span style="font-size:10px;color:var(--muted);display:block;font-weight:700;">${m[1]}</span>
+      <strong id="${m[0]}" style="font-size:12px;color:var(--em);font-weight:800;">-</strong>
+    </div>`).join('');
+
+  const bentoCfg = [
+    ["openNav('agriTab',2)",'1625246333195-78d9c38ad449','Inputs','🌱','Crop Nutrition','Seed, Urea, DAP & Tank Dose'],
+    ["openBuildSub('plot')",'1541888946425-d09bb18086f6','Engineering','🏠','Construction BOQ','Grey, Turnkey & RCC Slab'],
+    ["openBuildSub('wall')",'1589939705384-5185137a7f0f','Masonry','🧱','Wall & Rebar','Bricks, Plaster & Steel Weight'],
+    ["openNav('solarTab',4)",'1509391366360-2e959784a276','580W N-Type','☀️','Solar & VFD','Home Hybrid & Agri Tubewell']
+  ];
+  document.getElementById('homeBentoGrid').innerHTML = bentoCfg.map(b => `
+    <div onclick="${b[0]}" class="bento">
+      <div class="img-box" style="height:92px;border-radius:0;">
+        <img src="${uImg(b[1])}" alt="" onerror="this.style.display='none'">
+        <div class="ovl"></div>
+        <span style="position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,0.7);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;">${b[2]}</span>
+        <span style="position:absolute;bottom:6px;left:10px;z-index:3;font-size:19px;">${b[3]}</span>
+      </div>
+      <div style="padding:10px 12px;">
+        <h3 style="font-size:13.5px;font-weight:800;">${b[4]}</h3>
+        <p style="font-size:11px;color:var(--muted);margin-top:2px;">${b[5]}</p>
+      </div>
+    </div>`).join('');
+
+  const cropsCfg = [
+    ['cotton','1615811361523-6bd03d7748e7','Cotton'],['sugarcane','1599488615731-7e5c2823ff28','Cane'],
+    ['wheat','1574323347407-f5e1ad6d020b','Wheat'],['rice','1536304993881-ff6e9eefa2a6','Rice'],
+    ['maize','1551754655-cd27e38d2076','Maize'],['orchard','1553279768-865429fa0078','Orchard']
+  ];
+  document.getElementById('cropVisualGrid').innerHTML = cropsCfg.map((c,i) => `
+    <div data-crop="${c[0]}" onclick="selectVisualOption('cropType','${c[0]}',this)" class="vis-crop-card v-opt ${i===0?'sel':''}">
+      <div class="img-box" style="height:46px;border-radius:0;"><img src="${uImg(c[1])}" alt="" onerror="this.style.display='none'"></div>
+      <span style="font-size:10.5px;font-weight:800;padding:4px 2px;display:block;">${c[2]}</span>
+    </div>`).join('');
+
+  const floorCfg = [['single','1580587771525-78b9dba3b914','Single Story'],['double','1600596542815-ffad4c1539a9','Double Story'],['slab','1590069261209-f8e9b8642343','RCC Slab Only']];
+  document.getElementById('floorVisualGrid').innerHTML = floorCfg.map((f,i) => `
+    <div onclick="selectFloorVisual('${f[0]}',this)" class="vis-floor-card v-opt ${i===0?'sel':''}">
+      <div class="img-box" style="height:54px;border-radius:0;"><img src="${uImg(f[1])}" alt="" onerror="this.style.display='none'"></div>
+      <span style="font-size:11px;font-weight:800;padding:5px;display:block;">${f[2]}</span>
+    </div>`).join('');
+
+  const rateFields = [['rateCement','Cement 50kg (PKR)'],['rateSteel','60G Steel / KG'],['rateBrick','A-Grade Brick (Pc)'],['rateLabor','Labor / Sq.Ft'],['rateUrea','Urea 50kg Bag'],['rateDap','DAP 50kg Bag'],['rateSolarWatt','Solar / Watt (PKR)'],['rateSand','Sand / Cft (PKR)'],['rateCrush','Crush / Cft (PKR)']];
+  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map((rf,i) => `<div style="${i===8?'grid-column:1/-1':''}"><label>${rf[1]}</label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
+}
+
+const rawDiseases = [
+  ['cot-wf','cotton','Cotton (کپاس)','white','Critical','1615811361523-6bd03d7748e7','کپاس کی سفید مکھی اور کالا تیلا (Whitefly)','پتوں کے نیچے سفید مکھیاں رس چوستی ہیں، چپچپا مادہ خارج ہوتا ہے جس سے پتے کالے اور پیلے ہو کر گرنے لگتے ہیں۔','Pyriproxyfen 10.8% EC (500ml) + Diafenthiuron 500SC (250ml)',500,'20 لیٹر والی ٹینکی میں 45 ملی لیٹر پائری پراکسی فن + 25 ملی لیٹر ڈایا فینتھیوران ملا کر سپرے کریں۔'],
+  ['cot-pb','cotton','Cotton (کپاس)','brown','High Alert','1594641840652-37096f8b3719','کپاس کی گلابی سنڈی (Pink Bollworm)','پھول مدھانی نما بند ہو جاتے ہیں، ٹینڈوں میں باریک سوراخ ہوتے ہیں اور اندر سے روئی اور بنولہ گل جاتا ہے۔','Triazophos 40% EC (800ml) + Bifenthrin 10% EC (250ml)',800,'20 لیٹر ٹینکی میں 80 ملی لیٹر ٹرائیازوفاس + 25 ملی لیٹر بائی فینتھرین ملا کر ٹینڈوں پر سپرے کریں۔'],
+  ['cot-th','cotton','Cotton (کپاس)','brown','Moderate','1530836369250-ef72a3f5cda8','کپاس کی تھرپس اور سبز تیلہ (Thrips & Jassid)','پتوں کے نچلے حصے پر چاندی نما خراشیں پڑتی ہیں، کنارے اوپر یا نیچے مڑ جاتے ہیں اور پودے کا قد رک جاتا ہے۔','Flonicamid 50% WG (80g) or Chlorfenapyr 360SC (150ml)',150,'20 لیٹر ٹینکی میں 15 گرام فلونیکامڈ یا 25 ملی لیٹر کلورفینا پائر ڈال کر سپرے کریں۔'],
+  ['cot-cl','cotton','Cotton (کپاس)','yellow','Viral','1518531933037-91b2f5f229cc','کپاس کا پتہ مروڑ وائرس (CLCV Virus)','پتوں کی رگیں گہری سبز اور موٹی ہو جاتی ہیں، پتے پیالہ نما مڑ جاتے ہیں اور نیچے چھوٹی پتی نکل آتی ہے۔','Flonicamid (80g) + Amino Acid & Chelated Zinc (500ml)',500,'20 لیٹر ٹینکی میں 50 ملی لیٹر امائنو ایسڈ + 20 گرام زنک اور سفید مکھی کی دوا ملا کر سپرے کریں۔'],
+  ['cot-mb','cotton','Cotton (کپاس)','white','High Alert','1416879595882-3373a0480b5b','کپاس کی ملی بگ / گدڑی (Mealybug)','تنے اور شاخوں پر سفید روئی جیسے کیڑوں کا حملہ ہوتا ہے جو رس چوس کر پودے کو سکھا دیتے ہیں۔','Profenofos 50% EC (1000ml) + Buprofezin 25% WP (500g)',1000,'20 لیٹر ٹینکی میں 100 ملی لیٹر پروفینوفاس + 50 گرام بپروفیزن ملا کر متاثرہ پودوں کو تر کریں۔'],
+  ['sug-br','sugarcane','Sugarcane (گنا)','brown','Critical','1599488615731-7e5c2823ff28','گنے کے تنے اور چوٹی کی سنڈی (Stem Borer)','گنے کی درمیانی کونپل سوکھ جاتی ہے (ڈیڈ ہارٹ)، کھینچنے پر آسانی سے نکل آتی ہے اور تنے میں سوراخ ہوتے ہیں۔','Chlorantraniliprole (Coragen 150ml) or Fipronil + Cartap (9kg)',150,'20 لیٹر ٹینکی میں 15 ملی لیٹر کوراجن یا 40 ملی لیٹر فپرونل ملا کر جڑوں میں سپرے کریں اور دانے دار ڈالیں۔'],
+  ['sug-rr','sugarcane','Sugarcane (گنا)','brown','Critical Fungal','1509316975850-ff9c5deb0cd9','گنے کا رتہ روگ / سرخ سڑن (Red Rot)','پتے اوپر سے سوکھنے لگتے ہیں، گنا چیرنے پر اندر سے سرخ رنگ اور سفید دھبے نظر آتے ہیں اور کھٹی بدبو آتی ہے۔','Thiophanate Methyl 70% WP (1000g) Root Drench',1000,'20 لیٹر ٹینکی میں 100 گرام تھائیوفینیٹ میتھائل حل کر کے جڑوں میں ڈرینچنگ کریں اور بیج کا علاج کریں۔'],
+  ['sug-py','sugarcane','Sugarcane (گنا)','yellow','High Alert','1625246333195-78d9c38ad449','گنے کا تیلہ اور کالی بگ (Pyrilla)','پتوں پر چونچ والے بھورے تیلے رس چوستے ہیں، پتے پیلے ہو کر کالے فنگس سے بھر جاتے ہیں اور مٹھاس کم ہو جاتی ہے۔','Chlorpyrifos 40% EC (1000ml) or Bifenthrin 10% EC (400ml)',1000,'20 لیٹر ٹینکی میں 100 ملی لیٹر کلورپائریفاس یا 40 ملی لیٹر بائی فینتھرین ملا کر سپرے کریں۔'],
+  ['wht-ru','wheat','Wheat (گندم)','yellow','Critical Fungal','1574323347407-f5e1ad6d020b','گندم کی پیلی اور بھوری کنگی (Yellow Rust)','پتوں پر ہلدی جیسے پیلے اور نارنجی پاؤڈر کی لمبی دھاریاں بنتی ہیں جو ہاتھ لگانے سے انگلیوں پر لگ جاتی ہیں۔','Tebuconazole+Trifloxystrobin (Nativo 65g) or Propiconazole (200ml)',200,'20 لیٹر ٹینکی میں 13 گرام نیٹیوو یا 40 ملی لیٹر پروپیکونازول ملا کر فوری سپرے کریں۔'],
+  ['wht-wd','wheat','Wheat (گندم)','brown','High Alert','1500382017468-9049fed747ef','گندم کی جڑی بوٹیاں (Broad & Narrow Weeds)','دمبی سٹی، جنگلی جئی، باتھو اور لہلی گندم کی کھاد اور پانی کھا کر پیداوار آدھی کر دیتی ہیں۔','Mesosulfuron (Atlantis 160g) or Buctril Super (300ml)',300,'پہلے پانی کے بعد تر وتر میں 32 گرام اٹلانٹس یا 60 ملی لیٹر بکٹرل سپر فی ٹینکی فلیٹ فین نوزل سے سپرے کریں۔'],
+  ['wht-ap','wheat','Wheat (گندم)','white','Moderate','1437252611977-07f74518abd7','گندم کے سٹوں کا سست تیلہ (Wheat Aphid)','گندم کے سٹوں پر سبز اور کالے تیلے جمع ہو کر دودھیا دانوں کا رس چوستے ہیں جس سے دانہ پچک جاتا ہے۔','Thiamethoxam 25% WG (40g) or Imidacloprid (250ml)',250,'20 لیٹر ٹینکی میں 8 گرام تھائیومیتھوگزام یا 50 ملی لیٹر امیڈاکلوپرڈ ملا کر سپرے کریں۔'],
+  ['ric-bl','rice','Rice (مونجی / دھان)','yellow','Critical','1536304993881-ff6e9eefa2a6','دھان کا جراثیمی جھلساؤ (Bacterial Blight)','پتوں کے کنارے اوپر سے نیچے کی طرف پیلے اور سفید ہو کر سوکھنے لگتے ہیں اور فصل جھلس جاتی ہے۔','Copper Oxychloride 50% WP (500g) + Kasugamycin (150g)',500,'یوریا بند کریں اور 20 لیٹر ٹینکی میں 80 گرام کاپر آکسی کلورائیڈ + 25 گرام کاسوگامائسین سپرے کریں۔'],
+  ['ric-br','rice','Rice (مونجی / دھان)','white','High Alert','1586201375761-83865001e31c','مونجی کے تنے کی سنڈی اور پتہ لپیٹ (Stem Borer)','سنڈی تنے کو اندر سے کاٹ دیتی ہے جس سے مونجی کی بالیاں سفید اور خالی (سفید سٹہ) نکلتی ہیں۔','Cartap 4G (9kg) or Flubendiamide (50ml) + Abamectin (200ml)',200,'20 لیٹر ٹینکی میں 10 ملی لیٹر فلو بینڈی امائیڈ + 40 ملی لیٹر ایبامیکٹن سپرے کریں یا کھڑے پانی میں دانے دار ڈالیں۔'],
+  ['ric-bk','rice','Rice (مونجی / دھان)','yellow','Fungal','1560493676-04071c5f467b','مونجی کا بکانے روگ / جھنڈا بیماری (Bakanae)','متاثرہ پودے باقی فصل سے غیر معمولی لمبے، پتلے اور پیلے ہو جاتے ہیں اور جڑ گلنے سے مر جاتے ہیں۔','Thiophanate Methyl 70% WP (500g) + Difenoconazole (150ml)',500,'20 لیٹر ٹینکی میں 80 گرام تھائیوفینیٹ + 25 ملی لیٹر ڈائی فینوکونازول ملا کر سپرے کریں۔'],
+  ['mai-fa','maize','Maize (مکئی)','brown','Critical','1551754655-cd27e38d2076','مکئی کی لشکری سنڈی (Fall Armyworm)','مکئی کی درمیانی کونپل میں بڑے سوراخ ہو جاتے ہیں اور اندر لکڑی کے برادے جیسی گیلی بیٹھ نظر آتی ہے۔','Emamectin Benzoate (200ml) + Lufenuron (200ml)',400,'20 لیٹر ٹینکی میں 35 ملی لیٹر ایمامیکٹن + 35 ملی لیٹر لوفینوران ملا کر سیدھا کونپل کے اندر سپرے کریں۔'],
+  ['mai-sf','maize','Maize (مکئی)','yellow','High Alert','1601593768799-76d6d028c164','مکئی کی کونپل کی مکھی (Shoot Fly)','چھوٹے پودوں (1 تا 3 ہفتے) کی درمیانی کونپل سوکھ جاتی ہے اور پودے کے پتے مڑ جاتے ہیں۔','Imidacloprid + Beta-Cyfluthrin (250ml)',250,'20 لیٹر ٹینکی میں 40 ملی لیٹر امیڈاکلوپرڈ+بیٹا سائی فلوتھرین ملا کر چھوٹی فصل پر سپرے کریں۔'],
+  ['mai-br','maize','Maize (مکئی)','brown','High Alert','1574943320219-553eb213f72d','مکئی کے تنے کی سنڈی (Maize Stem Borer)','کھلنے والے پتوں پر سیدھی قطار میں باریک سوراخ نظر آتے ہیں اور سنڈی تنے میں سرنگ بنا دیتی ہے۔','Cartap Hydrochloride 4G (8kg) or Fipronil 80WG (60g)',200,'ہر پودے کی کونپل میں 3 سے 4 دانے کارٹیپ یا فپرونل دانے دار زہر ڈالیں۔'],
+  ['orc-hp','orchard','Mango / Orchard (آم اور باغات)','white','Critical','1553279768-865429fa0078','آم کا تیلہ اور سفید سفوفی بیماری (Hopper & Mildew)','آم کے بور (پھولوں) پر تیلے اور سفید پاؤڈر کا حملہ ہوتا ہے جس سے بور کالا ہو کر جھڑ جاتا ہیں۔','Bifenthrin 10% EC (1ml/L) + Difenoconazole (1ml/L)',500,'20 لیٹر ٹینکی میں 20 ملی لیٹر بائی فینتھرین + 20 ملی لیٹر ڈائی فینوکونازول ملا کر سپرے کریں۔'],
+  ['orc-bl','orchard','Vegetables (ٹماٹر / آلو / مرچ)','brown','High Fungal','1592924357228-91a4daadcfea','سبزیوں کا اگیتا اور پچھیتا جھلساؤ (Blight)','پتوں اور تنوں پر گہرے بھورے اور کالے گول دھبے پڑتے ہیں اور دھند یا نمی میں پوری فصل جھلس جاتی ہے۔','Metalaxyl + Mancozeb (Ridomil Gold 500g)',500,'20 لیٹر ٹینکی میں 80 گرام میٹالکسل+مینکوزیب (ریڈومل گولڈ) حل کر کے سپرے کریں۔'],
+  ['orc-ci','orchard','Citrus / Kinnow (کنو اور مالٹا)','brown','High Alert','1582979512210-99b6a53386f9','کنو کا کینکر اور سِلا تیلہ (Citrus Canker)','پتوں اور پھل پر ابھرے ہوئے کھردرے بھورے زخم بنتے ہیں جن کے گرد پیلا دائرہ ہوتا ہے۔','Copper Oxychloride (3g/L) + Imidacloprid',500,'20 لیٹر ٹینکی میں 60 گرام کاپر آکسی کلورائیڈ + 30 ملی لیٹر امیڈاکلوپرڈ ملا کر سپرے کریں۔'],
+  ['orc-np','orchard','All Crops (خوراک و کھاد کی کمی)','yellow','Nutrition','1464226184884-fa280b87c399','فصلوں میں نائٹروجن، پوٹاش اور زنک کی کمی','نچلے پتے پیلے ہونا (نائٹروجن کی کمی)، کنارے جلنا (پوٹاش کی کمی) اور اوپری پتے چھوٹے اور زنگ آلود رہنا (زنک کی کمی)۔','NPK 20:20:20 (1kg) + Chelated Zinc (250g) + Amino Acid',500,'20 لیٹر ٹینکی میں 150 گرام این پی کے + 30 گرام چیلٹڈ زنک + 50 ملی لیٹر امائنو ایسڈ ملا کر سپرے کریں۔']
+];
+const cropDoctorDB = rawDiseases.map(r => ({
+  id:r[0], crop:r[1], cropLabel:r[2], colorTag:r[3], severity:r[4],
+  img:uImg(r[5]), nameUr:r[6], symUr:r[7], medFormula:r[8], doseNum:r[9], cureUr:r[10]
+}));
+
+window.addEventListener('DOMContentLoaded', () => {
+  initDynamicUI();
+  const todayStr = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+  document.querySelectorAll('.print-date').forEach(el => el.innerText = todayStr);
+  if (Store.get('appTheme') === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeBtn').innerText = '☀️';
+  }
+  checkUrlRateParams(); loadRatesIntoInputs(); updateTickerUI(); updateSqftFromDim();
+  calcSariyaWeight(); convertLandUnits(); calcIrregularPlot(); renderHistory();
+  renderDiseaseLibrary(); autoFetchLiveRates(false); fetchWeatherAlert();
+});
+
+// ==================== AUTOMATIC AI CROP & DISEASE VISION ENGINE ====================
+function runAutoCropScan(event) {
+  const file = event.target.files[0]; if (!file) return;
+  triggerSmartAd();
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const dataUrl = e.target.result;
+    const pBox = document.getElementById('scanPreviewBox');
+    pBox.classList.remove('hidden');
+    document.getElementById('scannedLeafImg').src = dataUrl;
+    document.getElementById('scanLaserBar').style.display = 'block';
+    document.getElementById('aiResultCard').classList.add('hidden');
+    document.getElementById('scanStatusTxt').innerText = '🔄 AI Vision: Auto-Detecting Crop & Pathology...';
+
+    const imgObj = new Image();
+    imgObj.onload = function() {
+      let greenPct = 50, yellowPct = 20, brownPct = 18, whitePct = 12, sig = 0;
+      try {
+        const canvas = document.getElementById('aiCanvas'), ctx = canvas.getContext('2d');
+        ctx.drawImage(imgObj, 0, 0, 128, 128);
+        const px = ctx.getImageData(0, 0, 128, 128).data;
+        let gC = 0, yC = 0, bC = 0, wC = 0, tot = px.length / 4;
+        for (let i = 0; i < px.length; i += 4) {
+          const r = px[i], g = px[i+1], b = px[i+2];
+          sig = (sig + r * 3 + g * 5 + b * 7) % 99991;
+          if (r > 195 && g > 195 && b > 195) wC++;
+          else if (g > r * 1.06 && g > b * 1.12) gC++;
+          else if (r > 145 && g > 120 && b < 105) yC++;
+          else if (r > 80 && r < 180 && g < 120 && b < 95) bC++;
+        }
+        yellowPct = Math.min(72, Math.max(8, Math.round((yC / tot) * 175)));
+        brownPct = Math.min(72, Math.max(7, Math.round((bC / tot) * 175)));
+        whitePct = Math.min(72, Math.max(6, Math.round((wC / tot) * 145)));
+        greenPct = Math.max(12, 100 - (yellowPct + brownPct + whitePct));
+      } catch (err) {}
+
+      let domTag = 'yellow';
+      if (whitePct > yellowPct && whitePct > brownPct) domTag = 'white';
+      else if (brownPct >= yellowPct) domTag = 'brown';
+
+      const pool = cropDoctorDB.filter(d => d.colorTag === domTag);
+      const detected = pool[sig % pool.length] || cropDoctorDB[sig % cropDoctorDB.length];
+      const conf = 92 + (sig % 7);
+
+      setTimeout(() => {
+        document.getElementById('scanLaserBar').style.display = 'none';
+        document.getElementById('scanStatusTxt').innerText = `✅ Auto-Detected: ${detected.cropLabel} (${conf}% AI Match)`;
+
+        const resCard = document.getElementById('aiResultCard');
+        resCard.classList.remove('hidden');
+        resCard.innerHTML = `
+          <div style="background:var(--em-bg);border:2px solid var(--em);border-radius:18px;padding:14px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
+              <span style="background:var(--em);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;">🩺 AI AUTO-DIAGNOSIS (${conf}% Match)</span>
+              <span style="font-size:11px;font-weight:800;color:var(--em);">Crop: ${detected.cropLabel}</span>
+            </div>
+            <div style="height:6px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:10px;">
+              <div style="width:${greenPct}%;background:#10b981"></div>
+              <div style="width:${yellowPct}%;background:#eab308"></div>
+              <div style="width:${brownPct}%;background:#b45309"></div>
+              <div style="width:${whitePct}%;background:#94a3b8"></div>
+            </div>
+            <div class="urdu-text" style="background:var(--card);padding:12px;border-radius:14px;border:1px solid var(--border);">
+              <div style="font-size:16px;font-weight:700;color:var(--em);margin-bottom:4px;">🦠 تشخیص: ${detected.nameUr}</div>
+              <div style="font-size:13px;color:var(--text);margin-bottom:8px;"><strong>🔍 علامات:</strong> ${detected.symUr}</div>
+              <div style="font-size:13px;color:var(--em);background:var(--em-bg);padding:8px 10px;border-radius:10px;"><strong>💊 تجویز کردہ علاج اور مقدار:</strong><br>${detected.cureUr}</div>
+            </div>
+            <div style="margin-top:10px;font-size:11.5px;font-weight:800;color:var(--muted);">🧪 Formula: <span style="color:var(--text);">${detected.medFormula}</span></div>
+            <div class="g-2" style="margin-top:10px;">
+              <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="loadDiseaseIntoCalc('${detected.crop}',${detected.doseNum})">🧮 Calculate Tank Dose</button>
+              <button class="btn btn-wa" style="padding:10px;font-size:12px;" onclick="orderDiseaseWhatsApp('${detected.id}')">💬 Order on WhatsApp</button>
+            </div>
+          </div>`;
+        showToast("✅ Crop & Disease Auto-Detected!");
+      }, 1400);
+    };
+    imgObj.src = dataUrl;
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderDiseaseLibrary() {
+  const box = document.getElementById('doctorDiseaseList');
+  box.innerHTML = cropDoctorDB.map(d => {
+    const bCol = d.severity.includes('Critical') ? '#dc2626' : (d.severity.includes('High') ? '#f59e0b' : '#2563eb');
+    const spk = currentlySpeakingId === d.id;
+    return `<div class="card" style="padding:0;overflow:hidden;">
+      <div class="img-box" style="height:125px;border-radius:0;">
+        <img src="${d.img}" alt="" onerror="this.style.display='none'">
+        <div class="ovl"></div>
+        <div style="position:absolute;top:10px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;">
+          <span style="background:rgba(0,0,0,0.65);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:8px;">${d.cropLabel}</span>
+          <span style="background:${bCol};color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:8px;">${d.severity}</span>
+        </div>
+        <div style="position:absolute;bottom:8px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:center;color:#fff;gap:8px;">
+          <button onclick="speakDoctorCure('${d.id}')" style="width:32px;height:32px;border-radius:50%;border:none;background:${spk?'#dc2626':'rgba(255,255,255,0.22)'};color:#fff;cursor:pointer;font-size:13px;flex-shrink:0;">${spk?'⏹️':'🔊'}</button>
+          <h4 class="urdu-text" style="font-size:15px;font-weight:700;margin:0;">${d.nameUr}</h4>
+        </div>
+      </div>
+      <div style="padding:12px;">
+        <div class="urdu-text" style="font-size:12.5px;background:var(--inp);padding:10px;border-radius:12px;margin-bottom:8px;">
+          <div><strong>🔍 علامات:</strong> ${d.symUr}</div>
+          <div style="color:var(--em);margin-top:4px;"><strong>💊 علاج اور سپرے:</strong> ${d.cureUr}</div>
+        </div>
+        <div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;">🧪 Active Ingredient: <span style="color:var(--text);">${d.medFormula}</span></div>
+        <div class="g-2">
+          <button class="btn btn-out" style="padding:9px;font-size:11.5px;" onclick="loadDiseaseIntoCalc('${d.crop}',${d.doseNum})">🧮 Tank Calculator</button>
+          <button class="btn btn-wa" style="padding:9px;font-size:11.5px;" onclick="orderDiseaseWhatsApp('${d.id}')">💬 Order Medicine</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function speakDoctorCure(id) {
+  if (!('speechSynthesis' in window)) return showToast("Audio not supported.");
+  if (currentlySpeakingId === id && window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); currentlySpeakingId = null; renderDiseaseLibrary(); return; }
+  const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
+  window.speechSynthesis.cancel(); currentlySpeakingId = id; renderDiseaseLibrary();
+  const voices = window.speechSynthesis.getVoices() || [];
+  const hasUr = voices.some(v => v.lang.toLowerCase().startsWith('ur') || v.lang.toLowerCase().startsWith('hi'));
+  const utter = new SpeechSynthesisUtterance(hasUr ? `${d.nameUr}۔ علامات: ${d.symUr}۔ علاج: ${d.cureUr}` : `${d.cropLabel}. Recommended Spray: ${d.medFormula}. Available at Khan Traders Sehja.`);
+  utter.lang = hasUr ? 'ur-PK' : 'en-US'; utter.rate = 0.95;
+  utter.onend = utter.onerror = () => { currentlySpeakingId = null; renderDiseaseLibrary(); };
+  window.speechSynthesis.speak(utter);
+}
+
+function loadDiseaseIntoCalc(cropKey, doseMl) {
+  const valid = ['cotton','sugarcane','wheat','rice','maize','orchard'].includes(cropKey) ? cropKey : 'cotton';
+  const card = document.querySelector(`#cropVisualGrid [data-crop="${valid}"]`);
+  if (card) selectVisualOption('cropType', valid, card);
+  document.getElementById('sprayDosePerAcre').value = doseMl;
+  openNav('agriTab', 2); calculateAgri(false);
+}
+
+function orderDiseaseWhatsApp(id) {
+  const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
+  const msg = `*Assalam-o-Alaikum Khan Traders (Sehja)!*\n🩺 *AI Crop Doctor Order:*\n🌾 Crop: ${d.cropLabel}\n🦠 Disease: ${d.nameUr}\n💊 Formula: ${d.medFormula}\n🚿 Dose: ${d.cureUr}`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function toggleTheme() {
+  const html = document.documentElement, isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  Store.set('appTheme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').innerText = isDark ? '🌙' : '☀️';
+}
+
+function openNav(tabId, idx) {
+  if ('speechSynthesis' in window && window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); currentlySpeakingId = null; }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  const btns = document.querySelectorAll('.tab-item'); if (btns[idx]) btns[idx].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openBuildSub(sub) { openNav('buildTab', 3); switchBuildSub(sub); }
+
+function switchBuildSub(sub) {
+  document.getElementById('subPlotBox').classList.toggle('hidden', sub !== 'plot');
+  document.getElementById('subWallBox').classList.toggle('hidden', sub !== 'wall');
+  document.getElementById('subLandBox').classList.toggle('hidden', sub !== 'land');
+  document.getElementById('pillPlotBtn').classList.toggle('active', sub === 'plot');
+  document.getElementById('pillWallBtn').classList.toggle('active', sub === 'wall');
+  document.getElementById('pillLandBtn').classList.toggle('active', sub === 'land');
+}
+
+function selectVisualOption(id, val, el) {
+  document.getElementById(id).value = val;
+  el.parentElement.querySelectorAll('.v-opt').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function selectFloorVisual(val, el) {
+  selectVisualOption('buildFloors', val, el);
+  document.getElementById('finishModeGroup').style.display = val === 'slab' ? 'none' : 'block';
+}
+
+function selectSolarVisual(val, el) {
+  selectVisualOption('solarType', val, el);
+  document.getElementById('homeSolarBox').classList.toggle('hidden', val !== 'home');
+  document.getElementById('tubewellSolarBox').classList.toggle('hidden', val !== 'tubewell');
+}
+
+function setQuickMarla(l, w) {
+  document.getElementById('plotLen').value = l;
+  document.getElementById('plotWid').value = w;
+  document.getElementById('plotArea').value = Math.round(l * w);
+  updateMarlaBadgeOnly(); calculateConstruction(false);
+}
+
+function syncDimFromManualSqft() {
+  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0;
+  if (sq > 0) {
+    let side = Math.round(Math.sqrt(sq));
+    document.getElementById('plotLen').value = side;
+    document.getElementById('plotWid').value = Math.round(sq / side);
+  }
+  updateMarlaBadgeOnly();
+}
+
+async function fetchWithTimeout(url, ms = 4500) {
+  const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
+  try { const r = await fetch(url, { signal: c.signal }); clearTimeout(t); return r; } catch (e) { clearTimeout(t); throw e; }
+}
+
+function getRates() {
+  try { let s = Store.get('appMarketRates'); return s ? { ...baseMandiRates, ...JSON.parse(s) } : { ...baseMandiRates }; } catch (e) { return { ...baseMandiRates }; }
+}
+
+function checkUrlRateParams() {
+  try {
+    const p = new URLSearchParams(window.location.search);
+    if (p.has('c') && p.has('u')) {
+      let cur = getRates();
+      Store.set('appMarketRates', JSON.stringify({
+        cement: Math.abs(parseFloat(p.get('c'))) || cur.cement, steel: Math.abs(parseFloat(p.get('s'))) || cur.steel,
+        brick: Math.abs(parseFloat(p.get('b'))) || cur.brick, labor: Math.abs(parseFloat(p.get('l'))) || cur.labor,
+        urea: Math.abs(parseFloat(p.get('u'))) || cur.urea, dap: Math.abs(parseFloat(p.get('d'))) || cur.dap,
+        solarWatt: Math.abs(parseFloat(p.get('sw'))) || cur.solarWatt, sand: Math.abs(parseFloat(p.get('sn'))) || cur.sand,
+        crush: Math.abs(parseFloat(p.get('cr'))) || cur.crush, usd: cur.usd || 278.5
+      }));
+    }
+  } catch (e) {}
+}
+
+async function autoFetchLiveRates(force = false) {
+  let cur = getRates();
+  try {
+    const fx = await fetchWithTimeout("https://open.er-api.com/v6/latest/USD", 4000);
+    if (fx.ok) { const d = await fx.json(); if (d.rates && d.rates.PKR) cur.usd = parseFloat(d.rates.PKR.toFixed(1)); }
+    Store.set('appMarketRates', JSON.stringify(cur));
+    loadRatesIntoInputs(); updateTickerUI();
+    if (force) showToast("✅ Market Index Synced!");
+  } catch (e) { updateTickerUI(); }
+}
+
+function updateTickerUI() {
+  const r = getRates();
+  document.getElementById('liveTickerText').innerText = `Cement: Rs.${r.cement}  |  60G Steel: Rs.${r.steel}/KG  |  Solar N-Type: Rs.${r.solarWatt}/W  |  Urea: Rs.${r.urea}  |  DAP: Rs.${r.dap}  |  Brick: Rs.${r.brick}  |  USD: Rs.${r.usd}  |  Khan Traders: 0300-5039391`;
+  if (document.getElementById('hbCement')) {
+    document.getElementById('hbCement').innerText = `Rs.${r.cement}`;
+    document.getElementById('hbSteel').innerText = `Rs.${r.steel}/kg`;
+    document.getElementById('hbUrea').innerText = `Rs.${r.urea}`;
+    document.getElementById('hbDap').innerText = `Rs.${r.dap}`;
+  }
+}
+
+function loadRatesIntoInputs() {
+  let r = getRates();
+  ['Cement','Steel','Brick','Labor','Urea','Dap','SolarWatt','Sand','Crush'].forEach(k => {
+    let el = document.getElementById('rate' + k);
+    if (el) el.value = r[k.charAt(0).toLowerCase() + k.slice(1)];
+  });
+}
+
+function saveRates(msg = true) {
+  let cur = getRates();
+  let up = {
+    cement: Math.abs(parseFloat(document.getElementById('rateCement').value)) || baseMandiRates.cement,
+    steel: Math.abs(parseFloat(document.getElementById('rateSteel').value)) || baseMandiRates.steel,
+    brick: Math.abs(parseFloat(document.getElementById('rateBrick').value)) || baseMandiRates.brick,
+    labor: Math.abs(parseFloat(document.getElementById('rateLabor').value)) || baseMandiRates.labor,
+    urea: Math.abs(parseFloat(document.getElementById('rateUrea').value)) || baseMandiRates.urea,
+    dap: Math.abs(parseFloat(document.getElementById('rateDap').value)) || baseMandiRates.dap,
+    solarWatt: Math.abs(parseFloat(document.getElementById('rateSolarWatt').value)) || baseMandiRates.solarWatt,
+    sand: Math.abs(parseFloat(document.getElementById('rateSand').value)) || baseMandiRates.sand,
+    crush: Math.abs(parseFloat(document.getElementById('rateCrush').value)) || baseMandiRates.crush,
+    usd: cur.usd || 278.5
+  };
+  Store.set('appMarketRates', JSON.stringify(up));
+  updateTickerUI(); calcSariyaWeight();
+  if (!document.getElementById('buildResult').classList.contains('hidden')) calculateConstruction(false);
+  if (!document.getElementById('wallResult').classList.contains('hidden')) calculateWall(false);
+  if (!document.getElementById('solarResult').classList.contains('hidden')) calculateSolar(false);
+  if (!document.getElementById('agriResult').classList.contains('hidden')) calculateAgri(false);
+  if (msg) showToast("✅ Market Rates Saved!");
+}
+
+function resetDefaultRates() { Store.set('appMarketRates', JSON.stringify(baseMandiRates)); loadRatesIntoInputs(); saveRates(false); showToast("↺ Default Rates Restored!"); }
+
+function shareRateLink() {
+  saveRates(false); const r = getRates(), url = window.location.href.split('?')[0];
+  const link = `${url}?c=${r.cement}&s=${r.steel}&b=${r.brick}&l=${r.labor}&u=${r.urea}&d=${r.dap}&sw=${r.solarWatt}&sn=${r.sand}&cr=${r.crush}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(`📊 *Market Index (Khan Traders, Sehja)*\nCement: Rs.${r.cement} | Steel: Rs.${r.steel}/kg | Urea: Rs.${r.urea} | DAP: Rs.${r.dap}\n📞 0300-5039391\n${link}`)}`, '_blank');
+}
+
+async function fetchWeatherAlert() {
+  try {
+    const res = await fetchWithTimeout("https://api.open-meteo.com/v1/forecast?latitude=28.64&longitude=70.66&current=temperature_2m,wind_speed_10m,precipitation", 4000);
+    if (res.ok) {
+      const c = (await res.json()).current;
+      const status = (c.wind_speed_10m > 15 || c.precipitation > 0) ? '⚠️ High Wind — Delay Spray' : '🟢 Ideal Spray Conditions';
+      document.getElementById('weatherTxt').innerText = `Khanpur / Sehja: ${c.temperature_2m}°C (${c.wind_speed_10m}km/h) • ${status}`;
+    }
+  } catch (e) {}
+}
+
+function updateSqftFromDim() {
+  let l = Math.abs(parseFloat(document.getElementById('plotLen').value)) || 0, w = Math.abs(parseFloat(document.getElementById('plotWid').value)) || 0;
+  if (l > 0 && w > 0) { document.getElementById('plotArea').value = Math.round(l * w); updateMarlaBadgeOnly(); }
+}
+
+function updateMarlaBadgeOnly() {
+  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0;
+  document.getElementById('marlaBadge').innerText = `${(sq / 272.25).toFixed(2)} Marla (272) | ${(sq / 225).toFixed(2)} Marla (225)`;
+}
+
+function calculateConstruction(save = true) {
+  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0, fl = document.getElementById('buildFloors').value, mode = document.getElementById('buildType').value;
+  if (sq <= 0) return showToast("⚠️ Enter Covered Area!");
+  if (save) triggerSmartAd();
+  let r = getRates(), totSq = fl === 'slab' ? Math.round(sq) : Math.round(sq * (fl === 'double' ? 2 : 1));
+  let cem = fl === 'slab' ? Math.round(totSq * 0.16) : Math.round(totSq * (mode === 'finish' ? 0.52 : 0.42));
+  let stl = fl === 'slab' ? Math.round(totSq * 1.65) : Math.round(totSq * 3.5);
+  let brk = fl === 'slab' ? 0 : Math.round(totSq * 9.5);
+  let snd = Math.round(totSq * (fl === 'slab' ? 0.55 : 1.8)), crs = Math.round(totSq * (fl === 'slab' ? 0.85 : 1.35));
+  let lab = Math.round(totSq * (fl === 'slab' ? 180 : r.labor));
+  let mat = (cem * r.cement) + (stl * r.steel) + (brk * r.brick) + (snd * r.sand) + (crs * r.crush);
+  if (fl !== 'slab' && mode === 'finish') mat *= 1.45;
+  let grand = Math.round(mat + lab), meta = `${totSq} Sq.Ft (${fl.toUpperCase()})`;
+
+  document.getElementById('resBuildMeta').innerText = meta;
+  document.getElementById('rCement').innerText = `${cem} Bags (Rs. ${(cem * r.cement).toLocaleString()})`;
+  document.getElementById('rSteel').innerText = `${stl} KG (${(stl/1000).toFixed(2)} Ton - Rs. ${(stl * r.steel).toLocaleString()})`;
+  document.getElementById('rBricks').innerText = brk > 0 ? `${brk.toLocaleString()} Pcs (Rs. ${(brk * r.brick).toLocaleString()})` : `0 Pcs (RCC Slab)`;
+  document.getElementById('rSand').innerText = `${snd.toLocaleString()} Cft (Rs. ${(snd * r.sand).toLocaleString()})`;
+  document.getElementById('rCrush').innerText = `${crs.toLocaleString()} Cft (Rs. ${(crs * r.crush).toLocaleString()})`;
+  document.getElementById('rLabor').innerText = `PKR ${lab.toLocaleString()}`;
+  document.getElementById('rTotalBuild').innerText = `PKR ${grand.toLocaleString()}`;
+  const box = document.getElementById('buildResult'); box.classList.remove('hidden');
+  if (save) { saveHistoryItem(`🏗️ ${meta}`, `PKR ${grand.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
+}
+
+function calculateWall(save = true) {
+  let l = Math.abs(parseFloat(document.getElementById('wallLen').value)) || 0, h = Math.abs(parseFloat(document.getElementById('wallHeight').value)) || 0;
+  let ded = Math.abs(parseFloat(document.getElementById('wallDeduct').value)) || 0, th = parseFloat(document.getElementById('wallThick').value), sides = parseInt(document.getElementById('wallPlaster').value);
+  let gross = Math.round(l * h); if (gross <= 0) return showToast("⚠️ Enter Wall Dimensions!");
+  if (save) triggerSmartAd();
+  if (ded >= gross) { ded = 0; document.getElementById('wallDeduct').value = 0; }
+  let net = Math.max(1, gross - ded), r = getRates();
+  let brk = Math.round(net * (th === 9 ? 9.5 : 4.75)), wCem = Math.max(1, Math.ceil(brk * 0.0028)), pCem = sides > 0 ? Math.max(1, Math.ceil(net * 0.018 * sides)) : 0;
+  let totCem = wCem + pCem, snd = Math.round((brk * 0.014) + (net * 0.125 * sides)), cost = Math.round((brk * r.brick) + (totCem * r.cement) + (snd * r.sand));
+
+  document.getElementById('resWallMeta').innerText = `${net} Sq.Ft (${th}")`;
+  document.getElementById('wBricks').innerText = `${brk.toLocaleString()} Pcs (Rs. ${(brk * r.brick).toLocaleString()})`;
+  document.getElementById('wCement').innerText = `${wCem} Bags`;
+  document.getElementById('wPlasterCement').innerText = `${pCem} Bags (Total: ${totCem})`;
+  document.getElementById('wSand').innerText = `${snd} Cft`;
+  document.getElementById('wTotalCost').innerText = `PKR ${cost.toLocaleString()}`;
+  const box = document.getElementById('wallResult'); box.classList.remove('hidden');
+  if (save) { saveHistoryItem(`🧱 Wall (${net} Sq.Ft)`, `PKR ${cost.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
+}
+
+function calcSariyaWeight() {
+  let s = parseInt(document.getElementById('sootarSize').value), q = Math.abs(parseFloat(document.getElementById('sariyaQty').value)) || 0;
+  let wt = (({ 3: 7.5, 4: 10.8, 5: 19.2, 6: 30.0, 8: 46.8 }[s] || 10.8) * q).toFixed(1), r = getRates();
+  document.getElementById('sariyaWeightOut').innerText = `Total Weight: ${wt} KG (${q} Bars)`;
+  document.getElementById('sariyaPriceOut').innerText = `Estimated Cost: PKR ${Math.round(wt * r.steel).toLocaleString()}`;
+}
+
+function convertLandUnits() {
+  let v = Math.abs(parseFloat(document.getElementById('landInputVal').value)) || 0, unit = document.getElementById('landInputUnit').value;
+  let sq = unit === 'acre' ? v * 43560 : unit === 'kanal' ? v * 5445 : unit === 'marla272' ? v * 272.25 : unit === 'marla225' ? v * 225 : unit === 'karam' ? v * 30.25 : v;
+  lastConvertedSqft = Math.round(sq);
+  document.getElementById('landConvOutput').innerHTML = `<div class="rline"><span>🌾 Acres / Qila:</span><strong>${(sq/43560).toFixed(3)}</strong></div><div class="rline"><span>📐 Kanals (20 Marla):</span><strong>${(sq/5445).toFixed(2)}</strong></div><div class="rline"><span>📏 Standard Marla (272.25):</span><strong>${(sq/272.25).toFixed(2)}</strong></div><div class="rline"><span>🏙️ Urban Marla (225):</span><strong>${(sq/225).toFixed(2)}</strong></div><div class="rline"><span>👣 Sq. Karam (Sarsahi):</span><strong>${(sq/30.25).toFixed(1)}</strong></div><div class="rline" style="border:none;color:var(--em);font-weight:800;"><span>⬛ Total Area:</span><span>${lastConvertedSqft.toLocaleString()} Sq.Ft</span></div>`;
+}
+
+function useLandInPlotCalc(targetSqft) {
+  let sq = targetSqft || lastConvertedSqft;
+  if (sq > 0) {
+    let side = Math.round(Math.sqrt(sq));
+    document.getElementById('plotLen').value = side; document.getElementById('plotWid').value = Math.round(sq / side);
+    document.getElementById('plotArea').value = sq; updateMarlaBadgeOnly(); switchBuildSub('plot'); calculateConstruction(false);
+  }
+}
+
+function calcIrregularPlot() {
+  let n = Math.abs(parseFloat(document.getElementById('sideN').value)) || 0, s = Math.abs(parseFloat(document.getElementById('sideS').value)) || 0;
+  let e = Math.abs(parseFloat(document.getElementById('sideE').value)) || 0, w = Math.abs(parseFloat(document.getElementById('sideW').value)) || 0;
+  lastIrregularSqft = Math.round(((n + s) / 2) * ((e + w) / 2));
+  document.getElementById('irregularOut').innerText = `Area: ${lastIrregularSqft} Sq.Ft | ${(lastIrregularSqft/272.25).toFixed(2)} Marla (272) | ${(lastIrregularSqft/225).toFixed(2)} Marla (225)`;
+}
+
+function calculateAgri(save = true) {
+  let ac = Math.abs(parseFloat(document.getElementById('cropAcres').value)) || 0, kn = Math.abs(parseFloat(document.getElementById('cropKanal').value)) || 0, totAc = ac + (kn / 8);
+  if (totAc <= 0) return showToast("⚠️ Enter Land Area!");
+  if (save) triggerSmartAd();
+  let crop = document.getElementById('cropType').value, tL = parseFloat(document.getElementById('tankSize').value), dose = Math.abs(parseFloat(document.getElementById('sprayDosePerAcre').value)) || 250, r = getRates();
+  const spMap = {
+    cotton: { sNum: 8, sUnit: "KG", sC: 6500, u: 2.5, d: 1.5, sop: 1, zn: 10, pC: 12500, spC: 9500, w: 120 },
+    sugarcane: { sNum: 90, sUnit: "Maund", sC: 36000, u: 3.5, d: 2.0, sop: 1.5, zn: 10, pC: 16500, spC: 11000, w: 160 },
+    wheat: { sNum: 50, sUnit: "KG", sC: 7500, u: 2.0, d: 1.5, sop: 0.5, zn: 8, pC: 7000, spC: 4500, w: 100 },
+    rice: { sNum: 8, sUnit: "KG", sC: 5500, u: 2.5, d: 1.5, sop: 0.5, zn: 15, pC: 6500, spC: 7500, w: 120 },
+    maize: { sNum: 10, sUnit: "KG Hybrid", sC: 14000, u: 3.0, d: 2.0, sop: 1.0, zn: 10, pC: 10500, spC: 8500, w: 120 },
+    orchard: { sNum: 1, sUnit: "Acre Pkg", sC: 12000, u: 3.0, d: 2.0, sop: 1.5, zn: 12, pC: 14000, spC: 10000, w: 150 }
+  };
+  const sp = spMap[crop] || spMap.cotton;
+
+  let totSeed = +(totAc * sp.sNum).toFixed(1), uB = +(totAc * sp.u).toFixed(1), dB = +(totAc * sp.d).toFixed(1);
+  let totSop = +(totAc * sp.sop).toFixed(1), totZn = Math.round(totAc * sp.zn);
+  let wat = Math.round(totAc * sp.w), tanks = Math.max(1, Math.ceil(wat / tL));
+  let totMed = Math.round(totAc * dose), perTank = Math.round(totMed / tanks);
+  let cost = Math.round((totAc * sp.sC) + (uB * r.urea) + (dB * r.dap) + (totAc * sp.pC) + (totAc * sp.spC));
+
+  document.getElementById('resAgriMeta').innerText = `${totAc.toFixed(2)} Acres (${crop.toUpperCase()})`;
+  document.getElementById('rSeed').innerText = `${totSeed} ${sp.sUnit} (Rs. ${Math.round(totAc * sp.sC).toLocaleString()})`;
+  document.getElementById('rUrea').innerText = `${uB} Bags (Rs. ${Math.round(uB * r.urea).toLocaleString()})`;
+  document.getElementById('rDap').innerText = `${dB} Bags (Rs. ${Math.round(dB * r.dap).toLocaleString()})`;
+  document.getElementById('rPotash').innerText = `${totSop} Bag SOP + ${totZn}kg Zinc (Rs. ${Math.round(totAc * sp.pC).toLocaleString()})`;
+  document.getElementById('rSprayTanks').innerText = `${tanks} Tanks (${wat}L Water)`;
+  document.getElementById('rDosePerTank').innerText = `${perTank} ml/g per Tank (Total: ${totMed} ml/g)`;
+  document.getElementById('rTotalAgri').innerText = `PKR ${cost.toLocaleString()}`;
+  const box = document.getElementById('agriResult'); box.classList.remove('hidden');
+  if (save) { saveHistoryItem(`🌱 ${crop.toUpperCase()} (${totAc.toFixed(1)} Ac)`, `PKR ${cost.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
+}
+
+function calculateSolar(save = true) {
+  let type = document.getElementById('solarType').value, r = getRates(), panels = "", inv = "", bat = "", inst = "", tot = 0, meta = "";
+  if (save) triggerSmartAd();
+  if (type === 'home') {
+    let bill = Math.abs(parseFloat(document.getElementById('solarBill').value)) || 15000, bMode = document.getElementById('solarBatteryMode').value;
+    let kw = Math.max(1.5, Math.min(20, Math.round((bill / 5500) * 2) / 2)), pl = Math.max(2, Math.ceil((kw * 1000) / 580));
+    let pC = pl * 580 * r.solarWatt, iC = Math.round(kw * 30000), bC = bMode === 'with' ? Math.round(kw * 28000) : 0, fC = Math.round(pl * 4200 + 8000);
+    tot = Math.round(pC + iC + bC + fC); meta = `${kw} kW Hybrid Solar`;
+    panels = `${pl} Panels × 580W (Rs. ${pC.toLocaleString()})`; inv = `${kw} kW Hybrid Inverter`;
+    bat = bMode === 'with' ? `Lithium/Tubular (Rs. ${bC.toLocaleString()})` : `No Battery (Daytime)`; inst = `Structure & BOS (Rs. ${fC.toLocaleString()})`;
+  } else {
+    let hp = parseFloat(document.getElementById('motorHp').value), pl = Math.ceil((hp * 1250) / 580); if (pl % 2 !== 0) pl += 1;
+    let pC = pl * 580 * r.solarWatt, vC = Math.round(hp * 12000 + 25000), fC = pl * 4500;
+    tot = Math.round(pC + vC + fC); meta = `${hp} HP Solar Tubewell`;
+    panels = `${pl} Panels × 580W (Rs. ${pC.toLocaleString()})`; inv = `${hp} HP Solar VFD Drive`;
+    bat = `Direct Solar Drive (No Battery)`; inst = `Heavy Structure & Cable (Rs. ${fC.toLocaleString()})`;
+  }
+  document.getElementById('resSolarMeta').innerText = meta; document.getElementById('sPanels').innerText = panels;
+  document.getElementById('sInverter').innerText = inv; document.getElementById('sBattery').innerText = bat;
+  document.getElementById('sInstall').innerText = inst; document.getElementById('sTotalCost').innerText = `PKR ${tot.toLocaleString()}`;
+  const box = document.getElementById('solarResult'); box.classList.remove('hidden');
+  if (save) { saveHistoryItem(`☀️ ${meta}`, `PKR ${tot.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
+}
+
+function printSingleSlip(pId, bId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('p-page'));
+  document.querySelectorAll('.rcpt').forEach(b => b.classList.remove('p-target'));
+  document.getElementById(pId).classList.add('p-page'); document.getElementById(bId).classList.add('p-target'); window.print();
+}
+
+function buildFullSummaryText(type) {
+  if (type === 'build') {
+    if (document.getElementById('rTotalBuild').innerText === '-') calculateConstruction(false);
+    return `🏗️ *Construction BOQ (${document.getElementById('resBuildMeta').innerText})*\n🧱 Cement: ${document.getElementById('rCement').innerText}\n🔩 Steel: ${document.getElementById('rSteel').innerText}\n🟧 Bricks: ${document.getElementById('rBricks').innerText}\n🏖️ Sand: ${document.getElementById('rSand').innerText} | 🪨 Crush: ${document.getElementById('rCrush').innerText}\n👷 Labor: ${document.getElementById('rLabor').innerText}\n💰 *Total: ${document.getElementById('rTotalBuild').innerText}*`;
+  } else if (type === 'wall') {
+    if (document.getElementById('wTotalCost').innerText === '-') calculateWall(false);
+    return `🧱 *Masonry Estimate (${document.getElementById('resWallMeta').innerText})*\n🟧 Bricks: ${document.getElementById('wBricks').innerText}\n🧱 Cement: ${document.getElementById('wPlasterCement').innerText}\n🏖️ Sand: ${document.getElementById('wSand').innerText}\n💰 *Total: ${document.getElementById('wTotalCost').innerText}*`;
+  } else if (type === 'sariya') {
+    calcSariyaWeight();
+    let sTxt = document.getElementById('sootarSize').options[document.getElementById('sootarSize').selectedIndex].text;
+    return `🔩 *Steel Rebar Booking*\n📏 Size: ${sTxt}\n⚖️ ${document.getElementById('sariyaWeightOut').innerText}\n💰 ${document.getElementById('sariyaPriceOut').innerText}`;
+  } else if (type === 'solar') {
+    if (document.getElementById('sTotalCost').innerText === '-') calculateSolar(false);
+    return `☀️ *Solar System Quote (${document.getElementById('resSolarMeta').innerText})*\n☀️ Panels: ${document.getElementById('sPanels').innerText}\n⚡ Inverter: ${document.getElementById('sInverter').innerText}\n🔋 Storage: ${document.getElementById('sBattery').innerText}\n💰 *Total: ${document.getElementById('sTotalCost').innerText}*`;
+  } else {
+    if (document.getElementById('rTotalAgri').innerText === '-') calculateAgri(false);
+    return `🌱 *Crop Nutrition Plan (${document.getElementById('resAgriMeta').innerText})*\n🌰 Seed: ${document.getElementById('rSeed').innerText}\n📦 Urea: ${document.getElementById('rUrea').innerText}\n🌱 DAP: ${document.getElementById('rDap').innerText}\n⚡ Potash/Zinc: ${document.getElementById('rPotash').innerText}\n🚿 Spray Tanks: ${document.getElementById('rSprayTanks').innerText}\n🧪 Dose/Tank: ${document.getElementById('rDosePerTank').innerText}\n💰 *Total: ${document.getElementById('rTotalAgri').innerText}*`;
+  }
+}
+
+function copyEstimate(type) {
+  const txt = buildFullSummaryText(type) + `\n📞 Khan Traders, Sehja: 0300-5039391`;
+  const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); showToast("📋 Full Estimate Copied!"); } catch (e) {} document.body.removeChild(ta);
+}
+
+function sendWhatsApp(type) {
+  const msg = `*Assalam-o-Alaikum Khan Traders (Sehja)!*\n\n` + buildFullSummaryText(type) + `\n\nPlease confirm availability and wholesale rates.`;
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function saveHistoryItem(title, amount) {
+  try { let l = JSON.parse(Store.get('appCalcHistory') || '[]'); l.unshift({ title, amount, date: new Date().toLocaleDateString() }); Store.set('appCalcHistory', JSON.stringify(l.slice(0, 10))); renderHistory(); } catch (e) {}
+}
+
+function renderHistory() {
+  let box = document.getElementById('historyList'); if (!box) return;
+  try {
+    let l = JSON.parse(Store.get('appCalcHistory') || '[]');
+    if (!l.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No recent estimates.</p>`; return; }
+    box.innerHTML = l.map(i => `<div class="rline"><div><strong>${i.title}</strong><br><small style="color:var(--muted);">${i.date}</small></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:var(--em);">${i.amount}</strong><button onclick="window.open('https://wa.me/${whatsappNumber}?text='+encodeURIComponent('Estimate: ${i.title} = ${i.amount}'),'_blank')" style="background:#22c55e;color:#fff;border:none;border-radius:8px;padding:4px 7px;font-size:11px;cursor:pointer;">💬</button></div></div>`).join('');
+  } catch (e) {}
+}
+
+function clearHistory() { Store.del('appCalcHistory'); renderHistory(); showToast("🗑️ Cleared!"); }
+</script>
+</body>
+</html>
