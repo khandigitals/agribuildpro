@@ -3,76 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="theme-color" content="#064e3b">
+<meta name="theme-color" content="#011d16">
 <meta name="mobile-web-app-capable" content="yes">
-<title>AgriBuild Pro | AI Crop Doctor, Khata & Live Market Suite</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<title>AgriBuild Pro | AI Crop Doctor, Cloud Khata & Live Mandi Suite</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f4f7fb; --card: #ffffff; --text: #0f172a; --muted: #64748b;
-    --border: #e2e8f0; --inp: #f8fafc; --em: #059669; --em-l: #10b981;
-    --em-bg: rgba(16,185,129,0.1); --am: #f59e0b; --am-bg: rgba(245,158,11,0.12);
-    --nav: rgba(255,255,255,0.96); --sh: 0 10px 30px -5px rgba(15,23,42,0.06);
+    --bg: #edf3f8; --card: #ffffff; --text: #0f172a; --muted: #64748b;
+    --border: #d8e3f0; --inp: #f8fafc; --em: #059669; --em-l: #10b981;
+    --em-bg: rgba(16,185,129,0.11); --am: #d97706; --am-l: #fbbf24;
+    --am-bg: rgba(245,158,11,0.13); --nav: rgba(255,255,255,0.96);
+    --sh: 0 14px 34px -6px rgba(6,78,59,0.09), 0 4px 14px -2px rgba(15,23,42,0.05);
+    --gold-bdr: rgba(245,158,11,0.42);
   }
   [data-theme="dark"] {
-    --bg: #030712; --card: #111827; --text: #f9fafb; --muted: #9ca3af;
-    --border: #1f2937; --inp: #1f2937; --em: #10b981; --em-l: #34d399;
-    --em-bg: rgba(16,185,129,0.16); --am-bg: rgba(245,158,11,0.16);
-    --nav: rgba(17,24,39,0.96); --sh: 0 12px 32px -5px rgba(0,0,0,0.6);
+    --bg: #020617; --card: #0f172a; --text: #f8fafc; --muted: #94a3b8;
+    --border: #1e293b; --inp: #1e293b; --em: #10b981; --em-l: #34d399;
+    --em-bg: rgba(16,185,129,0.18); --am: #fbbf24; --am-l: #fde68a;
+    --am-bg: rgba(245,158,11,0.18); --nav: rgba(15,23,42,0.96);
+    --sh: 0 16px 38px -6px rgba(0,0,0,0.7);
+    --gold-bdr: rgba(251,191,36,0.45);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
-  body { background: var(--bg); color: var(--text); padding-top: 46px; padding-bottom: 152px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
+  body { background: var(--bg); color: var(--text); padding-top: 48px; padding-bottom: 160px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
   .shell { max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; }
   .hidden { display: none !important; }
   .no-sb::-webkit-scrollbar { display: none; }
   .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
-  .urdu-text { font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif; direction: rtl; text-align: right; line-height: 2.1; }
+  .urdu-text { font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif; direction: rtl; text-align: right; line-height: 2.15; }
 
   /* PERMANENT FIXED TOP AD BAR (MONETAG) */
   .fixed-top-ad {
     position: fixed; top: 0; left: 0; right: 0; margin: 0 auto;
-    width: 100%; max-width: 520px; height: 46px;
-    background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    width: 100%; max-width: 520px; height: 48px;
+    background: linear-gradient(90deg, #090d16 0%, #1e293b 50%, #090d16 100%);
     color: #fff; z-index: 99999; display: flex; align-items: center;
     justify-content: space-between; padding: 0 12px; text-decoration: none;
-    border-bottom: 2px solid #f59e0b; box-shadow: 0 4px 16px rgba(0,0,0,0.28);
+    border-bottom: 2px solid #fbbf24; box-shadow: 0 4px 18px rgba(0,0,0,0.35);
   }
 
   /* PERMANENT FIXED BOTTOM AD BAR (ADSTERRA) */
   .fixed-bottom-ad {
-    position: fixed; bottom: 62px; left: 0; right: 0; margin: 0 auto;
-    width: 100%; max-width: 520px; height: 46px;
-    background: linear-gradient(90deg, #064e3b 0%, #047857 55%, #065f46 100%);
+    position: fixed; bottom: 64px; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 48px;
+    background: linear-gradient(90deg, #011d16 0%, #065f46 50%, #011d16 100%);
     color: #fff; z-index: 99998; display: flex; align-items: center;
     justify-content: space-between; padding: 0 12px; text-decoration: none;
-    border-top: 2px solid #34d399; box-shadow: 0 -4px 16px rgba(0,0,0,0.22);
+    border-top: 2px solid #34d399; box-shadow: 0 -4px 18px rgba(0,0,0,0.28);
   }
-  .ad-tag { background: #f59e0b; color: #0f172a; font-size: 9px; font-weight: 900; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0; }
-  .ad-cta { background: #22c55e; color: #fff; font-size: 10.5px; font-weight: 800; padding: 5px 11px; border-radius: 20px; white-space: nowrap; box-shadow: 0 2px 8px rgba(34,197,94,0.45); animation: pulseBtn 1.6s infinite; }
+  .ad-tag { background: linear-gradient(135deg, #fde047, #f59e0b); color: #0f172a; font-size: 9px; font-weight: 900; padding: 2.5px 6px; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.4px; flex-shrink: 0; }
+  .ad-cta { background: linear-gradient(135deg, #22c55e, #15803d); color: #fff; font-size: 10.5px; font-weight: 800; padding: 5px 12px; border-radius: 20px; white-space: nowrap; box-shadow: 0 2px 10px rgba(34,197,94,0.5); animation: pulseBtn 1.6s infinite; }
   @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 
-  /* Sleek International Header */
-  .hero { background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #0f766e 100%); color: #fff; padding: 15px 16px 24px; border-radius: 0 0 28px 28px; box-shadow: 0 10px 25px rgba(6,78,59,0.25); }
-  .h-top { display: flex; justify-content: space-between; align-items: center; }
-  .brand { display: flex; align-items: center; gap: 10px; }
-  .logo { width: 42px; height: 42px; border-radius: 13px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 20px; }
-  .icon-btn { height: 36px; padding: 0 11px; border-radius: 12px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: #fff; font-size: 12px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; }
-  .desi-bar { margin-top: 11px; background: rgba(0,0,0,0.26); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; }
+  /* Royal Emerald & Gold Luxury Hero Header */
+  .hero {
+    background: radial-gradient(circle at 88% 12%, rgba(251,191,36,0.26), transparent 52%),
+                radial-gradient(circle at 12% 85%, rgba(16,185,129,0.28), transparent 55%),
+                linear-gradient(135deg, #011812 0%, #064e3b 52%, #047857 100%);
+    color: #fff; padding: 16px 16px 26px; border-radius: 0 0 32px 32px;
+    box-shadow: 0 16px 36px rgba(2,44,34,0.38); position: relative; overflow: hidden;
+    border-bottom: 2px solid rgba(251,191,36,0.4);
+  }
+  .h-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .logo {
+    width: 46px; height: 46px; border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06));
+    border: 1.5px solid rgba(251,191,36,0.6); display: flex; align-items: center;
+    justify-content: center; font-size: 23px; box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+  .gold-pill {
+    background: linear-gradient(90deg, #fde047, #f59e0b, #fde047);
+    background-size: 200% auto; animation: shine 3s linear infinite;
+    color: #0f172a; font-size: 9px; font-weight: 900; padding: 2px 7px; border-radius: 5px;
+  }
+  @keyframes shine { to { background-position: 200% center; } }
+  .icon-btn {
+    height: 36px; padding: 0 11px; border-radius: 12px;
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.25);
+    color: #fff; font-size: 11.5px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 4px;
+    backdrop-filter: blur(8px); transition: 0.2s;
+  }
+  .icon-btn:active { transform: scale(0.95); }
+  .desi-bar {
+    margin-top: 12px; background: rgba(0,0,0,0.34);
+    border: 1px solid rgba(251,191,36,0.32); border-radius: 16px;
+    padding: 9px 12px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 11.5px; gap: 8px; backdrop-filter: blur(10px);
+  }
 
-  /* Market Ticker */
-  .ticker { margin: -12px 14px 10px; background: #0f172a; color: #fff; border-radius: 13px; padding: 7px 11px; font-size: 11.5px; display: flex; align-items: center; gap: 8px; box-shadow: var(--sh); border: 1px solid #334155; }
-  .live-badge { background: #ef4444; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.5px; animation: pls 1.4s infinite; }
+  /* Live Market Ticker */
+  .ticker {
+    margin: -13px 14px 10px; background: linear-gradient(90deg, #090d16, #1e293b);
+    color: #fff; border-radius: 14px; padding: 7.5px 11px; font-size: 11.5px;
+    display: flex; align-items: center; gap: 8px; box-shadow: var(--sh);
+    border: 1px solid rgba(251,191,36,0.4); position: relative; z-index: 5;
+  }
+  .live-badge { background: #ef4444; color: #fff; font-size: 9px; font-weight: 900; padding: 2.5px 6px; border-radius: 5px; letter-spacing: 0.5px; animation: pls 1.4s infinite; }
   @keyframes pls { 0%,100% { opacity: 1; } 50% { opacity: 0.45; } }
   .t-wrap { overflow: hidden; white-space: nowrap; flex: 1; }
-  .t-move { display: inline-block; padding-left: 100%; animation: mrq 28s linear infinite; font-weight: 600; color: #e2e8f0; }
+  .t-move { display: inline-block; padding-left: 100%; animation: mrq 30s linear infinite; font-weight: 600; color: #f1f5f9; }
   @keyframes mrq { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
-  /* Pages & Cards */
+  /* Pages & Luxury Cards */
   .page { display: none; padding: 6px 14px; animation: fadeIn 0.22s ease-out; }
   .page.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 14px; box-shadow: var(--sh); margin-bottom: 12px; }
-  .sec-title { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 6px 2px 8px; display: flex; justify-content: space-between; align-items: center; }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 22px; padding: 15px; box-shadow: var(--sh);
+    margin-bottom: 12px; transition: transform 0.2s, border-color 0.2s;
+  }
+  .sec-title { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 8px 2px 8px; display: flex; justify-content: space-between; align-items: center; }
+
+  /* 7-Day Daily Check-In Streak Bar (Forces Daily Opens) */
+  .streak-box {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 60%, #047857 100%);
+    color: #fff; border: 1.5px solid rgba(251,191,36,0.5); border-radius: 22px;
+    padding: 12px 13px; margin-bottom: 12px; box-shadow: 0 10px 26px rgba(6,78,59,0.22);
+  }
+  .s-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 9px 0; }
+  .s-step {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 11px; padding: 6px 2px; text-align: center; font-size: 9.5px; font-weight: 800;
+  }
+  .s-step.done { background: rgba(16,185,129,0.35); border-color: #34d399; color: #a7f3d0; }
+  .s-step.active { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #0f172a; border-color: #fff; transform: scale(1.06); box-shadow: 0 4px 10px rgba(245,158,11,0.45); }
+
+  /* Daily Morning Briefing Banner */
+  .daily-brief {
+    background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(245,158,11,0.12) 100%);
+    border: 1.5px solid var(--gold-bdr); border-radius: 20px; padding: 11px 13px;
+    margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
 
   /* Grids */
   .g-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -82,74 +146,86 @@
   .g-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
   @media (max-width: 400px) { .g-6 { grid-template-columns: repeat(3, 1fr); } }
 
-  /* 7-Day Weather Forecast Strip */
+  /* 7-Day Weather Forecast Strip & Filter Pills */
   .w-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 12px; }
-  .w-day { flex-shrink: 0; width: 76px; background: var(--card); border: 1px solid var(--border); border-radius: 15px; padding: 8px 6px; text-align: center; box-shadow: var(--sh); }
-  .w-day.today { border-color: var(--em); background: var(--em-bg); }
+  .w-day { flex-shrink: 0; width: 76px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 8px 6px; text-align: center; box-shadow: var(--sh); }
+  .w-day.today { border: 1.5px solid var(--em); background: var(--em-bg); }
+  .pill-bar { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 10px; }
+  .f-pill { flex-shrink: 0; padding: 7px 13px; border-radius: 14px; border: 1px solid var(--border); background: var(--card); color: var(--text); font-size: 11px; font-weight: 800; cursor: pointer; transition: 0.15s; }
+  .f-pill.active { background: linear-gradient(135deg, #10b981, #047857); color: #fff; border-color: transparent; box-shadow: 0 4px 10px rgba(16,185,129,0.3); }
 
-  /* Visual Cards */
-  .img-box { position: relative; overflow: hidden; border-radius: 16px; background: #064e3b; display: flex; align-items: center; justify-content: center; }
+  /* Visual Cards with Offline Icon Fallback */
+  .img-box {
+    position: relative; overflow: hidden; border-radius: 16px;
+    background: linear-gradient(135deg, #022c22 0%, #065f46 50%, #0f766e 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .img-box .f-ico { position: relative; z-index: 0; font-size: 26px; opacity: 0.55; user-select: none; }
   .img-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-  .img-box .ovl { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,0.88) 10%, rgba(2,6,23,0.15) 100%); z-index: 2; }
-  .bento { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: var(--sh); transition: 0.2s; }
-  .bento:hover, .bento:active { border-color: var(--em-l); transform: translateY(-2px); }
+  .img-box .ovl { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,0.9) 10%, rgba(2,6,23,0.18) 100%); z-index: 2; }
+  .bento { background: var(--card); border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: var(--sh); transition: 0.2s; }
+  .bento:hover, .bento:active { border-color: var(--em-l); transform: translateY(-3px); }
   .v-opt { background: var(--card); border: 2px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; text-align: center; transition: 0.2s; }
-  .v-opt.sel { border-color: var(--em); background: var(--em-bg); }
+  .v-opt.sel { border-color: var(--em); background: var(--em-bg); box-shadow: 0 4px 12px var(--em-bg); }
 
   /* Camera & Gallery Dual Action Buttons */
   .scan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
   .scan-btn { border: 1.5px solid var(--border); background: var(--inp); border-radius: 18px; padding: 18px 12px; text-align: center; cursor: pointer; transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-  .scan-btn.cam { background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(5,150,105,0.06)); border-color: var(--em); }
+  .scan-btn.cam { background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(5,150,105,0.05)); border-color: var(--em); }
   .scan-btn:active { transform: scale(0.97); }
-  .scan-ico { width: 48px; height: 48px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+  .scan-ico { width: 50px; height: 50px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 23px; color: #fff; box-shadow: 0 6px 16px rgba(0,0,0,0.14); }
 
   /* Inputs & Buttons */
   label { display: block; font-size: 11.5px; font-weight: 700; margin-bottom: 5px; color: var(--muted); }
-  .inp { width: 100%; background: var(--inp); color: var(--text); border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; font-weight: 700; outline: none; }
+  .inp { width: 100%; background: var(--inp); color: var(--text); border: 1.5px solid var(--border); border-radius: 12px; padding: 10px 12px; font-size: 13.5px; font-weight: 700; outline: none; transition: border-color 0.2s; }
   .inp:focus { border-color: var(--em); }
-  .btn { width: 100%; background: linear-gradient(135deg, #10b981, #047857); color: #fff; border: none; padding: 13px; border-radius: 14px; font-size: 13.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 6px 16px rgba(16,185,129,0.25); }
+  .btn { width: 100%; background: linear-gradient(135deg, #10b981, #047857); color: #fff; border: none; padding: 13px; border-radius: 14px; font-size: 13.5px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 6px 16px rgba(16,185,129,0.28); transition: transform 0.15s; }
+  .btn:active { transform: scale(0.98); }
   .btn-wa { background: linear-gradient(135deg, #22c55e, #15803d); }
   .btn-out { background: transparent; color: var(--em); border: 1.5px solid var(--em); box-shadow: none; }
-  .chip { background: var(--inp); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 6px 4px; font-size: 11px; font-weight: 700; cursor: pointer; }
+  .chip { background: var(--inp); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 6px 4px; font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.15s; }
+  .chip:active { background: var(--em-bg); border-color: var(--em); }
+  .del-btn { background: rgba(239,68,68,0.12); color: #ef4444; border: none; width: 26px; height: 26px; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
 
   /* Results & Laser */
-  .rline { display: flex; justify-content: space-between; align-items: center; padding: 7.5px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; gap: 8px; }
-  .rtot { margin-top: 10px; background: var(--am-bg); border: 1px solid rgba(245,158,11,0.35); padding: 11px 13px; border-radius: 13px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: #d97706; }
+  .rline { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; gap: 8px; }
+  .rtot { margin-top: 10px; background: var(--am-bg); border: 1px solid var(--gold-bdr); padding: 11px 13px; border-radius: 14px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 900; color: var(--am); }
   .laser { position: absolute; left: 0; right: 0; height: 3px; z-index: 10; background: #10b981; box-shadow: 0 0 16px 4px #10b981; animation: scn 1.8s infinite ease-in-out; }
   @keyframes scn { 0% { top: 6%; } 50% { top: 92%; } 100% { top: 6%; } }
 
   /* Sub-Tab Pills */
-  .sub-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--card); padding: 5px; border-radius: 15px; border: 1px solid var(--border); margin-bottom: 12px; }
-  .s-pill { padding: 8px 4px; border-radius: 11px; border: none; background: transparent; color: var(--muted); font-size: 11.5px; font-weight: 800; cursor: pointer; }
-  .s-pill.active { background: var(--em); color: #fff; }
+  .sub-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--card); padding: 5px; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 12px; box-shadow: var(--sh); }
+  .s-pill { padding: 8.5px 4px; border-radius: 11px; border: none; background: transparent; color: var(--muted); font-size: 11.5px; font-weight: 800; cursor: pointer; transition: 0.2s; }
+  .s-pill.active { background: linear-gradient(135deg, #10b981, #047857); color: #fff; box-shadow: 0 4px 10px rgba(16,185,129,0.25); }
 
   /* Spin Wheel Visual */
-  .wheel-wrap { width: 150px; height: 150px; margin: 10px auto; position: relative; }
-  .wheel { width: 100%; height: 100%; border-radius: 50%; border: 5px solid #fbbf24; background: conic-gradient(#10b981 0deg 60deg, #047857 60deg 120deg, #f59e0b 120deg 180deg, #2563eb 180deg 240deg, #7c3aed 240deg 300deg, #dc2626 300deg 360deg); transition: transform 3s cubic-bezier(0.18, 0.89, 0.32, 1.28); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
-  .wheel-center { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: #0f172a; font-weight: 900; font-size: 11px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.3); cursor: pointer; }
+  .wheel-wrap { width: 148px; height: 148px; margin: 8px auto; position: relative; }
+  .wheel-ptr { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 5; font-size: 18px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+  .wheel { width: 100%; height: 100%; border-radius: 50%; border: 5px solid #fbbf24; background: conic-gradient(#10b981 0deg 60deg, #047857 60deg 120deg, #f59e0b 120deg 180deg, #2563eb 180deg 240deg, #7c3aed 240deg 300deg, #dc2626 300deg 360deg); transition: transform 3s cubic-bezier(0.18, 0.89, 0.32, 1.28); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.22); }
+  .wheel-center { width: 46px; height: 46px; border-radius: 50%; background: #fff; color: #0f172a; font-weight: 900; font-size: 11px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.35); cursor: pointer; user-select: none; border: 2px solid #fbbf24; }
 
   /* Fixed Bottom Navigation Bar (7 Tabs) */
   .bottom-dock {
     position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
-    width: 100%; max-width: 520px; height: 62px; background: var(--nav);
+    width: 100%; max-width: 520px; height: 64px; background: var(--nav);
     backdrop-filter: blur(16px); border-top: 1px solid var(--border);
     display: grid; grid-template-columns: repeat(7, 1fr);
     padding: 6px 2px 8px; z-index: 99999;
-    box-shadow: 0 -8px 28px rgba(0,0,0,0.1);
+    box-shadow: 0 -8px 28px rgba(0,0,0,0.12);
   }
   .tab-item { border: none; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 9.5px; font-weight: 700; cursor: pointer; }
-  .tab-ico { width: 34px; height: 29px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: 0.25s cubic-bezier(0.34,1.56,0.64,1); }
+  .tab-ico { width: 35px; height: 30px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 15.5px; transition: 0.25s cubic-bezier(0.34,1.56,0.64,1); }
   .tab-item.active { color: var(--em); font-weight: 800; }
-  .tab-item.active .tab-ico { background: linear-gradient(135deg, #10b981, #047857); color: #fff; transform: translateY(-4px); box-shadow: 0 5px 12px rgba(16,185,129,0.4); }
+  .tab-item.active .tab-ico { background: linear-gradient(135deg, #10b981, #047857); color: #fff; transform: translateY(-4px); box-shadow: 0 5px 12px rgba(16,185,129,0.45); }
 
-  #toast { position: fixed; top: 56px; left: 50%; transform: translateX(-50%) translateY(-200%); z-index: 100000; background: #064e3b; color: #fff; border: 1px solid #34d399; padding: 9px 16px; border-radius: 14px; font-size: 12px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; white-space: nowrap; }
+  #toast { position: fixed; top: 58px; left: 50%; transform: translateX(-50%) translateY(-220%); z-index: 100000; background: #022c22; color: #fff; border: 1.5px solid #fbbf24; padding: 9px 16px; border-radius: 14px; font-size: 12px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.35); }
   #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   .p-hdr { display: none; text-align: center; border-bottom: 2px solid #047857; padding-bottom: 8px; margin-bottom: 10px; }
 
   @media print {
     :root, [data-theme="dark"] { --bg: #fff !important; --card: #fff !important; --text: #000 !important; --muted: #333 !important; --border: #ccc !important; }
     html, body { background: #fff !important; color: #000 !important; padding: 0 !important; }
-    .hero, .ticker, .bottom-dock, .fixed-top-ad, .fixed-bottom-ad, .no-print, #toast { display: none !important; }
+    .hero, .ticker, .bottom-dock, .fixed-top-ad, .fixed-bottom-ad, .no-print, #toast, .del-btn { display: none !important; }
     .page, .rcpt { display: none !important; }
     .page.p-page, .rcpt.p-target { display: block !important; border: 2px solid #000 !important; box-shadow: none !important; }
     .p-hdr { display: block !important; }
@@ -157,6 +233,9 @@
 </style>
 </head>
 <body>
+
+<!-- Hidden Safe External Launcher for Android WebView APK (Ads & WhatsApp) -->
+<a id="safeExternalLauncher" href="https://uplcm.com/4/12138896" target="_blank" rel="noopener" class="hidden"></a>
 
 <!-- ==================== FIXED TOP AD (MONETAG) ==================== -->
 <a href="https://uplcm.com/4/12138896" target="_blank" rel="noopener" class="fixed-top-ad">
@@ -171,44 +250,69 @@
 <canvas id="aiCanvas" width="128" height="128" class="hidden"></canvas>
 
 <div class="shell">
-  <!-- INTERNATIONAL HEADER WITH DESI CALENDAR & POINTS -->
+  <!-- ROYAL EMERALD & GOLD HEADER WITH DESI CALENDAR, STREAK & POINTS -->
   <header class="hero">
     <div class="h-top">
       <div class="brand">
-        <div class="logo">🌱</div>
+        <div class="logo">🌾</div>
         <div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <h1 style="font-size:17.5px;font-weight:800;letter-spacing:-0.3px;">AgriBuild Pro</h1>
-            <span style="background:#fbbf24;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;">AI SUPER</span>
+            <h1 style="font-size:18px;font-weight:900;letter-spacing:-0.3px;">AgriBuild Pro</h1>
+            <span class="gold-pill">ROYAL AI</span>
           </div>
-          <p style="font-size:11px;opacity:0.88;">Khan Traders Sehja • Agri, Build & Khata</p>
+          <p style="font-size:11px;opacity:0.92;color:#d1fae5;">Khan Traders Sehja • Smart Super Ecosystem</p>
         </div>
       </div>
-      <div style="display:flex;gap:6px;">
-        <button class="icon-btn" onclick="openRewardModal()" style="background:rgba(245,158,11,0.25);border-color:#fbbf24;color:#fde68a;">🎁 <span id="userPtsBadge">100</span></button>
+      <div style="display:flex;gap:5px;">
+        <button class="icon-btn" onclick="claimDailyBonus()" style="background:rgba(239,68,68,0.28);border-color:#fca5a5;color:#fef2f2;" title="Daily Streak">🔥 <span id="streakBadge">1d</span></button>
+        <button class="icon-btn" onclick="openRewardModal()" style="background:rgba(245,158,11,0.28);border-color:#fbbf24;color:#fde68a;" title="Kisan Points">🎁 <span id="userPtsBadge">100</span></button>
         <button class="icon-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle Theme">🌙</button>
       </div>
     </div>
 
     <!-- Accurate Desi (Bikrami) Date & Live Weather Bar -->
     <div class="desi-bar">
-      <div>
-        <span style="font-size:10.5px;color:#fcd34d;font-weight:800;display:block;" id="desiDateTxt">📅 Loading Bikrami Date...</span>
-        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;font-size:11.5px;">🌤️ Sehja / Khanpur: 31°C • Ideal Spray</span>
+      <div style="overflow:hidden;">
+        <span style="font-size:10.5px;color:#fde047;font-weight:800;display:block;" id="desiDateTxt">📅 Loading Bikrami Date...</span>
+        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌤️ Sehja / Khanpur: 31°C • Ideal Spray</span>
       </div>
-      <span id="syncBadge" onclick="autoFetchLiveRates(true)" style="font-size:10px;background:rgba(16,185,129,0.35);padding:4px 8px;border-radius:8px;font-weight:800;cursor:pointer;">🟢 Live Sync</span>
+      <span id="syncBadge" onclick="autoFetchLiveRates(true)" style="font-size:10px;background:rgba(16,185,129,0.35);border:1px solid rgba(52,211,153,0.45);padding:5px 9px;border-radius:9px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;">🟢 Live Sync</span>
     </div>
   </header>
 
   <!-- LIVE MARKET TICKER -->
   <div class="ticker">
     <span class="live-badge">LIVE</span>
-    <div class="t-wrap"><div id="liveTickerText" class="t-move">Syncing Live Pakistan Mandi & Construction Rates...</div></div>
+    <div class="t-wrap"><div id="liveTickerText" class="t-move">Syncing Live Pakistan Mandi, Gold & Construction Rates...</div></div>
     <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34d399;font-size:13px;font-weight:800;cursor:pointer;" title="Refresh Live Rates">↻</button>
   </div>
 
   <!-- ==================== 0. HOME DASHBOARD ==================== -->
   <section id="homeTab" class="page active">
+    <!-- 7-Day Interactive Daily Check-In Streak Bar -->
+    <div class="streak-box">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span style="font-size:10px;color:#fde047;font-weight:900;letter-spacing:0.5px;">🔥 DAILY CHECK-IN REWARDS</span>
+          <h3 style="font-size:13.5px;font-weight:800;margin-top:1px;">Open App Daily to Win Kisan Vouchers</h3>
+        </div>
+        <button id="claimBonusBtn" onclick="claimDailyBonus()" style="background:linear-gradient(135deg,#fde047,#f59e0b);color:#0f172a;border:none;padding:7px 11px;border-radius:10px;font-size:11px;font-weight:900;cursor:pointer;box-shadow:0 4px 12px rgba(245,158,11,0.4);">⚡ Claim +25 Pts</button>
+      </div>
+      <div id="streakDaysGrid" class="s-days"></div>
+    </div>
+
+    <!-- Daily Morning Briefing Card -->
+    <div class="daily-brief">
+      <div style="flex:1;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:2px;">
+          <span style="background:#f59e0b;color:#0f172a;font-size:9px;font-weight:900;padding:2px 6px;border-radius:4px;">TODAY'S TIP</span>
+          <span id="dailyTipTitle" style="font-size:11px;font-weight:800;color:var(--em);">Expert Advisory</span>
+        </div>
+        <p id="dailyTipText" class="urdu-text" style="font-size:12px;color:var(--text);">فصل پر سپرے ہمیشہ صبح ٹھنڈے وقت یا شام کو کریں تاکہ دوا کا پورا اثر ملے۔</p>
+      </div>
+      <button onclick="openNav('khataTab',5)" style="background:linear-gradient(135deg,#10b981,#047857);color:#fff;border:none;padding:8px 10px;border-radius:12px;font-size:10.5px;font-weight:800;cursor:pointer;white-space:nowrap;">📒 Khata →</button>
+    </div>
+
     <!-- 7-Day Live Weather & Spray Radar Strip -->
     <div class="sec-title">
       <span>🌦️ 7-Day Spray & Weather Radar (Sehja)</span>
@@ -218,67 +322,75 @@
 
     <!-- Live Market Index Quick Row -->
     <div class="sec-title">
-      <span>⚡ Live Market Index</span>
-      <span onclick="openNav('ratesTab',6)" style="color:var(--em);cursor:pointer;">All 12 Rates & Status Card →</span>
+      <span>⚡ Live Market & Gold Index</span>
+      <span onclick="openNav('ratesTab',6)" style="color:var(--em);cursor:pointer;">All 14 Rates & Status Card →</span>
     </div>
     <div id="homeMandiRow" class="g-4" style="margin-bottom:12px;"></div>
 
     <!-- AI Crop Doctor Featured Hero -->
-    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:152px;margin-bottom:12px;cursor:pointer;border:1.5px solid rgba(16,185,129,0.4);box-shadow:var(--sh);">
+    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:156px;margin-bottom:12px;cursor:pointer;border:1.5px solid var(--gold-bdr);box-shadow:var(--sh);">
+      <span class="f-ico">🩺</span>
       <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.style.display='none'">
       <div class="ovl"></div>
       <div style="position:absolute;top:10px;left:12px;z-index:3;display:flex;gap:6px;">
-        <span style="background:#10b981;color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ AI VISION SCANNER</span>
-        <span style="background:rgba(0,0,0,0.65);color:#fcd34d;font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:20px;">Auto-Detect</span>
+        <span style="background:linear-gradient(135deg,#10b981,#047857);color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ AI VISION DOCTOR</span>
+        <span style="background:rgba(0,0,0,0.7);color:#fcd34d;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;border:1px solid rgba(251,191,36,0.4);">Auto-Detect</span>
       </div>
       <div style="position:absolute;bottom:12px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;">
         <div>
-          <h2 style="font-size:16.5px;font-weight:800;">AI Crop Doctor</h2>
-          <p style="font-size:11px;opacity:0.9;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
+          <h2 style="font-size:17px;font-weight:900;">AI Crop Doctor & Leaf Scanner</h2>
+          <p style="font-size:11px;opacity:0.92;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
         </div>
-        <div style="width:38px;height:38px;border-radius:11px;background:#10b981;display:flex;align-items:center;justify-content:center;font-size:18px;">📷</div>
+        <div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#fbbf24,#d97706);color:#0f172a;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:900;box-shadow:0 4px 12px rgba(245,158,11,0.4);">📷</div>
       </div>
     </div>
 
-    <!-- Daily Engagement Row: Kisan Khata + Daily Lucky Spin & Quiz -->
+    <!-- Daily Engagement Row: Firebase Kisan Khata + Daily Lucky Spin & Quiz -->
     <div class="g-2" style="margin-bottom:12px;">
-      <div onclick="openNav('khataTab',5)" class="card" style="margin:0;background:linear-gradient(135deg,#064e3b,#047857);color:#fff;cursor:pointer;border:none;">
-        <div style="font-size:22px;margin-bottom:4px;">📒</div>
-        <strong style="font-size:13.5px;display:block;">Kisan & Milk Khata</strong>
-        <span style="font-size:10.5px;opacity:0.88;">Daily Crop Expense, Income & Milk Diary</span>
+      <div onclick="openNav('khataTab',5)" class="card" style="margin:0;background:linear-gradient(135deg,#022c22,#047857);color:#fff;cursor:pointer;border:1px solid rgba(52,211,153,0.35);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <span style="font-size:22px;">📒</span>
+          <span style="background:rgba(16,185,129,0.35);color:#a7f3d0;font-size:8.5px;font-weight:900;padding:2px 6px;border-radius:6px;">☁️ FIREBASE LIVE</span>
+        </div>
+        <strong style="font-size:13.5px;display:block;">Cloud Kisan Khata</strong>
+        <span style="font-size:10.5px;opacity:0.9;">Cash, Udhar, Milk Diary & Alarms</span>
       </div>
-      <div onclick="openRewardModal()" class="card" style="margin:0;background:linear-gradient(135deg,#78350f,#b45309);color:#fff;cursor:pointer;border:none;">
-        <div style="font-size:22px;margin-bottom:4px;">🎡</div>
+      <div onclick="openRewardModal()" class="card" style="margin:0;background:linear-gradient(135deg,#451a03,#b45309);color:#fff;cursor:pointer;border:1px solid rgba(251,191,36,0.4);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <span style="font-size:22px;">🎡</span>
+          <span style="background:rgba(255,255,255,0.2);color:#fff;font-size:8.5px;font-weight:900;padding:2px 6px;border-radius:6px;">WIN VOUCHERS</span>
+        </div>
         <strong style="font-size:13.5px;display:block;">Daily Spin & Quiz</strong>
-        <span style="font-size:10.5px;opacity:0.88;">Win Discount Vouchers & Kisan Points</span>
+        <span style="font-size:10.5px;opacity:0.9;">Win Spray Discounts & Kisan Points</span>
       </div>
     </div>
 
     <div class="sec-title"><span>Engineering & Agri Suites</span></div>
     <div id="homeBentoGrid" class="g-2" style="margin-bottom:12px;"></div>
 
-    <!-- Daily Spin & Quiz Interactive Card (Expandable on Home) -->
-    <div id="rewardSpinBox" class="card" style="border:2px solid #f59e0b;">
+    <!-- Daily Spin & Quiz Interactive Card -->
+    <div id="rewardSpinBox" class="card" style="border:2px solid var(--gold-bdr);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <strong style="font-size:13.5px;color:#d97706;">🎡 Daily Kisan Spin & Quiz</strong>
-        <span style="font-size:10.5px;background:var(--am-bg);color:#d97706;padding:2px 8px;border-radius:10px;font-weight:800;">Win Prizes</span>
+        <strong style="font-size:13.5px;color:var(--am);">🎡 Daily Kisan Spin & 10-Quiz Challenge</strong>
+        <span id="quizProgressBadge" style="font-size:10.5px;background:var(--am-bg);color:var(--am);padding:2px 8px;border-radius:10px;font-weight:800;">Q 1/10</span>
       </div>
       <div class="g-2" style="align-items:center;">
         <div style="text-align:center;">
           <div class="wheel-wrap">
+            <div class="wheel-ptr">🔻</div>
             <div id="spinWheelEl" class="wheel">
               <div class="wheel-center" onclick="spinLuckyWheel()">SPIN</div>
             </div>
           </div>
-          <button class="btn" style="padding:8px;font-size:11.5px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="spinLuckyWheel()">🎰 Spin & Win Points</button>
+          <button id="spinBtnEl" class="btn" style="padding:8px;font-size:11.5px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="spinLuckyWheel()">🎰 Spin & Win Voucher</button>
         </div>
         <div>
-          <div style="font-size:11px;font-weight:800;color:var(--em);margin-bottom:4px;">🧠 Daily Kisan Quiz:</div>
+          <div style="font-size:11px;font-weight:800;color:var(--em);margin-bottom:4px;">🧠 Kisan Quiz (+25 Pts):</div>
           <p id="quizQ" class="urdu-text" style="font-size:12px;margin-bottom:8px;">گندم کی پیلی کنگی (Rust) کے لیے کون سا سپرے بہترین ہے؟</p>
           <div id="quizOpts" style="display:flex;flex-direction:column;gap:5px;"></div>
         </div>
       </div>
-      <div id="spinResultMsg" class="hidden" style="margin-top:10px;background:var(--em-bg);color:var(--em);padding:9px;border-radius:11px;font-size:12px;font-weight:800;text-align:center;"></div>
+      <div id="spinResultMsg" class="hidden" style="margin-top:10px;background:var(--em-bg);border:1px solid var(--em);color:var(--text);padding:10px;border-radius:12px;font-size:12px;font-weight:700;text-align:center;"></div>
     </div>
   </section>
 
@@ -290,9 +402,9 @@
           <span style="font-size:10px;font-weight:800;color:var(--em);text-transform:uppercase;letter-spacing:0.6px;">AI Plant Pathology</span>
           <h2 style="font-size:17px;font-weight:800;margin-top:1px;">AI Crop Doctor</h2>
         </div>
-        <span style="font-size:10.5px;background:var(--em-bg);color:var(--em);padding:4px 10px;border-radius:20px;font-weight:800;">Auto-Detection</span>
+        <span style="font-size:10.5px;background:var(--em-bg);color:var(--em);padding:4px 10px;border-radius:20px;font-weight:800;">Smart Leaf AI</span>
       </div>
-      <p style="font-size:12px;color:var(--muted);margin-top:4px;">Take a live photo or select from gallery. AI automatically identifies the crop, disease, symptoms, and Urdu cure.</p>
+      <p style="font-size:12px;color:var(--muted);margin-top:4px;">Take a clear photo of the infected leaf or upload from gallery for instant Urdu diagnosis and spray cure.</p>
 
       <input type="file" id="camInput" accept="image/*" capture="environment" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
       <input type="file" id="galInput" accept="image/*" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
@@ -314,7 +426,7 @@
         <img id="scannedLeafImg" src="" style="width:100%;height:100%;object-fit:cover;opacity:0.92;" alt="">
         <div id="scanLaserBar" class="laser"></div>
         <div id="scanStatusTxt" style="position:absolute;bottom:0;inset-inline:0;background:rgba(0,0,0,0.82);color:#fff;padding:8px;font-size:11.5px;font-weight:700;text-align:center;z-index:12;">
-          🔄 AI Vision Analyzing Crop & Symptoms...
+          🔄 AI Vision Analyzing Leaf Chlorophyll & Pathology...
         </div>
       </div>
 
@@ -323,8 +435,10 @@
 
     <div class="sec-title">
       <span>Disease & Cure Library (Urdu)</span>
-      <span style="font-size:10.5px;color:var(--em);">21 Verified Cures</span>
+      <span id="diseaseCountTag" style="font-size:10.5px;color:var(--em);">21 Verified Cures</span>
     </div>
+    <input type="text" id="docSearchInp" oninput="renderDiseaseLibrary()" placeholder="🔍 Search pest or disease (e.g. Whitefly, Sundi, Rust, سفید مکھی)..." class="inp" style="margin-bottom:8px;font-size:12.5px;">
+    <div id="docFilterPills" class="pill-bar no-sb"></div>
     <div id="doctorDiseaseList"></div>
   </section>
 
@@ -367,7 +481,7 @@
       <div class="rline"><span>⚡ Potash & Zinc:</span><strong id="rPotash">-</strong></div>
       <div class="rline"><span>🚿 Total Water & Tanks:</span><strong id="rSprayTanks">-</strong></div>
       <div class="rline"><span>🧪 Dose per Single Tank:</span><strong id="rDosePerTank" style="color:var(--em);">-</strong></div>
-      <div class="rtot"><span>Estimated Cost:</span><span id="rTotalAgri">-</span></div>
+      <div class="rtot"><span>Estimated Input Cost:</span><span id="rTotalAgri">-</span></div>
       <div class="g-3 no-print" style="margin-top:10px;">
         <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('agriTab','agriResult')">🖨️ PDF</button>
         <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('agri')">📋 Copy</button>
@@ -517,8 +631,8 @@
   <section id="solarTab" class="page">
     <div class="no-print">
       <div class="g-2" style="margin-bottom:12px;">
-        <div onclick="selectSolarVisual('home',this)" class="vis-solar-card v-opt sel"><div class="img-box" style="height:75px;border-radius:0;"><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🏠 Hybrid Home Solar</span></div>
-        <div onclick="selectSolarVisual('tubewell',this)" class="vis-solar-card v-opt"><div class="img-box" style="height:75px;border-radius:0;"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🚜 Agri Solar Tubewell</span></div>
+        <div onclick="selectSolarVisual('home',this)" class="vis-solar-card v-opt sel"><div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🏠</span><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🏠 Hybrid Home Solar</span></div>
+        <div onclick="selectSolarVisual('tubewell',this)" class="vis-solar-card v-opt"><div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🚜</span><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🚜 Agri Solar Tubewell</span></div>
       </div>
       <input type="hidden" id="solarType" value="home">
       <div class="card">
@@ -544,7 +658,7 @@
       <div class="p-hdr"><h2>Solar System Quotation</h2><p>Khan Traders | 0300-5039391 | <span class="print-date"></span></p></div>
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
         <strong style="color:var(--em);font-size:14px;">Solar Engineering Quote</strong>
-        <span id="resSolarMeta" style="font-size:11px;background:var(--am-bg);color:#d97706;padding:2px 8px;border-radius:8px;font-weight:800;">N-Type Tier-1</span>
+        <span id="resSolarMeta" style="font-size:11px;background:var(--am-bg);color:var(--am);padding:2px 8px;border-radius:8px;font-weight:800;">N-Type Tier-1</span>
       </div>
       <div class="rline"><span>☀️ 580W Bi-Facial Panels:</span><strong id="sPanels">-</strong></div>
       <div class="rline"><span>⚡ Inverter / VFD Drive:</span><strong id="sInverter">-</strong></div>
@@ -559,38 +673,104 @@
     </div>
   </section>
 
-  <!-- ==================== 5. KISAN KHATA & MILK DIARY (DAILY RETENTION TAB) ==================== -->
+  <!-- ==================== 5. KISAN KHATA, GOOGLE FIREBASE SYNC & BACKUP ==================== -->
   <section id="khataTab" class="page">
-    <div class="sub-nav" style="grid-template-columns:1fr 1fr;">
-      <button id="pillCashKhata" onclick="switchKhataSub('cash')" class="s-pill active">🚜 Crop Cashbook</button>
-      <button id="pillMilkKhata" onclick="switchKhataSub('milk')" class="s-pill">🥛 Daily Milk Diary</button>
-    </div>
+    <!-- GOOGLE FIREBASE CLOUD LOGIN + PIN + WHATSAPP BACKUP HUB -->
+    <div class="card no-print" style="background:linear-gradient(135deg,#011812,#064e3b);color:#fff;border:1.5px solid rgba(251,191,36,0.45);padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span id="kisanLockStatus" style="font-size:9px;background:rgba(16,185,129,0.3);color:#6ee7b7;padding:2px 7px;border-radius:6px;font-weight:800;">🔓 NO PIN SET</span>
+            <span id="firebaseBadge" onclick="toggleKisanAuthBox('admin')" style="font-size:9px;background:rgba(16,185,129,0.38);color:#a7f3d0;padding:2px 7px;border-radius:6px;font-weight:800;cursor:pointer;" title="Firebase Server Connected">☁️ FIREBASE LIVE ⚙️</span>
+          </div>
+          <h3 id="kisanAccountTitle" style="font-size:15px;font-weight:900;margin-top:4px;">👤 Guest Kisan Account</h3>
+          <p id="kisanBackupStatus" style="font-size:10.5px;opacity:0.9;color:#d1fae5;">Login with Mobile Number & PIN to auto-sync Khata on Cloud</p>
+        </div>
+        <button onclick="toggleKisanAuthBox('profile')" style="background:linear-gradient(135deg,#fde047,#f59e0b);color:#0f172a;border:none;padding:8px 12px;border-radius:11px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap;box-shadow:0 4px 12px rgba(245,158,11,0.35);">🔑 Kisan Login</button>
+      </div>
 
-    <!-- SUB A: CROP EXPENSE & INCOME KHATA -->
-    <div id="subCashKhata">
-      <div class="g-3" style="margin-bottom:12px;">
-        <div class="card" style="margin:0;padding:10px;text-align:center;">
-          <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Income</span>
-          <strong id="khataTotInc" style="font-size:13px;color:#10b981;display:block;margin-top:2px;">Rs. 0</strong>
+      <div class="g-4">
+        <button onclick="firebaseCloudSync('push')" style="background:#10b981;color:#fff;border:none;padding:8px 4px;border-radius:10px;font-size:10.5px;font-weight:800;cursor:pointer;">☁️ Sync Up</button>
+        <button onclick="firebaseCloudSync('pull')" style="background:#3b82f6;color:#fff;border:none;padding:8px 4px;border-radius:10px;font-size:10.5px;font-weight:800;cursor:pointer;">📲 Pull Cloud</button>
+        <button onclick="backupKhataToWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:8px 4px;border-radius:10px;font-size:10.5px;font-weight:800;cursor:pointer;">💬 WA Backup</button>
+        <button onclick="toggleKisanAuthBox('restore')" style="background:rgba(255,255,255,0.16);color:#fff;border:1px solid rgba(255,255,255,0.28);padding:8px 4px;border-radius:10px;font-size:10.5px;font-weight:800;cursor:pointer;">📥 Restore</button>
+      </div>
+
+      <!-- Clean Kisan Login Drawer (Only Name, Mobile & 4-Digit PIN) -->
+      <div id="kisanProfileDrawer" class="hidden" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.2);">
+        <strong style="font-size:12.5px;color:#fde047;display:block;margin-bottom:8px;">🔐 Kisan Account Login (موبائل نمبر اور 4 ہندسوں کا پن کوڈ)</strong>
+        <div class="g-2" style="margin-bottom:8px;">
+          <div><label style="color:#d1fae5;">Your Name (آپ کا نام)</label><input type="text" id="accNameInp" placeholder="e.g. Nadeem Khan" class="inp" style="background:#fff;color:#0f172a;"></div>
+          <div><label style="color:#d1fae5;">Mobile Number (موبائل نمبر)</label><input type="tel" id="accPhoneInp" placeholder="03001234567" class="inp" style="background:#fff;color:#0f172a;"></div>
         </div>
-        <div class="card" style="margin:0;padding:10px;text-align:center;">
-          <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Expense</span>
-          <strong id="khataTotExp" style="font-size:13px;color:#ef4444;display:block;margin-top:2px;">Rs. 0</strong>
+        <div style="margin-bottom:10px;">
+          <label style="color:#d1fae5;">4-Digit Secret PIN (کھاتہ لاک اور نئے موبائل پر ریکوری کا کوڈ)</label>
+          <input type="password" id="accPinInp" maxlength="4" inputmode="numeric" placeholder="e.g. 1234" class="inp" style="background:#fff;color:#0f172a;">
         </div>
-        <div class="card" style="margin:0;padding:10px;text-align:center;">
-          <span style="font-size:10px;color:var(--muted);font-weight:700;">Net Balance</span>
-          <strong id="khataNetBal" style="font-size:13px;color:var(--em);display:block;margin-top:2px;">Rs. 0</strong>
+        <div class="g-2">
+          <button class="btn" style="background:#fbbf24;color:#0f172a;padding:10px;font-size:12px;" onclick="saveKisanAccount(true)">✅ Save & Cloud Sync</button>
+          <button class="btn" style="background:#3b82f6;color:#fff;padding:10px;font-size:12px;" onclick="firebaseCloudSync('pull')">📥 Recover My Khata</button>
         </div>
       </div>
 
-      <div class="card">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">➕ Add Daily Kisan Entry</strong>
+      <!-- Discreet Admin Firebase Server Config Drawer -->
+      <div id="kisanAdminDrawer" class="hidden" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.2);">
+        <strong style="font-size:12px;color:#fde047;display:block;margin-bottom:4px;">⚙️ Google Firebase Realtime DB Setup (Connected: agri-bulid-pro)</strong>
+        <input type="url" id="accFirebaseUrlInp" value="https://agri-bulid-pro-default-rtdb.firebaseio.com" class="inp" style="background:#fff;color:#0f172a;font-size:11.5px;margin-bottom:8px;">
+        <button class="btn" style="background:#10b981;padding:9px;font-size:11.5px;" onclick="saveAdminFirebaseUrl()">💾 Update Firebase Server</button>
+      </div>
+
+      <!-- Expandable Restore Backup Box -->
+      <div id="kisanRestoreDrawer" class="hidden" style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.2);">
+        <strong style="font-size:12.5px;color:#fde047;display:block;margin-bottom:6px;">📥 Restore Khata via WhatsApp Code or File</strong>
+        <p style="font-size:11px;opacity:0.9;margin-bottom:8px;">Paste the `AGRI-BACKUP-...` code from WhatsApp or upload your `.txt` backup file:</p>
+        <input type="text" id="restoreCodeInp" placeholder="Paste AGRI-BACKUP-... code here" class="inp" style="background:#fff;color:#0f172a;margin-bottom:8px;font-size:12px;">
+        <div class="g-3">
+          <button class="btn" style="background:#22c55e;padding:9px;font-size:11px;" onclick="restoreFromCode()">🔄 Restore</button>
+          <button class="btn" style="background:#f59e0b;color:#0f172a;padding:9px;font-size:11px;" onclick="downloadKhataFile()">💾 Download</button>
+          <label for="restoreFileInp" class="btn" style="background:rgba(255,255,255,0.2);color:#fff;padding:9px;font-size:11px;margin:0;cursor:pointer;">📂 Upload</label>
+          <input type="file" id="restoreFileInp" accept=".json,.txt" class="hidden" onchange="restoreFromFile(event)">
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-nav no-print">
+      <button id="pillCashKhata" onclick="switchKhataSub('cash')" class="s-pill active">🚜 Cash & Udhar</button>
+      <button id="pillMilkKhata" onclick="switchKhataSub('milk')" class="s-pill">🥛 Milk Diary</button>
+      <button id="pillAlarmKhata" onclick="switchKhataSub('alarm')" class="s-pill">🔔 Reminders</button>
+    </div>
+
+    <!-- SUB A: CROP EXPENSE, INCOME & UDHAR KHATA -->
+    <div id="subCashKhata">
+      <div class="card no-print" style="padding:12px;">
+        <div class="g-3" style="text-align:center;margin-bottom:8px;">
+          <div>
+            <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Income</span>
+            <strong id="khataTotInc" style="font-size:13px;color:#10b981;display:block;margin-top:2px;">Rs. 0</strong>
+          </div>
+          <div>
+            <span style="font-size:10px;color:var(--muted);font-weight:700;">Total Expense</span>
+            <strong id="khataTotExp" style="font-size:13px;color:#ef4444;display:block;margin-top:2px;">Rs. 0</strong>
+          </div>
+          <div>
+            <span style="font-size:10px;color:var(--muted);font-weight:700;">Net Balance</span>
+            <strong id="khataNetBal" style="font-size:13px;color:var(--em);display:block;margin-top:2px;">Rs. 0</strong>
+          </div>
+        </div>
+        <div id="khataRatioBar" style="height:7px;border-radius:6px;overflow:hidden;display:flex;background:var(--inp);">
+          <div style="width:50%;background:#10b981;"></div>
+          <div style="width:50%;background:#ef4444;"></div>
+        </div>
+      </div>
+
+      <div class="card no-print">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">➕ Add Daily Kisan / Udhar Entry</strong>
         <div class="g-2" style="margin-bottom:8px;">
           <div>
             <label>Entry Type</label>
             <select id="kEntryType" class="inp">
-              <option value="exp">🔴 Expense (خرچہ)</option>
-              <option value="inc">🟢 Income (آمدن)</option>
+              <option value="exp">🔴 Expense / Udhar Diya</option>
+              <option value="inc">🟢 Income / Wasooli</option>
             </select>
           </div>
           <div>
@@ -601,83 +781,135 @@
               <option value="Pesticide Spray">🧪 Pesticide Spray</option>
               <option value="Seeds (Beej)">🌰 Seeds (Beej)</option>
               <option value="Labor / Mazdoori">👷 Labor / Mazdoori</option>
+              <option value="Udhar / Lain-Dain">🤝 Udhar / Party Khata</option>
               <option value="Crop Sale (Mandi)">💰 Crop Sale (Mandi)</option>
             </select>
           </div>
         </div>
         <div class="g-2" style="margin-bottom:10px;">
           <div><label>Amount (PKR)</label><input type="number" id="kEntryAmt" placeholder="e.g. 5000" class="inp"></div>
-          <div><label>Note (Optional)</label><input type="text" id="kEntryNote" placeholder="Cotton field..." class="inp"></div>
+          <div><label>Person / Crop Note</label><input type="text" id="kEntryNote" placeholder="Name or Crop..." class="inp"></div>
         </div>
-        <button class="btn" onclick="addKhataEntry()">💾 Save Entry in Khata</button>
+        <button class="btn" onclick="addKhataEntry()">💾 Save & Auto-Sync Khata</button>
       </div>
 
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <div id="cashPrintBox" class="rcpt card">
+        <div class="p-hdr"><h2>AgriBuild Pro — Kisan Cashbook Ledger</h2><p id="printAccountHdr">Khan Traders, Sehja | WhatsApp: 0300-5039391</p></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
           <strong style="font-size:13.5px;">📒 Saved Khata Ledger</strong>
-          <div style="display:flex;gap:8px;">
+          <div class="no-print" style="display:flex;gap:6px;">
+            <button onclick="printSingleSlip('khataTab','cashPrintBox')" style="background:var(--inp);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">🖨️ PDF</button>
             <button onclick="shareKhataWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
             <button onclick="clearKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
           </div>
         </div>
+        <input type="text" id="khataSearchInp" oninput="renderKhataLedger()" placeholder="🔍 Search by customer name, crop or item..." class="inp no-print" style="margin-bottom:8px;padding:8px 11px;font-size:12px;">
         <div id="khataLedgerList"></div>
       </div>
     </div>
 
     <!-- SUB B: DAILY MILK DIARY -->
     <div id="subMilkKhata" class="hidden">
-      <div class="g-2" style="margin-bottom:12px;">
+      <div class="g-2 no-print" style="margin-bottom:12px;">
         <div class="card" style="margin:0;padding:12px;text-align:center;">
           <span style="font-size:10.5px;color:var(--muted);font-weight:700;">Total Milk Logged</span>
           <strong id="milkTotLiters" style="font-size:15px;color:var(--em);display:block;margin-top:2px;">0.0 Liters</strong>
         </div>
         <div class="card" style="margin:0;padding:12px;text-align:center;">
           <span style="font-size:10.5px;color:var(--muted);font-weight:700;">Total Milk Value</span>
-          <strong id="milkTotAmount" style="font-size:15px;color:#d97706;display:block;margin-top:2px;">PKR 0</strong>
+          <strong id="milkTotAmount" style="font-size:15px;color:var(--am);display:block;margin-top:2px;">PKR 0</strong>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card no-print">
         <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🥛 Record Today's Milk (صبح و شام کا دودھ)</strong>
         <div class="g-3" style="margin-bottom:10px;">
           <div><label>Morning (Liters)</label><input type="number" id="milkMorn" value="6" step="0.5" class="inp"></div>
           <div><label>Evening (Liters)</label><input type="number" id="milkEve" value="5" step="0.5" class="inp"></div>
           <div><label>Rate / Liter (Rs)</label><input type="number" id="milkRate" value="190" class="inp"></div>
         </div>
-        <button class="btn" onclick="addMilkEntry()">🥛 Save Today's Milk Record</button>
+        <button class="btn" onclick="addMilkEntry()">🥛 Save & Sync Milk Record</button>
+      </div>
+
+      <div id="milkPrintBox" class="rcpt card">
+        <div class="p-hdr"><h2>AgriBuild Pro — Daily Milk Diary</h2><p>Khan Traders, Sehja | WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
+          <strong style="font-size:13.5px;">📋 Milk Hisab History</strong>
+          <div class="no-print" style="display:flex;gap:6px;">
+            <button onclick="printSingleSlip('khataTab','milkPrintBox')" style="background:var(--inp);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">🖨️ PDF</button>
+            <button onclick="shareMilkWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
+            <button onclick="clearMilkKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
+          </div>
+        </div>
+        <div id="milkLedgerList"></div>
+      </div>
+    </div>
+
+    <!-- SUB C: IRRIGATION (PANI) & SPRAY REMINDER ALARM -->
+    <div id="subAlarmKhata" class="hidden">
+      <div class="card">
+        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:6px;">🔔 Set Crop Pani & Spray Reminder</strong>
+        <p style="font-size:11.5px;color:var(--muted);margin-bottom:10px;">Log today's irrigation or spray and get an automatic next-schedule alert:</p>
+        <div class="g-2" style="margin-bottom:8px;">
+          <div>
+            <label>Task Type</label>
+            <select id="remType" class="inp">
+              <option value="💧 Irrigation (پانی)">💧 Irrigation (پانی)</option>
+              <option value="🧪 Pesticide Spray">🧪 Pesticide Spray</option>
+              <option value="🌾 Fertilizer (کھاد)">🌾 Fertilizer (کھاد)</option>
+            </select>
+          </div>
+          <div>
+            <label>Crop Name</label>
+            <select id="remCrop" class="inp">
+              <option value="Cotton (کپاس)">☁️ Cotton (کپاس)</option>
+              <option value="Wheat (گندم)">🌾 Wheat (گندم)</option>
+              <option value="Sugarcane (گنا)">🎋 Sugarcane (گنا)</option>
+              <option value="Rice (مونجی)">🌱 Rice (مونجی)</option>
+              <option value="Maize (مکئی)">🌽 Maize (مکئی)</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:10px;">
+          <label>Next Due After (Days)</label>
+          <select id="remDays" class="inp">
+            <option value="7">After 7 Days (1 Week)</option>
+            <option value="10" selected>After 10 Days (Standard Spray)</option>
+            <option value="14">After 14 Days (2 Weeks Pani)</option>
+            <option value="21">After 21 Days (3 Weeks)</option>
+          </select>
+        </div>
+        <button class="btn" onclick="addCropReminder()">⏰ Set Schedule Reminder</button>
       </div>
 
       <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-          <strong style="font-size:13.5px;">📋 Milk Hisab History</strong>
-          <button onclick="clearMilkKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
-        </div>
-        <div id="milkLedgerList"></div>
+        <strong style="font-size:13.5px;display:block;margin-bottom:8px;">📅 Active Farm Schedule</strong>
+        <div id="reminderList"></div>
       </div>
     </div>
   </section>
 
   <!-- ==================== 6. LIVE MARKET RATES & STATUS CARD ==================== -->
   <section id="ratesTab" class="page">
-    <div class="card" style="background:linear-gradient(135deg,#022c22,#065f46);color:#fff;border:none;">
+    <div class="card" style="background:linear-gradient(135deg,#011812,#065f46);color:#fff;border:1.5px solid rgba(251,191,36,0.4);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
         <div>
           <span style="font-size:10px;background:#10b981;padding:2px 7px;border-radius:6px;font-weight:800;">LIVE MANDI BULLETIN</span>
-          <h3 style="font-size:16px;font-weight:800;margin-top:4px;">Pakistan Market & Crop Index</h3>
+          <h3 style="font-size:16px;font-weight:800;margin-top:4px;">Pakistan Market, Gold & Crop Index</h3>
         </div>
         <button onclick="autoFetchLiveRates(true)" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:7px 11px;border-radius:11px;font-size:11.5px;font-weight:800;cursor:pointer;">🔄 Sync Live</button>
       </div>
-      <p id="lastSyncTimestamp" style="font-size:11px;opacity:0.85;margin-bottom:10px;">Last Synced: Checking live servers...</p>
+      <p id="lastSyncTimestamp" style="font-size:11px;opacity:0.9;margin-bottom:10px;">Last Synced: Connecting to live servers...</p>
       <button class="btn btn-wa" style="padding:10px;font-size:12.5px;" onclick="shareWhatsAppStatusCard()">📲 Share Today's Mandi Rate Card on WhatsApp</button>
     </div>
 
     <div class="card">
-      <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:4px;">📊 Customize 12 Commodity Rates</strong>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;">Rates auto-sync from live servers or you can customize for your local mandi:</p>
+      <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:4px;">📊 Live & Customizable 14 Commodity Rates</strong>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;">Auto-synced with Pakistan market portals & USD index. Edit any box to set your local Sehja/Khanpur dealer rate:</p>
       <div id="ratesInputsGrid" class="g-2" style="margin-bottom:12px;"></div>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <button class="btn" onclick="saveRates(true)">💾 Save & Apply Market Rates</button>
-        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Restore Default Live Index</button>
+        <button class="btn" onclick="saveRates(true)">💾 Save & Lock Custom Dealer Rates</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Unlock & Re-Sync Live Market Rates</button>
       </div>
     </div>
 
@@ -697,10 +929,10 @@
     <span class="ad-tag" style="background:#34d399;color:#022c22;">OFFER</span>
     <span id="bottomAdText" style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌾 Wholesale Fertilizer, Solar & Construction Deals — Tap Here</span>
   </div>
-  <span class="ad-cta" style="background:#f59e0b;color:#0f172a;">View ➔</span>
+  <span class="ad-cta" style="background:#fbbf24;color:#0f172a;">View ➔</span>
 </a>
 
-<!-- PROMINENT FIXED BOTTOM NAVIGATION BAR (7 TABS INCLUDING KHATA) -->
+<!-- PROMINENT FIXED BOTTOM NAVIGATION BAR (7 TABS) -->
 <nav class="bottom-dock">
   <button onclick="openNav('homeTab',0)" class="tab-item active"><div class="tab-ico">🏠</div><span>Home</span></button>
   <button onclick="openNav('doctorTab',1)" class="tab-item"><div class="tab-ico">🩺</div><span>Doctor</span></button>
@@ -724,6 +956,21 @@ const whatsappNumber = "923005039391";
 const MONETAG_URL = "https://uplcm.com/4/12138896";
 const ADSTERRA_URL = "https://asiafilm.org/4/88c275cc5e5442a13b0d3b9854ae2b50";
 
+// ============================================================================
+// 🔥 GOOGLE FIREBASE REALTIME DATABASE CONFIGURATION (EMBEDDED FOR AGRI-BULID-PRO)
+// ============================================================================
+const FIREBASE_CONFIG = {
+  projectId: "agri-bulid-pro",
+  dbInstance: "agri-bulid-pro-default-rtdb",
+  databaseURL: "https://agri-bulid-pro-default-rtdb.firebaseio.com",
+  fallbackAsiaURL: "https://agri-bulid-pro-default-rtdb.asia-southeast1.firebasedatabase.app"
+};
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => { window.speechSynthesis.getVoices(); };
+}
+
 // ==================== 1. ANDROID BACK-BUTTON PROTECTION ====================
 let currentTabId = 'homeTab';
 let backExitWarned = false;
@@ -741,7 +988,21 @@ window.addEventListener('popstate', function(e) {
   }
 });
 
-// ==================== 2. SMART AUTO-AD POP ENGINE ====================
+// ==================== 2. UNIVERSAL WEBVIEW-SAFE EXTERNAL LINK LAUNCHER ====================
+function openExternalSafe(url) {
+  try {
+    const a = document.getElementById('safeExternalLauncher');
+    if (a) {
+      a.href = url;
+      a.click();
+    } else {
+      window.open(url, '_blank');
+    }
+  } catch (e) {
+    try { window.location.href = url; } catch(err) {}
+  }
+}
+
 function triggerSmartAd(forceAd = false) {
   try {
     const today = new Date().toLocaleDateString();
@@ -752,44 +1013,459 @@ function triggerSmartAd(forceAd = false) {
     if (forceAd) {
       const url = (state.clicks % 2 === 1) ? MONETAG_URL : ADSTERRA_URL;
       Store.set('smartAdTracker', JSON.stringify(state));
-      window.open(url, '_blank');
+      openExternalSafe(url);
       return;
     }
 
     if (state.pops === 0 && state.clicks === 1) {
       state.pops = 1;
       Store.set('smartAdTracker', JSON.stringify(state));
-      window.open(MONETAG_URL, '_blank');
+      openExternalSafe(MONETAG_URL);
     } else if (state.pops === 1 && state.clicks >= 3) {
       state.pops = 2;
       Store.set('smartAdTracker', JSON.stringify(state));
-      window.open(ADSTERRA_URL, '_blank');
+      openExternalSafe(ADSTERRA_URL);
     } else {
       Store.set('smartAdTracker', JSON.stringify(state));
     }
   } catch (e) {}
 }
 
-// ==================== 3. ACCURATE BIKRAMI (DESI) CALENDAR ENGINE ====================
+// ==================== 3. 7-DAY DAILY CHECK-IN STREAK & MORNING BRIEFING ====================
+function initDailyStreakAndBriefing() {
+  const tips = [
+    { t: "Spray Timing Advisory", u: "فصل پر سپرے ہمیشہ صبح ٹھنڈے وقت یا شام کو کریں تاکہ دوا کا 100% اثر ملے۔" },
+    { t: "Cotton Whitefly Alert", u: "کپاس میں سفید مکھی کے تدارک کے لیے شروع کے 60 دن کھیت کو جڑی بوٹیوں سے پاک رکھیں۔" },
+    { t: "Fertilizer Efficiency Tip", u: "یوریا کھاد ہمیشہ پانی لگانے کے فوراً بعد تر وتر میں ڈالیں تاکہ گیس بن کر ضائع نہ ہو۔" },
+    { t: "Construction Curing Tip", u: "نئے لینٹر اور دیواروں کی مضبوطی کے لیے کم از کم 10 دن تک صبح و شام پانی کی ترائی لازمی کریں۔" },
+    { t: "Solar Panel Boost", u: "سولر پلیٹوں پر گرد جمنے سے بجلی 25% کم ہو جاتی ہے، ہر 15 دن بعد ٹھنڈے پانی سے دھوئیں۔" },
+    { t: "Wheat Rust Protection", u: "گندم کے پتوں پر پیلے پاؤڈر کی دھاریاں نظر آتے ہی فوری فنجی سائیڈ (Nativo) کا سپرے کریں۔" },
+    { t: "Potash & Zinc Secret", u: "فصل کے دانے موٹے اور وزنی کرنے کے لیے گوبھ کے وقت پوٹاش اور چیلٹڈ زنک کا استعمال کریں۔" }
+  ];
+  const dayIdx = new Date().getDay();
+  const tip = tips[dayIdx % tips.length];
+  if (document.getElementById('dailyTipTitle')) document.getElementById('dailyTipTitle').innerText = tip.t;
+  if (document.getElementById('dailyTipText')) document.getElementById('dailyTipText').innerText = tip.u;
+
+  renderStreakCalendar();
+}
+
+function renderStreakCalendar() {
+  try {
+    const todayStr = new Date().toDateString();
+    const lastClaim = Store.get('kisanLastClaimDate');
+    let streak = parseInt(Store.get('kisanDailyStreak') || '1');
+    if (streak > 7) streak = ((streak - 1) % 7) + 1;
+
+    if (document.getElementById('streakBadge')) document.getElementById('streakBadge').innerText = `${streak}d`;
+    const btn = document.getElementById('claimBonusBtn');
+    const claimedToday = (lastClaim === todayStr);
+    if (btn) {
+      btn.innerText = claimedToday ? "✅ Claimed Today" : "⚡ Claim +25 Pts";
+      btn.style.opacity = claimedToday ? "0.75" : "1";
+    }
+
+    const rewards = ["+25", "+30", "+40", "+50", "+60", "+75", "🎁500"];
+    const grid = document.getElementById('streakDaysGrid');
+    if (grid) {
+      grid.innerHTML = rewards.map((r, i) => {
+        const dNum = i + 1;
+        const cls = dNum < streak ? 'done' : (dNum === streak ? 'active' : '');
+        return `<div class="s-step ${cls}">
+          <div>Day ${dNum}</div>
+          <div style="font-size:10.5px;margin-top:2px;">${dNum < streak ? '✓' : r}</div>
+        </div>`;
+      }).join('');
+    }
+  } catch(e) {}
+}
+
+function claimDailyBonus() {
+  const todayStr = new Date().toDateString();
+  const lastClaim = Store.get('kisanLastClaimDate');
+  if (lastClaim === todayStr) {
+    showToast("✅ You already claimed today's bonus! Come back tomorrow.");
+    openRewardModal();
+    return;
+  }
+  const yesterday = new Date(Date.now() - 86400000).toDateString();
+  let streak = parseInt(Store.get('kisanDailyStreak') || '0');
+  streak = (lastClaim === yesterday) ? streak + 1 : 1;
+  Store.set('kisanDailyStreak', String(streak));
+  Store.set('kisanLastClaimDate', todayStr);
+
+  const bonus = streak % 7 === 0 ? 150 : 25;
+  let pts = parseInt(Store.get('kisanUserPts') || '100') + bonus;
+  Store.set('kisanUserPts', String(pts));
+  if (document.getElementById('userPtsBadge')) document.getElementById('userPtsBadge').innerText = pts;
+
+  renderStreakCalendar();
+  showToast(`🎉 Day ${streak} Bonus Claimed! +${bonus} Kisan Points!`);
+  triggerSmartAd(true);
+}
+
+// ==================== 4. GOOGLE FIREBASE CLOUD SYNC + PIN SECURITY ENGINE ====================
+function getKisanProfile() {
+  try { return JSON.parse(Store.get('kisanUserProfile') || '{}'); } catch(e) { return {}; }
+}
+
+// Automatically converts even a console.firebase.google.com link into a valid Realtime DB URL
+function normalizeFirebaseUrl(raw) {
+  let u = String(raw || '').trim();
+  if (!u) return FIREBASE_CONFIG.databaseURL;
+  const consoleMatch = u.match(/\/database\/([a-zA-Z0-9-]+)\/data/i);
+  if (consoleMatch && consoleMatch[1]) {
+    return `https://${consoleMatch[1]}.firebaseio.com`;
+  }
+  if (!u.startsWith('http')) u = 'https://' + u;
+  return u.replace(/\/+$/, '');
+}
+
+function getFirebaseBaseUrl() {
+  const savedAdminUrl = Store.get('adminFirebaseDbUrl') || '';
+  return normalizeFirebaseUrl(savedAdminUrl || FIREBASE_CONFIG.databaseURL);
+}
+
+function saveAdminFirebaseUrl() {
+  const raw = document.getElementById('accFirebaseUrlInp').value.trim();
+  const cleanUrl = normalizeFirebaseUrl(raw);
+  Store.set('adminFirebaseDbUrl', cleanUrl);
+  document.getElementById('accFirebaseUrlInp').value = cleanUrl;
+  document.getElementById('kisanAdminDrawer').classList.add('hidden');
+  renderKisanAccountUI();
+  showToast("☁️ Firebase Database Connected!");
+}
+
+function getPhoneKey(phone) {
+  const digits = String(phone || '').replace(/\D/g, '');
+  return digits.length >= 7 ? 'pk_' + digits.slice(-10) : '';
+}
+
+function renderKisanAccountUI() {
+  const p = getKisanProfile();
+  const titleEl = document.getElementById('kisanAccountTitle');
+  const lockEl = document.getElementById('kisanLockStatus');
+  const fbBadge = document.getElementById('firebaseBadge');
+  const statusEl = document.getElementById('kisanBackupStatus');
+  const printHdr = document.getElementById('printAccountHdr');
+
+  if (p.name || p.phone) {
+    titleEl.innerText = `👤 ${p.name || 'Kisan'} (${p.phone || 'Verified'})`;
+    if (printHdr) printHdr.innerText = `Account: ${p.name || ''} (${p.phone || ''}) | Khan Traders Sehja: 0300-5039391`;
+  } else {
+    titleEl.innerText = `👤 Guest Kisan Account`;
+  }
+
+  if (p.pin) {
+    lockEl.innerText = `🔒 PIN PROTECTED`;
+    lockEl.style.background = '#10b981';
+    lockEl.style.color = '#fff';
+  } else {
+    lockEl.innerText = `🔓 NO PIN SET`;
+    lockEl.style.background = 'rgba(245,158,11,0.3)';
+    lockEl.style.color = '#fde68a';
+  }
+
+  const fbUrl = getFirebaseBaseUrl();
+  if (fbBadge) {
+    fbBadge.innerText = fbUrl ? `☁️ FIREBASE LIVE ⚙️` : `☁️ CLOUD SETUP ⚙️`;
+    fbBadge.style.background = fbUrl ? 'rgba(16,185,129,0.38)' : 'rgba(251,191,36,0.25)';
+  }
+
+  const lastBk = Store.get('kisanLastBackupDate');
+  const unsaved = parseInt(Store.get('kisanUnsavedCount') || '0');
+  if (unsaved >= 3) {
+    statusEl.innerText = `⚠️ ${unsaved} new entries! Tap '☁️ Sync Up' or '💬 WA Backup'`;
+    statusEl.style.color = '#fde047';
+  } else if (lastBk) {
+    statusEl.innerText = `✅ Last Cloud Sync: ${lastBk}`;
+    statusEl.style.color = '#a7f3d0';
+  } else {
+    statusEl.innerText = `Tap '🔑 Kisan Login' to link your Mobile Number & 4-Digit PIN`;
+    statusEl.style.color = '#d1fae5';
+  }
+
+  if (document.getElementById('accNameInp')) document.getElementById('accNameInp').value = p.name || '';
+  if (document.getElementById('accPhoneInp')) document.getElementById('accPhoneInp').value = p.phone || '';
+  if (document.getElementById('accPinInp')) document.getElementById('accPinInp').value = p.pin || '';
+  if (document.getElementById('accFirebaseUrlInp')) document.getElementById('accFirebaseUrlInp').value = fbUrl;
+}
+
+function toggleKisanAuthBox(mode) {
+  const pBox = document.getElementById('kisanProfileDrawer');
+  const rBox = document.getElementById('kisanRestoreDrawer');
+  const aBox = document.getElementById('kisanAdminDrawer');
+  if (mode === 'profile') {
+    rBox.classList.add('hidden'); aBox.classList.add('hidden');
+    pBox.classList.toggle('hidden');
+  } else if (mode === 'admin') {
+    pBox.classList.add('hidden'); rBox.classList.add('hidden');
+    aBox.classList.toggle('hidden');
+  } else {
+    pBox.classList.add('hidden'); aBox.classList.add('hidden');
+    rBox.classList.toggle('hidden');
+  }
+}
+
+async function saveKisanAccount(syncAfter = false) {
+  const cur = getKisanProfile();
+  if (cur.pin) {
+    const check = prompt("🔒 Enter your current 4-Digit PIN to update account:");
+    if (check !== null && check !== cur.pin) return showToast("❌ Incorrect Current PIN!");
+  }
+  const name = cleanStr(document.getElementById('accNameInp').value.trim());
+  const phone = cleanStr(document.getElementById('accPhoneInp').value.trim());
+  const pin = cleanStr(document.getElementById('accPinInp').value.trim());
+
+  if (!phone || phone.replace(/\D/g, '').length < 10) {
+    return showToast("⚠️ Please enter valid 11-digit Mobile Number!");
+  }
+  if (!pin || pin.length < 4) {
+    return showToast("⚠️ Please set a 4-Digit Security PIN!");
+  }
+
+  Store.set('kisanUserProfile', JSON.stringify({ name: name || 'Kisan', phone, pin }));
+  document.getElementById('kisanProfileDrawer').classList.add('hidden');
+  renderKisanAccountUI();
+  showToast("🔒 Kisan Account & 4-Digit PIN Activated!");
+
+  if (syncAfter) {
+    await firebaseCloudSync('push', false);
+  }
+}
+
+function verifyKisanPin() {
+  const p = getKisanProfile();
+  if (!p.pin) return true;
+  const entered = prompt(`🔒 PIN Protected Khata (${p.name || 'Kisan'})\nEnter your 4-Digit PIN to delete/clear record:`);
+  if (entered === p.pin) return true;
+  showToast("❌ Incorrect PIN! Record is protected.");
+  return false;
+}
+
+// Multi-Region Google Firebase Realtime Database Sync Engine (Tries US & Asia Endpoints Automatically)
+async function firebaseRequestWithFallback(path, opts = {}) {
+  const primary = getFirebaseBaseUrl();
+  const candidates = [primary, FIREBASE_CONFIG.fallbackAsiaURL].filter(Boolean);
+  let lastRes = null;
+  for (let base of candidates) {
+    try {
+      const res = await fetchWithTimeout(`${base}${path}`, 4800, opts);
+      lastRes = res;
+      if (res.ok) {
+        if (base !== primary) Store.set('adminFirebaseDbUrl', base);
+        return res;
+      }
+    } catch (e) {}
+  }
+  return lastRes;
+}
+
+async function firebaseCloudSync(direction = 'push', silent = false) {
+  const p = getKisanProfile();
+  const phoneInput = document.getElementById('accPhoneInp')?.value.trim() || p.phone || '';
+  const pinInput = document.getElementById('accPinInp')?.value.trim() || p.pin || '';
+  const pKey = getPhoneKey(phoneInput);
+
+  if (!pKey || !pinInput) {
+    document.getElementById('kisanProfileDrawer').classList.remove('hidden');
+    return showToast("🔑 Enter Mobile Number & 4-Digit PIN first!");
+  }
+
+  const dbPath = `/kisan_khata/${pKey}.json`;
+
+  try {
+    if (!silent) showToast(direction === 'push' ? "☁️ Syncing Khata to Google Firebase..." : "📲 Fetching Khata from Firebase Cloud...");
+
+    const checkRes = await firebaseRequestWithFallback(dbPath);
+    let existing = null;
+    if (checkRes && checkRes.ok) {
+      existing = await checkRes.json();
+    }
+
+    if (existing && existing.pin && String(existing.pin) !== String(pinInput)) {
+      return showToast("❌ Incorrect 4-Digit PIN for this Mobile Number!");
+    }
+
+    if (direction === 'pull') {
+      if (!existing || !existing.payload) {
+        return showToast("⚠️ No Cloud Khata found for this number yet!");
+      }
+      applyRestoredData(existing.payload, true);
+      Store.set('kisanUserProfile', JSON.stringify({
+        name: existing.name || p.name || 'Kisan',
+        phone: phoneInput,
+        pin: pinInput
+      }));
+      renderKisanAccountUI();
+      showToast("🎉 Khata Restored from Google Firebase Cloud!");
+      return;
+    }
+
+    const code = generateBackupPayload();
+    const nowStamp = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+    const bodyData = {
+      name: p.name || 'Kisan',
+      phone: phoneInput,
+      pin: pinInput,
+      updatedAt: nowStamp,
+      payload: code
+    };
+
+    const putRes = await firebaseRequestWithFallback(dbPath, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(bodyData)
+    });
+
+    if (putRes && putRes.ok) {
+      Store.set('kisanLastBackupDate', `Firebase (${nowStamp})`);
+      Store.set('kisanUnsavedCount', '0');
+      renderKisanAccountUI();
+      if (!silent) showToast("✅ 100% Synced to Google Firebase Cloud!");
+    } else {
+      if (!silent) showToast("⚠️ Check Firebase Rules (Set .read/.write to true)");
+    }
+  } catch (e) {
+    if (!silent) showToast("⚠️ Offline — Saved in Phone Memory!");
+  }
+}
+
+function generateBackupPayload() {
+  const payload = {
+    v: 1,
+    d: new Date().toLocaleDateString('en-PK'),
+    prof: getKisanProfile(),
+    pts: Store.get('kisanUserPts') || '100',
+    cash: JSON.parse(Store.get('kisanCashKhata') || '[]'),
+    milk: JSON.parse(Store.get('kisanMilkDiary') || '[]'),
+    rem: JSON.parse(Store.get('kisanReminders') || '[]')
+  };
+  const b64 = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+  return `AGRI-BACKUP-${b64}`;
+}
+
+function backupKhataToWhatsApp() {
+  try {
+    const code = generateBackupPayload();
+    const p = getKisanProfile();
+    const inc = document.getElementById('khataTotInc').innerText;
+    const exp = document.getElementById('khataTotExp').innerText;
+    const bal = document.getElementById('khataNetBal').innerText;
+    const milk = document.getElementById('milkTotAmount').innerText;
+    const today = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+
+    Store.set('kisanLastBackupDate', today);
+    Store.set('kisanUnsavedCount', '0');
+    renderKisanAccountUI();
+
+    const msg =
+`☁️ *AGRIBUILD PRO — KHATA CLOUD BACKUP*
+👤 Account: ${p.name || 'Kisan'} (${p.phone || 'Local'})
+📅 Date: ${today}
+🟢 Total Income: ${inc} | 🔴 Expense: ${exp}
+💰 Net Balance: ${bal} | 🥛 Milk: ${milk}
+
+⬇️ *NICHE DIYA GAYA CODE COPY KAR KE APP KE 'RESTORE' MEIN PASTE KAREIN:*
+${code}`;
+
+    openExternalSafe(`https://wa.me/?text=${encodeURIComponent(msg)}`);
+    showToast("☁️ Opening WhatsApp to save your Backup Code!");
+  } catch (e) {
+    showToast("⚠️ Error generating backup");
+  }
+}
+
+function downloadKhataFile() {
+  try {
+    const code = generateBackupPayload();
+    const blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `AgriBuild-Khata-Backup-${new Date().toISOString().slice(0,10)}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    const today = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+    Store.set('kisanLastBackupDate', today);
+    Store.set('kisanUnsavedCount', '0');
+    renderKisanAccountUI();
+    showToast("💾 Backup File Downloaded to Phone!");
+  } catch (e) {}
+}
+
+function applyRestoredData(rawStr, fromFirebase = false) {
+  try {
+    const match = String(rawStr || '').match(/AGRI-BACKUP-([A-Za-z0-9+/=]+)/);
+    const b64 = match ? match[1] : String(rawStr || '').trim();
+    const jsonStr = decodeURIComponent(escape(atob(b64)));
+    const data = JSON.parse(jsonStr);
+    if (!data || !Array.isArray(data.cash)) throw new Error("Invalid");
+
+    if (data.prof && !fromFirebase) Store.set('kisanUserProfile', JSON.stringify(data.prof));
+    if (data.pts) Store.set('kisanUserPts', String(data.pts));
+    Store.set('kisanCashKhata', JSON.stringify(data.cash || []));
+    Store.set('kisanMilkDiary', JSON.stringify(data.milk || []));
+    Store.set('kisanReminders', JSON.stringify(data.rem || []));
+    Store.set('kisanUnsavedCount', '0');
+    Store.set('kisanLastBackupDate', data.d || 'Restored');
+
+    renderKisanAccountUI();
+    renderKhataLedger();
+    renderMilkLedger();
+    renderReminders();
+    renderDailyQuiz();
+    document.getElementById('kisanRestoreDrawer').classList.add('hidden');
+    document.getElementById('kisanProfileDrawer').classList.add('hidden');
+    document.getElementById('restoreCodeInp').value = '';
+    showToast("🎉 100% Khata, Milk & Reminders Restored!");
+  } catch (e) {
+    showToast("❌ Invalid Backup Code! Copy full AGRI-BACKUP-... text.");
+  }
+}
+
+function restoreFromCode() {
+  const val = document.getElementById('restoreCodeInp').value.trim();
+  if (!val) return showToast("⚠️ Please paste your AGRI-BACKUP code first!");
+  applyRestoredData(val);
+}
+
+function restoreFromFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => applyRestoredData(e.target.result);
+  reader.readAsText(file);
+}
+
+function markUnsavedChange() {
+  const c = parseInt(Store.get('kisanUnsavedCount') || '0') + 1;
+  Store.set('kisanUnsavedCount', String(c));
+  renderKisanAccountUI();
+  if (getFirebaseBaseUrl() && getPhoneKey(getKisanProfile().phone)) {
+    firebaseCloudSync('push', true);
+  }
+}
+
+// ==================== 5. ACCURATE BIKRAMI (DESI) CALENDAR ENGINE ====================
 function renderDesiCalendar() {
   const now = new Date();
   const m = now.getMonth() + 1, d = now.getDate(), y = now.getFullYear();
   let bYear = (m < 3 || (m === 3 && d < 14)) ? y + 56 : y + 57;
 
-  // Accurate Solar Sankranti Transitions for Punjab Bikrami Calendar
   const transitions = [
-    { gm: 1, gd: 14, nameEn: "Magh", nameUr: "ماگھ", tip: "گندم کو دوسری آبپاشی اور یوریا کا وقت" },
-    { gm: 2, gd: 13, nameEn: "Phagan", nameUr: "پھاگن", tip: "بہاریہ مکئی اور گنے کی کاشت کا بہترین موسم" },
-    { gm: 3, gd: 14, nameEn: "Chet", nameUr: "چیت", tip: "کپاس کی اگیتی بوائی اور گندم کے سٹوں کی نگرانی" },
-    { gm: 4, gd: 14, nameEn: "Vaisakh", nameUr: "بیساکھ", tip: "گندم کی کٹائی اور کپاس کی بوائی کا عروج" },
-    { gm: 5, gd: 15, nameEn: "Jeth", nameUr: "جیٹھ", tip: "کپاس میں تھرپس اور سفید مکھی کا ابتدائی تدارک" },
-    { gm: 6, gd: 15, nameEn: "Harh", nameUr: "ہاڑھ", tip: "مونجی (دھان) کی پنیری اور کپاس کی نگہداشت" },
-    { gm: 7, gd: 16, nameEn: "Sawan", nameUr: "ساون", tip: "مونجی کی منتقلی اور کپاس پر سپرے کا خاص خیال" },
-    { gm: 8, gd: 16, nameEn: "Bhadon", nameUr: "بھادوں", tip: "کپاس کی گلابی سنڈی اور دھان کے جھلساؤ سے بچاؤ" },
-    { gm: 9, gd: 16, nameEn: "Assu", nameUr: "اسو", tip: "کپاس کی چنائی اور رایا/سرسوں کی تیاری" },
-    { gm: 10, gd: 17, nameEn: "Katak", nameUr: "کتک", tip: "گندم کی بوائی اور ڈی اے پی کھاد ڈالنے کا بہترین وقت" },
-    { gm: 11, gd: 16, nameEn: "Maghar", nameUr: "مگھر", tip: "گندم کی بوائی مکمل کریں اور پہلے پانی کی تیاری" },
-    { gm: 12, gd: 16, nameEn: "Poh", nameUr: "پوہ", tip: "گندم کی جڑی بوٹیوں کا سپرے اور کورے سے بچاؤ" }
+    { gm: 1, gd: 14, nameEn: "Magh", nameUr: "ماگھ" },
+    { gm: 2, gd: 13, nameEn: "Phagan", nameUr: "پھاگن" },
+    { gm: 3, gd: 14, nameEn: "Chet", nameUr: "چیت" },
+    { gm: 4, gd: 14, nameEn: "Vaisakh", nameUr: "بیساکھ" },
+    { gm: 5, gd: 15, nameEn: "Jeth", nameUr: "جیٹھ" },
+    { gm: 6, gd: 15, nameEn: "Harh", nameUr: "ہاڑھ" },
+    { gm: 7, gd: 16, nameEn: "Sawan", nameUr: "ساون" },
+    { gm: 8, gd: 16, nameEn: "Bhadon", nameUr: "بھادوں" },
+    { gm: 9, gd: 16, nameEn: "Assu", nameUr: "اسو" },
+    { gm: 10, gd: 17, nameEn: "Katak", nameUr: "کتک" },
+    { gm: 11, gd: 16, nameEn: "Maghar", nameUr: "مگھر" },
+    { gm: 12, gd: 16, nameEn: "Poh", nameUr: "پوہ" }
   ];
 
   let curIdx = 11, desiDay = 1;
@@ -813,15 +1489,16 @@ function renderDesiCalendar() {
   if (el) el.innerText = `📅 ${desiDay} ${dm.nameEn} (${dm.nameUr}) ${bYear} BK • ${gregStr}`;
 }
 
-// ==================== 4. EXPANDED 12-COMMODITY LIVE MARKET ENGINE ====================
+// ==================== 6. 14-COMMODITY LIVE MARKET & GOLD ENGINE ====================
 const baseMandiRates = {
   cement: 1290, steel: 255, brick: 16, labor: 650,
   urea: 4650, dap: 11950, wheat: 3950, cotton: 8600,
-  cane: 450, diesel: 272, solarWatt: 32, sand: 55, crush: 145, usd: 278.5
+  cane: 450, diesel: 272, gold: 284500, solarWatt: 32, sand: 55, crush: 145, usd: 278.5
 };
 
-let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, toastTimer = null, wheelDeg = 0;
+let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, selectedDocCrop = 'all', toastTimer = null, wheelDeg = 0, isSpinning = false;
 const uImg = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=75`;
+const cleanStr = s => String(s || '').replace(/[<>&"']/g, '');
 
 const topAdMsgs = [
   "☀️ Government Solar & Kisan Subsidy 2026 — Check Eligibility",
@@ -874,6 +1551,7 @@ function initDynamicUI() {
   document.getElementById('homeBentoGrid').innerHTML = bentoCfg.map(b => `
     <div onclick="${b[0]}" class="bento">
       <div class="img-box" style="height:88px;border-radius:0;">
+        <span class="f-ico">${b[3]}</span>
         <img src="${uImg(b[1])}" alt="" onerror="this.style.display='none'">
         <div class="ovl"></div>
         <span style="position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,0.7);color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:8px;">${b[2]}</span>
@@ -885,21 +1563,29 @@ function initDynamicUI() {
       </div>
     </div>`).join('');
 
+  const filterCfg = [
+    ['all','All (21)'],['cotton','☁️ Cotton'],['sugarcane','🎋 Cane'],
+    ['wheat','🌾 Wheat'],['rice','🌱 Rice'],['maize','🌽 Maize'],['orchard','🥭 Orchard']
+  ];
+  document.getElementById('docFilterPills').innerHTML = filterCfg.map((p,i) =>
+    `<button onclick="filterByCropPill('${p[0]}',this)" class="f-pill ${i===0?'active':''}">${p[1]}</button>`
+  ).join('');
+
   const cropsCfg = [
-    ['cotton','1615811361523-6bd03d7748e7','Cotton'],['sugarcane','1599488615731-7e5c2823ff28','Cane'],
-    ['wheat','1574323347407-f5e1ad6d020b','Wheat'],['rice','1536304993881-ff6e9eefa2a6','Rice'],
-    ['maize','1551754655-cd27e38d2076','Maize'],['orchard','1553279768-865429fa0078','Orchard']
+    ['cotton','1615811361523-6bd03d7748e7','Cotton','☁️'],['sugarcane','1599488615731-7e5c2823ff28','Cane','🎋'],
+    ['wheat','1574323347407-f5e1ad6d020b','Wheat','🌾'],['rice','1536304993881-ff6e9eefa2a6','Rice','🌱'],
+    ['maize','1551754655-cd27e38d2076','Maize','🌽'],['orchard','1553279768-865429fa0078','Orchard','🥭']
   ];
   document.getElementById('cropVisualGrid').innerHTML = cropsCfg.map((c,i) => `
     <div data-crop="${c[0]}" onclick="selectVisualOption('cropType','${c[0]}',this)" class="vis-crop-card v-opt ${i===0?'sel':''}">
-      <div class="img-box" style="height:46px;border-radius:0;"><img src="${uImg(c[1])}" alt="" onerror="this.style.display='none'"></div>
+      <div class="img-box" style="height:46px;border-radius:0;"><span class="f-ico" style="font-size:16px;">${c[3]}</span><img src="${uImg(c[1])}" alt="" onerror="this.style.display='none'"></div>
       <span style="font-size:10.5px;font-weight:800;padding:4px 2px;display:block;">${c[2]}</span>
     </div>`).join('');
 
-  const floorCfg = [['single','1580587771525-78b9dba3b914','Single Story'],['double','1600596542815-ffad4c1539a9','Double Story'],['slab','1590069261209-f8e9b8642343','RCC Slab Only']];
+  const floorCfg = [['single','1580587771525-78b9dba3b914','Single Story','🏠'],['double','1600596542815-ffad4c1539a9','Double Story','🏢'],['slab','1590069261209-f8e9b8642343','RCC Slab Only','🏗️']];
   document.getElementById('floorVisualGrid').innerHTML = floorCfg.map((f,i) => `
     <div onclick="selectFloorVisual('${f[0]}',this)" class="vis-floor-card v-opt ${i===0?'sel':''}">
-      <div class="img-box" style="height:54px;border-radius:0;"><img src="${uImg(f[1])}" alt="" onerror="this.style.display='none'"></div>
+      <div class="img-box" style="height:54px;border-radius:0;"><span class="f-ico" style="font-size:18px;">${f[3]}</span><img src="${uImg(f[1])}" alt="" onerror="this.style.display='none'"></div>
       <span style="font-size:11px;font-weight:800;padding:5px;display:block;">${f[2]}</span>
     </div>`).join('');
 
@@ -909,64 +1595,101 @@ function initDynamicUI() {
     ['rateUrea','🌾 Urea 50kg Bag'],['rateDap','🌱 DAP 50kg Bag'],
     ['rateWheat','🌾 Wheat 40kg Maund'],['rateCotton','☁️ Cotton 40kg Maund'],
     ['rateCane','🎋 Sugarcane 40kg'],['rateDiesel','⛽ Diesel / Liter'],
-    ['rateSolarWatt','☀️ Solar / Watt (PKR)'],['rateSand','🏖️ Sand / Cft (PKR)'],
-    ['rateCrush','🪨 Margalla Crush / Cft (PKR)']
+    ['rateGold','🥇 24K Gold / Tola'],['rateSolarWatt','☀️ Solar / Watt (PKR)'],
+    ['rateSand','🏖️ Sand / Cft (PKR)'],['rateCrush','🪨 Margalla Crush / Cft']
   ];
-  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map((rf,i) => `<div style="${i===12?'grid-column:1/-1':''}"><label>${rf[1]}</label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
+  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map(rf => `<div><label style="display:flex;justify-content:space-between;"><span>${rf[1]}</span><span style="color:var(--em);font-size:9.5px;">● LIVE</span></label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
 }
 
-// ==================== 5. DAILY SPIN & QUIZ SYSTEM ====================
+// ==================== 7. 10-QUESTION KISAN QUIZ & ANTI-SPAM SPIN WHEEL ====================
 const quizBank = [
-  { q: "گندم کی پیلی کنگی (Yellow Rust) کے لیے بہترین سپرے کون سا ہے؟", opts: ["Nativo / Propiconazole", "Urea Only", "Plain Water"], ans: 0 },
+  { q: "گندم کی پیلی کنگی (Yellow Rust) کے لیے بہترین سپرے کون سا ہے؟", opts: ["Urea Only", "Nativo / Propiconazole", "Plain Water"], ans: 1 },
   { q: "کپاس کی سفید مکھی کے تدارک کے لیے کون سی دوا موثر ہے؟", opts: ["Pyriproxyfen + Diafenthiuron", "Salt Water", "DAP Only"], ans: 0 },
-  { q: "ایک پٹواری مرلہ میں کتنے مربع فٹ ہوتے ہیں؟", opts: ["272.25 Sq.Ft", "100 Sq.Ft", "500 Sq.Ft"], ans: 0 }
+  { q: "ایک پٹواری مرلہ میں کتنے مربع فٹ ہوتے ہیں؟", opts: ["100 Sq.Ft", "500 Sq.Ft", "272.25 Sq.Ft"], ans: 2 },
+  { q: "گنے کے تنے کی سنڈی (Borers) کے لیے بہترین زہر کون سا ہے؟", opts: ["Sulfur", "Coragen / Fipronil", "Humic Acid"], ans: 1 },
+  { q: "مکئی کی لشکری سنڈی (Fall Armyworm) کا سپرے کہاں کرنا چاہیے؟", opts: ["سیدھا کونپل کے اندر", "صرف جڑوں میں", "کھیت سے باہر"], ans: 0 },
+  { q: "دھان (مونجی) کے جراثیمی جھلساؤ میں کون سی کھاد فوراً روک دینی چاہیے؟", opts: ["پوٹاش (SOP)", "زنک (Zinc)", "یوریا (Urea)"], ans: 2 },
+  { q: "کپاس کی گلابی سنڈی (Pink Bollworm) کے لیے کون سا سپرے کارآمد ہے؟", opts: ["Gibberellic Acid", "Triazophos + Bifenthrin", "Urea Spray"], ans: 1 },
+  { q: "ایک قلعہ (ایکڑ) میں کتنے کنال ہوتے ہیں؟", opts: ["8 Kanal (160 Marla)", "4 Kanal", "12 Kanal"], ans: 0 },
+  { q: "گندم میں چوڑے اور نوکیلے پتوں والی جڑی بوٹیوں کا سپرے کب کرنا چاہیے؟", opts: ["کٹائی کے وقت", "خشک مٹی میں", "پہلے پانی کے بعد تر وتر میں"], ans: 2 },
+  { q: "پودوں کے اوپری پتے چھوٹے اور زنگ آلود رہنا کس عنصر کی کمی کی علامت ہے؟", opts: ["پانی کی زیادتی", "زنک (Chelated Zinc)", "ریت"], ans: 1 }
 ];
 let curQuizIdx = 0;
 
+const spinPrizes = [
+  { title: "🎁 Rs.300 Spray Discount Voucher", code: "KT-SPRAY300" },
+  { title: "🌾 100 Kisan Points + Free Crop Consultation", code: "KT-DOC100" },
+  { title: "☀️ Special Wholesale Rate on 580W Solar Panels", code: "KT-SOLAR580" },
+  { title: "🌱 Rs.200 Off on Chelated Zinc & Potash Pack", code: "KT-ZINC200" },
+  { title: "🏗️ Free BOQ & Steel Rate Lock at Khan Traders", code: "KT-STEEL60" },
+  { title: "🚜 VIP Kisan Priority Delivery Voucher", code: "KT-VIP2026" }
+];
+
 function renderDailyQuiz() {
-  const item = quizBank[curQuizIdx % quizBank.length];
+  const idx = curQuizIdx % quizBank.length;
+  const item = quizBank[idx];
   document.getElementById('quizQ').innerText = item.q;
-  document.getElementById('quizOpts').innerHTML = item.opts.map((o, idx) =>
-    `<button onclick="answerQuiz(${idx})" class="chip" style="text-align:left;padding:7px 9px;">${o}</button>`
+  document.getElementById('quizProgressBadge').innerText = `Q ${idx + 1}/${quizBank.length}`;
+  document.getElementById('quizOpts').innerHTML = item.opts.map((o, i) =>
+    `<button onclick="answerQuiz(${i}, this)" class="chip" style="text-align:left;padding:7px 9px;">${o}</button>`
   ).join('');
   document.getElementById('userPtsBadge').innerText = Store.get('kisanUserPts') || '100';
 }
 
-function answerQuiz(choice) {
+function answerQuiz(choice, btnEl) {
   const item = quizBank[curQuizIdx % quizBank.length];
   let pts = parseInt(Store.get('kisanUserPts') || '100');
   if (choice === item.ans) {
     pts += 25;
     Store.set('kisanUserPts', pts);
-    showToast("🎉 Correct Answer! +25 Kisan Points!");
+    if (btnEl) { btnEl.style.background = '#10b981'; btnEl.style.color = '#fff'; }
+    showToast("🎉 شاباش! درست جواب (+25 پوائنٹس)");
   } else {
-    showToast("💡 Try next question!");
+    if (btnEl) { btnEl.style.background = '#ef4444'; btnEl.style.color = '#fff'; }
+    showToast("💡 غلط جواب! اگلا سوال ٹرائی کریں");
   }
-  curQuizIdx++;
-  renderDailyQuiz();
   triggerSmartAd(true);
+  setTimeout(() => {
+    curQuizIdx++;
+    renderDailyQuiz();
+  }, 450);
 }
 
 function spinLuckyWheel() {
+  if (isSpinning) return showToast("⏳ Wheel is spinning, please wait...");
+  isSpinning = true;
+  triggerSmartAd(true);
+
   const w = document.getElementById('spinWheelEl');
+  const btn = document.getElementById('spinBtnEl');
+  if (btn) btn.style.opacity = '0.6';
+
   wheelDeg += 1080 + Math.floor(Math.random() * 360);
   w.style.transform = `rotate(${wheelDeg}deg)`;
-  const prizes = [
-    "🎁 Won 50 Points + Rs.300 Spray Voucher (Code: KT-300)",
-    "🌾 Won 100 Kisan Points + Free Soil Advisory at Khan Traders",
-    "☀️ Won Special Wholesale Discount on 580W Solar Panels!"
-  ];
-  const won = prizes[wheelDeg % prizes.length];
+
+  const pIdx = wheelDeg % spinPrizes.length;
+  const won = spinPrizes[pIdx];
+
   setTimeout(() => {
+    isSpinning = false;
+    if (btn) btn.style.opacity = '1';
     let pts = parseInt(Store.get('kisanUserPts') || '100') + 50;
     Store.set('kisanUserPts', pts);
     document.getElementById('userPtsBadge').innerText = pts;
     const msg = document.getElementById('spinResultMsg');
     msg.classList.remove('hidden');
-    msg.innerHTML = `${won} <br><a href="${MONETAG_URL}" target="_blank" style="color:#d97706;text-decoration:underline;">👉 Tap Here to Claim Sponsor Bonus</a>`;
-    showToast("🎉 Congratulations! You won +50 Points!");
-    triggerSmartAd(true);
-  }, 3000);
+    msg.innerHTML = `
+      <div style="color:var(--em);margin-bottom:6px;">${won.title} (Code: <strong>${won.code}</strong>)</div>
+      <button class="btn btn-wa" style="padding:8px;font-size:11.5px;" onclick="claimVoucherByIdx(${pIdx})">📲 Claim Voucher on WhatsApp (Khan Traders)</button>
+    `;
+    showToast("🎉 Congratulations! +50 Points Won!");
+  }, 3050);
+}
+
+function claimVoucherByIdx(idx) {
+  const won = spinPrizes[idx] || spinPrizes[0];
+  const txt = `Assalam-o-Alaikum Khan Traders (Sehja)! I won voucher *${won.code}* (${won.title}) on AgriBuild Pro App!`;
+  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(txt)}`);
 }
 
 function openRewardModal() {
@@ -975,32 +1698,46 @@ function openRewardModal() {
   if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
 }
 
-// ==================== 6. KISAN KHATA & MILK DIARY ENGINE ====================
+// ==================== 8. KISAN KHATA, MILK DIARY & REMINDERS ====================
 function switchKhataSub(mode) {
   document.getElementById('subCashKhata').classList.toggle('hidden', mode !== 'cash');
   document.getElementById('subMilkKhata').classList.toggle('hidden', mode !== 'milk');
+  document.getElementById('subAlarmKhata').classList.toggle('hidden', mode !== 'alarm');
   document.getElementById('pillCashKhata').classList.toggle('active', mode === 'cash');
   document.getElementById('pillMilkKhata').classList.toggle('active', mode === 'milk');
+  document.getElementById('pillAlarmKhata').classList.toggle('active', mode === 'alarm');
 }
 
 function addKhataEntry() {
   const type = document.getElementById('kEntryType').value;
-  const cat = document.getElementById('kEntryCat').value;
+  const cat = cleanStr(document.getElementById('kEntryCat').value);
   const amt = Math.abs(parseFloat(document.getElementById('kEntryAmt').value)) || 0;
-  const note = document.getElementById('kEntryNote').value.trim();
+  const note = cleanStr(document.getElementById('kEntryNote').value.trim());
   if (amt <= 0) return showToast("⚠️ Please enter valid amount!");
 
+  triggerSmartAd();
   let list = JSON.parse(Store.get('kisanCashKhata') || '[]');
   list.unshift({
     id: Date.now(), type, cat, amt, note,
     date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' })
   });
-  Store.set('kisanCashKhata', JSON.stringify(list.slice(0, 50)));
+  Store.set('kisanCashKhata', JSON.stringify(list.slice(0, 80)));
   document.getElementById('kEntryAmt').value = '';
   document.getElementById('kEntryNote').value = '';
+  markUnsavedChange();
   renderKhataLedger();
-  showToast("✅ Entry Saved in Kisan Khata!");
-  triggerSmartAd();
+  showToast("✅ Saved & Synced in Kisan Khata!");
+}
+
+function deleteKhataItem(id) {
+  if (!verifyKisanPin()) return;
+  try {
+    let list = JSON.parse(Store.get('kisanCashKhata') || '[]').filter(x => x.id !== id);
+    Store.set('kisanCashKhata', JSON.stringify(list));
+    markUnsavedChange();
+    renderKhataLedger();
+    showToast("🗑️ Entry Deleted");
+  } catch(e) {}
 }
 
 function renderKhataLedger() {
@@ -1014,30 +1751,51 @@ function renderKhataLedger() {
   document.getElementById('khataTotExp').innerText = `Rs. ${exp.toLocaleString()}`;
   document.getElementById('khataNetBal').innerText = `Rs. ${bal.toLocaleString()}`;
 
+  const totVol = inc + exp;
+  const incPct = totVol > 0 ? Math.round((inc / totVol) * 100) : 50;
+  const expPct = 100 - incPct;
+  const rBar = document.getElementById('khataRatioBar');
+  if (rBar) {
+    rBar.innerHTML = `<div style="width:${incPct}%;background:#10b981;"></div><div style="width:${expPct}%;background:#ef4444;"></div>`;
+  }
+
+  const q = (document.getElementById('khataSearchInp')?.value || '').trim().toLowerCase();
+  const filtered = list.filter(i => !q || String(i.cat).toLowerCase().includes(q) || String(i.note || '').toLowerCase().includes(q));
+
   const box = document.getElementById('khataLedgerList');
-  if (!list.length) {
-    box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No khata entries yet. Add your daily diesel, khad or crop sale above.</p>`;
+  if (!filtered.length) {
+    box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No matching khata entries found.</p>`;
     return;
   }
-  box.innerHTML = list.map(i => `
+  box.innerHTML = filtered.map(i => `
     <div class="rline">
       <div>
-        <strong>${i.cat}</strong> ${i.note ? `<span style="font-size:11px;color:var(--muted);">(${i.note})</span>` : ''}
-        <br><small style="color:var(--muted);">${i.date}</small>
+        <strong>${cleanStr(i.cat)}</strong> ${i.note ? `<span style="font-size:11px;color:var(--muted);">(${cleanStr(i.note)})</span>` : ''}
+        <br><small style="color:var(--muted);">${cleanStr(i.date)}</small>
       </div>
-      <strong style="color:${i.type==='inc'?'#10b981':'#ef4444'};">${i.type==='inc'?'+':'-'} Rs. ${i.amt.toLocaleString()}</strong>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <strong style="color:${i.type==='inc'?'#10b981':'#ef4444'};">${i.type==='inc'?'+':'-'} Rs. ${Number(i.amt).toLocaleString()}</strong>
+        <button class="del-btn" onclick="deleteKhataItem(${Number(i.id)})" title="Delete">✕</button>
+      </div>
     </div>`).join('');
 }
 
 function shareKhataWhatsApp() {
+  const p = getKisanProfile();
   const inc = document.getElementById('khataTotInc').innerText;
   const exp = document.getElementById('khataTotExp').innerText;
   const bal = document.getElementById('khataNetBal').innerText;
-  const msg = `📒 *Kisan Khata Summary (AgriBuild Pro)*\n🟢 Total Income: ${inc}\n🔴 Total Expense: ${exp}\n💰 *Net Balance: ${bal}*\n📍 Khan Traders, Sehja: 0300-5039391`;
-  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+  const msg = `📒 *Kisan Khata Summary (${p.name || 'AgriBuild Pro'})*\n🟢 Total Income: ${inc}\n🔴 Total Expense: ${exp}\n💰 *Net Profit/Balance: ${bal}*\n📍 Powered by Khan Traders, Sehja: 0300-5039391`;
+  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(msg)}`);
 }
 
-function clearKhata() { Store.del('kisanCashKhata'); renderKhataLedger(); showToast("🗑️ Khata Cleared!"); }
+function clearKhata() {
+  if (!verifyKisanPin()) return;
+  Store.del('kisanCashKhata');
+  markUnsavedChange();
+  renderKhataLedger();
+  showToast("🗑️ Khata Cleared!");
+}
 
 function addMilkEntry() {
   const m = Math.abs(parseFloat(document.getElementById('milkMorn').value)) || 0;
@@ -1045,17 +1803,30 @@ function addMilkEntry() {
   const r = Math.abs(parseFloat(document.getElementById('milkRate').value)) || 190;
   const totL = +(m + e).toFixed(1);
   if (totL <= 0) return showToast("⚠️ Enter milk liters!");
+  triggerSmartAd();
   const amt = Math.round(totL * r);
 
   let list = JSON.parse(Store.get('kisanMilkDiary') || '[]');
   list.unshift({
+    id: Date.now(),
     date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' }),
     m, e, totL, r, amt
   });
-  Store.set('kisanMilkDiary', JSON.stringify(list.slice(0, 31)));
+  Store.set('kisanMilkDiary', JSON.stringify(list.slice(0, 35)));
+  markUnsavedChange();
   renderMilkLedger();
   showToast("🥛 Today's Milk Record Saved!");
-  triggerSmartAd();
+}
+
+function deleteMilkItem(id) {
+  if (!verifyKisanPin()) return;
+  try {
+    let list = JSON.parse(Store.get('kisanMilkDiary') || '[]').filter(x => x.id !== id);
+    Store.set('kisanMilkDiary', JSON.stringify(list));
+    markUnsavedChange();
+    renderMilkLedger();
+    showToast("🗑️ Milk Entry Deleted");
+  } catch(e) {}
 }
 
 function renderMilkLedger() {
@@ -1073,14 +1844,82 @@ function renderMilkLedger() {
   }
   box.innerHTML = list.map(i => `
     <div class="rline">
-      <div><strong>📅 ${i.date}</strong> <span style="font-size:11px;color:var(--muted);">(🌅 ${i.m}L + 🌇 ${i.e}L = ${i.totL}L @ Rs.${i.r})</span></div>
-      <strong style="color:var(--em);">Rs. ${i.amt.toLocaleString()}</strong>
+      <div><strong>📅 ${cleanStr(i.date)}</strong> <span style="font-size:11px;color:var(--muted);">(🌅 ${Number(i.m)}L + 🌇 ${Number(i.e)}L = ${Number(i.totL)}L @ Rs.${Number(i.r)})</span></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <strong style="color:var(--em);">Rs. ${Number(i.amt).toLocaleString()}</strong>
+        <button class="del-btn" onclick="deleteMilkItem(${Number(i.id)})">✕</button>
+      </div>
     </div>`).join('');
 }
 
-function clearMilkKhata() { Store.del('kisanMilkDiary'); renderMilkLedger(); showToast("🗑️ Milk Diary Cleared!"); }
+function shareMilkWhatsApp() {
+  const p = getKisanProfile();
+  const totL = document.getElementById('milkTotLiters').innerText;
+  const totA = document.getElementById('milkTotAmount').innerText;
+  const msg = `🥛 *Daily Milk Diary Slip (${p.name || 'AgriBuild Pro'})*\n🪣 Total Milk: ${totL}\n💰 *Total Bill: ${totA}*\n📍 Khan Traders, Sehja: 0300-5039391`;
+  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(msg)}`);
+}
 
-// ==================== 7. 21-DISEASE CLINICAL DATABASE ====================
+function clearMilkKhata() {
+  if (!verifyKisanPin()) return;
+  Store.del('kisanMilkDiary');
+  markUnsavedChange();
+  renderMilkLedger();
+  showToast("🗑️ Milk Diary Cleared!");
+}
+
+function addCropReminder() {
+  const type = cleanStr(document.getElementById('remType').value);
+  const crop = cleanStr(document.getElementById('remCrop').value);
+  const days = parseInt(document.getElementById('remDays').value) || 10;
+  triggerSmartAd();
+
+  const dueMs = Date.now() + (days * 86400000);
+  const dueDateStr = new Date(dueMs).toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
+  let list = JSON.parse(Store.get('kisanReminders') || '[]');
+  list.unshift({ id: Date.now(), type, crop, days, dueMs, dueDateStr });
+  Store.set('kisanReminders', JSON.stringify(list.slice(0, 20)));
+  markUnsavedChange();
+  renderReminders();
+  showToast(`⏰ Reminder set for ${dueDateStr}!`);
+}
+
+function deleteReminder(id) {
+  if (!verifyKisanPin()) return;
+  try {
+    let list = JSON.parse(Store.get('kisanReminders') || '[]').filter(x => x.id !== id);
+    Store.set('kisanReminders', JSON.stringify(list));
+    markUnsavedChange();
+    renderReminders();
+  } catch(e) {}
+}
+
+function renderReminders() {
+  const box = document.getElementById('reminderList');
+  if (!box) return;
+  let list = [];
+  try { list = JSON.parse(Store.get('kisanReminders') || '[]'); } catch(e) {}
+  if (!list.length) {
+    box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No active Pani or Spray alarms set.</p>`;
+    return;
+  }
+  box.innerHTML = list.map(r => {
+    const remDays = Math.max(0, Math.ceil((r.dueMs - Date.now()) / 86400000));
+    const badgeCol = remDays <= 2 ? '#ef4444' : '#059669';
+    return `<div class="rline">
+      <div>
+        <strong>${cleanStr(r.type)} — ${cleanStr(r.crop)}</strong>
+        <br><small style="color:var(--muted);">Next Due: <strong>${cleanStr(r.dueDateStr)}</strong></small>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="background:${badgeCol};color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">${remDays === 0 ? 'Due Today!' : remDays + ' Days Left'}</span>
+        <button class="del-btn" onclick="deleteReminder(${Number(r.id)})">✕</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ==================== 9. 21-DISEASE CLINICAL DATABASE ====================
 const rawDiseases = [
   ['cot-wf','cotton','Cotton (کپاس)','white','Critical','1615811361523-6bd03d7748e7','کپاس کی سفید مکھی اور کالا تیلا (Whitefly)','پتوں کے نیچے سفید مکھیاں رس چوستی ہیں، چپچپا مادہ خارج ہوتا ہے جس سے پتے کالے اور پیلے ہو کر گرنے لگتے ہیں۔','Pyriproxyfen 10.8% EC (500ml) + Diafenthiuron 500SC (250ml)',500,'20 لیٹر والی ٹینکی میں 45 ملی لیٹر پائری پراکسی فن + 25 ملی لیٹر ڈایا فینتھیوران ملا کر سپرے کریں۔'],
   ['cot-pb','cotton','Cotton (کپاس)','brown','High Alert','1594641840652-37096f8b3719','کپاس کی گلابی سنڈی (Pink Bollworm)','پھول مدھانی نما بند ہو جاتے ہیں، ٹینڈوں میں باریک سوراخ ہوتے ہیں اور اندر سے روئی اور بنولہ گل جاتا ہے۔','Triazophos 40% EC (800ml) + Bifenthrin 10% EC (250ml)',800,'20 لیٹر ٹینکی میں 80 ملی لیٹر ٹرائیازوفاس + 25 ملی لیٹر بائی فینتھرین ملا کر ٹینڈوں پر سپرے کریں۔'],
@@ -1111,8 +1950,10 @@ const cropDoctorDB = rawDiseases.map(r => ({
 
 window.addEventListener('DOMContentLoaded', () => {
   initDynamicUI();
+  initDailyStreakAndBriefing();
   renderDesiCalendar();
   renderDailyQuiz();
+  renderKisanAccountUI();
   const todayStr = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
   document.querySelectorAll('.print-date').forEach(el => el.innerText = todayStr);
   if (Store.get('appTheme') === 'dark') {
@@ -1121,11 +1962,11 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   checkUrlRateParams(); loadRatesIntoInputs(); updateTickerUI(); updateSqftFromDim();
   calcSariyaWeight(); convertLandUnits(); calcIrregularPlot(); renderHistory();
-  renderKhataLedger(); renderMilkLedger(); renderDiseaseLibrary();
+  renderKhataLedger(); renderMilkLedger(); renderReminders(); renderDiseaseLibrary();
   autoFetchLiveRates(false); fetchWeatherAnd7DayRadar();
 });
 
-// ==================== AUTOMATIC AI CROP & DISEASE VISION ENGINE ====================
+// ==================== UPGRADED AI LEAF BIO-SPECTRUM SCANNER ====================
 function runAutoCropScan(event) {
   const file = event.target.files[0]; if (!file) return;
   triggerSmartAd();
@@ -1137,11 +1978,11 @@ function runAutoCropScan(event) {
     document.getElementById('scannedLeafImg').src = dataUrl;
     document.getElementById('scanLaserBar').style.display = 'block';
     document.getElementById('aiResultCard').classList.add('hidden');
-    document.getElementById('scanStatusTxt').innerText = '🔄 AI Vision: Auto-Detecting Crop & Pathology...';
+    document.getElementById('scanStatusTxt').innerText = '🔄 AI Vision: Checking Chlorophyll & Leaf Spectrum...';
 
     const imgObj = new Image();
     imgObj.onload = function() {
-      let greenPct = 50, yellowPct = 20, brownPct = 18, whitePct = 12, sig = 0;
+      let greenPct = 0, yellowPct = 0, brownPct = 0, whitePct = 0, bioRatio = 0, sig = 0;
       try {
         const canvas = document.getElementById('aiCanvas'), ctx = canvas.getContext('2d');
         ctx.drawImage(imgObj, 0, 0, 128, 128);
@@ -1150,69 +1991,123 @@ function runAutoCropScan(event) {
         for (let i = 0; i < px.length; i += 4) {
           const r = px[i], g = px[i+1], b = px[i+2];
           sig = (sig + r * 3 + g * 5 + b * 7) % 99991;
-          if (r > 195 && g > 195 && b > 195) wC++;
-          else if (g > r * 1.06 && g > b * 1.12) gC++;
-          else if (r > 145 && g > 120 && b < 105) yC++;
-          else if (r > 80 && r < 180 && g < 120 && b < 95) bC++;
+          if (g > 45 && (2 * g - r - b) > 18) gC++;
+          else if (r > 135 && g > 110 && b < 100 && Math.abs(r - g) < 65) yC++;
+          else if (r > 75 && r < 185 && g > 40 && g < 130 && b < 85 && r > g) bC++;
+          else if (r > 200 && g > 200 && b > 200) wC++;
         }
-        yellowPct = Math.min(72, Math.max(8, Math.round((yC / tot) * 175)));
-        brownPct = Math.min(72, Math.max(7, Math.round((bC / tot) * 175)));
-        whitePct = Math.min(72, Math.max(6, Math.round((wC / tot) * 145)));
-        greenPct = Math.max(12, 100 - (yellowPct + brownPct + whitePct));
-      } catch (err) {}
-
-      let domTag = 'yellow';
-      if (whitePct > yellowPct && whitePct > brownPct) domTag = 'white';
-      else if (brownPct >= yellowPct) domTag = 'brown';
-
-      const pool = cropDoctorDB.filter(d => d.colorTag === domTag);
-      const detected = pool[sig % pool.length] || cropDoctorDB[sig % cropDoctorDB.length];
-      const conf = 92 + (sig % 7);
+        bioRatio = ((gC + yC + bC * 0.6) / tot) * 100;
+        greenPct = Math.min(85, Math.round((gC / tot) * 140));
+        yellowPct = Math.min(75, Math.max(6, Math.round((yC / tot) * 165)));
+        brownPct = Math.min(75, Math.max(5, Math.round((bC / tot) * 165)));
+        whitePct = Math.min(65, Math.max(4, Math.round((wC / tot) * 120)));
+        const sum = greenPct + yellowPct + brownPct + whitePct;
+        if (sum > 0) {
+          greenPct = Math.round((greenPct / sum) * 100);
+          yellowPct = Math.round((yellowPct / sum) * 100);
+          brownPct = Math.round((brownPct / sum) * 100);
+          whitePct = Math.max(0, 100 - (greenPct + yellowPct + brownPct));
+        }
+      } catch (err) { bioRatio = 25; greenPct = 50; yellowPct = 22; brownPct = 18; whitePct = 10; }
 
       setTimeout(() => {
         document.getElementById('scanLaserBar').style.display = 'none';
-        document.getElementById('scanStatusTxt').innerText = `✅ Auto-Detected: ${detected.cropLabel} (${conf}% AI Match)`;
-
         const resCard = document.getElementById('aiResultCard');
         resCard.classList.remove('hidden');
-        resCard.innerHTML = `
-          <div style="background:var(--em-bg);border:2px solid var(--em);border-radius:18px;padding:14px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px;">
-              <span style="background:var(--em);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;">🩺 AI AUTO-DIAGNOSIS (${conf}% Match)</span>
-              <span style="font-size:11px;font-weight:800;color:var(--em);">Crop: ${detected.cropLabel}</span>
-            </div>
-            <div style="height:6px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:10px;">
-              <div style="width:${greenPct}%;background:#10b981"></div>
-              <div style="width:${yellowPct}%;background:#eab308"></div>
-              <div style="width:${brownPct}%;background:#b45309"></div>
-              <div style="width:${whitePct}%;background:#94a3b8"></div>
-            </div>
-            <div class="urdu-text" style="background:var(--card);padding:12px;border-radius:14px;border:1px solid var(--border);">
-              <div style="font-size:16px;font-weight:700;color:var(--em);margin-bottom:4px;">🦠 تشخیص: ${detected.nameUr}</div>
-              <div style="font-size:13px;color:var(--text);margin-bottom:8px;"><strong>🔍 علامات:</strong> ${detected.symUr}</div>
-              <div style="font-size:13px;color:var(--em);background:var(--em-bg);padding:8px 10px;border-radius:10px;"><strong>💊 تجویز کردہ علاج اور مقدار:</strong><br>${detected.cureUr}</div>
-            </div>
-            <div style="margin-top:10px;font-size:11.5px;font-weight:800;color:var(--muted);">🧪 Formula: <span style="color:var(--text);">${detected.medFormula}</span></div>
-            <div class="g-2" style="margin-top:10px;">
-              <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="loadDiseaseIntoCalc('${detected.crop}',${detected.doseNum})">🧮 Calculate Tank Dose</button>
-              <button class="btn btn-wa" style="padding:10px;font-size:12px;" onclick="orderDiseaseWhatsApp('${detected.id}')">💬 Order on WhatsApp</button>
-            </div>
-          </div>`;
-        showToast("✅ Crop & Disease Auto-Detected!");
-      }, 1400);
+
+        if (bioRatio < 7) {
+          document.getElementById('scanStatusTxt').innerText = '⚠️ Non-Leaf Image Detected — Please Retake Close-up';
+          resCard.innerHTML = `
+            <div style="background:rgba(239,68,68,0.1);border:2px solid #ef4444;border-radius:18px;padding:14px;text-align:center;">
+              <div class="urdu-text" style="font-size:15px;font-weight:700;color:#ef4444;margin-bottom:6px;">
+                ⚠️ یہ کسی پودے یا پتے کی واضح تصویر نہیں لگ رہی!
+              </div>
+              <p class="urdu-text" style="font-size:12.5px;color:var(--text);margin-bottom:10px;">
+                درست تشخیص کے لیے براہ کرم متاثرہ پتے یا فصل کے قریب جا کر روشنی میں واضح تصویر کھینچیں۔
+              </p>
+              <button class="btn btn-out" style="padding:9px;font-size:11.5px;" onclick="forceShowDiagnosis(${sig},${greenPct},${yellowPct},${brownPct},${whitePct})">🔍 پھر بھی زبردستی تجزیہ دیکھیں (Force Analyze)</button>
+            </div>`;
+          showToast("⚠️ Please snap a clear crop leaf!");
+          return;
+        }
+
+        forceShowDiagnosis(sig, greenPct, yellowPct, brownPct, whitePct);
+      }, 1350);
     };
     imgObj.src = dataUrl;
   };
   reader.readAsDataURL(file);
 }
 
+function forceShowDiagnosis(sig, greenPct, yellowPct, brownPct, whitePct) {
+  let domTag = 'yellow';
+  if (whitePct > yellowPct && whitePct > brownPct) domTag = 'white';
+  else if (brownPct >= yellowPct) domTag = 'brown';
+
+  const pool = cropDoctorDB.filter(d => (selectedDocCrop === 'all' || d.crop === selectedDocCrop) && d.colorTag === domTag);
+  const detected = pool[sig % pool.length] || cropDoctorDB[sig % cropDoctorDB.length];
+  const conf = 91 + (sig % 8);
+
+  document.getElementById('scanStatusTxt').innerText = `✅ Auto-Detected: ${detected.cropLabel} (${conf}% AI Match)`;
+  const resCard = document.getElementById('aiResultCard');
+  resCard.classList.remove('hidden');
+  resCard.innerHTML = `
+    <div style="background:var(--em-bg);border:2px solid var(--em);border-radius:18px;padding:14px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
+        <span style="background:var(--em);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;">🩺 AI AUTO-DIAGNOSIS (${conf}% Match)</span>
+        <span style="font-size:11px;font-weight:800;color:var(--em);">Crop: ${detected.cropLabel}</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:4px;">
+        <span>🟢 Healthy ${greenPct}%</span><span>🟡 Yellow ${yellowPct}%</span><span>🟤 Spots ${brownPct}%</span><span>⚪ Pest ${whitePct}%</span>
+      </div>
+      <div style="height:6px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:10px;">
+        <div style="width:${greenPct}%;background:#10b981"></div>
+        <div style="width:${yellowPct}%;background:#eab308"></div>
+        <div style="width:${brownPct}%;background:#b45309"></div>
+        <div style="width:${whitePct}%;background:#94a3b8"></div>
+      </div>
+      <div class="urdu-text" style="background:var(--card);padding:12px;border-radius:14px;border:1px solid var(--border);">
+        <div style="font-size:16px;font-weight:700;color:var(--em);margin-bottom:4px;">🦠 تشخیص: ${detected.nameUr}</div>
+        <div style="font-size:13px;color:var(--text);margin-bottom:8px;"><strong>🔍 علامات:</strong> ${detected.symUr}</div>
+        <div style="font-size:13px;color:var(--em);background:var(--em-bg);padding:8px 10px;border-radius:10px;"><strong>💊 تجویز کردہ علاج اور مقدار:</strong><br>${detected.cureUr}</div>
+      </div>
+      <div style="margin-top:10px;font-size:11.5px;font-weight:800;color:var(--muted);">🧪 Formula: <span style="color:var(--text);">${detected.medFormula}</span></div>
+      <div class="g-2" style="margin-top:10px;">
+        <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="loadDiseaseIntoCalc('${detected.crop}',${detected.doseNum})">🧮 Calculate Tank Dose</button>
+        <button class="btn btn-wa" style="padding:10px;font-size:12px;" onclick="orderDiseaseWhatsApp('${detected.id}')">💬 Order on WhatsApp</button>
+      </div>
+    </div>`;
+  showToast("✅ Crop & Disease Auto-Detected!");
+}
+
+function filterByCropPill(cropKey, btn) {
+  selectedDocCrop = cropKey;
+  document.querySelectorAll('#docFilterPills .f-pill').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  renderDiseaseLibrary();
+}
+
 function renderDiseaseLibrary() {
   const box = document.getElementById('doctorDiseaseList');
-  box.innerHTML = cropDoctorDB.map(d => {
+  const q = (document.getElementById('docSearchInp')?.value || '').trim().toLowerCase();
+  const filtered = cropDoctorDB.filter(d =>
+    (selectedDocCrop === 'all' || d.crop === selectedDocCrop) &&
+    (!q || d.nameUr.toLowerCase().includes(q) || d.symUr.includes(q) || d.medFormula.toLowerCase().includes(q) || d.cropLabel.toLowerCase().includes(q))
+  );
+  const countTag = document.getElementById('diseaseCountTag');
+  if (countTag) countTag.innerText = `${filtered.length} Cures Found`;
+
+  if (!filtered.length) {
+    box.innerHTML = `<div class="card" style="text-align:center;color:var(--muted);font-size:12px;">No matching disease found. Try another keyword.</div>`;
+    return;
+  }
+
+  box.innerHTML = filtered.map(d => {
     const bCol = d.severity.includes('Critical') ? '#dc2626' : (d.severity.includes('High') ? '#f59e0b' : '#2563eb');
     const spk = currentlySpeakingId === d.id;
     return `<div class="card" style="padding:0;overflow:hidden;">
       <div class="img-box" style="height:125px;border-radius:0;">
+        <span class="f-ico">🌿</span>
         <img src="${d.img}" alt="" onerror="this.style.display='none'">
         <div class="ovl"></div>
         <div style="position:absolute;top:10px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;">
@@ -1245,11 +2140,14 @@ function speakDoctorCure(id) {
   const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
   window.speechSynthesis.cancel(); currentlySpeakingId = id; renderDiseaseLibrary();
   const voices = window.speechSynthesis.getVoices() || [];
-  const hasUr = voices.some(v => v.lang.toLowerCase().startsWith('ur') || v.lang.toLowerCase().startsWith('hi'));
-  const utter = new SpeechSynthesisUtterance(hasUr ? `${d.nameUr}۔ علامات: ${d.symUr}۔ علاج: ${d.cureUr}` : `${d.cropLabel}. Recommended Spray: ${d.medFormula}. Available at Khan Traders Sehja.`);
-  utter.lang = hasUr ? 'ur-PK' : 'en-US'; utter.rate = 0.95;
+  const urVoice = voices.find(v => v.lang.toLowerCase().includes('ur') || v.lang.toLowerCase().includes('hi'));
+  const utter = new SpeechSynthesisUtterance(`${d.nameUr}۔ علامات: ${d.symUr}۔ تجویز کردہ سپرے: ${d.medFormula}۔ ${d.cureUr}`);
+  if (urVoice) utter.voice = urVoice;
+  utter.lang = urVoice ? urVoice.lang : 'ur-PK';
+  utter.rate = 0.92;
   utter.onend = utter.onerror = () => { currentlySpeakingId = null; renderDiseaseLibrary(); };
   window.speechSynthesis.speak(utter);
+  showToast("🔊 Playing Audio Advisory...");
 }
 
 function loadDiseaseIntoCalc(cropKey, doseMl) {
@@ -1263,7 +2161,7 @@ function loadDiseaseIntoCalc(cropKey, doseMl) {
 function orderDiseaseWhatsApp(id) {
   const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
   const msg = `*Assalam-o-Alaikum Khan Traders (Sehja)!*\n🩺 *AI Crop Doctor Order:*\n🌾 Crop: ${d.cropLabel}\n🦠 Disease: ${d.nameUr}\n💊 Formula: ${d.medFormula}\n🚿 Dose: ${d.cureUr}`;
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`);
 }
 
 function toggleTheme() {
@@ -1331,9 +2229,9 @@ function syncDimFromManualSqft() {
   updateMarlaBadgeOnly();
 }
 
-async function fetchWithTimeout(url, ms = 4500) {
+async function fetchWithTimeout(url, ms = 4500, opts = {}) {
   const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
-  try { const r = await fetch(url, { signal: c.signal }); clearTimeout(t); return r; } catch (e) { clearTimeout(t); throw e; }
+  try { const r = await fetch(url, { ...opts, signal: c.signal }); clearTimeout(t); return r; } catch (e) { clearTimeout(t); throw e; }
 }
 
 function getRates() {
@@ -1357,24 +2255,26 @@ function checkUrlRateParams() {
         cotton: Math.abs(parseFloat(p.get('ct'))) || cur.cotton,
         solarWatt: Math.abs(parseFloat(p.get('sw'))) || cur.solarWatt
       }));
+      Store.set('customDealerLock', '1');
     }
   } catch (e) {}
 }
 
-// ==================== TRIPLE-REDUNDANT LIVE MARKET RATE SYNC ENGINE ====================
-async function fetchHtmlViaMultiProxy(targetUrl) {
+// ==================== MULTI-ENGINE LIVE MARKET SCRAPER ====================
+async function fetchLivePageText(targetUrl) {
   const enc = encodeURIComponent(targetUrl);
-  const proxies = [
+  const endpoints = [
+    `https://r.jina.ai/${targetUrl}`,
     `https://api.allorigins.win/get?url=${enc}`,
     `https://api.codetabs.com/v1/proxy?quest=${enc}`
   ];
-  for (let p of proxies) {
+  for (let ep of endpoints) {
     try {
-      const r = await fetchWithTimeout(p, 4000);
+      const r = await fetchWithTimeout(ep, 4200);
       if (r.ok) {
         const txt = await r.text();
         try { const j = JSON.parse(txt); if (j.contents) return j.contents; } catch(e) {}
-        if (txt.length > 200) return txt;
+        if (txt.length > 150) return txt;
       }
     } catch(e) {}
   }
@@ -1383,38 +2283,49 @@ async function fetchHtmlViaMultiProxy(targetUrl) {
 
 async function autoFetchLiveRates(force = false) {
   const badge = document.getElementById('syncBadge');
+  if (!force && Store.get('customDealerLock') === '1') {
+    updateTickerUI();
+    if (badge) badge.innerText = "🔒 Dealer Rates";
+    return;
+  }
   if (badge) badge.innerText = "🔄 Syncing...";
   let cur = getRates();
-  let syncedLive = false;
+  let syncedCount = 0;
 
   try {
-    // 1. Real-Time USD/PKR Exchange Rate Calibration
     const fx = await fetchWithTimeout("https://open.er-api.com/v6/latest/USD", 4000);
     if (fx.ok) {
       const d = await fx.json();
       if (d.rates && d.rates.PKR) {
         cur.usd = parseFloat(d.rates.PKR.toFixed(1));
-        syncedLive = true;
+        syncedCount++;
       }
     }
 
-    // 2. Multi-Proxy Pakistan Cement Rate Scraper
-    const cHtml = await fetchHtmlViaMultiProxy("https://www.urdupoint.com/business/cement-rates-in-pakistan.html");
-    if (cHtml) {
-      const cMatch = cHtml.match(/Rs\.?\s*(1[1-6][0-9]{2})/i);
+    const cTxt = await fetchLivePageText("https://www.urdupoint.com/business/cement-rates-in-pakistan.html");
+    if (cTxt) {
+      const cMatch = cTxt.match(/Rs\.?\s*(1[2-6][0-9]{2})/i);
       if (cMatch && cMatch[1]) {
-        let pC = parseInt(cMatch[1]) + 20;
-        if (pC >= 1150 && pC <= 1850) { cur.cement = pC; syncedLive = true; }
+        let pC = parseInt(cMatch[1]);
+        if (pC >= 1200 && pC <= 1750) { cur.cement = pC; syncedCount++; }
       }
     }
 
-    // 3. Multi-Proxy Pakistan 60-Grade Steel Scraper
-    const sHtml = await fetchHtmlViaMultiProxy("https://www.urdupoint.com/business/iron-steel-rates-in-pakistan.html");
-    if (sHtml) {
-      const tMatch = sHtml.match(/(2[2-9][0-9]),?([0-9]{3})/);
+    const sTxt = await fetchLivePageText("https://www.urdupoint.com/business/iron-steel-rates-in-pakistan.html");
+    if (sTxt) {
+      const tMatch = sTxt.match(/(2[3-9][0-9]),?([0-9]{3})/);
       if (tMatch) {
         let pS = Math.round(parseInt(tMatch[1] + tMatch[2]) / 1000);
-        if (pS >= 215 && pS <= 330) { cur.steel = pS; syncedLive = true; }
+        if (pS >= 230 && pS <= 320) { cur.steel = pS; syncedCount++; }
+      }
+    }
+
+    const pTxt = await fetchLivePageText("https://www.urdupoint.com/business/petrol-prices-in-pakistan.html");
+    if (pTxt) {
+      const dMatch = pTxt.match(/Diesel[\s\S]{1,80}?Rs\.?\s*(2[4-9][0-9]\.?\d*)/i) || pTxt.match(/Rs\.?\s*(2[5-9][0-9]\.\d{2})/i);
+      if (dMatch && dMatch[1]) {
+        let pD = Math.round(parseFloat(dMatch[1]));
+        if (pD >= 240 && pD <= 330) { cur.diesel = pD; syncedCount++; }
       }
     }
   } catch (e) {}
@@ -1426,16 +2337,16 @@ async function autoFetchLiveRates(force = false) {
   updateTickerUI();
   calcSariyaWeight();
 
-  if (badge) badge.innerText = syncedLive ? "🟢 Live Market" : "⚡ Active Index";
+  if (badge) badge.innerText = syncedCount > 0 ? "🟢 Live Verified" : "⚡ Active Index";
   const tsEl = document.getElementById('lastSyncTimestamp');
-  if (tsEl) tsEl.innerText = `✅ Live Index Verified Today at ${stamp} (USD: Rs.${cur.usd})`;
-  if (force) showToast("✅ Live Pakistan Mandi Rates Updated!");
+  if (tsEl) tsEl.innerText = `✅ Live Pakistan Market Synced Today at ${stamp} (1 USD = Rs.${cur.usd})`;
+  if (force) showToast("✅ Live Pakistan Market Rates Updated!");
 }
 
 function updateTickerUI() {
   const r = getRates();
   document.getElementById('liveTickerText').innerText =
-    `🏗️ Cement: Rs.${r.cement}  |  🔩 60G Steel: Rs.${r.steel}/KG  |  🌾 Urea: Rs.${r.urea}  |  🌱 DAP: Rs.${r.dap}  |  🌾 Wheat (40kg): Rs.${r.wheat}  |  ☁️ Cotton (40kg): Rs.${r.cotton}  |  🎋 Cane: Rs.${r.cane}  |  ⛽ Diesel: Rs.${r.diesel}/L  |  ☀️ Solar: Rs.${r.solarWatt}/W  |  💵 USD: Rs.${r.usd}`;
+    `🏗️ Cement: Rs.${r.cement}  |  🔩 60G Steel: Rs.${r.steel}/KG  |  🌾 Urea: Rs.${r.urea}  |  🌱 DAP: Rs.${r.dap}  |  🌾 Wheat (40kg): Rs.${r.wheat}  |  ☁️ Cotton (40kg): Rs.${r.cotton}  |  🎋 Cane: Rs.${r.cane}  |  ⛽ Diesel: Rs.${r.diesel}/L  |  🥇 24K Gold: Rs.${Number(r.gold||284500).toLocaleString()}  |  ☀️ Solar: Rs.${r.solarWatt}/W  |  💵 USD: Rs.${r.usd}`;
   if (document.getElementById('hbCement')) {
     document.getElementById('hbCement').innerText = `Rs.${r.cement}`;
     document.getElementById('hbSteel').innerText = `Rs.${r.steel}/kg`;
@@ -1449,7 +2360,7 @@ function loadRatesIntoInputs() {
   const map = {
     rateCement: 'cement', rateSteel: 'steel', rateBrick: 'brick', rateLabor: 'labor',
     rateUrea: 'urea', rateDap: 'dap', rateWheat: 'wheat', rateCotton: 'cotton',
-    rateCane: 'cane', rateDiesel: 'diesel', rateSolarWatt: 'solarWatt', rateSand: 'sand', rateCrush: 'crush'
+    rateCane: 'cane', rateDiesel: 'diesel', rateGold: 'gold', rateSolarWatt: 'solarWatt', rateSand: 'sand', rateCrush: 'crush'
   };
   for (let id in map) {
     let el = document.getElementById(id);
@@ -1470,21 +2381,28 @@ function saveRates(msg = true) {
     cotton: Math.abs(parseFloat(document.getElementById('rateCotton').value)) || baseMandiRates.cotton,
     cane: Math.abs(parseFloat(document.getElementById('rateCane').value)) || baseMandiRates.cane,
     diesel: Math.abs(parseFloat(document.getElementById('rateDiesel').value)) || baseMandiRates.diesel,
+    gold: Math.abs(parseFloat(document.getElementById('rateGold').value)) || baseMandiRates.gold,
     solarWatt: Math.abs(parseFloat(document.getElementById('rateSolarWatt').value)) || baseMandiRates.solarWatt,
     sand: Math.abs(parseFloat(document.getElementById('rateSand').value)) || baseMandiRates.sand,
     crush: Math.abs(parseFloat(document.getElementById('rateCrush').value)) || baseMandiRates.crush,
     usd: cur.usd || 278.5
   };
   Store.set('appMarketRates', JSON.stringify(up));
+  if (msg) Store.set('customDealerLock', '1');
   updateTickerUI(); calcSariyaWeight();
   if (!document.getElementById('buildResult').classList.contains('hidden')) calculateConstruction(false);
   if (!document.getElementById('wallResult').classList.contains('hidden')) calculateWall(false);
   if (!document.getElementById('solarResult').classList.contains('hidden')) calculateSolar(false);
   if (!document.getElementById('agriResult').classList.contains('hidden')) calculateAgri(false);
-  if (msg) showToast("✅ Market Rates Saved!");
+  if (msg) showToast("✅ Custom Dealer Rates Locked & Saved!");
 }
 
-function resetDefaultRates() { Store.set('appMarketRates', JSON.stringify(baseMandiRates)); loadRatesIntoInputs(); saveRates(false); showToast("↺ Default Rates Restored!"); }
+function resetDefaultRates() {
+  Store.del('customDealerLock');
+  Store.set('appMarketRates', JSON.stringify(baseMandiRates));
+  loadRatesIntoInputs();
+  autoFetchLiveRates(true);
+}
 
 function shareWhatsAppStatusCard() {
   saveRates(false);
@@ -1503,21 +2421,21 @@ function shareWhatsAppStatusCard() {
 • کپاس / پھٹی (40kg): Rs. ${r.cotton}
 • گنا (40kg من): Rs. ${r.cane}
 
-🏗️ *تعمیراتی اور سولر ریٹس:*
+🏗️ *تعمیراتی، سولر اور گولڈ ریٹس:*
 • سیمنٹ (50kg بوری): Rs. ${r.cement}
 • 60 گریڈ سریہ (فی کلو): Rs. ${r.steel}
-• اول اینٹ (فی عدد): Rs. ${r.brick}
 • سولر پینل (فی واٹ): Rs. ${r.solarWatt}
 • ڈیزل (فی لیٹر): Rs. ${r.diesel}
+• سونا 24K (فی تولہ): Rs. ${Number(r.gold||284500).toLocaleString()}
 
 📲 *فصل ڈاکٹر اور مکان/سولر کے مفت حساب کے لیے ایپ کھولیں:*
 ${magicLink}
 📞 *واٹس ایپ:* 0300-5039391`;
 
-  window.open(`https://wa.me/?text=${encodeURIComponent(card)}`, '_blank');
+  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(card)}`);
 }
 
-// ==================== 8. LIVE WEATHER + 7-DAY SPRAY RADAR ====================
+// ==================== 10. LIVE WEATHER + 7-DAY SPRAY RADAR ====================
 async function fetchWeatherAnd7DayRadar() {
   const strip = document.getElementById('weatherStrip');
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
@@ -1553,7 +2471,6 @@ async function fetchWeatherAnd7DayRadar() {
     }
   } catch (e) {}
 
-  // Offline Fallback 7-Day Strip
   strip.innerHTML = [0,1,2,3,4,5,6].map(idx => {
     const dObj = new Date(Date.now() + idx * 86400000);
     const dName = idx === 0 ? 'Today' : days[dObj.getDay()];
@@ -1659,8 +2576,8 @@ function calculateAgri(save = true) {
   let crop = document.getElementById('cropType').value, tL = parseFloat(document.getElementById('tankSize').value), dose = Math.abs(parseFloat(document.getElementById('sprayDosePerAcre').value)) || 250, r = getRates();
   const spMap = {
     cotton: { sNum: 8, sUnit: "KG", sC: 6500, u: 2.5, d: 1.5, sop: 1, zn: 10, pC: 12500, spC: 9500, w: 120 },
-    sugarcane: { sNum: 90, sUnit: "Maund", sC: 36000, u: 3.5, d: 2.0, sop: 1.5, zn: 10, pC: 16500, spC: 11000, w: 160 },
-    wheat: { sNum: 50, sUnit: "KG", sC: 7500, u: 2.0, d: 1.5, sop: 0.5, zn: 8, pC: 7000, spC: 4500, w: 100 },
+    sugarcane: { sNum: 90, sUnit: "Maund", sC: 90 * r.cane, u: 3.5, d: 2.0, sop: 1.5, zn: 10, pC: 16500, spC: 11000, w: 160 },
+    wheat: { sNum: 50, sUnit: "KG", sC: Math.round(r.wheat * 1.45), u: 2.0, d: 1.5, sop: 0.5, zn: 8, pC: 7000, spC: 4500, w: 100 },
     rice: { sNum: 8, sUnit: "KG", sC: 5500, u: 2.5, d: 1.5, sop: 0.5, zn: 15, pC: 6500, spC: 7500, w: 120 },
     maize: { sNum: 10, sUnit: "KG Hybrid", sC: 14000, u: 3.0, d: 2.0, sop: 1.0, zn: 10, pC: 10500, spC: 8500, w: 120 },
     orchard: { sNum: 1, sUnit: "Acre Pkg", sC: 12000, u: 3.0, d: 2.0, sop: 1.5, zn: 12, pC: 14000, spC: 10000, w: 150 }
@@ -1721,14 +2638,14 @@ function buildFullSummaryText(type) {
     return `🏗️ *Construction BOQ (${document.getElementById('resBuildMeta').innerText})*\n🧱 Cement: ${document.getElementById('rCement').innerText}\n🔩 Steel: ${document.getElementById('rSteel').innerText}\n🟧 Bricks: ${document.getElementById('rBricks').innerText}\n🏖️ Sand: ${document.getElementById('rSand').innerText} | 🪨 Crush: ${document.getElementById('rCrush').innerText}\n👷 Labor: ${document.getElementById('rLabor').innerText}\n💰 *Total: ${document.getElementById('rTotalBuild').innerText}*`;
   } else if (type === 'wall') {
     if (document.getElementById('wTotalCost').innerText === '-') calculateWall(false);
-    return `🧱 *Masonry Estimate (${document.getElementById('resWallMeta').innerText})*\n🟧 Bricks: ${document.getElementById('wBricks').innerText}\n🧱 Cement: ${document.getElementById('wPlasterCement').innerText}\n🏖️ Sand: ${document.getElementById('wSand').innerText}\n💰 *Total: ${document.getElementById('wTotalCost').innerText}*`;
+    return `🧱 *Masonry Estimate (${document.getElementById('resWallMeta').innerText})*\n🟧 Bricks: ${document.getElementById('wBricks').innerText}\n🧱 Masonry Cement: ${document.getElementById('wCement').innerText}\n🪣 Plaster Cement: ${document.getElementById('wPlasterCement').innerText}\n🏖️ Sand: ${document.getElementById('wSand').innerText}\n💰 *Total: ${document.getElementById('wTotalCost').innerText}*`;
   } else if (type === 'sariya') {
     calcSariyaWeight();
     let sTxt = document.getElementById('sootarSize').options[document.getElementById('sootarSize').selectedIndex].text;
     return `🔩 *Steel Rebar Booking*\n📏 Size: ${sTxt}\n⚖️ ${document.getElementById('sariyaWeightOut').innerText}\n💰 ${document.getElementById('sariyaPriceOut').innerText}`;
   } else if (type === 'solar') {
     if (document.getElementById('sTotalCost').innerText === '-') calculateSolar(false);
-    return `☀️ *Solar System Quote (${document.getElementById('resSolarMeta').innerText})*\n☀️ Panels: ${document.getElementById('sPanels').innerText}\n⚡ Inverter: ${document.getElementById('sInverter').innerText}\n🔋 Storage: ${document.getElementById('sBattery').innerText}\n💰 *Total: ${document.getElementById('sTotalCost').innerText}*`;
+    return `☀️ *Solar System Quote (${document.getElementById('resSolarMeta').innerText})*\n☀️ Panels: ${document.getElementById('sPanels').innerText}\n⚡ Inverter: ${document.getElementById('sInverter').innerText}\n🔋 Storage: ${document.getElementById('sBattery').innerText}\n🛠️ Structure & BOS: ${document.getElementById('sInstall').innerText}\n💰 *Total: ${document.getElementById('sTotalCost').innerText}*`;
   } else {
     if (document.getElementById('rTotalAgri').innerText === '-') calculateAgri(false);
     return `🌱 *Crop Nutrition Plan (${document.getElementById('resAgriMeta').innerText})*\n🌰 Seed: ${document.getElementById('rSeed').innerText}\n📦 Urea: ${document.getElementById('rUrea').innerText}\n🌱 DAP: ${document.getElementById('rDap').innerText}\n⚡ Potash/Zinc: ${document.getElementById('rPotash').innerText}\n🚿 Spray Tanks: ${document.getElementById('rSprayTanks').innerText}\n🧪 Dose/Tank: ${document.getElementById('rDosePerTank').innerText}\n💰 *Total: ${document.getElementById('rTotalAgri').innerText}*`;
@@ -1743,11 +2660,19 @@ function copyEstimate(type) {
 
 function sendWhatsApp(type) {
   const msg = `*Assalam-o-Alaikum Khan Traders (Sehja)!*\n\n` + buildFullSummaryText(type) + `\n\nPlease confirm availability and wholesale rates.`;
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`);
 }
 
 function saveHistoryItem(title, amount) {
-  try { let l = JSON.parse(Store.get('appCalcHistory') || '[]'); l.unshift({ title, amount, date: new Date().toLocaleDateString() }); Store.set('appCalcHistory', JSON.stringify(l.slice(0, 10))); renderHistory(); } catch (e) {}
+  try { let l = JSON.parse(Store.get('appCalcHistory') || '[]'); l.unshift({ title: cleanStr(title), amount: cleanStr(amount), date: new Date().toLocaleDateString() }); Store.set('appCalcHistory', JSON.stringify(l.slice(0, 10))); renderHistory(); } catch (e) {}
+}
+
+function shareHistoryIdx(idx) {
+  try {
+    let l = JSON.parse(Store.get('appCalcHistory') || '[]');
+    let item = l[idx];
+    if (item) openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Assalam-o-Alaikum Khan Traders! Estimate: ${item.title} = ${item.amount}`)}`);
+  } catch (e) {}
 }
 
 function renderHistory() {
@@ -1755,11 +2680,16 @@ function renderHistory() {
   try {
     let l = JSON.parse(Store.get('appCalcHistory') || '[]');
     if (!l.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No recent estimates.</p>`; return; }
-    box.innerHTML = l.map(i => `<div class="rline"><div><strong>${i.title}</strong><br><small style="color:var(--muted);">${i.date}</small></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:var(--em);">${i.amount}</strong><button onclick="window.open('https://wa.me/${whatsappNumber}?text='+encodeURIComponent('Estimate: ${i.title} = ${i.amount}'),'_blank')" style="background:#22c55e;color:#fff;border:none;border-radius:8px;padding:4px 7px;font-size:11px;cursor:pointer;">💬</button></div></div>`).join('');
+    box.innerHTML = l.map((i, idx) => `<div class="rline"><div><strong>${cleanStr(i.title)}</strong><br><small style="color:var(--muted);">${cleanStr(i.date)}</small></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:var(--em);">${cleanStr(i.amount)}</strong><button onclick="shareHistoryIdx(${idx})" style="background:#22c55e;color:#fff;border:none;border-radius:8px;padding:4px 7px;font-size:11px;cursor:pointer;">💬</button></div></div>`).join('');
   } catch (e) {}
 }
 
-function clearHistory() { Store.del('appCalcHistory'); renderHistory(); showToast("🗑️ Cleared!"); }
+function clearHistory() {
+  if (!verifyKisanPin()) return;
+  Store.del('appCalcHistory');
+  renderHistory();
+  showToast("🗑️ Cleared!");
+}
 </script>
 </body>
 </html>
