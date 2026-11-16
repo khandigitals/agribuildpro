@@ -3,144 +3,301 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-<meta name="theme-color" content="#011d16">
+<meta name="theme-color" content="#0F3D2E">
 <meta name="mobile-web-app-capable" content="yes">
-<title>AgriBuild Pro | Real AI Crop Doctor, Cloud Khata & Smart Suite</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<title>AgriBuild Pro | Precision AgriTech & ConTech Super-App</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#edf4f9;--card:#ffffff;--text:#0f172a;--muted:#64748b;--border:#d6e3f0;--inp:#f8fafc;--em:#059669;--em-l:#10b981;--em-bg:rgba(16,185,129,0.11);--am:#d97706;--am-bg:rgba(245,158,11,0.14);--nav:rgba(255,255,255,0.97);--sh:0 12px 28px -6px rgba(6,78,59,0.09);--gold-bdr:rgba(245,158,11,0.45)}
-[data-theme="dark"]{--bg:#020617;--card:#0f172a;--text:#f8fafc;--muted:#94a3b8;--border:#1e293b;--inp:#1e293b;--em:#10b981;--em-l:#34d399;--em-bg:rgba(16,185,129,0.18);--am:#fbbf24;--am-bg:rgba(245,158,11,0.18);--nav:rgba(15,23,42,0.97);--sh:0 14px 34px -6px rgba(0,0,0,0.7);--gold-bdr:rgba(251,191,36,0.45)}
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;font-family:'Inter',system-ui,-apple-system,sans-serif}
-body{background:var(--bg);color:var(--text);padding-top:48px;padding-bottom:160px;overflow-x:hidden;transition:background .25s,color .25s}
-.shell{max-width:520px;margin:0 auto;min-height:100vh;position:relative}
-.hidden{display:none!important}
-.no-sb::-webkit-scrollbar{display:none}.no-sb{-ms-overflow-style:none;scrollbar-width:none}
-.urdu-text{font-family:'Noto Nastaliq Urdu','Segoe UI',Tahoma,sans-serif;direction:rtl;text-align:right;line-height:2.1}
+  :root {
+    --primary: #0F3D2E;
+    --primary-dark: #14532D;
+    --primary-light: rgba(15, 61, 46, 0.08);
+    --accent: #D97706;
+    --accent-hover: #B45309;
+    --accent-light: #FEF3C7;
+    --bg: #F1F5F9;
+    --card: #FFFFFF;
+    --text: #0F172A;
+    --muted: #475569;
+    --border: #E2E8F0;
+    --inp: #F8FAFC;
+    --success: #16A34A;
+    --danger: #DC2626;
+    --nav: rgba(255, 255, 255, 0.95);
+    --sh: 0 4px 20px -2px rgba(15, 61, 46, 0.06);
+    --gold-bdr: rgba(217, 119, 6, 0.35);
+  }
+  [data-theme="dark"] {
+    --bg: #030712;
+    --card: #0F172A;
+    --text: #F8FAFC;
+    --muted: #94A3B8;
+    --border: #1E293B;
+    --inp: #1E293B;
+    --primary: #10B981;
+    --primary-dark: #059669;
+    --primary-light: rgba(16, 185, 129, 0.15);
+    --nav: rgba(15, 23, 42, 0.95);
+    --sh: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    --gold-bdr: rgba(245, 158, 11, 0.35);
+  }
 
-/* FIXED TOP & BOTTOM AD BARS */
-.fixed-top-ad{position:fixed;top:0;left:0;right:0;margin:0 auto;width:100%;max-width:520px;height:48px;background:linear-gradient(90deg,#090d16,#1e293b,#090d16);color:#fff;z-index:99990;display:flex;align-items:center;justify-content:space-between;padding:0 12px;text-decoration:none;border-bottom:2px solid #fbbf24;box-shadow:0 4px 18px rgba(0,0,0,0.35);cursor:pointer}
-.fixed-bottom-ad{position:fixed;bottom:64px;left:0;right:0;margin:0 auto;width:100%;max-width:520px;height:48px;background:linear-gradient(90deg,#011d16,#065f46,#011d16);color:#fff;z-index:99990;display:flex;align-items:center;justify-content:space-between;padding:0 12px;text-decoration:none;border-top:2px solid #34d399;box-shadow:0 -4px 18px rgba(0,0,0,0.28);cursor:pointer}
-.ad-tag{background:linear-gradient(135deg,#fde047,#f59e0b);color:#0f172a;font-size:9px;font-weight:900;padding:2.5px 6px;border-radius:5px;text-transform:uppercase;flex-shrink:0}
-.ad-cta{background:linear-gradient(135deg,#22c55e,#15803d);color:#fff;font-size:10.5px;font-weight:800;padding:5px 12px;border-radius:20px;white-space:nowrap;animation:pulseBtn 1.6s infinite}
-@keyframes pulseBtn{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+  body { background: var(--bg); color: var(--text); padding-top: 54px; padding-bottom: 158px; overflow-x: hidden; transition: background 0.25s, color 0.25s; }
+  .shell { max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; }
+  .hidden { display: none !important; }
+  .no-sb::-webkit-scrollbar { display: none; }
+  .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+  .urdu-text { font-family: 'Noto Nastaliq Urdu', 'Segoe UI', Tahoma, sans-serif; direction: rtl; text-align: right; line-height: 2.2; }
+  
+  /* Tabular Numerics for precision financial & engineering calculations */
+  .tabular-num, strong, .rline strong, .rtot span, .inp, input[type="number"], select {
+    font-variant-numeric: tabular-nums;
+  }
 
-/* 30-SECOND AUTO-CLOSING IN-APP AD VIEWER MODAL */
-#adOverlayModal{position:fixed;inset:0;z-index:100005;background:#020617;display:flex;flex-direction:column;max-width:520px;margin:0 auto}
-.ad-m-hdr{background:linear-gradient(90deg,#011812,#064e3b);color:#fff;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #fbbf24}
-.ad-prog-wrap{width:100%;height:5px;background:#1e293b;overflow:hidden}
-#adProgBar{height:100%;width:100%;background:linear-gradient(90deg,#fde047,#10b981);transition:width 1s linear}
-.ad-close-btn{background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;border:1px solid #fca5a5;padding:6px 12px;border-radius:10px;font-size:11.5px;font-weight:900;cursor:pointer;display:flex;align-items:center;gap:5px}
+  /* FIXED TOP & BOTTOM AD BARS */
+  .fixed-top-ad {
+    position: fixed; top: 0; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 50px;
+    background: linear-gradient(90deg, #090D16 0%, #1E293B 50%, #090D16 100%);
+    color: #fff; z-index: 99990; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 14px; text-decoration: none;
+    border-bottom: 2px solid var(--accent); box-shadow: 0 4px 18px rgba(0,0,0,0.35); cursor: pointer;
+  }
+  .fixed-bottom-ad {
+    position: fixed; bottom: 64px; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 50px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary) 100%);
+    color: #fff; z-index: 99990; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 14px; text-decoration: none;
+    border-top: 2px solid var(--success); box-shadow: 0 -4px 18px rgba(0,0,0,0.25); cursor: pointer;
+  }
+  .ad-tag { background: var(--accent-light); color: #78350F; font-size: 9px; font-weight: 800; padding: 3px 7px; border-radius: 6px; text-transform: uppercase; flex-shrink: 0; }
+  .ad-cta { background: var(--success); color: #fff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 20px; white-space: nowrap; animation: pulseBtn 1.6s infinite; }
+  @keyframes pulseBtn { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-/* ROYAL EMERALD & GOLD HERO HEADER */
-.hero{background:radial-gradient(circle at 88% 12%,rgba(251,191,36,0.28),transparent 52%),linear-gradient(135deg,#011812 0%,#064e3b 55%,#047857 100%);color:#fff;padding:15px 15px 25px;border-radius:0 0 30px 30px;box-shadow:0 16px 34px rgba(2,44,34,0.36);border-bottom:2px solid rgba(251,191,36,0.4)}
-.h-top{display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;align-items:center;gap:10px}
-.logo{width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,0.16);border:1.5px solid rgba(251,191,36,0.65);display:flex;align-items:center;justify-content:center;font-size:22px}
-.gold-pill{background:linear-gradient(90deg,#fde047,#f59e0b,#fde047);background-size:200% auto;animation:shine 3s linear infinite;color:#0f172a;font-size:9px;font-weight:900;padding:2px 7px;border-radius:5px}
-@keyframes shine{to{background-position:200% center}}
-.icon-btn{height:35px;padding:0 10px;border-radius:11px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.25);color:#fff;font-size:11.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:4px}
-.desi-bar{margin-top:11px;background:rgba(0,0,0,0.34);border:1px solid rgba(251,191,36,0.32);border-radius:15px;padding:8px 11px;display:flex;justify-content:space-between;align-items:center;font-size:11px;gap:8px}
+  /* 30-SECOND AUTO-CLOSING IN-APP AD VIEWER MODAL */
+  #adOverlayModal { position: fixed; inset: 0; z-index: 100005; background: #030712; display: flex; flex-direction: column; max-width: 520px; margin: 0 auto; }
+  .ad-m-hdr { background: linear-gradient(90deg, var(--primary), var(--primary-dark)); color: #fff; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--accent); }
+  .ad-prog-wrap { width: 100%; height: 6px; background: #1E293B; overflow: hidden; }
+  #adProgBar { height: 100%; width: 100%; background: linear-gradient(90deg, #F59E0B, #10B981); transition: width 1s linear; }
+  .ad-close-btn { background: #DC2626; color: #fff; border: none; padding: 6px 12px; border-radius: 10px; font-size: 12px; font-weight: 800; cursor: pointer; display: flex; align-items: center; gap: 5px; }
 
-/* LIVE TICKER */
-.ticker{margin:-13px 14px 10px;background:linear-gradient(90deg,#090d16,#1e293b);color:#fff;border-radius:14px;padding:7px 11px;font-size:11.5px;display:flex;align-items:center;gap:8px;box-shadow:var(--sh);border:1px solid rgba(251,191,36,0.4);position:relative;z-index:5}
-.live-badge{background:#ef4444;color:#fff;font-size:9px;font-weight:900;padding:2px 6px;border-radius:5px;animation:pls 1.4s infinite}
-@keyframes pls{0%,100%{opacity:1}50%{opacity:.45}}
-.t-wrap{overflow:hidden;white-space:nowrap;flex:1}
-.t-move{display:inline-block;padding-left:100%;animation:mrq 30s linear infinite;font-weight:600;color:#f1f5f9}
-@keyframes mrq{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-100%,0,0)}}
+  /* SILICON VALLEY NATIVE APP HEADER */
+  .hero {
+    background: radial-gradient(circle at 90% 10%, rgba(217, 119, 6, 0.18), transparent 50%),
+                linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: #fff; padding: 16px; border-radius: 0 0 28px 28px;
+    box-shadow: 0 12px 30px rgba(15, 61, 46, 0.25); border-bottom: 2px solid var(--gold-bdr);
+  }
+  .h-top { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .logo {
+    width: 44px; height: 44px; border-radius: 14px;
+    background: rgba(255, 255, 255, 0.15); border: 1.5px solid rgba(255, 255, 255, 0.3);
+    display: flex; align-items: center; justify-content: center; font-size: 22px;
+  }
+  .gold-pill {
+    background: var(--accent); color: #fff; font-size: 9px; font-weight: 800; padding: 2px 8px; border-radius: 6px; letter-spacing: 0.5px;
+  }
+  .icon-btn {
+    height: 36px; padding: 0 12px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff; font-size: 12px; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: 6px; transition: 0.2s;
+  }
+  .icon-btn:active { transform: scale(0.96); }
+  .desi-bar {
+    margin-top: 12px; background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 14px;
+    padding: 9px 12px; display: flex; justify-content: space-between;
+    align-items: center; font-size: 11.5px; gap: 8px; backdrop-filter: blur(8px);
+  }
 
-/* PAGES, CARDS & SECTION HEADERS */
-.page{display:none;padding:6px 14px;animation:fadeIn .22s ease-out}.page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
-.card{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:14px;box-shadow:var(--sh);margin-bottom:12px}
-.sec-banner{background:linear-gradient(135deg,#011812,#065f46);color:#fff;border-radius:20px;padding:12px 14px;margin-bottom:12px;border:1.5px solid rgba(251,191,36,0.4);display:flex;justify-content:space-between;align-items:center}
-.sec-title{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin:8px 2px 8px;display:flex;justify-content:space-between;align-items:center}
+  /* LIVE MARKET TICKER */
+  .ticker {
+    margin: -12px 14px 12px; background: #0F172A; color: #fff; border-radius: 14px; padding: 8px 12px; font-size: 11.5px;
+    display: flex; align-items: center; gap: 10px; box-shadow: var(--sh); border: 1px solid #334155; position: relative; z-index: 5;
+  }
+  .live-badge { background: #DC2626; color: #fff; font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 4px; animation: pls 1.4s infinite; }
+  @keyframes pls { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
+  .t-wrap { overflow: hidden; white-space: nowrap; flex: 1; }
+  .t-move { display: inline-block; padding-left: 100%; animation: mrq 30s linear infinite; font-weight: 600; color: #E2E8F0; font-family: 'JetBrains Mono', monospace; }
+  @keyframes mrq { 0% { transform: translate3d(0,0,0); } 100% { transform: translate3d(-100%,0,0); } }
 
-/* STREAK & VIP PROFILE CARDS */
-.streak-box{background:linear-gradient(135deg,#022c22,#064e3b,#047857);color:#fff;border:1.5px solid rgba(251,191,36,0.5);border-radius:22px;padding:12px 13px;margin-bottom:12px;box-shadow:0 10px 24px rgba(6,78,59,0.2)}
-.s-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:8px 0 2px}
-.s-step{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:10px;padding:5px 2px;text-align:center;font-size:9px;font-weight:800}
-.s-step.done{background:rgba(16,185,129,0.38);border-color:#34d399;color:#a7f3d0}
-.s-step.active{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#0f172a;border-color:#fff;transform:scale(1.05)}
-.vip-id-card{background:radial-gradient(circle at top right,rgba(251,191,36,0.25),transparent 55%),linear-gradient(135deg,#011812,#064e3b,#0f766e);color:#fff;border:2px solid #fbbf24;border-radius:24px;padding:16px;margin-bottom:12px;box-shadow:0 14px 30px rgba(2,44,34,0.3)}
+  /* PAGES & LUXURY ELEVATED CARDS */
+  .page { display: none; padding: 6px 14px; animation: fadeIn 0.2s ease-out; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 16px; box-shadow: var(--sh);
+    margin-bottom: 14px; transition: transform 0.2s, border-color 0.2s;
+  }
+  .sec-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff;
+    border-radius: 18px; padding: 14px 16px; margin-bottom: 14px; border: 1px solid var(--gold-bdr);
+    display: flex; justify-content: space-between; align-items: center; box-shadow: var(--sh);
+  }
+  .sec-title {
+    font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--muted); margin: 10px 2px 8px; display: flex; justify-content: space-between; align-items: center;
+  }
 
-/* GRIDS & WEATHER */
-.g-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.g-3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.g-4{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.g-5{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.g-6{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-@media(max-width:400px){.g-6{grid-template-columns:repeat(3,1fr)}}
-.w-strip{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
-.w-day{flex-shrink:0;width:74px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:8px 5px;text-align:center;box-shadow:var(--sh)}
-.w-day.today{border:1.5px solid var(--em);background:var(--em-bg)}
-.pill-bar{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
-.f-pill{flex-shrink:0;padding:7px 12px;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:11px;font-weight:800;cursor:pointer;transition:.15s}
-.f-pill.active{background:linear-gradient(135deg,#10b981,#047857);color:#fff;border-color:transparent;box-shadow:0 4px 10px rgba(16,185,129,0.3)}
+  /* STREAK & VIP ID CARDS */
+  .streak-box {
+    background: linear-gradient(135deg, #064E3B, #0F3D2E, #14532D); color: #fff;
+    border: 1.5px solid var(--gold-bdr); border-radius: 20px; padding: 14px; margin-bottom: 14px; box-shadow: var(--sh);
+  }
+  .s-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 10px 0 2px; }
+  .s-step {
+    background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px; padding: 6px 2px; text-align: center; font-size: 9.5px; font-weight: 700;
+  }
+  .s-step.done { background: rgba(16, 185, 129, 0.35); border-color: #34D399; color: #A7F3D0; }
+  .s-step.active { background: var(--accent); color: #fff; border-color: #FFF; transform: scale(1.05); }
 
-/* VISUAL CARDS */
-.img-box{position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(135deg,#022c22,#065f46,#0f766e);display:flex;align-items:center;justify-content:center}
-.img-box .f-ico{position:relative;z-index:0;font-size:26px;opacity:.55}
-.img-box img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
-.img-box .ovl{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,23,0.9) 10%,rgba(2,6,23,0.18) 100%);z-index:2}
-.bento{background:var(--card);border:1.5px solid var(--border);border-radius:20px;overflow:hidden;cursor:pointer;box-shadow:var(--sh);transition:.2s}
-.v-opt{background:var(--card);border:2px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;text-align:center;transition:.2s}
-.v-opt.sel{border-color:var(--em);background:var(--em-bg)}
-.scan-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
-.scan-btn{border:1.5px solid var(--border);background:var(--inp);border-radius:18px;padding:15px 10px;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
-.scan-btn.cam{background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.05));border-color:var(--em)}
-.scan-ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff}
+  .vip-id-card {
+    background: radial-gradient(circle at top right, rgba(217, 119, 6, 0.2), transparent 50%),
+                linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff; border: 2px solid var(--accent); border-radius: 22px; padding: 16px; margin-bottom: 14px; box-shadow: var(--sh);
+  }
 
-/* SYMPTOM CHIPS FOR EXACT DIAGNOSIS */
-.sym-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}
-.sym-chip{background:var(--inp);border:1.5px solid var(--border);border-radius:11px;padding:7px 8px;font-size:11px;font-weight:700;color:var(--text);cursor:pointer;text-align:right;direction:rtl;transition:.15s}
-.sym-chip.active{background:var(--em-bg);border-color:var(--em);color:var(--em);font-weight:800}
+  /* GRIDS & WEATHER */
+  .g-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .g-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .g-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .g-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .g-6 { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+  @media (max-width: 400px) { .g-6 { grid-template-columns: repeat(3, 1fr); } }
 
-/* INPUTS & BUTTONS */
-label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var(--muted)}
-.inp{width:100%;background:var(--inp);color:var(--text);border:1.5px solid var(--border);border-radius:12px;padding:10px 12px;font-size:13.5px;font-weight:700;outline:none}
-.inp:focus{border-color:var(--em)}
-.btn{width:100%;background:linear-gradient(135deg,#10b981,#047857);color:#fff;border:none;padding:12.5px;border-radius:14px;font-size:13.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;box-shadow:0 6px 16px rgba(16,185,129,0.28)}
-.btn-wa{background:linear-gradient(135deg,#22c55e,#15803d)}
-.btn-out{background:transparent;color:var(--em);border:1.5px solid var(--em);box-shadow:none}
-.chip{background:var(--inp);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:6px 4px;font-size:11px;font-weight:700;cursor:pointer}
-.del-btn{background:rgba(239,68,68,0.12);color:#ef4444;border:none;width:26px;height:26px;border-radius:8px;font-size:12px;font-weight:800;cursor:pointer}
-.rline{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--border);font-size:12.5px;gap:8px}
-.rtot{margin-top:10px;background:var(--am-bg);border:1px solid var(--gold-bdr);padding:11px 13px;border-radius:14px;display:flex;justify-content:space-between;font-size:15px;font-weight:900;color:var(--am)}
-.laser{position:absolute;left:0;right:0;height:3px;z-index:10;background:#10b981;box-shadow:0 0 16px 4px #10b981;animation:scn 1.8s infinite ease-in-out}
-@keyframes scn{0%{top:6%}50%{top:92%}100%{top:6%}}
-.sub-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--card);padding:5px;border-radius:16px;border:1px solid var(--border);margin-bottom:12px;box-shadow:var(--sh)}
-.s-pill{padding:8.5px 4px;border-radius:11px;border:none;background:transparent;color:var(--muted);font-size:11.5px;font-weight:800;cursor:pointer}
-.s-pill.active{background:linear-gradient(135deg,#10b981,#047857);color:#fff}
-.wheel-wrap{width:142px;height:142px;margin:6px auto;position:relative}
-.wheel-ptr{position:absolute;top:-10px;left:50%;transform:translateX(-50%);z-index:5;font-size:18px}
-.wheel{width:100%;height:100%;border-radius:50%;border:5px solid #fbbf24;background:conic-gradient(#10b981 0deg 60deg,#047857 60deg 120deg,#f59e0b 120deg 180deg,#2563eb 180deg 240deg,#7c3aed 240deg 300deg,#dc2626 300deg 360deg);transition:transform 3s cubic-bezier(0.18,0.89,0.32,1.28);display:flex;align-items:center;justify-content:center}
-.wheel-center{width:44px;height:44px;border-radius:50%;background:#fff;color:#0f172a;font-weight:900;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:2px solid #fbbf24}
+  .w-strip { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px; }
+  .w-day { flex-shrink: 0; width: 78px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 10px 6px; text-align: center; box-shadow: var(--sh); }
+  .w-day.today { border: 1.5px solid var(--primary); background: var(--primary-light); }
+  
+  .pill-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 12px; }
+  .f-pill {
+    flex-shrink: 0; padding: 8px 14px; border-radius: 12px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); font-size: 11.5px; font-weight: 700; cursor: pointer; transition: 0.15s;
+  }
+  .f-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); box-shadow: 0 4px 12px rgba(15, 61, 46, 0.2); }
 
-/* BOTTOM 7-TAB DOCK (WITH PROFILE AT THE END) */
-.bottom-dock{position:fixed;bottom:0;left:0;right:0;margin:0 auto;width:100%;max-width:520px;height:64px;background:var(--nav);backdrop-filter:blur(16px);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(7,1fr);padding:6px 2px 8px;z-index:99995;box-shadow:0 -8px 28px rgba(0,0,0,0.12)}
-.tab-item{border:none;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--muted);font-size:9.5px;font-weight:700;cursor:pointer}
-.tab-ico{width:35px;height:30px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:15.5px;transition:.25s}
-.tab-item.active{color:var(--em);font-weight:800}
-.tab-item.active .tab-ico{background:linear-gradient(135deg,#10b981,#047857);color:#fff;transform:translateY(-4px);box-shadow:0 5px 12px rgba(16,185,129,0.45)}
-#toast{position:fixed;top:58px;left:50%;transform:translateX(-50%) translateY(-220%);z-index:100010;background:#022c22;color:#fff;border:1.5px solid #fbbf24;padding:9px 16px;border-radius:14px;font-size:12px;font-weight:800;transition:.3s;opacity:0;pointer-events:none;white-space:nowrap}
-#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-.p-hdr{display:none;text-align:center;border-bottom:2px solid #047857;padding-bottom:8px;margin-bottom:10px}
-@media print{
-  :root,[data-theme="dark"]{--bg:#fff!important;--card:#fff!important;--text:#000!important;--muted:#333!important;--border:#ccc!important}
-  html,body{background:#fff!important;color:#000!important;padding:0!important}
-  .hero,.ticker,.bottom-dock,.fixed-top-ad,.fixed-bottom-ad,.no-print,#toast,.del-btn,#adOverlayModal{display:none!important}
-  .page,.rcpt{display:none!important}.page.p-page,.rcpt.p-target{display:block!important;border:2px solid #000!important;box-shadow:none!important}
-  .p-hdr{display:block!important}
-}
+  /* VISUAL CARDS */
+  .img-box {
+    position: relative; overflow: hidden; border-radius: 16px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex; align-items: center; justify-content: center;
+  }
+  .img-box .f-ico { position: relative; z-index: 0; font-size: 28px; opacity: 0.6; }
+  .img-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .img-box .ovl { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 10%, rgba(15, 23, 42, 0.1) 100%); z-index: 2; }
+  
+  .bento {
+    background: var(--card); border: 1px solid var(--border); border-radius: 18px;
+    overflow: hidden; cursor: pointer; box-shadow: var(--sh); transition: 0.2s;
+  }
+  .bento:hover { border-color: var(--primary); transform: translateY(-2px); }
+  
+  .v-opt { background: var(--card); border: 2px solid var(--border); border-radius: 14px; overflow: hidden; cursor: pointer; text-align: center; transition: 0.2s; }
+  .v-opt.sel { border-color: var(--primary); background: var(--primary-light); }
+
+  /* CAMERA & GALLERY UPLOADZONE */
+  .scan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  .scan-btn {
+    border: 1.5px dashed var(--border); background: var(--inp); border-radius: 16px; padding: 16px 12px;
+    text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 8px; transition: 0.2s;
+  }
+  .scan-btn.cam { background: var(--primary-light); border-color: var(--primary); border-style: solid; }
+  .scan-ico { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+  /* SYMPTOM CHIPS */
+  .sym-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+  .sym-chip {
+    background: var(--inp); border: 1.5px solid var(--border); border-radius: 12px; padding: 8px 10px;
+    font-size: 11.5px; font-weight: 600; color: var(--text); cursor: pointer; text-align: right; direction: rtl; transition: 0.15s;
+  }
+  .sym-chip.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary); font-weight: 700; }
+
+  /* INPUTS & BUTTONS */
+  label { display: block; font-size: 11.5px; font-weight: 700; margin-bottom: 6px; color: var(--muted); }
+  .inp {
+    width: 100%; background: var(--inp); color: var(--text); border: 1.5px solid var(--border);
+    border-radius: 12px; padding: 12px 14px; font-size: 14px; font-weight: 600; outline: none; transition: border-color 0.2s;
+  }
+  .inp:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+  
+  .btn {
+    width: 100%; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff;
+    border: none; padding: 14px; border-radius: 14px; font-size: 14px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(15, 61, 46, 0.25); transition: transform 0.15s;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn-wa { background: linear-gradient(135deg, #16A34A, #15803D); box-shadow: 0 4px 16px rgba(22, 163, 74, 0.25); }
+  .btn-out { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); box-shadow: none; }
+  
+  .chip { background: var(--inp); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 6px 8px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+  .del-btn { background: rgba(220, 38, 38, 0.1); color: var(--danger); border: none; width: 28px; height: 28px; border-radius: 8px; font-size: 12px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+
+  /* RESULTS & LEDGER ROWS */
+  .rline { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px dashed var(--border); font-size: 13px; gap: 10px; }
+  .rtot {
+    margin-top: 12px; background: var(--accent-light); border: 1px solid var(--gold-bdr);
+    padding: 12px 14px; border-radius: 14px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: var(--accent-hover);
+  }
+  .laser { position: absolute; left: 0; right: 0; height: 3px; z-index: 10; background: var(--primary); box-shadow: 0 0 16px 4px var(--primary); animation: scn 1.8s infinite ease-in-out; }
+  @keyframes scn { 0% { top: 6%; } 50% { top: 92%; } 100% { top: 6%; } }
+
+  /* SUB-TABS & BOTTOM DOCK */
+  .sub-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: var(--card); padding: 6px; border-radius: 16px; border: 1px solid var(--border); margin-bottom: 14px; box-shadow: var(--sh); }
+  .s-pill { padding: 9px 4px; border-radius: 11px; border: none; background: transparent; color: var(--muted); font-size: 11.5px; font-weight: 800; cursor: pointer; transition: 0.2s; }
+  .s-pill.active { background: var(--primary); color: #fff; box-shadow: 0 4px 10px rgba(15, 61, 46, 0.2); }
+
+  .wheel-wrap { width: 148px; height: 148px; margin: 8px auto; position: relative; }
+  .wheel-ptr { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 5; font-size: 18px; }
+  .wheel { width: 100%; height: 100%; border-radius: 50%; border: 5px solid var(--accent); background: conic-gradient(#10B981 0deg 60deg, #059669 60deg 120deg, #D97706 120deg 180deg, #2563EB 180deg 240deg, #7C3AED 240deg 300deg, #DC2626 300deg 360deg); transition: transform 3s cubic-bezier(0.18, 0.89, 0.32, 1.28); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+  .wheel-center { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: #0F172A; font-weight: 900; font-size: 11px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid var(--accent); }
+
+  .bottom-dock {
+    position: fixed; bottom: 0; left: 0; right: 0; margin: 0 auto;
+    width: 100%; max-width: 520px; height: 64px; background: var(--nav);
+    backdrop-filter: blur(16px); border-top: 1px solid var(--border);
+    display: grid; grid-template-columns: repeat(7, 1fr); padding: 6px 2px 8px; z-index: 99995;
+    box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.08);
+  }
+  .tab-item { border: none; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--muted); font-size: 9.5px; font-weight: 700; cursor: pointer; }
+  .tab-ico { width: 35px; height: 30px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 15.5px; transition: 0.25s; }
+  .tab-item.active { color: var(--primary); font-weight: 800; }
+  .tab-item.active .tab-ico { background: var(--primary); color: #fff; transform: translateY(-4px); box-shadow: 0 5px 12px rgba(15, 61, 46, 0.3); }
+
+  #toast {
+    position: fixed; top: 60px; left: 50%; transform: translateX(-50%) translateY(-220%); z-index: 100010;
+    background: var(--primary); color: #fff; border: 1.5px solid var(--accent); padding: 10px 18px; border-radius: 14px;
+    font-size: 12.5px; font-weight: 800; transition: 0.3s; opacity: 0; pointer-events: none; white-space: nowrap; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+  .p-hdr { display: none; text-align: center; border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 10px; }
+
+  @media print {
+    :root, [data-theme="dark"] { --bg: #fff !important; --card: #fff !important; --text: #000 !important; --muted: #333 !important; --border: #ccc !important; }
+    html, body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+    .hero, .ticker, .bottom-dock, .fixed-top-ad, .fixed-bottom-ad, .no-print, #toast, .del-btn, #adOverlayModal { display: none !important; }
+    .page, .rcpt { display: none !important; }
+    .page.p-page, .rcpt.p-target { display: block !important; border: 2px solid #000 !important; box-shadow: none !important; }
+    .p-hdr { display: block !important; }
+  }
 </style>
 </head>
 <body>
 
 <a id="safeExternalLauncher" href="https://wa.me/923005039391" target="_blank" rel="noopener" class="hidden"></a>
 
-<!-- ==================== 30-SECOND AUTO-CLOSING IN-APP AD VIEWER ==================== -->
+<!-- 30-SECOND AUTO-CLOSING IN-APP AD VIEWER -->
 <div id="adOverlayModal" class="hidden">
   <div class="ad-m-hdr">
     <div style="display:flex;align-items:center;gap:8px;">
       <span class="ad-tag">SPONSORED</span>
-      <span id="adTimerTxt" style="font-size:12px;font-weight:800;color:#fde047;">⏳ Auto-Closing in 30s (+10 Coins)</span>
+      <span id="adTimerTxt" style="font-size:12px;font-weight:800;color:#FDE047;">⏳ Auto-Closing in 30s (+10 Coins)</span>
     </div>
     <button class="ad-close-btn" onclick="closeAdViewer(false)">⬅️ واپس ایپ میں (Back)</button>
   </div>
@@ -150,7 +307,7 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
   </div>
 </div>
 
-<!-- ==================== FIXED TOP AD BAR (MONETAG - 30s VIEWER) ==================== -->
+<!-- FIXED TOP AD BAR (MONETAG) -->
 <div onclick="openAdViewer(MONETAG_URL)" class="fixed-top-ad">
   <div style="display:flex;align-items:center;gap:8px;overflow:hidden;">
     <span class="ad-tag">SPONSORED</span>
@@ -163,112 +320,139 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
 <canvas id="aiCanvas" width="384" height="384" class="hidden"></canvas>
 
 <div class="shell">
-  <!-- CLEAN ROYAL HEADER -->
+  <!-- NATIVE APP HEADER -->
   <header class="hero">
     <div class="h-top">
       <div class="brand">
-        <div class="logo">🌾</div>
+        <div class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.4 19 2c1 2 2 4.5 2 8a9 9 0 0 1-9 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.5 12 13 13 12"/></svg>
+        </div>
         <div>
           <div style="display:flex;align-items:center;gap:6px;">
-            <h1 style="font-size:18px;font-weight:900;">AgriBuild Pro</h1>
-            <span class="gold-pill">AI VISION</span>
+            <h1 style="font-size:18px;font-weight:900;letter-spacing:-0.3px;">AgriBuild Pro</h1>
+            <span class="gold-pill">SUPER-APP</span>
           </div>
-          <p style="font-size:11px;opacity:.92;color:#d1fae5;">Khan Traders Sehja • Smart Kisan & Build</p>
+          <p style="font-size:11px;opacity:0.9;color:#A7F3D0;">Khan Traders Sehja • Precision Agri & ConTech</p>
         </div>
       </div>
-      <div style="display:flex;gap:5px;">
-        <button class="icon-btn" onclick="openRewardModal()" style="background:rgba(245,158,11,0.3);border-color:#fbbf24;color:#fde68a;">🪙 <span id="userPtsBadge">100</span></button>
-        <button class="icon-btn" onclick="openNav('profileTab',6)" style="background:rgba(16,185,129,0.3);border-color:#34d399;">👤 <span id="hdrUserBadge">Profile</span></button>
+      <div style="display:flex;gap:6px;">
+        <button class="icon-btn" onclick="openRewardModal()">🪙 <span id="userPtsBadge">100</span></button>
+        <button class="icon-btn" onclick="openNav('profileTab',6)">👤 <span id="hdrUserBadge">Profile</span></button>
         <button class="icon-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
       </div>
     </div>
     <div class="desi-bar">
       <div style="overflow:hidden;">
-        <span style="font-size:10.5px;color:#fde047;font-weight:800;display:block;" id="desiDateTxt">📅 Loading Bikrami Date...</span>
-        <span id="weatherTxt" style="font-weight:700;color:#a7f3d0;font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌤️ Sehja / Khanpur: 31°C • Ideal Spray</span>
+        <span style="font-size:10.5px;color:#FDE047;font-weight:800;display:block;" id="desiDateTxt">📅 Loading Bikrami Date...</span>
+        <span id="weatherTxt" style="font-weight:700;color:#A7F3D0;font-size:11px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌤️ Sehja / Khanpur: 31°C • Ideal Spray</span>
       </div>
-      <span id="syncBadge" onclick="autoFetchLiveRates(true)" style="font-size:10px;background:rgba(16,185,129,0.35);border:1px solid rgba(52,211,153,0.45);padding:5px 9px;border-radius:9px;font-weight:800;cursor:pointer;white-space:nowrap;">🟢 Live Sync</span>
+      <span id="syncBadge" onclick="autoFetchLiveRates(true)" style="font-size:10px;background:rgba(16,185,129,0.3);border:1px solid #34D399;padding:5px 9px;border-radius:9px;font-weight:800;cursor:pointer;white-space:nowrap;">🟢 Live Sync</span>
     </div>
   </header>
 
+  <!-- LIVE TICKER -->
   <div class="ticker">
     <span class="live-badge">LIVE</span>
     <div class="t-wrap"><div id="liveTickerText" class="t-move">Syncing Live Pakistan Mandi, Gold & Construction Rates...</div></div>
-    <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34d399;font-size:13px;font-weight:800;cursor:pointer;">↻</button>
+    <button onclick="autoFetchLiveRates(true)" style="background:none;border:none;color:#34D399;font-size:13px;font-weight:800;cursor:pointer;">↻</button>
   </div>
 
   <!-- ==================== 0. HOME TAB ==================== -->
   <section id="homeTab" class="page active">
-    <!-- 7-Day Daily Check-In Streak Bar -->
+    <!-- DAILY CHECK-IN STREAK BAR -->
     <div class="streak-box">
       <div style="display:flex;justify-content:space-between;align-items:center;">
         <div>
-          <span style="font-size:10px;color:#fde047;font-weight:900;">🔥 روزانہ حاضری انعام (<span id="streakBadge">1</span> DAY STREAK)</span>
-          <h3 style="font-size:13px;font-weight:800;">روزانہ ایپ کھولیں اور مفت Coins جیتیں</h3>
+          <span style="font-size:10px;color:#FDE047;font-weight:900;">🔥 DAILY CHECK-IN REWARDS (<span id="streakBadge">1</span>D)</span>
+          <h3 style="font-size:13.5px;font-weight:800;">Open App Daily to Win Kisan Coins</h3>
         </div>
-        <button id="claimBonusBtn" onclick="claimDailyBonus()" style="background:linear-gradient(135deg,#fde047,#f59e0b);color:#0f172a;border:none;padding:7px 11px;border-radius:10px;font-size:11px;font-weight:900;cursor:pointer;">⚡ Claim +25 Coins</button>
+        <button id="claimBonusBtn" onclick="claimDailyBonus()" style="background:linear-gradient(135deg,#FDE047,#F59E0B);color:#0F172A;border:none;padding:7px 11px;border-radius:10px;font-size:11px;font-weight:900;cursor:pointer;">⚡ Claim +25 Coins</button>
       </div>
       <div id="streakDaysGrid" class="s-days"></div>
     </div>
 
-    <!-- 7-Day Live Weather & Spray Radar Strip -->
-    <div class="sec-title"><span>🌦️ 7-Day Spray & Weather Radar (موسم و سپرے)</span><span id="spraySafetyTag" style="color:var(--em);">🟢 Safe Spray</span></div>
+    <!-- 7-DAY WEATHER & SPRAY RADAR -->
+    <div class="sec-title"><span>🌦️ 7-Day Spray & Weather Radar</span><span id="spraySafetyTag" style="color:var(--success);">🟢 Safe Spray</span></div>
     <div id="weatherStrip" class="w-strip no-sb"></div>
 
-    <!-- Live Market Index Quick Row -->
-    <div class="sec-title"><span>⚡ Live Market & Gold Index (منڈی ریٹس)</span><span onclick="openRatesModal()" style="color:var(--em);cursor:pointer;">All 14 Rates & Status Card →</span></div>
-    <div id="homeMandiRow" class="g-4" style="margin-bottom:12px;"></div>
+    <!-- LIVE MARKET INDEX -->
+    <div class="sec-title"><span>⚡ Live Market & Gold Index</span><span onclick="openRatesModal()" style="color:var(--primary);cursor:pointer;">All 14 Rates →</span></div>
+    <div id="homeMandiRow" class="g-4" style="margin-bottom:14px;"></div>
 
-    <!-- AI Crop Doctor Featured Hero -->
-    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:152px;margin-bottom:12px;cursor:pointer;border:1.5px solid var(--gold-bdr);box-shadow:var(--sh);">
+    <!-- AI CROP DOCTOR BANNER -->
+    <div onclick="openNav('doctorTab',1)" class="img-box" style="height:156px;margin-bottom:14px;cursor:pointer;border:1.5px solid var(--gold-bdr);box-shadow:var(--sh);">
       <span class="f-ico">🩺</span>
       <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=75" alt="" onerror="this.style.display='none'">
       <div class="ovl"></div>
       <div style="position:absolute;top:10px;left:12px;z-index:3;display:flex;gap:6px;">
-        <span style="background:linear-gradient(135deg,#10b981,#047857);color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ REAL AI CROP DOCTOR</span>
-        <span style="background:rgba(0,0,0,0.75);color:#fcd34d;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">فصل اور بیماری کی 100% درست پہچان</span>
+        <span style="background:var(--primary-dark);color:#fff;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">✨ REAL AI VISION</span>
+        <span style="background:rgba(0,0,0,0.7);color:#FDE047;font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:20px;">100% Accurate</span>
       </div>
       <div style="position:absolute;bottom:12px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;">
-        <div><h2 style="font-size:16.5px;font-weight:900;">AI Crop Doctor (اے آئی فصل ڈاکٹر)</h2><p style="font-size:11px;opacity:.92;">پتے کی تصویر اور علامات سے فصل کا نام اور فوری علاج جانیں</p></div>
-        <div style="width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#fbbf24,#d97706);color:#0f172a;display:flex;align-items:center;justify-content:center;font-size:19px;">📷</div>
+        <div>
+          <h2 style="font-size:17px;font-weight:900;">AI Crop Doctor & Leaf Scanner</h2>
+          <p style="font-size:11px;opacity:0.9;margin-top:2px;">Instant Camera & Gallery leaf diagnosis in Urdu</p>
+        </div>
+        <div style="width:40px;height:40px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;">📷</div>
       </div>
     </div>
 
-    <div class="sec-title"><span>All Smart Calculators & Tools (تمام کیلکولیٹرز)</span></div>
-    <div id="homeBentoGrid" class="g-2" style="margin-bottom:12px;"></div>
+    <!-- QUICK UTILITY ROW -->
+    <div class="g-2" style="margin-bottom:14px;">
+      <div onclick="openNav('khataTab',5)" class="card" style="margin:0;background:linear-gradient(135deg, #0F3D2E, #14532D);color:#fff;cursor:pointer;border:1px solid #34D399;">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:22px;">📒</span><span style="background:rgba(16,185,129,0.3);color:#A7F3D0;font-size:8.5px;font-weight:900;padding:2px 6px;border-radius:6px;">CLOUD SYNC</span></div>
+        <strong style="font-size:13.5px;display:block;">Cloud Kisan Khata</strong>
+        <span style="font-size:10.5px;opacity:0.9;">Cash, Udhar, Milk Diary & Alarms</span>
+      </div>
+      <div onclick="openRewardModal()" class="card" style="margin:0;background:linear-gradient(135deg, #78350F, #B45309);color:#fff;cursor:pointer;border:1px solid var(--gold-bdr);">
+        <div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:22px;">🎡</span><span style="background:rgba(255,255,255,0.2);color:#fff;font-size:8.5px;font-weight:900;padding:2px 6px;border-radius:6px;">WIN PRIZES</span></div>
+        <strong style="font-size:13.5px;display:block;">Daily Spin & Quiz</strong>
+        <span style="font-size:10.5px;opacity:0.9;">Win Spray Discounts & Points</span>
+      </div>
+    </div>
 
-    <!-- Daily Spin & Quiz Interactive Card -->
+    <div class="sec-title"><span>Engineering & Agri Suites</span></div>
+    <div id="homeBentoGrid" class="g-2" style="margin-bottom:14px;"></div>
+
+    <!-- SPIN & QUIZ CARD -->
     <div id="rewardSpinBox" class="card" style="border:2px solid var(--gold-bdr);">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <strong style="font-size:13.5px;color:var(--am);">🎡 لکی اسپن اور کسان کوئز (Win Coins & Vouchers)</strong>
-        <span id="quizProgressBadge" style="font-size:10.5px;background:var(--am-bg);color:var(--am);padding:2px 8px;border-radius:10px;font-weight:800;">Q 1/10</span>
+        <strong style="font-size:13.5px;color:var(--accent);">🎡 Daily Kisan Spin & 10-Quiz Challenge</strong>
+        <span id="quizProgressBadge" style="font-size:10.5px;background:var(--accent-light);color:var(--accent);padding:2px 8px;border-radius:10px;font-weight:800;">Q 1/10</span>
       </div>
       <div class="g-2" style="align-items:center;">
         <div style="text-align:center;">
-          <div class="wheel-wrap"><div class="wheel-ptr">🔻</div><div id="spinWheelEl" class="wheel"><div class="wheel-center" onclick="spinLuckyWheel()">SPIN</div></div></div>
-          <button id="spinBtnEl" class="btn" style="padding:8px;font-size:11.5px;background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="spinLuckyWheel()">🎰 Spin (+50 Coins)</button>
+          <div class="wheel-wrap">
+            <div class="wheel-ptr">🔻</div>
+            <div id="spinWheelEl" class="wheel">
+              <div class="wheel-center" onclick="spinLuckyWheel()">SPIN</div>
+            </div>
+          </div>
+          <button id="spinBtnEl" class="btn" style="padding:8px;font-size:11.5px;background:linear-gradient(135deg,#D97706,#B45309);" onclick="spinLuckyWheel()">🎰 Spin (+50 Coins)</button>
         </div>
         <div>
-          <div style="font-size:11px;font-weight:800;color:var(--em);margin-bottom:4px;">🧠 Kisan Quiz (+25 Coins):</div>
+          <div style="font-size:11px;font-weight:800;color:var(--primary);margin-bottom:4px;">🧠 Kisan Quiz (+25 Coins):</div>
           <p id="quizQ" class="urdu-text" style="font-size:12px;margin-bottom:8px;"></p>
           <div id="quizOpts" style="display:flex;flex-direction:column;gap:5px;"></div>
         </div>
       </div>
-      <div id="spinResultMsg" class="hidden" style="margin-top:10px;background:var(--em-bg);border:1px solid var(--em);padding:10px;border-radius:12px;font-size:12px;font-weight:700;text-align:center;"></div>
+      <div id="spinResultMsg" class="hidden" style="margin-top:10px;background:var(--primary-light);border:1.5px solid var(--primary);padding:10px;border-radius:12px;font-size:12px;font-weight:700;text-align:center;"></div>
     </div>
   </section>
 
-  <!-- ==================== 1. UPGRADED REAL AI CROP DOCTOR TAB ==================== -->
+  <!-- ==================== 1. AI CROP DOCTOR TAB ==================== -->
   <section id="doctorTab" class="page">
     <div class="sec-banner">
-      <div><span style="font-size:10px;color:#fde047;font-weight:900;">🩺 REAL AI VISION + CLINICAL MATCHER</span><h2 style="font-size:16px;font-weight:900;">اے آئی فصل اور بیماری کی 100% درست تشخیص</h2></div>
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">🩺 REAL AI VISION + CLINICAL MATCHER</span>
+        <h2 style="font-size:16px;font-weight:900;">اے آئی فصل اور بیماری کی 100% درست تشخیص</h2>
+      </div>
       <span style="font-size:24px;">🔬</span>
     </div>
 
     <div class="card">
-      <!-- STEP 1: SELECT CROP OR AUTO-DETECT -->
-      <label style="color:var(--em);font-weight:800;font-size:12px;">1️⃣ اپنی فصل منتخب کریں (یا AI Auto-Detect رہنے دیں):</label>
-      <div id="scannerCropPills" class="pill-bar no-sb" style="margin-top:5px;margin-bottom:10px;">
+      <label style="color:var(--primary);font-weight:800;font-size:12px;">1️⃣ اپنی فصل منتخب کریں (یا AI Auto-Detect رہنے دیں):</label>
+      <div id="scannerCropPills" class="pill-bar no-sb" style="margin-top:5px;margin-bottom:12px;">
         <button onclick="setScannerCrop('auto',this)" class="f-pill active">🤖 AI Auto-Detect</button>
         <button onclick="setScannerCrop('cotton',this)" class="f-pill">☁️ کپاس (Cotton)</button>
         <button onclick="setScannerCrop('wheat',this)" class="f-pill">🌾 گندم (Wheat)</button>
@@ -278,52 +462,56 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
         <button onclick="setScannerCrop('orchard',this)" class="f-pill">🥭 باغات و سبزیاں</button>
       </div>
 
-      <!-- STEP 2: SELECT SYMPTOM FOR 100% PRECISION -->
-      <label style="color:var(--em);font-weight:800;font-size:12px;">2️⃣ پودے پر نظر آنے والی علامت چنیں (100% درست تشخیص کے لیے):</label>
+      <label style="color:var(--primary);font-weight:800;font-size:12px;">2️⃣ پودے پر نظر آنے والی علامت چنیں:</label>
       <div id="scannerSymptomGrid" class="sym-grid">
         <div onclick="setScannerSymptom('auto',this)" class="sym-chip active">🤖 تصویر سے خودکار پہچان</div>
-        <div onclick="setScannerSymptom('whitefly',this)" class="sym-chip">⚪ سفید مکھی / تیلا / چپچپا مادہ</div>
-        <div onclick="setScannerSymptom('borer',this)" class="sym-chip">🐛 سنڈی / تنے یا ٹینڈے میں سوراخ</div>
-        <div onclick="setScannerSymptom('rust',this)" class="sym-chip">🟡 پتوں پر پیلا پاؤڈر / کنگی</div>
-        <div onclick="setScannerSymptom('curl',this)" class="sym-chip">🍃 پتے مڑنا / پیالہ نما وائرس</div>
-        <div onclick="setScannerSymptom('blight',this)" class="sym-chip">🟤 پتے جلنا / سرخ سڑن / جھلساؤ</div>
-        <div onclick="setScannerSymptom('weed',this)" class="sym-chip">🌿 کھیت میں جڑی بوٹیاں</div>
-        <div onclick="setScannerSymptom('npk',this)" class="sym-chip">🌱 پیلے یا چھوٹے پتے (کھاد کی کمی)</div>
+        <div onclick="setScannerSymptom('whitefly',this)" class="sym-chip">⚪ سفید مکھی / تیلا</div>
+        <div onclick="setScannerSymptom('borer',this)" class="sym-chip">🐛 سنڈی / سوراخ</div>
+        <div onclick="setScannerSymptom('rust',this)" class="sym-chip">🟡 پیلا پاؤڈر / کنگی</div>
+        <div onclick="setScannerSymptom('curl',this)" class="sym-chip">🍃 پتے مڑنا / وائرس</div>
+        <div onclick="setScannerSymptom('blight',this)" class="sym-chip">🟤 جھلساؤ / سرخ سڑن</div>
+        <div onclick="setScannerSymptom('weed',this)" class="sym-chip">🌿 جڑی بوٹیاں</div>
+        <div onclick="setScannerSymptom('npk',this)" class="sym-chip">🌱 پیلے/چھوٹے پتے (کھاد کمی)</div>
       </div>
 
-      <!-- STEP 3: CAMERA OR GALLERY UPLOAD -->
       <input type="file" id="camInput" accept="image/*" capture="environment" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
       <input type="file" id="galInput" accept="image/*" class="hidden" onclick="this.value=null" onchange="runAutoCropScan(event)">
+      
       <div class="scan-grid">
         <div class="scan-btn cam" onclick="document.getElementById('camInput').click()">
-          <div class="scan-ico" style="background:linear-gradient(135deg,#10b981,#047857);">📷</div>
-          <strong style="font-size:13px;">Live Camera</strong><span style="font-size:11px;color:var(--muted);">کیمرے سے پتے کی فوٹو لیں</span>
+          <div class="scan-ico" style="background:var(--primary);">📷</div>
+          <strong style="font-size:13px;">Live Camera</strong>
+          <span style="font-size:11px;color:var(--muted);">کیمرے سے فوٹو لیں</span>
         </div>
         <div class="scan-btn" onclick="document.getElementById('galInput').click()">
-          <div class="scan-ico" style="background:linear-gradient(135deg,#3b82f6,#1d4ed8);">🖼️</div>
-          <strong style="font-size:13px;">Photo Gallery</strong><span style="font-size:11px;color:var(--muted);">گیلری سے فوٹو لگائیں</span>
+          <div class="scan-ico" style="background:#2563EB;">🖼️</div>
+          <strong style="font-size:13px;">Photo Gallery</strong>
+          <span style="font-size:11px;color:var(--muted);">گیلری سے فوٹو لگائیں</span>
         </div>
       </div>
-      <button class="btn" style="margin-top:10px;padding:11px;font-size:12.5px;" onclick="diagnoseBySymptomOnly()">⚡ بغیر تصویر کے منتخب فصل اور علامت سے فوری علاج دیکھیں</button>
+      <button class="btn" style="margin-top:12px;padding:12px;font-size:13px;" onclick="diagnoseBySymptomOnly()">⚡ بغیر تصویر کے منتخب فصل اور علامت سے فوری علاج دیکھیں</button>
 
-      <div id="scanPreviewBox" class="hidden" style="margin-top:12px;position:relative;height:185px;border-radius:16px;overflow:hidden;background:#000;border:2px solid var(--em);">
-        <img id="scannedLeafImg" src="" style="width:100%;height:100%;object-fit:cover;opacity:.92;" alt="">
+      <div id="scanPreviewBox" class="hidden" style="margin-top:14px;position:relative;height:185px;border-radius:16px;overflow:hidden;background:#000;border:2px solid var(--primary);">
+        <img id="scannedLeafImg" src="" style="width:100%;height:100%;object-fit:cover;opacity:0.92;" alt="">
         <div id="scanLaserBar" class="laser"></div>
-        <div id="scanStatusTxt" style="position:absolute;bottom:0;inset-inline:0;background:rgba(0,0,0,0.84);color:#fff;padding:8px;font-size:11.5px;font-weight:700;text-align:center;z-index:12;">🔄 AI Cloud Vision Identifying Exact Crop & Disease...</div>
+        <div id="scanStatusTxt" style="position:absolute;bottom:0;inset-inline:0;background:rgba(0,0,0,0.85);color:#fff;padding:9px;font-size:11.5px;font-weight:700;text-align:center;z-index:12;">🔄 AI Vision Analyzing Leaf...</div>
       </div>
-      <div id="aiResultCard" class="hidden" style="margin-top:12px;"></div>
+      <div id="aiResultCard" class="hidden" style="margin-top:14px;"></div>
     </div>
 
-    <div class="sec-title"><span>21 Verified Crop Cures (بیماریوں کا انسائیکلوپیڈیا)</span><span id="diseaseCountTag" style="color:var(--em);">21 Cures</span></div>
-    <input type="text" id="docSearchInp" oninput="renderDiseaseLibrary()" placeholder="🔍 فصل یا بیماری کا نام لکھیں (مثلاً کپاس، گندم، سفید مکھی، سنڈی)..." class="inp" style="margin-bottom:8px;font-size:12.5px;">
+    <div class="sec-title"><span>Disease & Cure Library (Urdu)</span><span id="diseaseCountTag" style="color:var(--primary);">21 Cures</span></div>
+    <input type="text" id="docSearchInp" oninput="renderDiseaseLibrary()" placeholder="🔍 بیماری تلاش کریں (سفید مکھی، سنڈی، کنگی، تیلہ)..." class="inp" style="margin-bottom:8px;font-size:13px;">
     <div id="docFilterPills" class="pill-bar no-sb"></div>
     <div id="doctorDiseaseList"></div>
   </section>
 
-  <!-- ==================== 2. CROP CALCULATOR TAB ==================== -->
+  <!-- ==================== 2. CROP NUTRITION TAB ==================== -->
   <section id="agriTab" class="page">
     <div class="sec-banner no-print">
-      <div><span style="font-size:10px;color:#fde047;font-weight:900;">🌱 CROP NUTRITION & SPRAY</span><h2 style="font-size:16px;font-weight:900;">کھاد، بیج اور سپرے ٹینکی کیلکولیٹر</h2></div>
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">🌱 CROP NUTRITION & SPRAY</span>
+        <h2 style="font-size:16px;font-weight:900;">کھاد، بیج اور سپرے ٹینکی کیلکولیٹر</h2>
+      </div>
       <span style="font-size:24px;">🚜</span>
     </div>
     <div class="no-print">
@@ -335,27 +523,28 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
           <div><label>رقبہ — ایکڑ (Acres)</label><input type="number" id="cropAcres" value="1" min="0" step="0.5" class="inp"></div>
           <div><label>اضافی کنال (0 تا 7)</label><input type="number" id="cropKanal" value="0" min="0" max="7" class="inp"></div>
         </div>
-        <div class="g-2" style="margin-bottom:12px;">
+        <div class="g-2" style="margin-bottom:14px;">
           <div><label>سپرے ٹینکی کا سائز</label><select id="tankSize" class="inp"><option value="20">20 لیٹر (ہاتھ والی ٹینکی)</option><option value="100">100 لیٹر (بوم ٹینکی)</option><option value="500">500 لیٹر (ٹریکٹر ٹینکی)</option></select></div>
           <div><label>دوا فی ایکڑ (ml / گرام)</label><input type="number" id="sprayDosePerAcre" value="250" class="inp"></div>
         </div>
         <button class="btn" onclick="calculateAgri(true)">🌱 کھاد، بیج اور ٹینکی ڈوز نکالیں</button>
       </div>
     </div>
-    <div id="agriResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+
+    <div id="agriResult" class="rcpt card hidden" style="border:2px solid var(--primary);">
       <div class="p-hdr"><h2>Khan Traders — Shahi Road, Sehja</h2><p>WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
-      <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:7px;margin-bottom:6px;">
-        <strong style="color:var(--em);font-size:14px;">فصل خوراک اور سپرے پلان</strong>
-        <span id="resAgriMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">1 Acre</span>
+      <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:8px;">
+        <strong style="color:var(--primary);font-size:14px;">فصل خوراک اور سپرے پلان</strong>
+        <span id="resAgriMeta" style="font-size:11px;background:var(--primary-light);color:var(--primary);padding:2px 8px;border-radius:8px;font-weight:800;">1 Acre</span>
       </div>
       <div class="rline"><span>🌰 Seed (بیج کی مقدار):</span><strong id="rSeed">-</strong></div>
       <div class="rline"><span>📦 Urea (یوریا کھاد):</span><strong id="rUrea">-</strong></div>
       <div class="rline"><span>🌱 DAP (ڈی اے پی کھاد):</span><strong id="rDap">-</strong></div>
       <div class="rline"><span>⚡ Potash & Zinc (پوٹاش و زنک):</span><strong id="rPotash">-</strong></div>
       <div class="rline"><span>🚿 Total Tanks (کل پانی اور ٹینکیاں):</span><strong id="rSprayTanks">-</strong></div>
-      <div class="rline"><span>🧪 Dose per Tank (ایک ٹینکی میں دوا):</span><strong id="rDosePerTank" style="color:var(--em);">-</strong></div>
+      <div class="rline"><span>🧪 Dose per Tank (ایک ٹینکی میں دوا):</span><strong id="rDosePerTank" style="color:var(--primary);">-</strong></div>
       <div class="rtot"><span>کل متوقع خرچہ:</span><span id="rTotalAgri">-</span></div>
-      <div class="g-3 no-print" style="margin-top:10px;">
+      <div class="g-3 no-print" style="margin-top:12px;">
         <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('agriTab','agriResult')">🖨️ PDF</button>
         <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('agri')">📋 Copy</button>
         <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('agri')">💬 Order</button>
@@ -366,7 +555,10 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
   <!-- ==================== 3. BUILD & LAND TAB ==================== -->
   <section id="buildTab" class="page">
     <div class="sec-banner no-print">
-      <div><span style="font-size:10px;color:#fde047;font-weight:900;">🏗️ CONSTRUCTION & LAND SUITE</span><h2 style="font-size:16px;font-weight:900;">مکان، لینٹر، دیوار اور پٹواری زمین پیمائش</h2></div>
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">🏗️ CONSTRUCTION & LAND SUITE</span>
+        <h2 style="font-size:16px;font-weight:900;">مکان، لینٹر، دیوار اور پٹواری زمین پیمائش</h2>
+      </div>
       <span style="font-size:24px;">🏠</span>
     </div>
     <div class="sub-nav no-print">
@@ -374,9 +566,10 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
       <button id="pillWallBtn" onclick="switchBuildSub('wall')" class="s-pill">🧱 دیوار و سریہ</button>
       <button id="pillLandBtn" onclick="switchBuildSub('land')" class="s-pill">📐 زمین پیمائش</button>
     </div>
+    
     <div id="subPlotBox">
       <div class="no-print">
-        <div id="floorVisualGrid" class="g-3" style="margin-bottom:10px;"></div>
+        <div id="floorVisualGrid" class="g-3" style="margin-bottom:12px;"></div>
         <input type="hidden" id="buildFloors" value="single">
         <div class="card">
           <label>تیز انتخاب (Quick Plot Size)</label>
@@ -391,23 +584,26 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
             <div><label>لمبائی — فٹ (Length)</label><input type="number" id="plotLen" value="37" oninput="updateSqftFromDim()" class="inp"></div>
             <div><label>چوڑائی — فٹ (Width)</label><input type="number" id="plotWid" value="44" oninput="updateSqftFromDim()" class="inp"></div>
           </div>
-          <div style="margin-bottom:10px;">
+          <div style="margin-bottom:12px;">
             <label>کل رقبہ مربع فٹ (Covered Area Sq.Ft)</label>
             <input type="number" id="plotArea" value="1628" oninput="syncDimFromManualSqft()" class="inp">
-            <span id="marlaBadge" style="display:inline-block;margin-top:5px;font-size:11px;background:var(--em-bg);color:var(--em);padding:3px 9px;border-radius:8px;font-weight:800;">5.98 Marla (272) | 7.24 Marla (225)</span>
+            <span id="marlaBadge" style="display:inline-block;margin-top:6px;font-size:11px;background:var(--primary-light);color:var(--primary);padding:3px 10px;border-radius:8px;font-weight:800;">5.98 Marla (272) | 7.24 Marla (225)</span>
           </div>
-          <div id="finishModeGroup" style="margin-bottom:12px;">
+          <div id="finishModeGroup" style="margin-bottom:14px;">
             <label>تعمیر کی قسم (Construction Mode)</label>
-            <select id="buildType" class="inp"><option value="grey">گرے اسٹرکچر (اینٹ، سیمنٹ، سریہ، مزدوری)</option><option value="finish">مکمل تیار مکان (ٹائل، پینٹ، لکڑی، بجلی سمیت)</option></select>
+            <select id="buildType" class="inp">
+              <option value="grey">گرے اسٹرکچر (اینٹ، سیمنٹ، سریہ، مزدوری)</option>
+              <option value="finish">مکمل تیار مکان (ٹائل، پینٹ، لکڑی، بجلی سمیت)</option>
+            </select>
           </div>
           <button class="btn" onclick="calculateConstruction(true)">⚡ مکمل میٹریل اور خرچہ نکالیں</button>
         </div>
       </div>
-      <div id="buildResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+      <div id="buildResult" class="rcpt card hidden" style="border:2px solid var(--primary);">
         <div class="p-hdr"><h2>AgriBuild Pro — Engineering BOQ</h2><p>Khan Traders, Sehja | WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
-          <strong style="color:var(--em);font-size:14px;">مکان / لینٹر کا مکمل تخمینہ</strong>
-          <span id="resBuildMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">1628 Sq.Ft</span>
+          <strong style="color:var(--primary);font-size:14px;">مکان / لینٹر کا مکمل تخمینہ</strong>
+          <span id="resBuildMeta" style="font-size:11px;background:var(--primary-light);color:var(--primary);padding:2px 8px;border-radius:8px;font-weight:800;">1628 Sq.Ft</span>
         </div>
         <div class="rline"><span>🧱 Cement (سیمنٹ 50kg بوری):</span><strong id="rCement">-</strong></div>
         <div class="rline"><span>🔩 Steel (60 گریڈ سریہ):</span><strong id="rSteel">-</strong></div>
@@ -416,7 +612,7 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
         <div class="rline"><span>🪨 Crush (مارگلہ بجری Cft):</span><strong id="rCrush">-</strong></div>
         <div class="rline"><span>👷 Labor (ٹھیکیدار مزدوری):</span><strong id="rLabor">-</strong></div>
         <div class="rtot"><span>کل متوقع بجٹ:</span><span id="rTotalBuild">-</span></div>
-        <div class="g-3 no-print" style="margin-top:10px;">
+        <div class="g-3 no-print" style="margin-top:12px;">
           <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('buildTab','buildResult')">🖨️ PDF</button>
           <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('build')">📋 Copy</button>
           <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('build')">💬 Order</button>
@@ -426,69 +622,69 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
 
     <div id="subWallBox" class="hidden">
       <div class="card no-print">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🧱 دیوار اور پلستر کیلکولیٹر (Wall & Plaster)</strong>
-        <div class="g-2" style="margin-bottom:8px;">
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">🧱 دیوار اور پلستر کیلکولیٹر (Wall & Plaster)</strong>
+        <div class="g-2" style="margin-bottom:10px;">
           <div><label>دیوار کی لمبائی (فٹ)</label><input type="number" id="wallLen" value="30" class="inp"></div>
           <div><label>دیوار کی اونچائی (فٹ)</label><input type="number" id="wallHeight" value="10" class="inp"></div>
         </div>
-        <div class="g-2" style="margin-bottom:8px;">
+        <div class="g-2" style="margin-bottom:10px;">
           <div><label>دیوار کی موٹائی</label><select id="wallThick" class="inp"><option value="9">9 انچ (ڈبل اینٹ)</option><option value="4.5">4.5 انچ (سنگل اینٹ)</option></select></div>
           <div><label>پلستر (Plaster)</label><select id="wallPlaster" class="inp"><option value="2">دونوں طرف پلستر</option><option value="1">ایک طرف پلستر</option><option value="0">بغیر پلستر</option></select></div>
         </div>
-        <div style="margin-bottom:10px;"><label>دروازے/کھڑکی کی کٹوتی (Sq.Ft)</label><input type="number" id="wallDeduct" value="0" class="inp"></div>
+        <div style="margin-bottom:12px;"><label>دروازے/کھڑکی کی کٹوتی (Sq.Ft)</label><input type="number" id="wallDeduct" value="0" class="inp"></div>
         <button class="btn" onclick="calculateWall(true)">🧱 دیوار کی اینٹیں اور سیمنٹ نکالیں</button>
       </div>
-      <div id="wallResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+      <div id="wallResult" class="rcpt card hidden" style="border:2px solid var(--primary);">
         <div class="p-hdr"><h2>Masonry Estimate</h2><p>Khan Traders | 0300-5039391 | <span class="print-date"></span></p></div>
         <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
-          <strong style="color:var(--em);font-size:14px;">Wall & Plaster BOQ</strong>
-          <span id="resWallMeta" style="font-size:11px;background:var(--em-bg);color:var(--em);padding:2px 8px;border-radius:8px;font-weight:800;">300 Sq.Ft</span>
+          <strong style="color:var(--primary);font-size:14px;">Wall & Plaster BOQ</strong>
+          <span id="resWallMeta" style="font-size:11px;background:var(--primary-light);color:var(--primary);padding:2px 8px;border-radius:8px;font-weight:800;">300 Sq.Ft</span>
         </div>
         <div class="rline"><span>🟧 Bricks Required:</span><strong id="wBricks">-</strong></div>
         <div class="rline"><span>🧱 Masonry Cement:</span><strong id="wCement">-</strong></div>
         <div class="rline"><span>🪣 Plaster Cement:</span><strong id="wPlasterCement">-</strong></div>
         <div class="rline"><span>🏖️ Sand Required:</span><strong id="wSand">-</strong></div>
         <div class="rtot"><span>Total Material Cost:</span><span id="wTotalCost">-</span></div>
-        <div class="g-3 no-print" style="margin-top:10px;">
+        <div class="g-3 no-print" style="margin-top:12px;">
           <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('buildTab','wallResult')">🖨️ PDF</button>
           <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('wall')">📋 Copy</button>
           <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('wall')">💬 Order</button>
         </div>
       </div>
       <div class="card no-print">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🔩 سریے کے وزن کا حساب (Steel Rebar Weight)</strong>
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">🔩 سریے کے وزن کا حساب (Steel Rebar Weight)</strong>
         <div class="g-2" style="margin-bottom:10px;">
           <div><label>سریے کی موٹائی (سوتر)</label><select id="sootarSize" onchange="calcSariyaWeight()" class="inp"><option value="3">3 Sootar (10mm)</option><option value="4" selected>4 Sootar (12mm)</option><option value="5">5 Sootar (16mm)</option><option value="6">6 Sootar (20mm)</option><option value="8">8 Sootar (25mm)</option></select></div>
           <div><label>40 فٹ لینتھ کی تعداد</label><input type="number" id="sariyaQty" value="10" oninput="calcSariyaWeight()" class="inp"></div>
         </div>
-        <div style="background:var(--em-bg);padding:12px;border-radius:14px;text-align:center;">
-          <strong id="sariyaWeightOut" style="font-size:14px;color:var(--em);display:block;">Total Weight: 108.0 KG</strong>
-          <p id="sariyaPriceOut" style="font-size:12px;font-weight:800;margin:4px 0 8px;">Estimated Cost: PKR 27,540</p>
-          <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('sariya')">💬 Book Steel Rate</button>
+        <div style="background:var(--primary-light);padding:14px;border-radius:14px;text-align:center;">
+          <strong id="sariyaWeightOut" style="font-size:15px;color:var(--primary);display:block;">Total Weight: 108.0 KG</strong>
+          <p id="sariyaPriceOut" style="font-size:12px;font-weight:800;margin:4px 0 10px;">Estimated Cost: PKR 27,540</p>
+          <button class="btn btn-wa" style="padding:10px;" onclick="sendWhatsApp('sariya')">💬 Book Steel Rate</button>
         </div>
       </div>
     </div>
 
     <div id="subLandBox" class="hidden">
       <div class="card">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">📐 پٹواری زمین پیمائش کنورٹر (Land Converter)</strong>
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">📐 پٹواری زمین پیمائش کنورٹر (Land Converter)</strong>
         <div class="g-2" style="margin-bottom:10px;">
           <div><label>تعداد لکھیں</label><input type="number" id="landInputVal" value="1" step="0.5" oninput="convertLandUnits()" class="inp"></div>
           <div><label>اکائی منتخب کریں</label><select id="landInputUnit" onchange="convertLandUnits()" class="inp"><option value="acre">قلعہ / ایکڑ (8 کنال)</option><option value="kanal">کنال (20 مرلہ)</option><option value="marla272">پٹواری مرلہ (272.25)</option><option value="marla225">شہری مرلہ (225)</option><option value="karam">مربع کرم (سرساہی)</option><option value="sqft">مربع فٹ (Sq.Ft)</option></select></div>
         </div>
-        <div id="landConvOutput" style="background:var(--inp);padding:10px;border-radius:12px;margin-bottom:10px;"></div>
-        <button class="btn" style="padding:10px;" onclick="useLandInPlotCalc(lastConvertedSqft)">🏠 اس رقبے پر مکان کا خرچہ نکالیں</button>
+        <div id="landConvOutput" style="background:var(--inp);padding:12px;border-radius:12px;margin-bottom:12px;"></div>
+        <button class="btn" style="padding:12px;" onclick="useLandInPlotCalc(lastConvertedSqft)">🏠 اس رقبے پر مکان کا خرچہ نکالیں</button>
       </div>
       <div class="card">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🧭 ٹیڑھے (4 ضلعی) پلاٹ کی پیمائش</strong>
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">🧭 ٹیڑھے (4 ضلعی) پلاٹ کی پیمائش</strong>
         <div class="g-2" style="margin-bottom:10px;">
           <div><label>شمالی ضلع (North Ft)</label><input type="number" id="sideN" value="35" oninput="calcIrregularPlot()" class="inp"></div>
           <div><label>جنوبی ضلع (South Ft)</label><input type="number" id="sideS" value="39" oninput="calcIrregularPlot()" class="inp"></div>
           <div><label>مشرقی ضلع (East Ft)</label><input type="number" id="sideE" value="44" oninput="calcIrregularPlot()" class="inp"></div>
           <div><label>مغربی ضلع (West Ft)</label><input type="number" id="sideW" value="44" oninput="calcIrregularPlot()" class="inp"></div>
         </div>
-        <div id="irregularOut" style="background:var(--em-bg);color:var(--em);padding:10px;border-radius:12px;font-size:12px;font-weight:800;text-align:center;margin-bottom:8px;"></div>
-        <button class="btn btn-out" style="padding:9px;font-size:12px;" onclick="useLandInPlotCalc(lastIrregularSqft)">🏠 اس پلاٹ پر تعمیر کا حساب لگائیں</button>
+        <div id="irregularOut" style="background:var(--primary-light);color:var(--primary);padding:12px;border-radius:12px;font-size:12.5px;font-weight:800;text-align:center;margin-bottom:10px;"></div>
+        <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="useLandInPlotCalc(lastIrregularSqft)">🏠 اس پلاٹ پر تعمیر کا حساب لگائیں</button>
       </div>
     </div>
   </section>
@@ -496,13 +692,22 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
   <!-- ==================== 4. SOLAR TAB ==================== -->
   <section id="solarTab" class="page">
     <div class="sec-banner no-print">
-      <div><span style="font-size:10px;color:#fde047;font-weight:900;">☀️ SOLAR & TUBEWELL STUDIO</span><h2 style="font-size:16px;font-weight:900;">گھریلو سولر اور زرعی ٹیوب ویل کیلکولیٹر</h2></div>
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">☀️ SOLAR & TUBEWELL STUDIO</span>
+        <h2 style="font-size:16px;font-weight:900;">گھریلو سولر اور زرعی ٹیوب ویل کیلکولیٹر</h2>
+      </div>
       <span style="font-size:24px;">⚡</span>
     </div>
     <div class="no-print">
       <div class="g-2" style="margin-bottom:12px;">
-        <div onclick="selectSolarVisual('home',this)" class="vis-solar-card v-opt sel"><div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🏠</span><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🏠 گھریلو سولر سسٹم</span></div>
-        <div onclick="selectSolarVisual('tubewell',this)" class="vis-solar-card v-opt"><div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🚜</span><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div><span style="font-size:12px;font-weight:800;padding:7px;display:block;">🚜 زرعی سولر ٹیوب ویل</span></div>
+        <div onclick="selectSolarVisual('home',this)" class="vis-solar-card v-opt sel">
+          <div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🏠</span><img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div>
+          <span style="font-size:12px;font-weight:800;padding:8px;display:block;">🏠 گھریلو سولر سسٹم</span>
+        </div>
+        <div onclick="selectSolarVisual('tubewell',this)" class="vis-solar-card v-opt">
+          <div class="img-box" style="height:75px;border-radius:0;"><span class="f-ico">🚜</span><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=400&q=70" alt="" onerror="this.style.display='none'"></div>
+          <span style="font-size:12px;font-weight:800;padding:8px;display:block;">🚜 زرعی سولر ٹیوب ویل</span>
+        </div>
       </div>
       <input type="hidden" id="solarType" value="home">
       <div class="card">
@@ -517,18 +722,19 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
         <button class="btn" onclick="calculateSolar(true)">☀️ سولر پلیٹوں اور خرچے کا حساب نکالیں</button>
       </div>
     </div>
-    <div id="solarResult" class="rcpt card hidden" style="border:2px solid var(--em);">
+    
+    <div id="solarResult" class="rcpt card hidden" style="border:2px solid var(--primary);">
       <div class="p-hdr"><h2>Solar System Quotation</h2><p>Khan Traders | 0300-5039391 | <span class="print-date"></span></p></div>
       <div style="display:flex;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:6px;margin-bottom:6px;">
-        <strong style="color:var(--em);font-size:14px;">سولر سسٹم کوٹیشن</strong>
-        <span id="resSolarMeta" style="font-size:11px;background:var(--am-bg);color:var(--am);padding:2px 8px;border-radius:8px;font-weight:800;">N-Type Tier-1</span>
+        <strong style="color:var(--primary);font-size:14px;">سولر سسٹم کوٹیشن</strong>
+        <span id="resSolarMeta" style="font-size:11px;background:var(--accent-light);color:var(--accent-hover);padding:2px 8px;border-radius:8px;font-weight:800;">N-Type Tier-1</span>
       </div>
       <div class="rline"><span>☀️ 580W Bi-Facial Panels:</span><strong id="sPanels">-</strong></div>
       <div class="rline"><span>⚡ Inverter / VFD Drive:</span><strong id="sInverter">-</strong></div>
       <div class="rline"><span>🔋 Battery Storage:</span><strong id="sBattery">-</strong></div>
       <div class="rline"><span>🛠️ Structure & Fitting:</span><strong id="sInstall">-</strong></div>
       <div class="rtot"><span>کل متوقع خرچہ:</span><span id="sTotalCost">-</span></div>
-      <div class="g-3 no-print" style="margin-top:10px;">
+      <div class="g-3 no-print" style="margin-top:12px;">
         <button class="btn btn-out" style="padding:9px;" onclick="printSingleSlip('solarTab','solarResult')">🖨️ PDF</button>
         <button class="btn btn-out" style="padding:9px;" onclick="copyEstimate('solar')">📋 Copy</button>
         <button class="btn btn-wa" style="padding:9px;" onclick="sendWhatsApp('solar')">💬 Quote</button>
@@ -536,11 +742,11 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
     </div>
   </section>
 
-  <!-- ==================== 5. CLEAN KISAN KHATA & MILK DIARY TAB ==================== -->
+  <!-- ==================== 5. KISAN KHATA TAB ==================== -->
   <section id="khataTab" class="page">
     <div class="sec-banner no-print">
       <div>
-        <span style="font-size:10px;color:#fde047;font-weight:900;">📒 DIGITAL KISAN LEDGER</span>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">📒 DIGITAL KISAN LEDGER</span>
         <h2 id="khataHdrUser" style="font-size:15.5px;font-weight:900;">کسان کھاتہ، ادھار اور دودھ ڈائری</h2>
       </div>
       <span style="font-size:24px;">📒</span>
@@ -553,48 +759,50 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
     </div>
 
     <div id="subCashKhata">
-      <div class="card no-print" style="padding:12px;">
+      <div class="card no-print" style="padding:14px;">
         <div class="g-3" style="text-align:center;margin-bottom:8px;">
-          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">کل آمدن/وصولی</span><strong id="khataTotInc" style="font-size:13px;color:#10b981;display:block;">Rs. 0</strong></div>
-          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">کل خرچہ/ادھار</span><strong id="khataTotExp" style="font-size:13px;color:#ef4444;display:block;">Rs. 0</strong></div>
-          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">صافی بیلنس</span><strong id="khataNetBal" style="font-size:13px;color:var(--em);display:block;">Rs. 0</strong></div>
+          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">کل آمدن/وصولی</span><strong id="khataTotInc" style="font-size:13.5px;color:#16A34A;display:block;">Rs. 0</strong></div>
+          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">کل خرچہ/ادھار</span><strong id="khataTotExp" style="font-size:13.5px;color:#DC2626;display:block;">Rs. 0</strong></div>
+          <div><span style="font-size:10px;color:var(--muted);font-weight:700;">صافی بیلنس</span><strong id="khataNetBal" style="font-size:13.5px;color:var(--primary);display:block;">Rs. 0</strong></div>
         </div>
-        <div id="khataRatioBar" style="height:7px;border-radius:6px;overflow:hidden;display:flex;background:var(--inp);"><div style="width:50%;background:#10b981;"></div><div style="width:50%;background:#ef4444;"></div></div>
+        <div id="khataRatioBar" style="height:8px;border-radius:6px;overflow:hidden;display:flex;background:var(--inp);"><div style="width:50%;background:#16A34A;"></div><div style="width:50%;background:#DC2626;"></div></div>
       </div>
+      
       <div class="card no-print">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">➕ نیا حساب درج کریں (Add Entry)</strong>
-        <div class="g-2" style="margin-bottom:8px;">
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">➕ نیا حساب درج کریں (Add Entry)</strong>
+        <div class="g-2" style="margin-bottom:10px;">
           <div><label>قسم منتخب کریں</label><select id="kEntryType" class="inp"><option value="exp">🔴 خرچہ / ادھار دیا</option><option value="inc">🟢 آمدن / وصولی ہوئی</option></select></div>
           <div><label>مد / آئٹم</label><select id="kEntryCat" class="inp"><option value="Diesel / Fuel">⛽ ڈیزل / ٹریکٹر</option><option value="Fertilizer (Khad)">🌾 کھاد (یوریا/ڈی اے پی)</option><option value="Pesticide Spray">🧪 زرعی سپرے</option><option value="Seeds (Beej)">🌰 بیج (Seeds)</option><option value="Labor / Mazdoori">👷 مزدوری</option><option value="Udhar / Lain-Dain">🤝 پارٹی ادھار / لین دین</option><option value="Crop Sale (Mandi)">💰 فصل فروخت (منڈی)</option></select></div>
         </div>
-        <div class="g-2" style="margin-bottom:10px;">
+        <div class="g-2" style="margin-bottom:12px;">
           <div><label>رقم (PKR)</label><input type="number" id="kEntryAmt" placeholder="مثلاً 5000" class="inp"></div>
           <div><label>نام یا تفصیل</label><input type="text" id="kEntryNote" placeholder="گاہک یا فصل کا نام..." class="inp"></div>
         </div>
-        <button class="btn" onclick="addKhataEntry()">💾 کھاتے میں محفوظ کریں</button>
+        <button class="btn" onclick="addKhataEntry()">💾 کھاتے اور کلاؤڈ میں محفوظ کریں</button>
       </div>
+
       <div id="cashPrintBox" class="rcpt card">
         <div class="p-hdr"><h2>AgriBuild Pro — Kisan Cashbook Ledger</h2><p id="printAccountHdr">Khan Traders, Sehja | WhatsApp: 0300-5039391</p></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
           <strong style="font-size:13.5px;">📒 کھاتہ ریکارڈ</strong>
           <div class="no-print" style="display:flex;gap:6px;">
             <button onclick="printSingleSlip('khataTab','cashPrintBox')" style="background:var(--inp);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">🖨️ PDF</button>
-            <button onclick="shareKhataWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
-            <button onclick="clearKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
+            <button onclick="shareKhataWhatsApp()" style="background:#16A34A;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
+            <button onclick="clearKhata()" style="background:none;border:none;color:#DC2626;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
           </div>
         </div>
-        <input type="text" id="khataSearchInp" oninput="renderKhataLedger()" placeholder="🔍 نام یا آئٹم سے کھاتہ تلاش کریں..." class="inp no-print" style="margin-bottom:8px;padding:8px 11px;font-size:12px;">
+        <input type="text" id="khataSearchInp" oninput="renderKhataLedger()" placeholder="🔍 نام یا آئٹم سے کھاتہ تلاش کریں..." class="inp no-print" style="margin-bottom:10px;padding:10px 12px;font-size:12.5px;">
         <div id="khataLedgerList"></div>
       </div>
     </div>
 
     <div id="subMilkKhata" class="hidden">
       <div class="g-2 no-print" style="margin-bottom:12px;">
-        <div class="card" style="margin:0;padding:12px;text-align:center;"><span style="font-size:10.5px;color:var(--muted);font-weight:700;">کل دودھ (لیٹر)</span><strong id="milkTotLiters" style="font-size:15px;color:var(--em);display:block;">0.0 Liters</strong></div>
-        <div class="card" style="margin:0;padding:12px;text-align:center;"><span style="font-size:10.5px;color:var(--muted);font-weight:700;">کل رقم (PKR)</span><strong id="milkTotAmount" style="font-size:15px;color:var(--am);display:block;">PKR 0</strong></div>
+        <div class="card" style="margin:0;padding:12px;text-align:center;"><span style="font-size:10.5px;color:var(--muted);font-weight:700;">کل دودھ (لیٹر)</span><strong id="milkTotLiters" style="font-size:15px;color:var(--primary);display:block;">0.0 Liters</strong></div>
+        <div class="card" style="margin:0;padding:12px;text-align:center;"><span style="font-size:10.5px;color:var(--muted);font-weight:700;">کل رقم (PKR)</span><strong id="milkTotAmount" style="font-size:15px;color:var(--accent-hover);display:block;">PKR 0</strong></div>
       </div>
       <div class="card no-print">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">🥛 آج کا صبح و شام کا دودھ درج کریں</strong>
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">🥛 آج کا صبح و شام کا دودھ درج کریں</strong>
         <div class="g-3" style="margin-bottom:10px;">
           <div><label>صبح (لیٹر)</label><input type="number" id="milkMorn" value="6" step="0.5" class="inp"></div>
           <div><label>شام (لیٹر)</label><input type="number" id="milkEve" value="5" step="0.5" class="inp"></div>
@@ -604,12 +812,12 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
       </div>
       <div id="milkPrintBox" class="rcpt card">
         <div class="p-hdr"><h2>AgriBuild Pro — Daily Milk Diary</h2><p>Khan Traders, Sehja | WhatsApp: 0300-5039391 | <span class="print-date"></span></p></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
           <strong style="font-size:13.5px;">📋 دودھ ڈائری ریکارڈ</strong>
           <div class="no-print" style="display:flex;gap:6px;">
             <button onclick="printSingleSlip('khataTab','milkPrintBox')" style="background:var(--inp);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">🖨️ PDF</button>
-            <button onclick="shareMilkWhatsApp()" style="background:#22c55e;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
-            <button onclick="clearMilkKhata()" style="background:none;border:none;color:#ef4444;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
+            <button onclick="shareMilkWhatsApp()" style="background:#16A34A;color:#fff;border:none;padding:4px 9px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer;">📲 Share</button>
+            <button onclick="clearMilkKhata()" style="background:none;border:none;color:#DC2626;font-size:11px;font-weight:800;cursor:pointer;">Clear</button>
           </div>
         </div>
         <div id="milkLedgerList"></div>
@@ -618,29 +826,70 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
 
     <div id="subAlarmKhata" class="hidden">
       <div class="card">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:6px;">🔔 اگلے پانی اور سپرے کا الارم لگائیں</strong>
-        <div class="g-2" style="margin-bottom:8px;">
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:8px;">🔔 اگلے پانی اور سپرے کا الارم لگائیں</strong>
+        <div class="g-2" style="margin-bottom:10px;">
           <div><label>کام کی قسم</label><select id="remType" class="inp"><option value="💧 Irrigation (پانی)">💧 فصل کو پانی</option><option value="🧪 Pesticide Spray">🧪 فصل پر سپرے</option><option value="🌾 Fertilizer (کھاد)">🌾 کھاد کی قسط</option></select></div>
           <div><label>فصل کا نام</label><select id="remCrop" class="inp"><option value="Cotton (کپاس)">☁️ کپاس (Cotton)</option><option value="Wheat (گندم)">🌾 گندم (Wheat)</option><option value="Sugarcane (گنا)">🎋 گنا (Cane)</option><option value="Rice (مونجی)">🌱 مونجی (Rice)</option><option value="Maize (مکئی)">🌽 مکئی (Maize)</option></select></div>
         </div>
-        <div style="margin-bottom:10px;"><label>کتنے دن بعد یاد دہانی؟</label><select id="remDays" class="inp"><option value="7">7 دن بعد (1 ہفتہ)</option><option value="10" selected>10 دن بعد</option><option value="14">14 دن بعد (2 ہفتے)</option><option value="21">21 دن بعد (3 ہفتے)</option></select></div>
+        <div style="margin-bottom:12px;"><label>کتنے دن بعد یاد دہانی؟</label><select id="remDays" class="inp"><option value="7">7 دن بعد (1 ہفتہ)</option><option value="10" selected>10 دن بعد</option><option value="14">14 دن بعد (2 ہفتے)</option><option value="21">21 دن بعد (3 ہفتے)</option></select></div>
         <button class="btn" onclick="addCropReminder()">⏰ شیڈول سیو کریں</button>
       </div>
       <div class="card"><strong style="font-size:13.5px;display:block;margin-bottom:8px;">📅 ایکٹو شیڈول</strong><div id="reminderList"></div></div>
     </div>
   </section>
 
-  <!-- ==================== 6. DEDICATED PROFILE, AUTH & DASHBOARD TAB (AT THE END) ==================== -->
+  <!-- ==================== 6. MARKET RATES TAB ==================== -->
+  <section id="ratesTab" class="page">
+    <div class="sec-banner no-print">
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">LIVE MANDI BULLETIN</span>
+        <h2 style="font-size:16px;font-weight:900;">پاکستان منڈی، گولڈ اور تعمیراتی ریٹس</h2>
+      </div>
+      <button onclick="autoFetchLiveRates(true)" style="background:rgba(255,255,255,0.2);color:#fff;border:none;padding:6px 10px;border-radius:10px;font-size:11px;font-weight:800;cursor:pointer;">🔄 Sync</button>
+    </div>
+    
+    <div class="card" style="background:linear-gradient(135deg,#0F3D2E,#14532D);color:#fff;border:1px solid var(--gold-bdr);">
+      <p id="lastSyncTimestamp" style="font-size:11.5px;opacity:0.9;margin-bottom:8px;">Last Synced: Connecting to live servers...</p>
+      <button class="btn btn-wa" style="padding:10px;font-size:12.5px;" onclick="shareWhatsAppStatusCard()">📲 آج کا ریٹ کارڈ واٹس ایپ اسٹیٹس پر شیئر کریں</button>
+    </div>
+
+    <div class="card">
+      <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:4px;">📊 14 Live & Customizable Rates</strong>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:12px;">آپ کسی بھی آئٹم کا مقامی ریٹ اپنی مرضی سے تبدیل کر کے سیو بھی کر سکتے ہیں:</p>
+      <div id="ratesInputsGrid" class="g-2" style="margin-bottom:12px;"></div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <button class="btn" onclick="saveRates(true)">💾 Save & Lock Custom Dealer Rates</button>
+        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Unlock & Re-Sync Live Market Rates</button>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+        <strong style="font-size:13.5px;">📋 حالیہ لگائے گئے حساب (Recent Estimates)</strong>
+        <button onclick="clearHistory()" style="border:none;background:none;color:var(--danger);font-size:11.5px;font-weight:800;cursor:pointer;">Clear All</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. DEDICATED PROFILE & ACCOUNT TAB (AT THE END) ==================== -->
   <section id="profileTab" class="page">
-    <!-- STATE A: LOGGED OUT -> ADVANCED LOGIN & REGISTRATION PORTAL -->
-    <div id="authGuestBox" class="card" style="border:2px solid var(--em);">
-      <div style="text-align:center;margin-bottom:12px;">
-        <div style="width:54px;height:54px;border-radius:18px;background:var(--em-bg);color:var(--em);display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:6px;">👤</div>
+    <div class="sec-banner">
+      <div>
+        <span style="font-size:10px;color:#FDE047;font-weight:900;">SECURE CLOUD PORTAL</span>
+        <h2 style="font-size:16px;font-weight:900;">کسان پروفائل اور کلاؤڈ ڈیش بورڈ</h2>
+      </div>
+      <span style="font-size:24px;">👤</span>
+    </div>
+
+    <!-- STATE A: LOGGED OUT -> ADVANCED LOGIN & REGISTRATION -->
+    <div id="authGuestBox" class="card" style="border:2px solid var(--primary);">
+      <div style="text-align:center;margin-bottom:14px;">
+        <div style="width:54px;height:54px;border-radius:18px;background:var(--primary-light);color:var(--primary);display:inline-flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:6px;">👤</div>
         <h2 style="font-size:17px;font-weight:900;">AgriBuild Cloud Account</h2>
-        <p style="font-size:11.5px;color:var(--muted);">اپنے Coins، کھاتہ، دودھ ڈائری اور حساب ہمیشہ محفوظ رکھیں</p>
+        <p style="font-size:11.5px;color:var(--muted);">اپنے Coins، کھاتہ، دودھ ڈائری اور حساب ہمیشہ کلاؤڈ پر محفوظ رکھیں</p>
       </div>
 
-      <!-- Auth Mode Switcher: Login vs Register -->
       <div class="sub-nav" style="grid-template-columns:1fr 1fr;margin-bottom:14px;">
         <button id="tabBtnLogin" onclick="switchAuthMode('login')" class="s-pill active">🔑 لاگ ان (Login)</button>
         <button id="tabBtnReg" onclick="switchAuthMode('register')" class="s-pill">📝 نیا اکاؤنٹ (Register)</button>
@@ -649,10 +898,10 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
       <!-- LOGIN FORM -->
       <div id="loginFormBox">
         <div style="margin-bottom:10px;">
-          <label>Mobile Number (آپ کا رجسٹرڈ موبائل نمبر)</label>
+          <label>Mobile Number (موبائل نمبر)</label>
           <input type="tel" id="loginPhoneInp" placeholder="03001234567" class="inp">
         </div>
-        <div style="margin-bottom:12px;">
+        <div style="margin-bottom:14px;">
           <label>4-Digit Secret PIN (4 ہندسوں کا خفیہ کوڈ)</label>
           <input type="password" id="loginPinInp" maxlength="4" inputmode="numeric" placeholder="****" class="inp">
         </div>
@@ -676,11 +925,11 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
             </select>
           </div>
         </div>
-        <div style="margin-bottom:12px;">
-          <label>Create 4-Digit PIN (4 ہندسوں کا نیا خفیہ کوڈ بنائیں)</label>
+        <div style="margin-bottom:14px;">
+          <label>Create 4-Digit PIN (4 ہندسوں کا نیا خفیہ کوڈ)</label>
           <input type="password" id="regPinInp" maxlength="4" inputmode="numeric" placeholder="مثلاً 1234" class="inp">
         </div>
-        <button class="btn" style="background:linear-gradient(135deg,#f59e0b,#d97706);" onclick="handleUserRegister()">📝 Create Free Cloud Account (+50 Coins)</button>
+        <button class="btn" style="background:linear-gradient(135deg,#D97706,#B45309);" onclick="handleUserRegister()">📝 Create Free Cloud Account (+50 Coins)</button>
       </div>
     </div>
 
@@ -688,27 +937,26 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
     <div id="authUserDashboard" class="hidden">
       <div class="vip-id-card">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;">
-          <div style="display:flex;gap:11px;align-items:center;">
-            <div style="width:50px;height:50px;border-radius:16px;background:rgba(255,255,255,0.18);border:1.5px solid #fbbf24;display:flex;align-items:center;justify-content:center;font-size:24px;">👑</div>
+          <div style="display:flex;gap:12px;align-items:center;">
+            <div style="width:50px;height:50px;border-radius:16px;background:rgba(255,255,255,0.18);border:1.5px solid #FDE047;display:flex;align-items:center;justify-content:center;font-size:24px;">👑</div>
             <div>
-              <span id="dashRoleBadge" style="font-size:9.5px;background:#fbbf24;color:#0f172a;padding:2px 8px;border-radius:6px;font-weight:900;">🌾 VERIFIED KISAN</span>
+              <span id="dashRoleBadge" style="font-size:9.5px;background:#FDE047;color:#0F172A;padding:2px 8px;border-radius:6px;font-weight:900;">🌾 VERIFIED KISAN</span>
               <h2 id="dashUserName" style="font-size:17px;font-weight:900;margin-top:4px;">Nadeem Khan</h2>
-              <p id="dashUserMeta" style="font-size:11.5px;color:#d1fae5;">📞 03001234567 • 📍 Sehja</p>
+              <p id="dashUserMeta" style="font-size:11.5px;color:#A7F3D0;">📞 03001234567 • 📍 Sehja</p>
             </div>
           </div>
-          <span id="dashSyncBadge" style="font-size:9.5px;background:rgba(16,185,129,0.35);color:#a7f3d0;padding:4px 8px;border-radius:8px;font-weight:800;">🟢 Cloud Active</span>
+          <span id="dashSyncBadge" style="font-size:9.5px;background:rgba(16,185,129,0.35);color:#A7F3D0;padding:4px 8px;border-radius:8px;font-weight:800;">🟢 Cloud Active</span>
         </div>
       </div>
 
-      <!-- 4-Card Live User Portfolio Summary -->
-      <div class="g-2" style="margin-bottom:12px;">
+      <div class="g-2" style="margin-bottom:14px;">
         <div class="card" style="margin:0;text-align:center;">
           <span style="font-size:11px;color:var(--muted);font-weight:700;">🪙 My Reward Coins</span>
-          <strong id="dashCoinsVal" style="font-size:18px;color:var(--am);display:block;margin-top:3px;">100</strong>
+          <strong id="dashCoinsVal" style="font-size:18px;color:var(--accent);display:block;margin-top:3px;">100</strong>
         </div>
         <div class="card" style="margin:0;text-align:center;">
           <span style="font-size:11px;color:var(--muted);font-weight:700;">📒 Khata Balance</span>
-          <strong id="dashKhataVal" style="font-size:18px;color:var(--em);display:block;margin-top:3px;">Rs. 0</strong>
+          <strong id="dashKhataVal" style="font-size:18px;color:var(--success);display:block;margin-top:3px;">Rs. 0</strong>
         </div>
         <div class="card" style="margin:0;text-align:center;">
           <span style="font-size:11px;color:var(--muted);font-weight:700;">🥛 Milk Diary Total</span>
@@ -716,75 +964,34 @@ label{display:block;font-size:11.5px;font-weight:700;margin-bottom:5px;color:var
         </div>
         <div class="card" style="margin:0;text-align:center;">
           <span style="font-size:11px;color:var(--muted);font-weight:700;">🔥 Daily Streak</span>
-          <strong id="dashStreakVal" style="font-size:16px;color:#ef4444;display:block;margin-top:3px;">1 Day</strong>
+          <strong id="dashStreakVal" style="font-size:16px;color:var(--danger);display:block;margin-top:3px;">1 Day</strong>
         </div>
       </div>
 
-      <!-- Cloud Sync & Backup Controls -->
       <div class="card">
-        <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:8px;">☁️ Google Firebase Cloud & Backup Center</strong>
-        <div class="g-2" style="margin-bottom:8px;">
-          <button class="btn" style="padding:10px;font-size:12px;" onclick="firebaseCloudSync('push',false)">☁️ Save Data to Cloud</button>
-          <button class="btn" style="padding:10px;font-size:12px;background:linear-gradient(135deg,#3b82f6,#1d4ed8);" onclick="firebaseCloudSync('pull',false)">📲 Restore from Cloud</button>
+        <strong style="font-size:13.5px;color:var(--primary);display:block;margin-bottom:10px;">☁️ Google Firebase Cloud & Backup Center</strong>
+        <div class="g-2" style="margin-bottom:10px;">
+          <button class="btn" style="padding:11px;font-size:12px;" onclick="firebaseCloudSync('push',false)">☁️ Save Data to Cloud</button>
+          <button class="btn" style="padding:11px;font-size:12px;background:linear-gradient(135deg,#2563EB,#1D4ED8);" onclick="firebaseCloudSync('pull',false)">📲 Restore from Cloud</button>
         </div>
         <div class="g-2">
-          <button class="btn btn-wa" style="padding:10px;font-size:12px;" onclick="backupKhataToWhatsApp()">💬 WhatsApp Backup</button>
-          <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="downloadKhataFile()">💾 Download File</button>
+          <button class="btn btn-wa" style="padding:11px;font-size:12px;" onclick="backupKhataToWhatsApp()">💬 WhatsApp Backup</button>
+          <button class="btn btn-out" style="padding:11px;font-size:12px;" onclick="downloadKhataFile()">💾 Download File</button>
         </div>
       </div>
     </div>
 
-    <!-- UNIVERSAL TOOLS IN PROFILE: MARKET RATES CUSTOMIZER & HISTORY -->
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;">
-        <div>
-          <strong style="font-size:13.5px;color:var(--em);">📊 14 Live Mandi & Dealer Rates</strong>
-          <p style="font-size:11px;color:var(--muted);">منڈی کے ریٹ تبدیل کریں یا واٹس ایپ اسٹیٹس کارڈ شیئر کریں</p>
-        </div>
-        <button class="btn" style="width:auto;padding:8px 12px;font-size:11.5px;" onclick="openRatesModal()">⚙️ Open Rates</button>
-      </div>
-    </div>
-
-    <div class="card">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-        <strong style="font-size:13.5px;">📋 حالیہ لگائے گئے حساب (Recent Estimates)</strong>
-        <button onclick="clearHistory()" style="border:none;background:none;color:#ef4444;font-size:11.5px;font-weight:800;cursor:pointer;">Clear All</button>
-      </div>
-      <div id="historyList"></div>
-    </div>
-
-    <button id="logoutBtnEl" class="btn hidden" style="background:linear-gradient(135deg,#ef4444,#b91c1c);margin-bottom:14px;" onclick="handleUserLogout()">🚪 Logout / Switch Account (لاگ آؤٹ)</button>
-  </section>
-
-  <!-- ==================== HIDDEN SUB-PAGE: 14 MARKET RATES CUSTOMIZER ==================== -->
-  <section id="ratesTab" class="page">
-    <div class="card" style="background:linear-gradient(135deg,#011812,#065f46);color:#fff;border:1.5px solid rgba(251,191,36,0.4);">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
-        <div><span style="font-size:10px;background:#10b981;padding:2px 7px;border-radius:6px;font-weight:800;">LIVE MANDI BULLETIN</span><h3 style="font-size:16px;font-weight:800;margin-top:4px;">پاکستان منڈی، گولڈ اور تعمیراتی ریٹس</h3></div>
-        <button onclick="autoFetchLiveRates(true)" style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:7px 11px;border-radius:11px;font-size:11.5px;font-weight:800;cursor:pointer;">🔄 Sync Live</button>
-      </div>
-      <p id="lastSyncTimestamp" style="font-size:11px;opacity:.9;margin-bottom:10px;">Last Synced: Connecting to live servers...</p>
-      <button class="btn btn-wa" style="padding:10px;font-size:12.5px;" onclick="shareWhatsAppStatusCard()">📲 آج کا ریٹ کارڈ واٹس ایپ اسٹیٹس پر شیئر کریں</button>
-    </div>
-    <div class="card">
-      <strong style="font-size:13.5px;color:var(--em);display:block;margin-bottom:4px;">📊 14 Live & Customizable Rates</strong>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;">آپ کسی بھی آئٹم کا مقامی ریٹ اپنی مرضی سے تبدیل کر کے سیو بھی کر سکتے ہیں:</p>
-      <div id="ratesInputsGrid" class="g-2" style="margin-bottom:12px;"></div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <button class="btn" onclick="saveRates(true)">💾 Save & Lock Custom Dealer Rates</button>
-        <button class="btn btn-out" style="padding:9px;" onclick="resetDefaultRates()">↺ Unlock & Re-Sync Live Market Rates</button>
-      </div>
-    </div>
+    <button id="logoutBtnEl" class="btn hidden" style="background:linear-gradient(135deg,#DC2626,#B91C1C);margin-bottom:14px;" onclick="handleUserLogout()">🚪 Logout / Switch Account (لاگ آؤٹ)</button>
   </section>
 </div>
 
-<!-- ==================== FIXED BOTTOM AD BAR (ADSTERRA - 30s VIEWER) ==================== -->
+<!-- FIXED BOTTOM AD BAR (ADSTERRA) -->
 <div onclick="openAdViewer(ADSTERRA_URL)" class="fixed-bottom-ad">
   <div style="display:flex;align-items:center;gap:8px;overflow:hidden;">
-    <span class="ad-tag" style="background:#34d399;color:#022c22;">OFFER</span>
+    <span class="ad-tag" style="background:#34D399;color:#022C22;">OFFER</span>
     <span id="bottomAdText" style="font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">🌾 Wholesale Fertilizer, Solar & Construction Deals — Tap Here</span>
   </div>
-  <span class="ad-cta" style="background:#fbbf24;color:#0f172a;">View ➔</span>
+  <span class="ad-cta" style="background:#FBBF24;color:#0F172A;">View ➔</span>
 </div>
 
 <!-- FIXED 7-TAB BOTTOM DOCK (WITH PROFILE AT THE VERY END) -->
@@ -915,7 +1122,7 @@ function renderStreakCalendar() {
     const rewards = ["+25", "+30", "+40", "+50", "+60", "+75", "🎁500"];
     document.getElementById('streakDaysGrid').innerHTML = rewards.map((r, i) => {
       const d = i + 1, cls = d < streak ? 'done' : (d === streak ? 'active' : '');
-      return `<div class="s-step ${cls}"><div>Day ${d}</div><div style="font-size:10px;margin-top:2px;">${d < streak ? '✓' : r}</div></div>`;
+      return `<div class="s-step ${cls}"><div>Day ${d}</div><div style="font-size:9.5px;margin-top:2px;">${d < streak ? '✓' : r}</div></div>`;
     }).join('');
   } catch(e) {}
 }
@@ -934,7 +1141,7 @@ function claimDailyBonus() {
   triggerSmartAd(true);
 }
 
-// ==================== 3. DEDICATED PROFILE TAB: LOGIN, REGISTER & DASHBOARD ====================
+// ==================== 3. DEDICATED PROFILE & ACCOUNT TAB ====================
 function getKisanProfile() { try { return JSON.parse(Store.get('kisanUserProfile') || '{}'); } catch(e) { return {}; } }
 function getPhoneKey(phone) { const d = String(phone || '').replace(/\D/g, ''); return d.length >= 7 ? 'pk_' + d.slice(-10) : ''; }
 
@@ -977,7 +1184,7 @@ function renderProfileUI() {
     document.getElementById('dashMilkVal').innerText = `PKR ${mSum.toLocaleString()}`;
     document.getElementById('dashStreakVal').innerText = `${streak} Days`;
   } else {
-    if (hdrBadge) hdrBadge.innerText = 'Login';
+    if (hdrBadge) hdrBadge.innerText = 'Profile';
     if (khataHdr) khataHdr.innerText = `کسان کھاتہ، ادھار اور دودھ ڈائری`;
   }
 }
@@ -995,27 +1202,18 @@ async function handleUserLogin() {
     const checkRes = await firebaseRequestWithFallback(dbPath);
     let existing = (checkRes && checkRes.ok) ? await checkRes.json() : null;
     if (existing && existing.pin) {
-      if (String(existing.pin) !== String(pin)) {
-        return showToast("❌ غلط PIN کوڈ! براہ کرم درست کوڈ درج کریں۔");
-      }
+      if (String(existing.pin) !== String(pin)) return showToast("❌ غلط PIN کوڈ! براہ کرم درست کوڈ درج کریں۔");
       if (existing.payload) applyRestoredData(existing.payload, true);
-      Store.set('kisanUserProfile', JSON.stringify({
-        name: existing.name || 'Kisan Member',
-        phone: phone,
-        city: existing.city || 'Sehja / Khanpur',
-        role: existing.role || '🌾 Kisan / Zamindar',
-        pin: pin
-      }));
+      Store.set('kisanUserProfile', JSON.stringify({ name: existing.name || 'Kisan Member', phone, city: existing.city || 'Sehja', role: existing.role || '🌾 Kisan', pin }));
       renderProfileUI();
       showToast(`🎉 خوش آمدید ${existing.name || ''}! آپ کا پورا ریکارڈ لوڈ ہو گیا۔`);
       return;
     }
-    // If no cloud record exists yet, log in and push current device data
-    Store.set('kisanUserProfile', JSON.stringify({ name: 'Kisan Member', phone, city: 'Sehja', role: '🌾 Kisan / Zamindar', pin }));
+    Store.set('kisanUserProfile', JSON.stringify({ name: 'Kisan Member', phone, city: 'Sehja', role: '🌾 Kisan', pin }));
     renderProfileUI();
     await firebaseCloudSync('push', false);
   } catch (e) {
-    Store.set('kisanUserProfile', JSON.stringify({ name: 'Kisan Member', phone, city: 'Sehja', role: '🌾 Kisan / Zamindar', pin }));
+    Store.set('kisanUserProfile', JSON.stringify({ name: 'Kisan Member', phone, city: 'Sehja', role: '🌾 Kisan', pin }));
     renderProfileUI();
     showToast("✅ Logged In Locally!");
   }
@@ -1034,21 +1232,8 @@ async function handleUserRegister() {
   if (!pin || pin.length < 4) return showToast("⚠️ 4 ہندسوں کا خفیہ PIN کوڈ بنائیں!");
 
   showToast("🔄 Creating Cloud Account on Firebase...");
-  const dbPath = `/kisan_khata/${pKey}.json`;
-  try {
-    const checkRes = await firebaseRequestWithFallback(dbPath);
-    let existing = (checkRes && checkRes.ok) ? await checkRes.json() : null;
-    if (existing && existing.pin && String(existing.pin) !== String(pin)) {
-      showToast("ℹ️ یہ نمبر پہلے سے رجسٹرڈ ہے! لاگ ان ٹیب سے اپنا پرانا PIN لگائیں۔");
-      switchAuthMode('login');
-      document.getElementById('loginPhoneInp').value = phone;
-      return;
-    }
-  } catch (e) {}
-
   Store.set('kisanUserProfile', JSON.stringify({ name, phone, city, role, pin }));
-  let pts = parseInt(Store.get('kisanUserPts') || '100') + 50;
-  Store.set('kisanUserPts', String(pts));
+  addCoins(50);
   renderProfileUI();
   await firebaseCloudSync('push', false);
   showToast(`🎉 نیا اکاؤنٹ بن گیا! +50 Welcome Coins مل گئے!`);
@@ -1085,16 +1270,10 @@ async function firebaseRequestWithFallback(path, opts = {}) {
 
 function generateBackupPayload() {
   const payload = {
-    v: 3,
-    d: new Date().toLocaleDateString('en-PK'),
-    prof: getKisanProfile(),
-    pts: Store.get('kisanUserPts') || '100',
-    streak: Store.get('kisanDailyStreak') || '1',
-    claim: Store.get('kisanLastClaimDate') || '',
-    cash: JSON.parse(Store.get('kisanCashKhata') || '[]'),
-    milk: JSON.parse(Store.get('kisanMilkDiary') || '[]'),
-    rem: JSON.parse(Store.get('kisanReminders') || '[]'),
-    hist: JSON.parse(Store.get('appCalcHistory') || '[]')
+    v: 3, d: new Date().toLocaleDateString('en-PK'), prof: getKisanProfile(),
+    pts: Store.get('kisanUserPts') || '100', streak: Store.get('kisanDailyStreak') || '1', claim: Store.get('kisanLastClaimDate') || '',
+    cash: JSON.parse(Store.get('kisanCashKhata') || '[]'), milk: JSON.parse(Store.get('kisanMilkDiary') || '[]'),
+    rem: JSON.parse(Store.get('kisanReminders') || '[]'), hist: JSON.parse(Store.get('appCalcHistory') || '[]')
   };
   return `AGRI-BACKUP-${btoa(unescape(encodeURIComponent(JSON.stringify(payload))))}`;
 }
@@ -1112,8 +1291,7 @@ function applyRestoredData(rawStr, fromFirebase = false) {
     if (Array.isArray(data.milk)) Store.set('kisanMilkDiary', JSON.stringify(data.milk));
     if (Array.isArray(data.rem)) Store.set('kisanReminders', JSON.stringify(data.rem));
     if (Array.isArray(data.hist)) Store.set('appCalcHistory', JSON.stringify(data.hist));
-    Store.set('kisanUnsavedCount', '0');
-    Store.set('kisanLastBackupDate', data.d || 'Synced');
+    Store.set('kisanUnsavedCount', '0'); Store.set('kisanLastBackupDate', data.d || 'Synced');
     renderProfileUI(); renderStreakCalendar(); renderKhataLedger(); renderMilkLedger(); renderReminders(); renderHistory();
   } catch (e) {}
 }
@@ -1127,7 +1305,7 @@ async function firebaseCloudSync(direction = 'push', silent = false) {
   }
   const dbPath = `/kisan_khata/${pKey}.json`;
   try {
-    if (!silent) showToast(direction === 'push' ? "☁️ Saving All Data to Firebase..." : "📲 Restoring from Firebase...");
+    if (!silent) showToast(direction === 'push' ? "☁️ Saving Data to Cloud..." : "📲 Restoring from Cloud...");
     const checkRes = await firebaseRequestWithFallback(dbPath);
     let existing = (checkRes && checkRes.ok) ? await checkRes.json() : null;
     if (existing && existing.pin && String(existing.pin) !== String(p.pin)) {
@@ -1178,947 +1356,6 @@ function markUnsavedChange() {
   renderProfileUI();
   if (getPhoneKey(getKisanProfile().phone)) firebaseCloudSync('push', true);
 }
-
-// ==================== 4. REAL AI VISION + CLINICAL SYMPTOM CROP DOCTOR ENGINE ====================
-let scannerSelectedCrop = 'auto';
-let scannerSelectedSym = 'auto';
-
-function setScannerCrop(cropKey, btn) {
-  scannerSelectedCrop = cropKey;
-  document.querySelectorAll('#scannerCropPills .f-pill').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-}
-
-function setScannerSymptom(symKey, el) {
-  scannerSelectedSym = symKey;
-  document.querySelectorAll('#scannerSymptomGrid .sym-chip').forEach(c => c.classList.remove('active'));
-  if (el) el.classList.add('active');
-}
-
-// Maps user-selected or AI-detected Crop + Symptom to the exact verified clinical cure
-function matchExactClinicalDisease(cropHint, symHint, greenPct, yellowPct, brownPct, whitePct, aspectRatio) {
-  let targetCrop = cropHint;
-  if (targetCrop === 'auto') {
-    // Leaf morphology check: narrow blades (wheat/rice/sugarcane/maize) vs broad leaves (cotton/orchard)
-    if (aspectRatio > 1.35 || aspectRatio < 0.72) {
-      targetCrop = yellowPct >= brownPct ? 'wheat' : 'sugarcane';
-    } else {
-      targetCrop = whitePct >= brownPct ? 'cotton' : 'orchard';
-    }
-  }
-
-  let targetSym = symHint;
-  if (targetSym === 'auto') {
-    if (whitePct >= 16) targetSym = 'whitefly';
-    else if (yellowPct >= 28 && brownPct < 18) targetSym = 'rust';
-    else if (brownPct >= 22) targetSym = 'borer';
-    else if (yellowPct >= 20) targetSym = 'curl';
-    else targetSym = 'npk';
-  }
-
-  const exactMatrix = {
-    cotton: { whitefly:'cot-wf', borer:'cot-pb', curl:'cot-cl', rust:'cot-th', blight:'cot-mb', weed:'cot-th', npk:'orc-np' },
-    wheat: { rust:'wht-ru', weed:'wht-wd', whitefly:'wht-ap', borer:'wht-ap', curl:'wht-ru', blight:'wht-ru', npk:'orc-np' },
-    sugarcane: { borer:'sug-br', blight:'sug-rr', whitefly:'sug-py', rust:'sug-py', curl:'sug-br', weed:'sug-py', npk:'orc-np' },
-    rice: { blight:'ric-bl', borer:'ric-br', rust:'ric-bk', yellow:'ric-bk', whitefly:'ric-br', curl:'ric-bl', weed:'ric-bk', npk:'orc-np' },
-    maize: { borer:'mai-fa', curl:'mai-sf', whitefly:'mai-sf', blight:'mai-br', rust:'mai-br', weed:'mai-fa', npk:'orc-np' },
-    orchard: { whitefly:'orc-hp', blight:'orc-bl', borer:'orc-ci', rust:'orc-ci', curl:'orc-hp', weed:'orc-bl', npk:'orc-np' }
-  };
-
-  const cropMap = exactMatrix[targetCrop] || exactMatrix.cotton;
-  const matchedId = cropMap[targetSym] || cropMap.whitefly;
-  return cropDoctorDB.find(x => x.id === matchedId) || cropDoctorDB[0];
-}
-
-function diagnoseBySymptomOnly() {
-  const cropH = scannerSelectedCrop === 'auto' ? 'cotton' : scannerSelectedCrop;
-  const symH = scannerSelectedSym === 'auto' ? 'whitefly' : scannerSelectedSym;
-  const detected = matchExactClinicalDisease(cropH, symH, 55, 20, 15, 10, 1.0);
-  renderDiagnosisResultCard(detected, 98, 55, 20, 15, 10, "Clinical Symptom Match");
-}
-
-async function callLiveCloudVisionAI(base64DataUrl) {
-  try {
-    const promptText = `You are an expert Pakistani agricultural plant pathologist. Analyze this image carefully.
-Return ONLY a valid JSON object with these exact keys:
-{
-  "isPlant": true or false (false if human face, room, furniture, car, blank, non-plant object),
-  "cropKey": one of ["cotton","wheat","sugarcane","rice","maize","orchard"],
-  "cropNameUr": exact crop name in English & Urdu e.g. "Cotton (کپاس)" or "Wheat (گندم)" or "Sugarcane (گنا)" or "Rice (مونجی)" or "Maize (مکئی)" or "Mango/Vegetable (باغات/سبزی)",
-  "diseaseId": best matching ID from ["cot-wf","cot-pb","cot-th","cot-cl","cot-mb","sug-br","sug-rr","sug-py","wht-ru","wht-wd","wht-ap","ric-bl","ric-br","ric-bk","mai-fa","mai-sf","mai-br","orc-hp","orc-bl","orc-ci","orc-np"],
-  "customDiseaseUr": exact disease name in Urdu based on visible symptoms,
-  "customSymUr": 1-sentence exact visible symptoms in Urdu
-}`;
-    const res = await fetchWithTimeout("https://text.pollinations.ai/openai", 6500, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: "openai",
-        messages: [{
-          role: "user",
-          content: [
-            { type: "text", text: promptText },
-            { type: "image_url", image_url: { url: base64DataUrl } }
-          ]
-        }],
-        response_format: { type: "json_object" }
-      })
-    });
-    if (res && res.ok) {
-      const data = await res.json();
-      const content = data?.choices?.[0]?.message?.content || "";
-      const jsonMatch = content.match(/\{[\s\S]*\}/);
-      if (jsonMatch) return JSON.parse(jsonMatch[0]);
-    }
-  } catch (e) {}
-  return null;
-}
-
-function runAutoCropScan(event) {
-  const file = event.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    const rawDataUrl = e.target.result;
-    document.getElementById('scanPreviewBox').classList.remove('hidden');
-    document.getElementById('scannedLeafImg').src = rawDataUrl;
-    document.getElementById('scanLaserBar').style.display = 'block';
-    document.getElementById('aiResultCard').classList.add('hidden');
-    document.getElementById('scanStatusTxt').innerText = '🔄 AI Vision: Identifying Crop Species & Disease Symptoms...';
-
-    const imgObj = new Image();
-    imgObj.onload = async function() {
-      let greenPct = 0, yellowPct = 0, brownPct = 0, whitePct = 0, bioRatio = 0;
-      const aspectRatio = imgObj.width / (imgObj.height || 1);
-      let compressedDataUrl = rawDataUrl;
-
-      try {
-        const canvas = document.getElementById('aiCanvas'), ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, 384, 384);
-        ctx.drawImage(imgObj, 0, 0, 384, 384);
-        compressedDataUrl = canvas.toDataURL('image/jpeg', 0.65);
-
-        const px = ctx.getImageData(0, 0, 384, 384).data;
-        let gC = 0, yC = 0, bC = 0, wC = 0, skinOrIndoor = 0, tot = px.length / 4;
-        for (let i = 0; i < px.length; i += 4) {
-          const r = px[i], g = px[i+1], b = px[i+2];
-          if (g > 42 && (2 * g - r - b) > 16) gC++;
-          else if (r > 135 && g > 110 && b < 95 && Math.abs(r - g) < 60) yC++;
-          else if (r > 75 && r < 185 && g > 40 && g < 125 && b < 85 && r > g) bC++;
-          else if (r > 205 && g > 205 && b > 205) wC++;
-          if (r > 150 && g > 100 && b > 80 && r > g && g > b) skinOrIndoor++;
-        }
-        bioRatio = ((gC * 1.4 + yC * 0.8 + bC * 0.4) / tot) * 100;
-        greenPct = Math.min(85, Math.round((gC / tot) * 145));
-        yellowPct = Math.min(75, Math.max(6, Math.round((yC / tot) * 165)));
-        brownPct = Math.min(75, Math.max(5, Math.round((bC / tot) * 165)));
-        whitePct = Math.min(65, Math.max(4, Math.round((wC / tot) * 125)));
-        const sum = greenPct + yellowPct + brownPct + whitePct;
-        if (sum > 0) {
-          greenPct = Math.round((greenPct / sum) * 100); yellowPct = Math.round((yellowPct / sum) * 100);
-          brownPct = Math.round((brownPct / sum) * 100); whitePct = Math.max(0, 100 - (greenPct + yellowPct + brownPct));
-        }
-      } catch (err) { bioRatio = 25; greenPct = 52; yellowPct = 22; brownPct = 16; whitePct = 10; }
-
-      // 1. Call Live Cloud Vision AI for real crop & disease recognition
-      const aiVision = await callLiveCloudVisionAI(compressedDataUrl);
-      document.getElementById('scanLaserBar').style.display = 'none';
-      const resCard = document.getElementById('aiResultCard');
-
-      // Check if non-plant image
-      if ((aiVision && aiVision.isPlant === false) || (!aiVision && bioRatio < 8 && scannerSelectedCrop === 'auto' && scannerSelectedSym === 'auto')) {
-        resCard.classList.remove('hidden');
-        document.getElementById('scanStatusTxt').innerText = '⚠️ Non-Crop Image Detected — Please Snap a Leaf';
-        resCard.innerHTML = `<div style="background:rgba(239,68,68,0.1);border:2px solid #ef4444;border-radius:18px;padding:14px;text-align:center;"><div class="urdu-text" style="font-size:15px;font-weight:700;color:#ef4444;margin-bottom:6px;">⚠️ یہ کسی فصل یا پودے کے پتے کی تصویر نہیں لگ رہی!</div><p class="urdu-text" style="font-size:12.5px;margin-bottom:10px;">بالکل درست تشخیص کے لیے براہ کرم متاثرہ پتے کے قریب سے تصویر کھینچیں، یا اوپر سے اپنی فصل اور علامت منتخب کریں۔</p><button class="btn btn-out" style="padding:9px;font-size:11.5px;" onclick="diagnoseBySymptomOnly()">🔍 منتخب فصل اور علامت کے مطابق حل دیکھیں</button></div>`;
-        return;
-      }
-
-      let finalDisease = null;
-      if (aiVision && aiVision.diseaseId) {
-        finalDisease = { ...(cropDoctorDB.find(x => x.id === aiVision.diseaseId) || cropDoctorDB[0]) };
-        if (scannerSelectedCrop !== 'auto' || scannerSelectedSym !== 'auto') {
-          finalDisease = matchExactClinicalDisease(scannerSelectedCrop !== 'auto' ? scannerSelectedCrop : (aiVision.cropKey || finalDisease.crop), scannerSelectedSym, greenPct, yellowPct, brownPct, whitePct, aspectRatio);
-        } else {
-          if (aiVision.cropNameUr) finalDisease.cropLabel = aiVision.cropNameUr;
-          if (aiVision.customSymUr) finalDisease.symUr = aiVision.customSymUr;
-        }
-        renderDiagnosisResultCard(finalDisease, 97, greenPct, yellowPct, brownPct, whitePct, "AI Vision Verified");
-      } else {
-        finalDisease = matchExactClinicalDisease(scannerSelectedCrop, scannerSelectedSym, greenPct, yellowPct, brownPct, whitePct, aspectRatio);
-        renderDiagnosisResultCard(finalDisease, 95, greenPct, yellowPct, brownPct, whitePct, "Clinical Leaf & Symptom Match");
-      }
-    };
-    imgObj.src = rawDataUrl;
-  };
-  reader.readAsDataURL(file);
-}
-
-function renderDiagnosisResultCard(detected, conf, greenPct, yellowPct, brownPct, whitePct, engineLabel) {
-  document.getElementById('scanStatusTxt').innerText = `✅ تشخیص مکمل: ${detected.cropLabel} (${conf}% Accuracy)`;
-  const resCard = document.getElementById('aiResultCard');
-  resCard.classList.remove('hidden');
-
-  // Other diseases of the same crop so farmer can switch in 1 tap if needed
-  const sameCropList = cropDoctorDB.filter(d => d.crop === detected.crop);
-
-  resCard.innerHTML = `
-    <div style="background:var(--em-bg);border:2px solid var(--em);border-radius:18px;padding:14px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:6px;">
-        <span style="background:var(--em);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:6px;">🩺 ${engineLabel} (${conf}%)</span>
-        <span style="font-size:12px;font-weight:900;color:var(--em);">🌾 فصل: ${detected.cropLabel}</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:800;color:var(--muted);margin-bottom:4px;">
-        <span>🟢 صحت مند ${greenPct}%</span><span>🟡 پیلاہٹ ${yellowPct}%</span><span>🟤 دھبے ${brownPct}%</span><span>⚪ کیڑا/فنگس ${whitePct}%</span>
-      </div>
-      <div style="height:6px;border-radius:6px;overflow:hidden;display:flex;margin-bottom:10px;">
-        <div style="width:${greenPct}%;background:#10b981"></div>
-        <div style="width:${yellowPct}%;background:#eab308"></div>
-        <div style="width:${brownPct}%;background:#b45309"></div>
-        <div style="width:${whitePct}%;background:#94a3b8"></div>
-      </div>
-      <div class="urdu-text" style="background:var(--card);padding:12px;border-radius:14px;border:1px solid var(--border);">
-        <div style="font-size:16px;font-weight:700;color:var(--em);margin-bottom:4px;">🦠 بیماری / کیڑے کا نام: ${detected.nameUr}</div>
-        <div style="font-size:13px;margin-bottom:8px;"><strong>🔍 پہچان اور علامات:</strong> ${detected.symUr}</div>
-        <div style="font-size:13px;color:var(--em);background:var(--em-bg);padding:8px 10px;border-radius:10px;"><strong>💊 100% مجرب علاج اور مقدار:</strong><br>${detected.cureUr}</div>
-      </div>
-      <div style="margin-top:8px;font-size:11.5px;font-weight:800;color:var(--muted);">🧪 فارمولا (Active Ingredient): <span style="color:var(--text);">${detected.medFormula}</span></div>
-
-      <!-- 1-Tap Related Symptoms of This Crop -->
-      <div style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--border);">
-        <span style="font-size:10.5px;font-weight:800;color:var(--muted);display:block;margin-bottom:5px;">🔄 اس فصل (${detected.cropLabel}) کی دیگر بیماریاں چیک کریں:</span>
-        <div style="display:flex;gap:5px;overflow-x:auto;padding-bottom:4px;" class="no-sb">
-          ${sameCropList.map(sd => `<button onclick="switchDetectedDisease('${sd.id}')" class="chip" style="flex-shrink:0;padding:5px 8px;border-color:${sd.id===detected.id?'var(--em)':'var(--border)'};background:${sd.id===detected.id?'var(--card)':'var(--inp)'};">${sd.nameUr.split('(')[0]}</button>`).join('')}
-        </div>
-      </div>
-
-      <div class="g-2" style="margin-top:10px;">
-        <button class="btn btn-out" style="padding:10px;font-size:12px;" onclick="loadDiseaseIntoCalc('${detected.crop}',${detected.doseNum})">🧮 ٹینکی ڈوز نکالیں</button>
-        <button class="btn btn-wa" style="padding:10px;font-size:12px;" onclick="orderDiseaseWhatsApp('${detected.id}')">💬 دوا آرڈر کریں</button>
-      </div>
-    </div>`;
-  addCoins(10);
-  showToast(`✅ تشخیص مکمل: ${detected.cropLabel}`);
-}
-
-function switchDetectedDisease(id) {
-  const d = cropDoctorDB.find(x => x.id === id);
-  if (d) renderDiagnosisResultCard(d, 99, 55, 20, 15, 10, "Verified Crop Pathology");
-}
-
-// ==================== 5. DESI CALENDAR & LIVE MARKET ====================
-function renderDesiCalendar() {
-  const now = new Date(), m = now.getMonth() + 1, d = now.getDate(), y = now.getFullYear();
-  let bYear = (m < 3 || (m === 3 && d < 14)) ? y + 56 : y + 57;
-  const tr = [
-    { gm:1, gd:14, e:"Magh", u:"ماگھ" }, { gm:2, gd:13, e:"Phagan", u:"پھاگن" },
-    { gm:3, gd:14, e:"Chet", u:"چیت" }, { gm:4, gd:14, e:"Vaisakh", u:"بیساکھ" },
-    { gm:5, gd:15, e:"Jeth", u:"جیٹھ" }, { gm:6, gd:15, e:"Harh", u:"ہاڑھ" },
-    { gm:7, gd:16, e:"Sawan", u:"ساون" }, { gm:8, gd:16, e:"Bhadon", u:"بھادوں" },
-    { gm:9, gd:16, e:"Assu", u:"اسو" }, { gm:10, gd:17, e:"Katak", u:"کتک" },
-    { gm:11, gd:16, e:"Maghar", u:"مگھر" }, { gm:12, gd:16, e:"Poh", u:"پوہ" }
-  ];
-  let idx = 11, dDay = 1;
-  for (let i = 0; i < tr.length; i++) {
-    const s = new Date(y, tr[i].gm - 1, tr[i].gd);
-    if (now >= s) { idx = i; dDay = Math.floor((now - s) / 86400000) + 1; }
-  }
-  if (m === 1 && d < 14) { idx = 11; dDay = Math.floor((now - new Date(y - 1, 11, 16)) / 86400000) + 1; }
-  const dm = tr[idx], greg = now.toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
-  document.getElementById('desiDateTxt').innerText = `📅 ${dDay} ${dm.e} (${dm.u}) ${bYear} BK • ${greg}`;
-}
-
-const baseMandiRates = { cement:1290, steel:255, brick:16, labor:650, urea:4650, dap:11950, wheat:3950, cotton:8600, cane:450, diesel:272, gold:284500, solarWatt:32, sand:55, crush:145, usd:278.5 };
-let lastConvertedSqft = 43560, lastIrregularSqft = 1628, currentlySpeakingId = null, selectedDocCrop = 'all', toastTimer = null, wheelDeg = 0, isSpinning = false;
-const uImg = id => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=600&q=75`;
-const cleanStr = s => String(s || '').replace(/[<>&"']/g, '');
-
-const topAdMsgs = ["☀️ Government Solar & Kisan Subsidy 2026 — Check Eligibility","🚜 PM Kisan Tractor & Tubewell Scheme — Apply Online Now","⚡ 580W N-Type Solar Panels Wholesale Rate — Check Price"];
-const botAdMsgs = ["🌾 Wholesale Fertilizer, Solar & Construction Deals — Tap Here","🧱 Today's Factory Rate: Cement & 60-Grade Steel — Book Now","🎁 Special Kisan Spray & Seed Discount Voucher — Claim Now"];
-let adIdx = 0;
-setInterval(() => {
-  adIdx = (adIdx + 1) % 3;
-  document.getElementById('topAdText').innerText = topAdMsgs[adIdx];
-  document.getElementById('bottomAdText').innerText = botAdMsgs[adIdx];
-}, 4500);
-
-function showToast(msg) {
-  const t = document.getElementById('toast'); if (!t) return;
-  t.innerText = msg; t.classList.add('show');
-  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2600);
-}
-
-window.onafterprint = () => {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('p-page'));
-  document.querySelectorAll('.rcpt').forEach(b => b.classList.remove('p-target'));
-};
-
-function openRatesModal() {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('ratesTab').classList.add('active');
-  currentTabId = 'ratesTab';
-  try { window.history.pushState({ tab: 'ratesTab' }, ''); } catch(e) {}
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function initDynamicUI() {
-  const mandiCfg = [['hbCement','Cement','🧱'],['hbSteel','60G Steel','🔩'],['hbUrea','Urea 50kg','🌾'],['hbWheat','Wheat 40kg','🌾']];
-  document.getElementById('homeMandiRow').innerHTML = mandiCfg.map(m => `<div onclick="openRatesModal()" class="card" style="padding:10px 4px;text-align:center;margin:0;cursor:pointer;"><div style="font-size:17px;">${m[2]}</div><span style="font-size:10px;color:var(--muted);display:block;font-weight:700;">${m[1]}</span><strong id="${m[0]}" style="font-size:11.5px;color:var(--em);font-weight:800;">-</strong></div>`).join('');
-
-  const bentoCfg = [
-    ["openNav('agriTab',2)",'1625246333195-78d9c38ad449','کھاد و سپرے','🌱','Crop & Tank Calc','کھاد، بیج اور ٹینکی ڈوز'],
-    ["openBuildSub('plot')",'1541888946425-d09bb18086f6','مکان و لینٹر','🏠','House & Slab BOQ','مکان اور لینٹر کا مکمل خرچہ'],
-    ["openBuildSub('wall')",'1589939705384-5185137a7f0f','دیوار و سریہ','🧱','Wall & Steel Calc','اینٹ، پلستر اور سریے کا وزن'],
-    ["openNav('solarTab',4)",'1509391366360-2e959784a276','سولر سسٹم','☀️','Solar & Tubewell','گھریلو سولر اور ٹیوب ویل'],
-    ["openNav('khataTab',5)",'1554224155-6726b3ff858f','کسان کھاتہ','📒','Cloud Khata & Milk','روزنامچہ، ادھار اور دودھ ڈائری'],
-    ["openBuildSub('land')",'1500382017468-9049fed747ef','زمین پیمائش','📐','Patwari Land Suite','مرلہ، کنال، کرم اور ٹیڑھا پلاٹ']
-  ];
-  document.getElementById('homeBentoGrid').innerHTML = bentoCfg.map(b => `<div onclick="${b[0]}" class="bento"><div class="img-box" style="height:82px;border-radius:0;"><span class="f-ico">${b[3]}</span><img src="${uImg(b[1])}" alt="" onerror="this.style.display='none'"><div class="ovl"></div><span style="position:absolute;top:8px;right:8px;z-index:3;background:rgba(0,0,0,0.72);color:#fde047;font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:8px;">${b[2]}</span><span style="position:absolute;bottom:6px;left:10px;z-index:3;font-size:18px;">${b[3]}</span></div><div style="padding:9px 11px;"><h3 style="font-size:12.5px;font-weight:800;">${b[4]}</h3><p style="font-size:11px;color:var(--muted);margin-top:2px;">${b[5]}</p></div></div>`).join('');
-
-  const filterCfg = [['all','All (21)'],['cotton','☁️ کپاس'],['sugarcane','🎋 گنا'],['wheat','🌾 گندم'],['rice','🌱 مونجی'],['maize','🌽 مکئی'],['orchard','🥭 باغات']];
-  document.getElementById('docFilterPills').innerHTML = filterCfg.map((p,i) => `<button onclick="filterByCropPill('${p[0]}',this)" class="f-pill ${i===0?'active':''}">${p[1]}</button>`).join('');
-
-  const cropsCfg = [['cotton','1615811361523-6bd03d7748e7','کپاس','☁️'],['sugarcane','1599488615731-7e5c2823ff28','گنا','🎋'],['wheat','1574323347407-f5e1ad6d020b','گندم','🌾'],['rice','1536304993881-ff6e9eefa2a6','مونجی','🌱'],['maize','1551754655-cd27e38d2076','مکئی','🌽'],['orchard','1553279768-865429fa0078','باغات','🥭']];
-  document.getElementById('cropVisualGrid').innerHTML = cropsCfg.map((c,i) => `<div data-crop="${c[0]}" onclick="selectVisualOption('cropType','${c[0]}',this)" class="vis-crop-card v-opt ${i===0?'sel':''}"><div class="img-box" style="height:46px;border-radius:0;"><span class="f-ico" style="font-size:16px;">${c[3]}</span><img src="${uImg(c[1])}" alt="" onerror="this.style.display='none'"></div><span style="font-size:11px;font-weight:800;padding:4px 2px;display:block;">${c[2]}</span></div>`).join('');
-
-  const floorCfg = [['single','1580587771525-78b9dba3b914','سنگل سٹوری مکان','🏠'],['double','1600596542815-ffad4c1539a9','ڈبل سٹوری مکان','🏢'],['slab','1590069261209-f8e9b8642343','صرف آر سی سی لینٹر','🏗️']];
-  document.getElementById('floorVisualGrid').innerHTML = floorCfg.map((f,i) => `<div onclick="selectFloorVisual('${f[0]}',this)" class="vis-floor-card v-opt ${i===0?'sel':''}"><div class="img-box" style="height:54px;border-radius:0;"><span class="f-ico" style="font-size:18px;">${f[3]}</span><img src="${uImg(f[1])}" alt="" onerror="this.style.display='none'"></div><span style="font-size:11px;font-weight:800;padding:5px;display:block;">${f[2]}</span></div>`).join('');
-
-  const rateFields = [['rateCement','🏗️ Cement 50kg (سیمنٹ)'],['rateSteel','🔩 60G Steel / KG (سریہ)'],['rateBrick','🧱 A-Grade Brick (اینٹ)'],['rateLabor','👷 Labor / Sq.Ft (مزدوری)'],['rateUrea','🌾 Urea 50kg (یوریا)'],['rateDap','🌱 DAP 50kg (ڈی اے پی)'],['rateWheat','🌾 Wheat 40kg (گندم)'],['rateCotton','☁️ Cotton 40kg (کپاس)'],['rateCane','🎋 Sugarcane 40kg (گنا)'],['rateDiesel','⛽ Diesel / Liter (ڈیزل)'],['rateGold','🥇 24K Gold / Tola (سونا)'],['rateSolarWatt','☀️ Solar / Watt (سولر)'],['rateSand','🏖️ Sand / Cft (ریت)'],['rateCrush','🪨 Crush / Cft (بجری)']];
-  document.getElementById('ratesInputsGrid').innerHTML = rateFields.map(rf => `<div><label style="display:flex;justify-content:space-between;"><span>${rf[1]}</span><span style="color:var(--em);font-size:9.5px;">● LIVE</span></label><input type="number" id="${rf[0]}" class="inp"></div>`).join('');
-}
-
-const quizBank = [
-  { q: "گندم کی پیلی کنگی (Yellow Rust) کے لیے بہترین سپرے کون سا ہے؟", opts: ["Urea Only", "Nativo / Propiconazole", "Plain Water"], ans: 1 },
-  { q: "کپاس کی سفید مکھی کے تدارک کے لیے کون سی دوا موثر ہے؟", opts: ["Pyriproxyfen + Diafenthiuron", "Salt Water", "DAP Only"], ans: 0 },
-  { q: "ایک پٹواری مرلہ میں کتنے مربع فٹ ہوتے ہیں؟", opts: ["100 Sq.Ft", "500 Sq.Ft", "272.25 Sq.Ft"], ans: 2 },
-  { q: "گنے کے تنے کی سنڈی (Borers) کے لیے بہترین زہر کون سا ہے؟", opts: ["Sulfur", "Coragen / Fipronil", "Humic Acid"], ans: 1 },
-  { q: "مکئی کی لشکری سنڈی (Fall Armyworm) کا سپرے کہاں کرنا چاہیے؟", opts: ["سیدھا کونپل کے اندر", "صرف جڑوں میں", "کھیت سے باہر"], ans: 0 },
-  { q: "دھان (مونجی) کے جراثیمی جھلساؤ میں کون سی کھاد فوراً روک دینی چاہیے؟", opts: ["پوٹاش (SOP)", "زنک (Zinc)", "یوریا (Urea)"], ans: 2 },
-  { q: "کپاس کی گلابی سنڈی (Pink Bollworm) کے لیے کون سا سپرے کارآمد ہے؟", opts: ["Gibberellic Acid", "Triazophos + Bifenthrin", "Urea Spray"], ans: 1 },
-  { q: "ایک قلعہ (ایکڑ) میں کتنے کنال ہوتے ہیں؟", opts: ["8 Kanal (160 Marla)", "4 Kanal", "12 Kanal"], ans: 0 },
-  { q: "گندم میں جڑی بوٹیوں کا سپرے کب کرنا چاہیے؟", opts: ["کٹائی کے وقت", "خشک مٹی میں", "پہلے پانی کے بعد تر وتر میں"], ans: 2 },
-  { q: "پودوں کے اوپری پتے چھوٹے رہنا کس عنصر کی کمی کی علامت ہے؟", opts: ["پانی کی زیادتی", "زنک (Chelated Zinc)", "ریت"], ans: 1 }
-];
-let curQuizIdx = 0;
-
-const spinPrizes = [
-  { title: "🎁 Rs.300 Spray Discount Voucher", code: "KT-SPRAY300" },
-  { title: "🌾 100 Kisan Coins + Free Crop Advisory", code: "KT-DOC100" },
-  { title: "☀️ Wholesale Discount on 580W Solar Panels", code: "KT-SOLAR580" },
-  { title: "🌱 Rs.200 Off on Chelated Zinc & Potash Pack", code: "KT-ZINC200" },
-  { title: "🏗️ Free BOQ & Steel Rate Lock at Khan Traders", code: "KT-STEEL60" },
-  { title: "🚜 VIP Kisan Priority Delivery Voucher", code: "KT-VIP2026" }
-];
-
-function renderDailyQuiz() {
-  const idx = curQuizIdx % quizBank.length, item = quizBank[idx];
-  document.getElementById('quizQ').innerText = item.q;
-  document.getElementById('quizProgressBadge').innerText = `Q ${idx + 1}/${quizBank.length}`;
-  document.getElementById('quizOpts').innerHTML = item.opts.map((o, i) => `<button onclick="answerQuiz(${i}, this)" class="chip" style="text-align:left;padding:7px 9px;">${o}</button>`).join('');
-}
-
-function answerQuiz(choice, btnEl) {
-  const item = quizBank[curQuizIdx % quizBank.length];
-  if (choice === item.ans) {
-    addCoins(25);
-    if (btnEl) { btnEl.style.background = '#10b981'; btnEl.style.color = '#fff'; }
-    showToast("🎉 شاباش! درست جواب (+25 Coins Saved)");
-  } else {
-    if (btnEl) { btnEl.style.background = '#ef4444'; btnEl.style.color = '#fff'; }
-    showToast("💡 غلط جواب! اگلا سوال ٹرائی کریں");
-  }
-  triggerSmartAd(true);
-  setTimeout(() => { curQuizIdx++; renderDailyQuiz(); }, 450);
-}
-
-function spinLuckyWheel() {
-  if (isSpinning) return showToast("⏳ Wheel is spinning...");
-  isSpinning = true;
-  const w = document.getElementById('spinWheelEl'), btn = document.getElementById('spinBtnEl');
-  if (btn) btn.style.opacity = '0.6';
-  wheelDeg += 1080 + Math.floor(Math.random() * 360);
-  w.style.transform = `rotate(${wheelDeg}deg)`;
-  const pIdx = wheelDeg % spinPrizes.length, won = spinPrizes[pIdx];
-  setTimeout(() => {
-    isSpinning = false; if (btn) btn.style.opacity = '1';
-    addCoins(50);
-    const msg = document.getElementById('spinResultMsg'); msg.classList.remove('hidden');
-    msg.innerHTML = `<div style="color:var(--em);margin-bottom:6px;">${won.title} (Code: <strong>${won.code}</strong>)</div><button class="btn btn-wa" style="padding:8px;font-size:11.5px;" onclick="claimVoucherByIdx(${pIdx})">📲 Claim Voucher on WhatsApp</button>`;
-    showToast("🎉 مبارک ہو! +50 Coins آپ کے اکاؤنٹ میں جمع ہو گئے!");
-    triggerSmartAd(true);
-  }, 3050);
-}
-
-function claimVoucherByIdx(idx) {
-  const won = spinPrizes[idx] || spinPrizes[0];
-  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Assalam-o-Alaikum Khan Traders (Sehja)! I won voucher *${won.code}* (${won.title}) on AgriBuild Pro App!`)}`);
-}
-
-function openRewardModal() {
-  openNav('homeTab', 0);
-  const box = document.getElementById('rewardSpinBox');
-  if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-}
-
-// KHATA, MILK & REMINDERS
-function switchKhataSub(mode) {
-  document.getElementById('subCashKhata').classList.toggle('hidden', mode !== 'cash');
-  document.getElementById('subMilkKhata').classList.toggle('hidden', mode !== 'milk');
-  document.getElementById('subAlarmKhata').classList.toggle('hidden', mode !== 'alarm');
-  document.getElementById('pillCashKhata').classList.toggle('active', mode === 'cash');
-  document.getElementById('pillMilkKhata').classList.toggle('active', mode === 'milk');
-  document.getElementById('pillAlarmKhata').classList.toggle('active', mode === 'alarm');
-}
-
-function addKhataEntry() {
-  const type = document.getElementById('kEntryType').value, cat = cleanStr(document.getElementById('kEntryCat').value);
-  const amt = Math.abs(parseFloat(document.getElementById('kEntryAmt').value)) || 0, note = cleanStr(document.getElementById('kEntryNote').value.trim());
-  if (amt <= 0) return showToast("⚠️ براہ کرم درست رقم لکھیں!");
-  let list = JSON.parse(Store.get('kisanCashKhata') || '[]');
-  list.unshift({ id: Date.now(), type, cat, amt, note, date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' }) });
-  Store.set('kisanCashKhata', JSON.stringify(list.slice(0, 80)));
-  document.getElementById('kEntryAmt').value = ''; document.getElementById('kEntryNote').value = '';
-  addCoins(5); renderKhataLedger(); showToast("✅ کھاتے میں محفوظ ہو گیا (+5 Coins)!");
-  triggerSmartAd();
-}
-
-function deleteKhataItem(id) {
-  if (!verifyKisanPin()) return;
-  try {
-    let list = JSON.parse(Store.get('kisanCashKhata') || '[]').filter(x => x.id !== id);
-    Store.set('kisanCashKhata', JSON.stringify(list)); markUnsavedChange(); renderKhataLedger(); showToast("🗑️ Deleted");
-  } catch(e) {}
-}
-
-function renderKhataLedger() {
-  let list = []; try { list = JSON.parse(Store.get('kisanCashKhata') || '[]'); } catch(e) {}
-  let inc = 0, exp = 0; list.forEach(i => { if (i.type === 'inc') inc += i.amt; else exp += i.amt; });
-  document.getElementById('khataTotInc').innerText = `Rs. ${inc.toLocaleString()}`;
-  document.getElementById('khataTotExp').innerText = `Rs. ${exp.toLocaleString()}`;
-  document.getElementById('khataNetBal').innerText = `Rs. ${(inc - exp).toLocaleString()}`;
-  const tot = inc + exp, iP = tot > 0 ? Math.round((inc / tot) * 100) : 50;
-  const rBar = document.getElementById('khataRatioBar');
-  if (rBar) rBar.innerHTML = `<div style="width:${iP}%;background:#10b981;"></div><div style="width:${100-iP}%;background:#ef4444;"></div>`;
-  const q = (document.getElementById('khataSearchInp')?.value || '').trim().toLowerCase();
-  const filtered = list.filter(i => !q || String(i.cat).toLowerCase().includes(q) || String(i.note || '').toLowerCase().includes(q));
-  const box = document.getElementById('khataLedgerList');
-  if (!filtered.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">ابھی کوئی انٹری موجود نہیں ہے۔</p>`; return; }
-  box.innerHTML = filtered.map(i => `<div class="rline"><div><strong>${cleanStr(i.cat)}</strong> ${i.note ? `<span style="font-size:11px;color:var(--muted);">(${cleanStr(i.note)})</span>` : ''}<br><small style="color:var(--muted);">${cleanStr(i.date)}</small></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:${i.type==='inc'?'#10b981':'#ef4444'};">${i.type==='inc'?'+':'-'} Rs. ${Number(i.amt).toLocaleString()}</strong><button class="del-btn" onclick="deleteKhataItem(${Number(i.id)})">✕</button></div></div>`).join('');
-}
-
-function shareKhataWhatsApp() {
-  const p = getKisanProfile();
-  const msg = `📒 *Kisan Khata Summary (${p.name || 'AgriBuild Pro'})*\n🟢 Income: ${document.getElementById('khataTotInc').innerText}\n🔴 Expense: ${document.getElementById('khataTotExp').innerText}\n💰 *Balance: ${document.getElementById('khataNetBal').innerText}*\n📍 Khan Traders, Sehja: 0300-5039391`;
-  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(msg)}`);
-}
-
-function clearKhata() { if (!verifyKisanPin()) return; Store.del('kisanCashKhata'); markUnsavedChange(); renderKhataLedger(); showToast("🗑️ Khata Cleared!"); }
-
-function addMilkEntry() {
-  const m = Math.abs(parseFloat(document.getElementById('milkMorn').value)) || 0, e = Math.abs(parseFloat(document.getElementById('milkEve').value)) || 0, r = Math.abs(parseFloat(document.getElementById('milkRate').value)) || 190;
-  const totL = +(m + e).toFixed(1); if (totL <= 0) return showToast("⚠️ دودھ کی مقدار لکھیں!");
-  let list = JSON.parse(Store.get('kisanMilkDiary') || '[]');
-  list.unshift({ id: Date.now(), date: new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short' }), m, e, totL, r, amt: Math.round(totL * r) });
-  Store.set('kisanMilkDiary', JSON.stringify(list.slice(0, 35))); addCoins(5); renderMilkLedger(); showToast("🥛 دودھ کا ریکارڈ سیو ہو گیا (+5 Coins)!");
-  triggerSmartAd();
-}
-
-function deleteMilkItem(id) {
-  if (!verifyKisanPin()) return;
-  try {
-    let list = JSON.parse(Store.get('kisanMilkDiary') || '[]').filter(x => x.id !== id);
-    Store.set('kisanMilkDiary', JSON.stringify(list)); markUnsavedChange(); renderMilkLedger();
-  } catch(e) {}
-}
-
-function renderMilkLedger() {
-  let list = []; try { list = JSON.parse(Store.get('kisanMilkDiary') || '[]'); } catch(e) {}
-  let sumL = 0, sumRs = 0; list.forEach(i => { sumL += i.totL; sumRs += i.amt; });
-  document.getElementById('milkTotLiters').innerText = `${sumL.toFixed(1)} Liters`;
-  document.getElementById('milkTotAmount').innerText = `PKR ${sumRs.toLocaleString()}`;
-  const box = document.getElementById('milkLedgerList');
-  if (!list.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">ابھی دودھ کا کوئی ریکارڈ درج نہیں۔</p>`; return; }
-  box.innerHTML = list.map(i => `<div class="rline"><div><strong>📅 ${cleanStr(i.date)}</strong> <span style="font-size:11px;color:var(--muted);">(🌅 ${Number(i.m)}L + 🌇 ${Number(i.e)}L = ${Number(i.totL)}L @ Rs.${Number(i.r)})</span></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:var(--em);">Rs. ${Number(i.amt).toLocaleString()}</strong><button class="del-btn" onclick="deleteMilkItem(${Number(i.id)})">✕</button></div></div>`).join('');
-}
-
-function shareMilkWhatsApp() {
-  const p = getKisanProfile();
-  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(`🥛 *Daily Milk Diary (${p.name || 'AgriBuild Pro'})*\n🪣 Total Milk: ${document.getElementById('milkTotLiters').innerText}\n💰 *Total Bill: ${document.getElementById('milkTotAmount').innerText}*\n📍 Khan Traders, Sehja: 0300-5039391`)}`);
-}
-
-function clearMilkKhata() { if (!verifyKisanPin()) return; Store.del('kisanMilkDiary'); markUnsavedChange(); renderMilkLedger(); showToast("🗑️ Milk Diary Cleared!"); }
-
-function addCropReminder() {
-  const type = cleanStr(document.getElementById('remType').value), crop = cleanStr(document.getElementById('remCrop').value), days = parseInt(document.getElementById('remDays').value) || 10;
-  const dueMs = Date.now() + (days * 86400000), dueDateStr = new Date(dueMs).toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
-  let list = JSON.parse(Store.get('kisanReminders') || '[]');
-  list.unshift({ id: Date.now(), type, crop, days, dueMs, dueDateStr });
-  Store.set('kisanReminders', JSON.stringify(list.slice(0, 20))); addCoins(5); renderReminders(); showToast(`⏰ Reminder set for ${dueDateStr}!`);
-  triggerSmartAd();
-}
-
-function deleteReminder(id) {
-  if (!verifyKisanPin()) return;
-  try {
-    let list = JSON.parse(Store.get('kisanReminders') || '[]').filter(x => x.id !== id);
-    Store.set('kisanReminders', JSON.stringify(list)); markUnsavedChange(); renderReminders();
-  } catch(e) {}
-}
-
-function renderReminders() {
-  const box = document.getElementById('reminderList'); if (!box) return;
-  let list = []; try { list = JSON.parse(Store.get('kisanReminders') || '[]'); } catch(e) {}
-  if (!list.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">ابھی کوئی الارم سیٹ نہیں کیا گیا۔</p>`; return; }
-  box.innerHTML = list.map(r => {
-    const remDays = Math.max(0, Math.ceil((r.dueMs - Date.now()) / 86400000)), col = remDays <= 2 ? '#ef4444' : '#059669';
-    return `<div class="rline"><div><strong>${cleanStr(r.type)} — ${cleanStr(r.crop)}</strong><br><small style="color:var(--muted);">Next Due: <strong>${cleanStr(r.dueDateStr)}</strong></small></div><div style="display:flex;align-items:center;gap:8px;"><span style="background:${col};color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:8px;">${remDays === 0 ? 'Due Today!' : remDays + ' Days Left'}</span><button class="del-btn" onclick="deleteReminder(${Number(r.id)})">✕</button></div></div>`;
-  }).join('');
-}
-
-// 21-DISEASE CLINICAL DATABASE
-const rawDiseases = [
-  ['cot-wf','cotton','Cotton (کپاس)','white','Critical','1615811361523-6bd03d7748e7','کپاس کی سفید مکھی اور کالا تیلا (Whitefly)','پتوں کے نیچے سفید مکھیاں رس چوستی ہیں، چپچپا مادہ خارج ہوتا ہے جس سے پتے کالے اور پیلے ہو کر گرنے لگتے ہیں۔','Pyriproxyfen 10.8% EC (500ml) + Diafenthiuron 500SC (250ml)',500,'20 لیٹر والی ٹینکی میں 45 ملی لیٹر پائری پراکسی فن + 25 ملی لیٹر ڈایا فینتھیوران ملا کر سپرے کریں۔'],
-  ['cot-pb','cotton','Cotton (کپاس)','brown','High Alert','1594641840652-37096f8b3719','کپاس کی گلابی سنڈی (Pink Bollworm)','پھول مدھانی نما بند ہو جاتے ہیں، ٹینڈوں میں باریک سوراخ ہوتے ہیں اور اندر سے روئی اور بنولہ گل جاتا ہے۔','Triazophos 40% EC (800ml) + Bifenthrin 10% EC (250ml)',800,'20 لیٹر ٹینکی میں 80 ملی لیٹر ٹرائیازوفاس + 25 ملی لیٹر بائی فینتھرین ملا کر ٹینڈوں پر سپرے کریں۔'],
-  ['cot-th','cotton','Cotton (کپاس)','brown','Moderate','1530836369250-ef72a3f5cda8','کپاس کی تھرپس اور سبز تیلہ (Thrips & Jassid)','پتوں کے نچلے حصے پر چاندی نما خراشیں پڑتی ہیں، کنارے مڑ جاتے ہیں اور پودے کا قد رک جاتا ہے۔','Flonicamid 50% WG (80g) or Chlorfenapyr 360SC (150ml)',150,'20 لیٹر ٹینکی میں 15 گرام فلونیکامڈ یا 25 ملی لیٹر کلورفینا پائر ڈال کر سپرے کریں۔'],
-  ['cot-cl','cotton','Cotton (کپاس)','yellow','Viral','1518531933037-91b2f5f229cc','کپاس کا پتہ مروڑ وائرس (CLCV Virus)','پتوں کی رگیں گہری سبز اور موٹی ہو جاتی ہیں، پتے پیالہ نما مڑ جاتے ہیں اور نیچے چھوٹی پتی نکل آتی ہے۔','Flonicamid (80g) + Amino Acid & Chelated Zinc (500ml)',500,'20 لیٹر ٹینکی میں 50 ملی لیٹر امائنو ایسڈ + 20 گرام زنک اور سفید مکھی کی دوا ملا کر سپرے کریں۔'],
-  ['cot-mb','cotton','Cotton (کپاس)','white','High Alert','1416879595882-3373a0480b5b','کپاس کی ملی بگ / گدڑی (Mealybug)','تنے اور شاخوں پر سفید روئی جیسے کیڑوں کا حملہ ہوتا ہے جو رس چوس کر پودے کو سکھا دیتے ہیں۔','Profenofos 50% EC (1000ml) + Buprofezin 25% WP (500g)',1000,'20 لیٹر ٹینکی میں 100 ملی لیٹر پروفینوفاس + 50 گرام بپروفیزن ملا کر متاثرہ پودوں کو تر کریں۔'],
-  ['sug-br','sugarcane','Sugarcane (گنا)','brown','Critical','1599488615731-7e5c2823ff28','گنے کے تنے اور چوٹی کی سنڈی (Stem Borer)','گنے کی درمیانی کونپل سوکھ جاتی ہے (ڈیڈ ہارٹ)، کھینچنے پر آسانی سے نکل آتی ہے اور تنے میں سوراخ ہوتے ہیں۔','Chlorantraniliprole (Coragen 150ml) or Fipronil + Cartap (9kg)',150,'20 لیٹر ٹینکی میں 15 ملی لیٹر کوراجن یا 40 ملی لیٹر فپرونل ملا کر جڑوں میں سپرے کریں اور دانے دار ڈالیں۔'],
-  ['sug-rr','sugarcane','Sugarcane (گنا)','brown','Critical Fungal','1509316975850-ff9c5deb0cd9','گنے کا رتہ روگ / سرخ سڑن (Red Rot)','پتے اوپر سے سوکھنے لگتے ہیں، گنا چیرنے پر اندر سے سرخ رنگ اور سفید دھبے نظر آتے ہیں اور کھٹی بدبو آتی ہے۔','Thiophanate Methyl 70% WP (1000g) Root Drench',1000,'20 لیٹر ٹینکی میں 100 گرام تھائیوفینیٹ میتھائل حل کر کے جڑوں میں ڈرینچنگ کریں اور بیج کا علاج کریں۔'],
-  ['sug-py','sugarcane','Sugarcane (گنا)','yellow','High Alert','1625246333195-78d9c38ad449','گنے کا تیلہ اور کالی بگ (Pyrilla)','پتوں پر چونچ والے بھورے تیلے رس چوستے ہیں، پتے پیلے ہو کر کالے فنگس سے بھر جاتے ہیں اور مٹھاس کم ہو جاتی ہے۔','Chlorpyrifos 40% EC (1000ml) or Bifenthrin 10% EC (400ml)',1000,'20 لیٹر ٹینکی میں 100 ملی لیٹر کلورپائریفاس یا 40 ملی لیٹر بائی فینتھرین ملا کر سپرے کریں۔'],
-  ['wht-ru','wheat','Wheat (گندم)','yellow','Critical Fungal','1574323347407-f5e1ad6d020b','گندم کی پیلی اور بھوری کنگی (Yellow Rust)','پتوں پر ہلدی جیسے پیلے اور نارنجی پاؤڈر کی لمبی دھاریاں بنتی ہیں جو ہاتھ لگانے سے انگلیوں پر لگ جاتی ہیں۔','Tebuconazole+Trifloxystrobin (Nativo 65g) or Propiconazole (200ml)',200,'20 لیٹر ٹینکی میں 13 گرام نیٹیوو یا 40 ملی لیٹر پروپیکونازول ملا کر فوری سپرے کریں۔'],
-  ['wht-wd','wheat','Wheat (گندم)','brown','High Alert','1500382017468-9049fed747ef','گندم کی جڑی بوٹیاں (Broad & Narrow Weeds)','دمبی سٹی، جنگلی جئی، باتھو اور لہلی گندم کی کھاد اور پانی کھا کر پیداوار آدھی کر دیتی ہیں۔','Mesosulfuron (Atlantis 160g) or Buctril Super (300ml)',300,'پہلے پانی کے بعد تر وتر میں 32 گرام اٹلانٹس یا 60 ملی لیٹر بکٹرل سپر فی ٹینکی فلیٹ فین نوزل سے سپرے کریں۔'],
-  ['wht-ap','wheat','Wheat (گندم)','white','Moderate','1437252611977-07f74518abd7','گندم کے سٹوں کا سست تیلہ (Wheat Aphid)','گندم کے سٹوں پر سبز اور کالے تیلے جمع ہو کر دودھیا دانوں کا رس چوستے ہیں جس سے دانہ پچک جاتا ہے۔','Thiamethoxam 25% WG (40g) or Imidacloprid (250ml)',250,'20 لیٹر ٹینکی میں 8 گرام تھائیومیتھوگزام یا 50 ملی لیٹر امیڈاکلوپرڈ ملا کر سپرے کریں۔'],
-  ['ric-bl','rice','Rice (مونجی / دھان)','yellow','Critical','1536304993881-ff6e9eefa2a6','دھان کا جراثیمی جھلساؤ (Bacterial Blight)','پتوں کے کنارے اوپر سے نیچے کی طرف پیلے اور سفید ہو کر سوکھنے لگتے ہیں اور فصل جھلس جاتی ہے۔','Copper Oxychloride 50% WP (500g) + Kasugamycin (150g)',500,'یوریا بند کریں اور 20 لیٹر ٹینکی میں 80 گرام کاپر آکسی کلورائیڈ + 25 گرام کاسوگامائسین سپرے کریں۔'],
-  ['ric-br','rice','Rice (مونجی / دھان)','white','High Alert','1586201375761-83865001e31c','مونجی کے تنے کی سنڈی اور پتہ لپیٹ (Stem Borer)','سنڈی تنے کو اندر سے کاٹ دیتی ہے جس سے مونجی کی بالیاں سفید اور خالی (سفید سٹہ) نکلتی ہیں۔','Cartap 4G (9kg) or Flubendiamide (50ml) + Abamectin (200ml)',200,'20 لیٹر ٹینکی میں 10 ملی لیٹر فلو بینڈی امائیڈ + 40 ملی لیٹر ایبامیکٹن سپرے کریں یا کھڑے پانی میں دانے دار ڈالیں۔'],
-  ['ric-bk','rice','Rice (مونجی / دھان)','yellow','Fungal','1560493676-04071c5f467b','مونجی کا بکانے روگ / جھنڈا بیماری (Bakanae)','متاثرہ پودے باقی فصل سے غیر معمولی لمبے، پتلے اور پیلے ہو جاتے ہیں اور جڑ گلنے سے مر جاتے ہیں۔','Thiophanate Methyl 70% WP (500g) + Difenoconazole (150ml)',500,'20 لیٹر ٹینکی میں 80 گرام تھائیوفینیٹ + 25 ملی لیٹر ڈائی فینوکونازول ملا کر سپرے کریں۔'],
-  ['mai-fa','maize','Maize (مکئی)','brown','Critical','1551754655-cd27e38d2076','مکئی کی لشکری سنڈی (Fall Armyworm)','مکئی کی درمیانی کونپل میں بڑے سوراخ ہو جاتے ہیں اور اندر لکڑی کے برادے جیسی گیلی بیٹھ نظر آتی ہے۔','Emamectin Benzoate (200ml) + Lufenuron (200ml)',400,'20 لیٹر ٹینکی میں 35 ملی لیٹر ایمامیکٹن + 35 ملی لیٹر لوفینوران ملا کر سیدھا کونپل کے اندر سپرے کریں۔'],
-  ['mai-sf','maize','Maize (مکئی)','yellow','High Alert','1601593768799-76d6d028c164','مکئی کی کونپل کی مکھی (Shoot Fly)','چھوٹے پودوں (1 تا 3 ہفتے) کی درمیانی کونپل سوکھ جاتی ہے اور پودے کے پتے مڑ جاتے ہیں۔','Imidacloprid + Beta-Cyfluthrin (250ml)',250,'20 لیٹر ٹینکی میں 40 ملی لیٹر امیڈاکلوپرڈ+بیٹا سائی فلوتھرین ملا کر چھوٹی فصل پر سپرے کریں۔'],
-  ['mai-br','maize','Maize (مکئی)','brown','High Alert','1574943320219-553eb213f72d','مکئی کے تنے کی سنڈی (Maize Stem Borer)','کھلنے والے پتوں پر سیدھی قطار میں باریک سوراخ نظر آتے ہیں اور سنڈی تنے میں سرنگ بنا دیتی ہے۔','Cartap Hydrochloride 4G (8kg) or Fipronil 80WG (60g)',200,'ہر پودے کی کونپل میں 3 سے 4 دانے کارٹیپ یا فپرونل دانے دار زہر ڈالیں۔'],
-  ['orc-hp','orchard','Mango / Orchard (آم اور باغات)','white','Critical','1553279768-865429fa0078','آم کا تیلہ اور سفید سفوفی بیماری (Hopper & Mildew)','آم کے بور (پھولوں) پر تیلے اور سفید پاؤڈر کا حملہ ہوتا ہے جس سے بور کالا ہو کر جھڑ جاتا ہیں۔','Bifenthrin 10% EC (1ml/L) + Difenoconazole (1ml/L)',500,'20 لیٹر ٹینکی میں 20 ملی لیٹر بائی فینتھرین + 20 ملی لیٹر ڈائی فینوکونازول ملا کر سپرے کریں۔'],
-  ['orc-bl','orchard','Vegetables (ٹماٹر / آلو / مرچ)','brown','High Fungal','1592924357228-91a4daadcfea','سبزیوں کا اگیتا اور پچھیتا جھلساؤ (Blight)','پتوں اور تنوں پر گہرے بھورے اور کالے گول دھبے پڑتے ہیں اور دھند یا نمی میں پوری فصل جھلس جاتی ہے۔','Metalaxyl + Mancozeb (Ridomil Gold 500g)',500,'20 لیٹر ٹینکی میں 80 گرام میٹالکسل+مینکوزیب (ریڈومل گولڈ) حل کر کے سپرے کریں۔'],
-  ['orc-ci','orchard','Citrus / Kinnow (کنو اور مالٹا)','brown','High Alert','1582979512210-99b6a53386f9','کنو کا کینکر اور سِلا تیلہ (Citrus Canker)','پتوں اور پھل پر ابھرے ہوئے کھردرے بھورے زخم بنتے ہیں جن کے گرد پیلا دائرہ ہوتا ہے۔','Copper Oxychloride (3g/L) + Imidacloprid',500,'20 لیٹر ٹینکی میں 60 گرام کاپر آکسی کلورائیڈ + 30 ملی لیٹر امیڈاکلوپرڈ ملا کر سپرے کریں۔'],
-  ['orc-np','orchard','All Crops (خوراک و کھاد کی کمی)','yellow','Nutrition','1464226184884-fa280b87c399','فصلوں میں نائٹروجن، پوٹاش اور زنک کی کمی','نچلے پتے پیلے ہونا (نائٹروجن)، کنارے جلنا (پوٹاش) اور اوپری پتے چھوٹے رہنا (زنک کی کمی)۔','NPK 20:20:20 (1kg) + Chelated Zinc (250g) + Amino Acid',500,'20 لیٹر ٹینکی میں 150 گرام این پی کے + 30 گرام چیلٹڈ زنک + 50 ملی لیٹر امائنو ایسڈ ملا کر سپرے کریں۔']
-];
-const cropDoctorDB = rawDiseases.map(r => ({ id:r[0], crop:r[1], cropLabel:r[2], colorTag:r[3], severity:r[4], img:uImg(r[5]), nameUr:r[6], symUr:r[7], medFormula:r[8], doseNum:r[9], cureUr:r[10] }));
-
-window.addEventListener('DOMContentLoaded', () => {
-  initDynamicUI(); renderStreakCalendar(); renderDesiCalendar(); renderDailyQuiz(); renderProfileUI();
-  const todayStr = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
-  document.querySelectorAll('.print-date').forEach(el => el.innerText = todayStr);
-  if (Store.get('appTheme') === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); document.getElementById('themeBtn').innerText = '☀️'; }
-  checkUrlRateParams(); loadRatesIntoInputs(); updateTickerUI(); updateSqftFromDim();
-  calcSariyaWeight(); convertLandUnits(); calcIrregularPlot(); renderHistory();
-  renderKhataLedger(); renderMilkLedger(); renderReminders(); renderDiseaseLibrary();
-  autoFetchLiveRates(false); fetchWeatherAnd7DayRadar();
-});
-
-function filterByCropPill(cropKey, btn) {
-  selectedDocCrop = cropKey;
-  document.querySelectorAll('#docFilterPills .f-pill').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
-  renderDiseaseLibrary();
-}
-
-function renderDiseaseLibrary() {
-  const box = document.getElementById('doctorDiseaseList');
-  const q = (document.getElementById('docSearchInp')?.value || '').trim().toLowerCase();
-  const filtered = cropDoctorDB.filter(d => (selectedDocCrop === 'all' || d.crop === selectedDocCrop) && (!q || d.nameUr.toLowerCase().includes(q) || d.symUr.includes(q) || d.medFormula.toLowerCase().includes(q) || d.cropLabel.toLowerCase().includes(q)));
-  document.getElementById('diseaseCountTag').innerText = `${filtered.length} Cures`;
-  if (!filtered.length) { box.innerHTML = `<div class="card" style="text-align:center;color:var(--muted);font-size:12px;">کوئی بیماری نہیں ملی۔</div>`; return; }
-  box.innerHTML = filtered.map(d => {
-    const bCol = d.severity.includes('Critical') ? '#dc2626' : (d.severity.includes('High') ? '#f59e0b' : '#2563eb'), spk = currentlySpeakingId === d.id;
-    return `<div class="card" style="padding:0;overflow:hidden;"><div class="img-box" style="height:122px;border-radius:0;"><span class="f-ico">🌿</span><img src="${d.img}" alt="" onerror="this.style.display='none'"><div class="ovl"></div><div style="position:absolute;top:10px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;"><span style="background:rgba(0,0,0,0.65);color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:8px;">${d.cropLabel}</span><span style="background:${bCol};color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:8px;">${d.severity}</span></div><div style="position:absolute;bottom:8px;left:12px;right:12px;z-index:3;display:flex;justify-content:space-between;align-items:center;color:#fff;gap:8px;"><button onclick="speakDoctorCure('${d.id}')" style="width:32px;height:32px;border-radius:50%;border:none;background:${spk?'#dc2626':'rgba(255,255,255,0.22)'};color:#fff;cursor:pointer;font-size:13px;">${spk?'⏹️':'🔊'}</button><h4 class="urdu-text" style="font-size:15px;font-weight:700;margin:0;">${d.nameUr}</h4></div></div><div style="padding:12px;"><div class="urdu-text" style="font-size:12.5px;background:var(--inp);padding:10px;border-radius:12px;margin-bottom:8px;"><div><strong>🔍 علامات:</strong> ${d.symUr}</div><div style="color:var(--em);margin-top:4px;"><strong>💊 علاج اور سپرے:</strong> ${d.cureUr}</div></div><div style="font-size:11px;font-weight:800;color:var(--muted);margin-bottom:8px;">🧪 Formula: <span style="color:var(--text);">${d.medFormula}</span></div><div class="g-2"><button class="btn btn-out" style="padding:9px;font-size:11.5px;" onclick="loadDiseaseIntoCalc('${d.crop}',${d.doseNum})">🧮 Tank Calculator</button><button class="btn btn-wa" style="padding:9px;font-size:11.5px;" onclick="orderDiseaseWhatsApp('${d.id}')">💬 Order Medicine</button></div></div></div>`;
-  }).join('');
-}
-
-function speakDoctorCure(id) {
-  if (!('speechSynthesis' in window)) return showToast("Audio not supported.");
-  if (currentlySpeakingId === id && window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); currentlySpeakingId = null; renderDiseaseLibrary(); return; }
-  const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
-  window.speechSynthesis.cancel(); currentlySpeakingId = id; renderDiseaseLibrary();
-  const voices = window.speechSynthesis.getVoices() || [];
-  const urVoice = voices.find(v => v.lang.toLowerCase().includes('ur') || v.lang.toLowerCase().includes('hi'));
-  const utter = new SpeechSynthesisUtterance(`${d.nameUr}۔ علامات: ${d.symUr}۔ تجویز کردہ سپرے: ${d.medFormula}۔ ${d.cureUr}`);
-  if (urVoice) utter.voice = urVoice; utter.lang = urVoice ? urVoice.lang : 'ur-PK'; utter.rate = 0.92;
-  utter.onend = utter.onerror = () => { currentlySpeakingId = null; renderDiseaseLibrary(); };
-  window.speechSynthesis.speak(utter);
-}
-
-function loadDiseaseIntoCalc(cropKey, doseMl) {
-  const valid = ['cotton','sugarcane','wheat','rice','maize','orchard'].includes(cropKey) ? cropKey : 'cotton';
-  const card = document.querySelector(`#cropVisualGrid [data-crop="${valid}"]`);
-  if (card) selectVisualOption('cropType', valid, card);
-  document.getElementById('sprayDosePerAcre').value = doseMl;
-  openNav('agriTab', 2); calculateAgri(false);
-}
-
-function orderDiseaseWhatsApp(id) {
-  const d = cropDoctorDB.find(x => x.id === id); if (!d) return;
-  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`*Assalam-o-Alaikum Khan Traders (Sehja)!*\n🩺 *AI Crop Doctor Order:*\n🌾 Crop: ${d.cropLabel}\n🦠 Disease: ${d.nameUr}\n💊 Formula: ${d.medFormula}\n🚿 Dose: ${d.cureUr}`)}`);
-}
-
-function toggleTheme() {
-  const html = document.documentElement, isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark'); Store.set('appTheme', isDark ? 'light' : 'dark');
-  document.getElementById('themeBtn').innerText = isDark ? '🌙' : '☀️';
-}
-
-function openNav(tabId, idx, pushHist = true) {
-  if ('speechSynthesis' in window && window.speechSynthesis.speaking) { window.speechSynthesis.cancel(); currentlySpeakingId = null; }
-  currentTabId = tabId;
-  if (pushHist && tabId !== 'homeTab') { try { window.history.pushState({ tab: tabId, idx: idx }, ''); } catch(e) {} }
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-item').forEach(b => b.classList.remove('active'));
-  document.getElementById(tabId).classList.add('active');
-  const btns = document.querySelectorAll('.tab-item'); if (btns[idx]) btns[idx].classList.add('active');
-  if (tabId === 'profileTab') renderProfileUI();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function openBuildSub(sub) { openNav('buildTab', 3); switchBuildSub(sub); }
-function switchBuildSub(sub) {
-  document.getElementById('subPlotBox').classList.toggle('hidden', sub !== 'plot');
-  document.getElementById('subWallBox').classList.toggle('hidden', sub !== 'wall');
-  document.getElementById('subLandBox').classList.toggle('hidden', sub !== 'land');
-  document.getElementById('pillPlotBtn').classList.toggle('active', sub === 'plot');
-  document.getElementById('pillWallBtn').classList.toggle('active', sub === 'wall');
-  document.getElementById('pillLandBtn').classList.toggle('active', sub === 'land');
-}
-
-function selectVisualOption(id, val, el) {
-  document.getElementById(id).value = val;
-  el.parentElement.querySelectorAll('.v-opt').forEach(c => c.classList.remove('sel')); el.classList.add('sel');
-}
-function selectFloorVisual(val, el) { selectVisualOption('buildFloors', val, el); document.getElementById('finishModeGroup').style.display = val === 'slab' ? 'none' : 'block'; }
-function selectSolarVisual(val, el) { selectVisualOption('solarType', val, el); document.getElementById('homeSolarBox').classList.toggle('hidden', val !== 'home'); document.getElementById('tubewellSolarBox').classList.toggle('hidden', val !== 'tubewell'); }
-function setQuickMarla(l, w) { document.getElementById('plotLen').value = l; document.getElementById('plotWid').value = w; document.getElementById('plotArea').value = Math.round(l * w); updateMarlaBadgeOnly(); calculateConstruction(false); }
-function syncDimFromManualSqft() {
-  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0;
-  if (sq > 0) { let s = Math.round(Math.sqrt(sq)); document.getElementById('plotLen').value = s; document.getElementById('plotWid').value = Math.round(sq / s); }
-  updateMarlaBadgeOnly();
-}
-
-async function fetchWithTimeout(url, ms = 4500, opts = {}) {
-  const c = new AbortController(), t = setTimeout(() => c.abort(), ms);
-  try { const r = await fetch(url, { ...opts, signal: c.signal }); clearTimeout(t); return r; } catch (e) { clearTimeout(t); throw e; }
-}
-
-function getRates() { try { let s = Store.get('appMarketRates'); return s ? { ...baseMandiRates, ...JSON.parse(s) } : { ...baseMandiRates }; } catch (e) { return { ...baseMandiRates }; } }
-
-function checkUrlRateParams() {
-  try {
-    const p = new URLSearchParams(window.location.search);
-    if (p.has('c') && p.has('u')) {
-      let cur = getRates();
-      Store.set('appMarketRates', JSON.stringify({
-        ...cur, cement: Math.abs(parseFloat(p.get('c'))) || cur.cement, steel: Math.abs(parseFloat(p.get('s'))) || cur.steel,
-        brick: Math.abs(parseFloat(p.get('b'))) || cur.brick, labor: Math.abs(parseFloat(p.get('l'))) || cur.labor,
-        urea: Math.abs(parseFloat(p.get('u'))) || cur.urea, dap: Math.abs(parseFloat(p.get('d'))) || cur.dap,
-        wheat: Math.abs(parseFloat(p.get('w'))) || cur.wheat, cotton: Math.abs(parseFloat(p.get('ct'))) || cur.cotton,
-        solarWatt: Math.abs(parseFloat(p.get('sw'))) || cur.solarWatt
-      }));
-      Store.set('customDealerLock', '1');
-    }
-  } catch (e) {}
-}
-
-async function fetchLivePageText(targetUrl) {
-  const enc = encodeURIComponent(targetUrl);
-  for (let ep of [`https://r.jina.ai/${targetUrl}`, `https://api.allorigins.win/get?url=${enc}`, `https://api.codetabs.com/v1/proxy?quest=${enc}`]) {
-    try {
-      const r = await fetchWithTimeout(ep, 4200);
-      if (r.ok) { const txt = await r.text(); try { const j = JSON.parse(txt); if (j.contents) return j.contents; } catch(e) {} if (txt.length > 150) return txt; }
-    } catch(e) {}
-  }
-  return "";
-}
-
-async function autoFetchLiveRates(force = false) {
-  const badge = document.getElementById('syncBadge');
-  if (!force && Store.get('customDealerLock') === '1') { updateTickerUI(); if (badge) badge.innerText = "🔒 Dealer Rates"; return; }
-  if (badge) badge.innerText = "🔄 Syncing...";
-  let cur = getRates(), syncedCount = 0;
-  try {
-    const fx = await fetchWithTimeout("https://open.er-api.com/v6/latest/USD", 4000);
-    if (fx.ok) { const d = await fx.json(); if (d.rates && d.rates.PKR) { cur.usd = parseFloat(d.rates.PKR.toFixed(1)); syncedCount++; } }
-    const cTxt = await fetchLivePageText("https://www.urdupoint.com/business/cement-rates-in-pakistan.html");
-    if (cTxt) { const m = cTxt.match(/Rs\.?\s*(1[2-6][0-9]{2})/i); if (m && m[1]) { let pC = parseInt(m[1]); if (pC >= 1200 && pC <= 1750) { cur.cement = pC; syncedCount++; } } }
-    const sTxt = await fetchLivePageText("https://www.urdupoint.com/business/iron-steel-rates-in-pakistan.html");
-    if (sTxt) { const m = sTxt.match(/(2[3-9][0-9]),?([0-9]{3})/); if (m) { let pS = Math.round(parseInt(m[1] + m[2]) / 1000); if (pS >= 230 && pS <= 320) { cur.steel = pS; syncedCount++; } } }
-  } catch (e) {}
-  const stamp = new Date().toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit' });
-  Store.set('appMarketRates', JSON.stringify(cur)); loadRatesIntoInputs(); updateTickerUI(); calcSariyaWeight();
-  if (badge) badge.innerText = syncedCount > 0 ? "🟢 Live Verified" : "⚡ Active Index";
-  document.getElementById('lastSyncTimestamp').innerText = `✅ Live Pakistan Market Synced Today at ${stamp} (1 USD = Rs.${cur.usd})`;
-  if (force) showToast("✅ Live Market Rates Updated!");
-}
-
-function updateTickerUI() {
-  const r = getRates();
-  document.getElementById('liveTickerText').innerText = `🏗️ Cement: Rs.${r.cement}  |  🔩 60G Steel: Rs.${r.steel}/KG  |  🌾 Urea: Rs.${r.urea}  |  🌱 DAP: Rs.${r.dap}  |  🌾 Wheat (40kg): Rs.${r.wheat}  |  ☁️ Cotton (40kg): Rs.${r.cotton}  |  🎋 Cane: Rs.${r.cane}  |  ⛽ Diesel: Rs.${r.diesel}/L  |  🥇 24K Gold: Rs.${Number(r.gold||284500).toLocaleString()}  |  ☀️ Solar: Rs.${r.solarWatt}/W  |  💵 USD: Rs.${r.usd}`;
-  if (document.getElementById('hbCement')) {
-    document.getElementById('hbCement').innerText = `Rs.${r.cement}`; document.getElementById('hbSteel').innerText = `Rs.${r.steel}/kg`;
-    document.getElementById('hbUrea').innerText = `Rs.${r.urea}`; document.getElementById('hbWheat').innerText = `Rs.${r.wheat}`;
-  }
-}
-
-function loadRatesIntoInputs() {
-  let r = getRates();
-  const map = { rateCement:'cement', rateSteel:'steel', rateBrick:'brick', rateLabor:'labor', rateUrea:'urea', rateDap:'dap', rateWheat:'wheat', rateCotton:'cotton', rateCane:'cane', rateDiesel:'diesel', rateGold:'gold', rateSolarWatt:'solarWatt', rateSand:'sand', rateCrush:'crush' };
-  for (let id in map) { let el = document.getElementById(id); if (el) el.value = r[map[id]]; }
-}
-
-function saveRates(msg = true) {
-  let cur = getRates();
-  let up = {
-    cement: Math.abs(parseFloat(document.getElementById('rateCement').value)) || baseMandiRates.cement,
-    steel: Math.abs(parseFloat(document.getElementById('rateSteel').value)) || baseMandiRates.steel,
-    brick: Math.abs(parseFloat(document.getElementById('rateBrick').value)) || baseMandiRates.brick,
-    labor: Math.abs(parseFloat(document.getElementById('rateLabor').value)) || baseMandiRates.labor,
-    urea: Math.abs(parseFloat(document.getElementById('rateUrea').value)) || baseMandiRates.urea,
-    dap: Math.abs(parseFloat(document.getElementById('rateDap').value)) || baseMandiRates.dap,
-    wheat: Math.abs(parseFloat(document.getElementById('rateWheat').value)) || baseMandiRates.wheat,
-    cotton: Math.abs(parseFloat(document.getElementById('rateCotton').value)) || baseMandiRates.cotton,
-    cane: Math.abs(parseFloat(document.getElementById('rateCane').value)) || baseMandiRates.cane,
-    diesel: Math.abs(parseFloat(document.getElementById('rateDiesel').value)) || baseMandiRates.diesel,
-    gold: Math.abs(parseFloat(document.getElementById('rateGold').value)) || baseMandiRates.gold,
-    solarWatt: Math.abs(parseFloat(document.getElementById('rateSolarWatt').value)) || baseMandiRates.solarWatt,
-    sand: Math.abs(parseFloat(document.getElementById('rateSand').value)) || baseMandiRates.sand,
-    crush: Math.abs(parseFloat(document.getElementById('rateCrush').value)) || baseMandiRates.crush,
-    usd: cur.usd || 278.5
-  };
-  Store.set('appMarketRates', JSON.stringify(up));
-  if (msg) Store.set('customDealerLock', '1');
-  updateTickerUI(); calcSariyaWeight();
-  if (msg) showToast("✅ Custom Dealer Rates Saved!");
-}
-
-function resetDefaultRates() { Store.del('customDealerLock'); Store.set('appMarketRates', JSON.stringify(baseMandiRates)); loadRatesIntoInputs(); autoFetchLiveRates(true); }
-
-function shareWhatsAppStatusCard() {
-  saveRates(false); const r = getRates(), today = new Date().toLocaleDateString('en-PK', { day: 'numeric', month: 'short', year: 'numeric' });
-  const magicLink = `${window.location.href.split('?')[0]}?c=${r.cement}&s=${r.steel}&u=${r.urea}&d=${r.dap}&w=${r.wheat}&ct=${r.cotton}&sw=${r.solarWatt}`;
-  const card = `📊 *آج کے تازہ ترین منڈی اور تعمیراتی ریٹس (${today})*\n🏢 *خان ٹریڈرز — شاہی روڈ، سہجہ*\n\n🌾 *زرعی منڈی ریٹس:*\n• یوریا (50kg): Rs. ${r.urea}\n• ڈی اے پی (50kg): Rs. ${r.dap}\n• گندم (40kg): Rs. ${r.wheat}\n• کپاس (40kg): Rs. ${r.cotton}\n• گنا (40kg): Rs. ${r.cane}\n\n🏗️ *تعمیراتی، سولر اور گولڈ ریٹس:*\n• سیمنٹ: Rs. ${r.cement}\n• 60 گریڈ سریہ: Rs. ${r.steel}/kg\n• سولر پینل: Rs. ${r.solarWatt}/W\n• ڈیزل: Rs. ${r.diesel}/L\n• سونا 24K (تولہ): Rs. ${Number(r.gold||284500).toLocaleString()}\n\n📲 *فصل ڈاکٹر اور مکان/سولر کے مفت حساب کے لیے ایپ کھولیں:*\n${magicLink}\n📞 *واٹس ایپ:* 0300-5039391`;
-  openExternalSafe(`https://wa.me/?text=${encodeURIComponent(card)}`);
-}
-
-async function fetchWeatherAnd7DayRadar() {
-  const strip = document.getElementById('weatherStrip'), days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  try {
-    const res = await fetchWithTimeout("https://api.open-meteo.com/v1/forecast?latitude=28.64&longitude=70.66&current=temperature_2m,wind_speed_10m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max&timezone=auto", 4500);
-    if (res.ok) {
-      const data = await res.json(), c = data.current, risky = (c.wind_speed_10m > 15 || c.precipitation > 0);
-      document.getElementById('weatherTxt').innerText = `🌤️ Sehja / Khanpur: ${Math.round(c.temperature_2m)}°C (${Math.round(c.wind_speed_10m)}km/h) • ${risky ? '🔴 High Wind' : '🟢 Ideal Spray'}`;
-      document.getElementById('spraySafetyTag').innerText = risky ? '🔴 Wait to Spray' : '🟢 Safe to Spray';
-      if (data.daily && data.daily.time) {
-        strip.innerHTML = data.daily.time.slice(0, 7).map((dt, idx) => {
-          const dName = idx === 0 ? 'Today' : days[new Date(dt).getDay()];
-          const maxT = Math.round(data.daily.temperature_2m_max[idx]), minT = Math.round(data.daily.temperature_2m_min[idx]);
-          const rainP = data.daily.precipitation_probability_max[idx] || 0, windM = Math.round(data.daily.wind_speed_10m_max[idx] || 8);
-          return `<div class="w-day ${idx===0?'today':''}"><span style="font-size:10px;font-weight:800;color:var(--muted);">${dName}</span><div style="font-size:18px;margin:2px 0;">${rainP>35?'🌧️':(windM>16?'💨':'☀️')}</div><strong style="font-size:11.5px;display:block;">${maxT}°/${minT}°</strong><span style="font-size:9px;color:var(--em);font-weight:800;">${(rainP>35||windM>16)?'🔴 Risky':'🟢 Safe'}</span></div>`;
-        }).join('');
-        return;
-      }
-    }
-  } catch (e) {}
-  strip.innerHTML = [0,1,2,3,4,5,6].map(idx => `<div class="w-day ${idx===0?'today':''}"><span style="font-size:10px;font-weight:800;color:var(--muted);">${idx===0?'Today':days[new Date(Date.now()+idx*86400000).getDay()]}</span><div style="font-size:18px;margin:2px 0;">☀️</div><strong style="font-size:11.5px;display:block;">31°/19°</strong><span style="font-size:9px;color:var(--em);font-weight:800;">🟢 Safe</span></div>`).join('');
-}
-
-function updateSqftFromDim() {
-  let l = Math.abs(parseFloat(document.getElementById('plotLen').value)) || 0, w = Math.abs(parseFloat(document.getElementById('plotWid').value)) || 0;
-  if (l > 0 && w > 0) { document.getElementById('plotArea').value = Math.round(l * w); updateMarlaBadgeOnly(); }
-}
-function updateMarlaBadgeOnly() {
-  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0;
-  document.getElementById('marlaBadge').innerText = `${(sq / 272.25).toFixed(2)} Marla (272) | ${(sq / 225).toFixed(2)} Marla (225)`;
-}
-
-function calculateConstruction(save = true) {
-  let sq = Math.abs(parseFloat(document.getElementById('plotArea').value)) || 0, fl = document.getElementById('buildFloors').value, mode = document.getElementById('buildType').value;
-  if (sq <= 0) return showToast("⚠️ Enter Covered Area!");
-  if (save) triggerSmartAd();
-  let r = getRates(), totSq = fl === 'slab' ? Math.round(sq) : Math.round(sq * (fl === 'double' ? 2 : 1));
-  let cem = fl === 'slab' ? Math.round(totSq * 0.16) : Math.round(totSq * (mode === 'finish' ? 0.52 : 0.42));
-  let stl = fl === 'slab' ? Math.round(totSq * 1.65) : Math.round(totSq * 3.5), brk = fl === 'slab' ? 0 : Math.round(totSq * 9.5);
-  let snd = Math.round(totSq * (fl === 'slab' ? 0.55 : 1.8)), crs = Math.round(totSq * (fl === 'slab' ? 0.85 : 1.35)), lab = Math.round(totSq * (fl === 'slab' ? 180 : r.labor));
-  let mat = (cem * r.cement) + (stl * r.steel) + (brk * r.brick) + (snd * r.sand) + (crs * r.crush);
-  if (fl !== 'slab' && mode === 'finish') mat *= 1.45;
-  let grand = Math.round(mat + lab), meta = `${totSq} Sq.Ft (${fl.toUpperCase()})`;
-  document.getElementById('resBuildMeta').innerText = meta;
-  document.getElementById('rCement').innerText = `${cem} Bags (Rs. ${(cem * r.cement).toLocaleString()})`;
-  document.getElementById('rSteel').innerText = `${stl} KG (${(stl/1000).toFixed(2)} Ton - Rs. ${(stl * r.steel).toLocaleString()})`;
-  document.getElementById('rBricks').innerText = brk > 0 ? `${brk.toLocaleString()} Pcs (Rs. ${(brk * r.brick).toLocaleString()})` : `0 Pcs (RCC Slab)`;
-  document.getElementById('rSand').innerText = `${snd.toLocaleString()} Cft (Rs. ${(snd * r.sand).toLocaleString()})`;
-  document.getElementById('rCrush').innerText = `${crs.toLocaleString()} Cft (Rs. ${(crs * r.crush).toLocaleString()})`;
-  document.getElementById('rLabor').innerText = `PKR ${lab.toLocaleString()}`;
-  document.getElementById('rTotalBuild').innerText = `PKR ${grand.toLocaleString()}`;
-  const box = document.getElementById('buildResult'); box.classList.remove('hidden');
-  if (save) { saveHistoryItem(`🏗️ ${meta}`, `PKR ${grand.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
-}
-
-function calculateWall(save = true) {
-  let l = Math.abs(parseFloat(document.getElementById('wallLen').value)) || 0, h = Math.abs(parseFloat(document.getElementById('wallHeight').value)) || 0;
-  let ded = Math.abs(parseFloat(document.getElementById('wallDeduct').value)) || 0, th = parseFloat(document.getElementById('wallThick').value), sides = parseInt(document.getElementById('wallPlaster').value);
-  let gross = Math.round(l * h); if (gross <= 0) return showToast("⚠️ Enter Wall Dimensions!");
-  if (save) triggerSmartAd();
-  if (ded >= gross) { ded = 0; document.getElementById('wallDeduct').value = 0; }
-  let net = Math.max(1, gross - ded), r = getRates();
-  let brk = Math.round(net * (th === 9 ? 9.5 : 4.75)), wCem = Math.max(1, Math.ceil(brk * 0.0028)), pCem = sides > 0 ? Math.max(1, Math.ceil(net * 0.018 * sides)) : 0;
-  let totCem = wCem + pCem, snd = Math.round((brk * 0.014) + (net * 0.125 * sides)), cost = Math.round((brk * r.brick) + (totCem * r.cement) + (snd * r.sand));
-  document.getElementById('resWallMeta').innerText = `${net} Sq.Ft (${th}")`;
-  document.getElementById('wBricks').innerText = `${brk.toLocaleString()} Pcs (Rs. ${(brk * r.brick).toLocaleString()})`;
-  document.getElementById('wCement').innerText = `${wCem} Bags`;
-  document.getElementById('wPlasterCement').innerText = `${pCem} Bags (Total: ${totCem})`;
-  document.getElementById('wSand').innerText = `${snd} Cft`;
-  document.getElementById('wTotalCost').innerText = `PKR ${cost.toLocaleString()}`;
-  const box = document.getElementById('wallResult'); box.classList.remove('hidden');
-  if (save) { saveHistoryItem(`🧱 Wall (${net} Sq.Ft)`, `PKR ${cost.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
-}
-
-function calcSariyaWeight() {
-  let s = parseInt(document.getElementById('sootarSize').value), q = Math.abs(parseFloat(document.getElementById('sariyaQty').value)) || 0;
-  let wt = (({ 3:7.5, 4:10.8, 5:19.2, 6:30.0, 8:46.8 }[s] || 10.8) * q).toFixed(1), r = getRates();
-  document.getElementById('sariyaWeightOut').innerText = `Total Weight: ${wt} KG (${q} Bars)`;
-  document.getElementById('sariyaPriceOut').innerText = `Estimated Cost: PKR ${Math.round(wt * r.steel).toLocaleString()}`;
-}
-
-function convertLandUnits() {
-  let v = Math.abs(parseFloat(document.getElementById('landInputVal').value)) || 0, u = document.getElementById('landInputUnit').value;
-  let sq = u === 'acre' ? v * 43560 : u === 'kanal' ? v * 5445 : u === 'marla272' ? v * 272.25 : u === 'marla225' ? v * 225 : u === 'karam' ? v * 30.25 : v;
-  lastConvertedSqft = Math.round(sq);
-  document.getElementById('landConvOutput').innerHTML = `<div class="rline"><span>🌾 Acres / Qila:</span><strong>${(sq/43560).toFixed(3)}</strong></div><div class="rline"><span>📐 Kanals (20 Marla):</span><strong>${(sq/5445).toFixed(2)}</strong></div><div class="rline"><span>📏 Patwari Marla (272.25):</span><strong>${(sq/272.25).toFixed(2)}</strong></div><div class="rline"><span>🏙️ Urban Marla (225):</span><strong>${(sq/225).toFixed(2)}</strong></div><div class="rline"><span>👣 Sq. Karam (Sarsahi):</span><strong>${(sq/30.25).toFixed(1)}</strong></div><div class="rline" style="border:none;color:var(--em);font-weight:800;"><span>⬛ Total Area:</span><span>${lastConvertedSqft.toLocaleString()} Sq.Ft</span></div>`;
-}
-
-function useLandInPlotCalc(targetSqft) {
-  let sq = targetSqft || lastConvertedSqft;
-  if (sq > 0) {
-    let s = Math.round(Math.sqrt(sq)); document.getElementById('plotLen').value = s; document.getElementById('plotWid').value = Math.round(sq / s);
-    document.getElementById('plotArea').value = sq; updateMarlaBadgeOnly(); switchBuildSub('plot'); calculateConstruction(false);
-  }
-}
-
-function calcIrregularPlot() {
-  let n = Math.abs(parseFloat(document.getElementById('sideN').value)) || 0, s = Math.abs(parseFloat(document.getElementById('sideS').value)) || 0;
-  let e = Math.abs(parseFloat(document.getElementById('sideE').value)) || 0, w = Math.abs(parseFloat(document.getElementById('sideW').value)) || 0;
-  lastIrregularSqft = Math.round(((n + s) / 2) * ((e + w) / 2));
-  document.getElementById('irregularOut').innerText = `Area: ${lastIrregularSqft} Sq.Ft | ${(lastIrregularSqft/272.25).toFixed(2)} Marla (272) | ${(lastIrregularSqft/225).toFixed(2)} Marla (225)`;
-}
-
-function calculateAgri(save = true) {
-  let ac = Math.abs(parseFloat(document.getElementById('cropAcres').value)) || 0, kn = Math.abs(parseFloat(document.getElementById('cropKanal').value)) || 0, totAc = ac + (kn / 8);
-  if (totAc <= 0) return showToast("⚠️ Enter Land Area!");
-  if (save) triggerSmartAd();
-  let crop = document.getElementById('cropType').value, tL = parseFloat(document.getElementById('tankSize').value), dose = Math.abs(parseFloat(document.getElementById('sprayDosePerAcre').value)) || 250, r = getRates();
-  const spMap = {
-    cotton: { sNum:8, sUnit:"KG", sC:6500, u:2.5, d:1.5, sop:1, zn:10, pC:12500, spC:9500, w:120 },
-    sugarcane: { sNum:90, sUnit:"Maund", sC:90*r.cane, u:3.5, d:2.0, sop:1.5, zn:10, pC:16500, spC:11000, w:160 },
-    wheat: { sNum:50, sUnit:"KG", sC:Math.round(r.wheat*1.45), u:2.0, d:1.5, sop:0.5, zn:8, pC:7000, spC:4500, w:100 },
-    rice: { sNum:8, sUnit:"KG", sC:5500, u:2.5, d:1.5, sop:0.5, zn:15, pC:6500, spC:7500, w:120 },
-    maize: { sNum:10, sUnit:"KG Hybrid", sC:14000, u:3.0, d:2.0, sop:1.0, zn:10, pC:10500, spC:8500, w:120 },
-    orchard: { sNum:1, sUnit:"Acre Pkg", sC:12000, u:3.0, d:2.0, sop:1.5, zn:12, pC:14000, spC:10000, w:150 }
-  };
-  const sp = spMap[crop] || spMap.cotton;
-  let totSeed = +(totAc * sp.sNum).toFixed(1), uB = +(totAc * sp.u).toFixed(1), dB = +(totAc * sp.d).toFixed(1);
-  let totSop = +(totAc * sp.sop).toFixed(1), totZn = Math.round(totAc * sp.zn), wat = Math.round(totAc * sp.w), tanks = Math.max(1, Math.ceil(wat / tL));
-  let totMed = Math.round(totAc * dose), perTank = Math.round(totMed / tanks);
-  let cost = Math.round((totAc * sp.sC) + (uB * r.urea) + (dB * r.dap) + (totAc * sp.pC) + (totAc * sp.spC));
-  document.getElementById('resAgriMeta').innerText = `${totAc.toFixed(2)} Acres (${crop.toUpperCase()})`;
-  document.getElementById('rSeed').innerText = `${totSeed} ${sp.sUnit} (Rs. ${Math.round(totAc * sp.sC).toLocaleString()})`;
-  document.getElementById('rUrea').innerText = `${uB} Bags (Rs. ${Math.round(uB * r.urea).toLocaleString()})`;
-  document.getElementById('rDap').innerText = `${dB} Bags (Rs. ${Math.round(dB * r.dap).toLocaleString()})`;
-  document.getElementById('rPotash').innerText = `${totSop} Bag SOP + ${totZn}kg Zinc (Rs. ${Math.round(totAc * sp.pC).toLocaleString()})`;
-  document.getElementById('rSprayTanks').innerText = `${tanks} Tanks (${wat}L Water)`;
-  document.getElementById('rDosePerTank').innerText = `${perTank} ml/g per Tank (Total: ${totMed} ml/g)`;
-  document.getElementById('rTotalAgri').innerText = `PKR ${cost.toLocaleString()}`;
-  const box = document.getElementById('agriResult'); box.classList.remove('hidden');
-  if (save) { saveHistoryItem(`🌱 ${crop.toUpperCase()} (${totAc.toFixed(1)} Ac)`, `PKR ${cost.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
-}
-
-function calculateSolar(save = true) {
-  let type = document.getElementById('solarType').value, r = getRates(), panels = "", inv = "", bat = "", inst = "", tot = 0, meta = "";
-  if (save) triggerSmartAd();
-  if (type === 'home') {
-    let bill = Math.abs(parseFloat(document.getElementById('solarBill').value)) || 15000, bMode = document.getElementById('solarBatteryMode').value;
-    let kw = Math.max(1.5, Math.min(20, Math.round((bill / 5500) * 2) / 2)), pl = Math.max(2, Math.ceil((kw * 1000) / 580));
-    let pC = pl * 580 * r.solarWatt, iC = Math.round(kw * 30000), bC = bMode === 'with' ? Math.round(kw * 28000) : 0, fC = Math.round(pl * 4200 + 8000);
-    tot = Math.round(pC + iC + bC + fC); meta = `${kw} kW Hybrid Solar`;
-    panels = `${pl} Panels × 580W (Rs. ${pC.toLocaleString()})`; inv = `${kw} kW Hybrid Inverter`;
-    bat = bMode === 'with' ? `Lithium/Tubular (Rs. ${bC.toLocaleString()})` : `No Battery (Daytime)`; inst = `Structure & BOS (Rs. ${fC.toLocaleString()})`;
-  } else {
-    let hp = parseFloat(document.getElementById('motorHp').value), pl = Math.ceil((hp * 1250) / 580); if (pl % 2 !== 0) pl += 1;
-    let pC = pl * 580 * r.solarWatt, vC = Math.round(hp * 12000 + 25000), fC = pl * 4500;
-    tot = Math.round(pC + vC + fC); meta = `${hp} HP Solar Tubewell`;
-    panels = `${pl} Panels × 580W (Rs. ${pC.toLocaleString()})`; inv = `${hp} HP Solar VFD Drive`;
-    bat = `Direct Solar Drive (No Battery)`; inst = `Heavy Structure & Cable (Rs. ${fC.toLocaleString()})`;
-  }
-  document.getElementById('resSolarMeta').innerText = meta; document.getElementById('sPanels').innerText = panels;
-  document.getElementById('sInverter').innerText = inv; document.getElementById('sBattery').innerText = bat;
-  document.getElementById('sInstall').innerText = inst; document.getElementById('sTotalCost').innerText = `PKR ${tot.toLocaleString()}`;
-  const box = document.getElementById('solarResult'); box.classList.remove('hidden');
-  if (save) { saveHistoryItem(`☀️ ${meta}`, `PKR ${tot.toLocaleString()}`); setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80); }
-}
-
-function printSingleSlip(pId, bId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('p-page'));
-  document.querySelectorAll('.rcpt').forEach(b => b.classList.remove('p-target'));
-  document.getElementById(pId).classList.add('p-page'); document.getElementById(bId).classList.add('p-target'); window.print();
-}
-
-function buildFullSummaryText(type) {
-  if (type === 'build') {
-    if (document.getElementById('rTotalBuild').innerText === '-') calculateConstruction(false);
-    return `🏗️ *Construction BOQ (${document.getElementById('resBuildMeta').innerText})*\n🧱 Cement: ${document.getElementById('rCement').innerText}\n🔩 Steel: ${document.getElementById('rSteel').innerText}\n🟧 Bricks: ${document.getElementById('rBricks').innerText}\n🏖️ Sand: ${document.getElementById('rSand').innerText} | 🪨 Crush: ${document.getElementById('rCrush').innerText}\n👷 Labor: ${document.getElementById('rLabor').innerText}\n💰 *Total: ${document.getElementById('rTotalBuild').innerText}*`;
-  } else if (type === 'wall') {
-    if (document.getElementById('wTotalCost').innerText === '-') calculateWall(false);
-    return `🧱 *Masonry Estimate (${document.getElementById('resWallMeta').innerText})*\n🟧 Bricks: ${document.getElementById('wBricks').innerText}\n🧱 Masonry Cement: ${document.getElementById('wCement').innerText}\n🪣 Plaster Cement: ${document.getElementById('wPlasterCement').innerText}\n🏖️ Sand: ${document.getElementById('wSand').innerText}\n💰 *Total: ${document.getElementById('wTotalCost').innerText}*`;
-  } else if (type === 'sariya') {
-    calcSariyaWeight();
-    return `🔩 *Steel Rebar Booking*\n📏 Size: ${document.getElementById('sootarSize').options[document.getElementById('sootarSize').selectedIndex].text}\n⚖️ ${document.getElementById('sariyaWeightOut').innerText}\n💰 ${document.getElementById('sariyaPriceOut').innerText}`;
-  } else if (type === 'solar') {
-    if (document.getElementById('sTotalCost').innerText === '-') calculateSolar(false);
-    return `☀️ *Solar System Quote (${document.getElementById('resSolarMeta').innerText})*\n☀️ Panels: ${document.getElementById('sPanels').innerText}\n⚡ Inverter: ${document.getElementById('sInverter').innerText}\n🔋 Storage: ${document.getElementById('sBattery').innerText}\n🛠️ Structure & BOS: ${document.getElementById('sInstall').innerText}\n💰 *Total: ${document.getElementById('sTotalCost').innerText}*`;
-  } else {
-    if (document.getElementById('rTotalAgri').innerText === '-') calculateAgri(false);
-    return `🌱 *Crop Nutrition Plan (${document.getElementById('resAgriMeta').innerText})*\n🌰 Seed: ${document.getElementById('rSeed').innerText}\n📦 Urea: ${document.getElementById('rUrea').innerText}\n🌱 DAP: ${document.getElementById('rDap').innerText}\n⚡ Potash/Zinc: ${document.getElementById('rPotash').innerText}\n🚿 Spray Tanks: ${document.getElementById('rSprayTanks').innerText}\n🧪 Dose/Tank: ${document.getElementById('rDosePerTank').innerText}\n💰 *Total: ${document.getElementById('rTotalAgri').innerText}*`;
-  }
-}
-
-function copyEstimate(type) {
-  const txt = buildFullSummaryText(type) + `\n📞 Khan Traders, Sehja: 0300-5039391`;
-  const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select();
-  try { document.execCommand('copy'); showToast("📋 Full Estimate Copied!"); } catch (e) {} document.body.removeChild(ta);
-}
-
-function sendWhatsApp(type) {
-  openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`*Assalam-o-Alaikum Khan Traders (Sehja)!*\n\n` + buildFullSummaryText(type) + `\n\nPlease confirm availability and wholesale rates.`)}`);
-}
-
-function saveHistoryItem(title, amount) {
-  try {
-    let l = JSON.parse(Store.get('appCalcHistory') || '[]');
-    l.unshift({ title: cleanStr(title), amount: cleanStr(amount), date: new Date().toLocaleDateString() });
-    Store.set('appCalcHistory', JSON.stringify(l.slice(0, 10)));
-    addCoins(5);
-    renderHistory();
-  } catch (e) {}
-}
-
-function shareHistoryIdx(idx) {
-  try {
-    let l = JSON.parse(Store.get('appCalcHistory') || '[]'), item = l[idx];
-    if (item) openExternalSafe(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Assalam-o-Alaikum Khan Traders! Estimate: ${item.title} = ${item.amount}`)}`);
-  } catch (e) {}
-}
-
-function renderHistory() {
-  let box = document.getElementById('historyList'); if (!box) return;
-  try {
-    let l = JSON.parse(Store.get('appCalcHistory') || '[]');
-    if (!l.length) { box.innerHTML = `<p style="font-size:12px;color:var(--muted);">No recent estimates.</p>`; return; }
-    box.innerHTML = l.map((i, idx) => `<div class="rline"><div><strong>${cleanStr(i.title)}</strong><br><small style="color:var(--muted);">${cleanStr(i.date)}</small></div><div style="display:flex;align-items:center;gap:8px;"><strong style="color:var(--em);">${cleanStr(i.amount)}</strong><button onclick="shareHistoryIdx(${idx})" style="background:#22c55e;color:#fff;border:none;border-radius:8px;padding:4px 7px;font-size:11px;cursor:pointer;">💬</button></div></div>`).join('');
-  } catch (e) {}
-}
-
-function clearHistory() { if (!verifyKisanPin()) return; Store.del('appCalcHistory'); markUnsavedChange(); renderHistory(); showToast("🗑️ Cleared!"); }
 </script>
 </body>
 <!-- ✅ 100% COMPLETE MASTER FILE END -->
